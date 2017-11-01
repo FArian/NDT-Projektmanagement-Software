@@ -1,0 +1,16 @@
+Server
+
+In die Konsole:
+		git init
+
+		git pull https://github.com/FArian/ndt.git Server
+
+Status : 
+	git status 
+
+Zum pushen:
+	In dei Konsole:
+		git add .
+		git commit -m "Hier die Nachricht eingeben"
+		git push -u https://github.com/FArian/ndt.git master:Server
+
