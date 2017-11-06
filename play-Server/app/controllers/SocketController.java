@@ -1,23 +1,20 @@
 package controllers;
 
-import actors.GameObservable;
-import com.fasterxml.jackson.databind.JsonNode;
+import actors.serverInterface.Interface;
+import actors.serverInterface.ObservableMail;
 import play.mvc.Controller;
-import akka.actor.*;
-import play.libs.F.*;
 import play.mvc.WebSocket;
 import play.mvc.LegacyWebSocket;
-import actors.GameActor;
 
 /**
  * Created by F.Arian on 14.06.17.
  */
 public class SocketController extends Controller {
 
-    GameObservable gameObservable = new GameObservable();
+    ObservableMail observableMail = new ObservableMail();
 
-    public  LegacyWebSocket<String> gameSocket() {
-        return WebSocket.withActor(out -> GameActor.props(out, gameObservable));
+    public  LegacyWebSocket<String> getSocket() {
+        return WebSocket.withActor(out -> Interface.props(out, observableMail));
     }
 
 }
