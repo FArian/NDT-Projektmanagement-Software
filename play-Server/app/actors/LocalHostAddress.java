@@ -12,9 +12,8 @@ import java.net.NetworkInterface;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Enumeration;
-
 /**
- * Created by F.Arian on 30.06.17.
+ * Created by F.Arian on 06.11.17.
  */
 public class LocalHostAddress {
 

@@ -1,9 +1,12 @@
-package model;
+package models;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Created by F.Arian on 06.11.17.
+ */
 public abstract class DateFormatLocal {
 	private static String DATEFORMAT = "dd.MM.yyyy";
 

@@ -16,5 +16,12 @@ public class TOJSON {
         return root;
     }
 
+    public static Object replayMessage(String message) {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.createObjectNode();
+        ((ObjectNode) root).put("Replay message", message);
+        return root;
+    }
+
 
 }

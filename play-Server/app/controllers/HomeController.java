@@ -19,7 +19,7 @@ public class HomeController extends Controller {
      */
     public Result index() {
         String host=LocalHostAddress.getLocalIpAddress();
-        return ok(index.render("Hello Gruppe 02 -> your Server IP : " + host));
+        return ok(index.render(" Farhad ARIAN   --->  server IP address : " + host));
     }
 
 }

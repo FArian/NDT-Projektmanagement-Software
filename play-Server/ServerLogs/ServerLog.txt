@@ -1,0 +1,2 @@
+INFO :i'm new client 
+INFO :Info: send to client {"Replay message":"Hey im Server "}

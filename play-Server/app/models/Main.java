@@ -1,4 +1,4 @@
-package model;
+package models;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -10,6 +10,9 @@ import java.util.Calendar;
 import java.util.Calendar.Builder;
 import java.util.Date;
 import java.util.GregorianCalendar;
+/**
+ * Created by F.Arian on 06.11.17.
+ */
 
 public class Main {
 
