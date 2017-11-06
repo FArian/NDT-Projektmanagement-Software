@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/PlayerBlau"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="start"
+
+        app:srcCompat="@drawable/playerblau"
+        />
+
+    <ImageView
+        android:id="@+id/PlayerOrange"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="end"
+        app:srcCompat="@drawable/playerorange"
+        />
+
+    <ImageView
+        android:id="@+id/PlayerRot"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/playerrot"
+
+        android:layout_gravity="bottom|start"
+        />
+
+    <ImageView
+        android:id="@+id/PlayerWeiss"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|end"
+
+        app:srcCompat="@drawable/playerweiss"
+
+        />
+
+    <ImageView
+        android:id="@+id/diceplace_2"
+        android:layout_width="39dp"
+        android:layout_height="41dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="140dp"
+        android:adjustViewBounds="false"
+        app:srcCompat="@drawable/dice_2" />
+
+    <Button
+        android:id="@+id/btn_throwDice"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="105dp"
+        android:text="Würfeln!"
+        android:visibility="visible"
+        android:layout_marginLeft="70dp" />
+
+    <ImageView
+        android:id="@+id/diceplace_1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="70dp"
+        android:layout_marginTop="140dp"
+        app:srcCompat="@drawable/dice_1" />
+
+
+</FrameLayout>
+
+
+
+
+
+
+

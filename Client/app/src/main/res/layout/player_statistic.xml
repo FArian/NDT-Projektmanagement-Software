@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/p1_siegespunkte"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="316dp"
+        android:textSize="@dimen/player_statistic_size"
+        android:textColor="#000000"
+        android:layout_marginLeft="340dp" />
+
+    <TextView
+        android:id="@+id/p2_siegespunkte"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="28dp"
+        android:textSize="@dimen/player_statistic_size"
+        android:textColor="#000000"
+        android:layout_marginLeft="340dp" />
+
+    <TextView
+        android:id="@+id/p3_siegespunkte"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="653dp"
+        android:layout_marginTop="28dp"
+        android:textSize="@dimen/player_statistic_size"
+        android:textColor="#000000"
+        android:layout_marginLeft="340dp" />
+
+    <TextView
+        android:id="@+id/p4_siegespunkte"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="653dp"
+        android:layout_marginTop="316dp"
+        android:textSize="@dimen/player_statistic_size"
+        android:textColor="#000000"
+        android:layout_marginLeft="340dp" />
+
+
+    <TextView
+        android:id="@+id/rittermacht"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/player_1_2_stastistic"
+        android:layout_marginTop="@dimen/height"
+        android:textSize="@dimen/player_statistic_size"
+        android:textColor="#000000"
+        android:layout_marginLeft="415dp" />
+
+    <TextView
+        android:id="@+id/laengsteStraße"
+        android:layout_width="21dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/player_1_2_stastistic"
+        android:layout_marginTop="@dimen/height"
+        android:textSize="@dimen/player_statistic_size"
+        android:textColor="#000000"
+        android:layout_marginLeft="490dp" />
+
+
+    <TextView
+        android:id="@+id/kartenanzahl"
+        android:layout_width="21dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/player_1_2_stastistic"
+        android:layout_marginTop="@dimen/height"
+        android:textSize="@dimen/player_statistic_size"
+        android:textColor="#000000"
+        android:layout_marginLeft="490dp" />
+
+</FrameLayout>

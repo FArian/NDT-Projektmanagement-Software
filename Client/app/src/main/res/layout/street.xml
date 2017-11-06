@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/streetHI"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/strasse"
+        android:layout_marginLeft="232dp"
+        android:layout_marginTop="145dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetmQ"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/strasse"
+        android:layout_marginLeft="232dp"
+        android:layout_marginTop="205dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+
+    <ImageView
+        android:id="@+id/streetJK"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="302dp"
+        android:layout_marginTop="145dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetRS"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="302dp"
+        android:layout_marginTop="205dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetBC"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="302dp"
+        android:layout_marginTop="85dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streeteA"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/strasse"
+        android:layout_marginLeft="232dp"
+        android:layout_marginTop="85dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+
+    <ImageView
+        android:id="@+id/streetgH"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="207dp"
+        android:layout_marginTop="129dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetMQ"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="242dp"
+        android:layout_marginTop="189dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+
+    <ImageView
+        android:id="@+id/streetbB"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="277dp"
+        android:layout_marginTop="69dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetEJ"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="277dp"
+        android:layout_marginTop="129dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetNR"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="277dp"
+        android:layout_marginTop="189dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetcC"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="69dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetFK"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="129dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetOS"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="189dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+
+
+
+    <ImageView
+        android:id="@+id/streetGL"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="347dp"
+        android:layout_marginTop="129dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+
+    <ImageView
+        android:id="@+id/streetPn"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="347dp"
+        android:layout_marginTop="189dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+
+    <ImageView
+        android:id="@+id/streetaA"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="242dp"
+        android:layout_marginTop="69dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetDA"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="242dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetEB"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="277dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetFC"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetGf"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="347dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+
+    <ImageView
+        android:id="@+id/streetMI"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="242dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+
+    <ImageView
+        android:id="@+id/streetpR"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="277dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetqS"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetNJ"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="277dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetOK"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetPL"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="347dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/streetgrau3" />
+
+    <ImageView
+        android:id="@+id/streetkM"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="215dp"
+        android:layout_marginTop="175dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetMN"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="175dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetNO"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="175dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetOP"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="175dp"
+        app:srcCompat="@drawable/strassegerade" />
+    <ImageView
+        android:id="@+id/streetPl"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="355dp"
+        android:layout_marginTop="175dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetgD"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="215dp"
+        android:layout_marginTop="115dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetDE"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="115dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetEF"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="115dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetFG"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="115dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetDI"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="242dp"
+        android:layout_marginTop="129dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetGh"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="355dp"
+        android:layout_marginTop="115dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+
+    <ImageView
+        android:id="@+id/streetHM"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetIN"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetJO"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="295dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streeteD"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetAE"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetBF"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="295dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetCG"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetKP"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetLl"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="365dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetRq"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="295dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetkH"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="207dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetmM"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="190dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetHD"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="130dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetIE"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="257dp"
+        android:layout_marginTop="130dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+    <ImageView
+        android:id="@+id/streetJF"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="295dp"
+        android:layout_marginTop="130dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetKG"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="130dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetLh"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="365dp"
+        android:layout_marginTop="130dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+    <ImageView
+        android:id="@+id/streetQN"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="190dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetRO"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="295dp"
+        android:layout_marginTop="190dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetSP"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="190dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetAb"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="257dp"
+        android:layout_marginTop="70dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetBc"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="295dp"
+        android:layout_marginTop="70dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetQR"
+        android:layout_width="@dimen/strasse"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="267dp"
+        android:layout_marginTop="205dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetIJ"
+        android:layout_width="@dimen/strasse"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="267dp"
+        android:layout_marginTop="145dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetiH"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="198dp"
+        android:layout_marginTop="145dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetCf"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="338dp"
+        android:layout_marginTop="85dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetKL"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="338dp"
+        android:layout_marginTop="145dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetSn"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="338dp"
+        android:layout_marginTop="205dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetCd"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="70dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetLj"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="372dp"
+        android:layout_marginTop="145dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+    <ImageView
+        android:id="@+id/streetoQ"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="242dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/strasserechtsrunter" />
+
+    <ImageView
+        android:id="@+id/streetSr"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetQp"
+        android:layout_width="@dimen/groesse_siedlung"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/strasserechtshoch" />
+
+    <ImageView
+        android:id="@+id/streetAB"
+        android:layout_width="@dimen/strasse"
+        android:layout_height="@dimen/groesse_siedlung"
+        android:layout_marginLeft="267dp"
+        android:layout_marginTop="85dp"
+        app:srcCompat="@drawable/strassegerade" />
+
+
+</FrameLayout>

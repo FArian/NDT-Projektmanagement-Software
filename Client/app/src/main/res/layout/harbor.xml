@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/obenRechts"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/hafen2"
+        android:layout_marginStart="331dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="331dp" />
+
+    <ImageView
+        android:id="@+id/generic_obenRechts"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/harborgeneric"
+        android:layout_marginStart="327dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="327dp" />
+
+    <ImageView
+        android:id="@+id/mitteRechts2"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/hafen2"
+        android:layout_marginStart="366dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginLeft="366dp" />
+
+    <ImageView
+        android:id="@+id/wool_mitteRechts2"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/harborwool"
+        android:layout_marginStart="362dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginLeft="362dp" />
+
+    <ImageView
+        android:id="@+id/untenRechts"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/hafen4"
+        android:layout_marginStart="333dp"
+        android:layout_marginTop="193dp"
+        android:layout_marginLeft="333dp" />
+
+    <ImageView
+        android:id="@+id/generic_untenRechts"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/harborgeneric"
+        android:layout_marginStart="329dp"
+        android:layout_marginTop="193dp"
+        android:layout_marginLeft="329dp" />
+
+    <ImageView
+        android:id="@+id/unten"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/hafen4"
+        android:layout_marginStart="263dp"
+        android:layout_marginTop="193dp"
+        android:layout_marginLeft="263dp" />
+
+    <ImageView
+        android:id="@+id/ore_unten"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/harborore"
+        android:layout_marginStart="259dp"
+        android:layout_marginTop="193dp"
+        android:layout_marginLeft="259dp" />
+
+    <ImageView
+        android:id="@+id/mitteLinks"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/hafen6"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginLeft="178dp" />
+
+
+    <ImageView
+        android:id="@+id/_mitteLinks"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/harborbrick"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginLeft="174dp" />
+
+
+    <ImageView
+        android:id="@+id/mitteRechts"
+        android:layout_width="30dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="366dp"
+        android:layout_marginTop="146dp"
+        app:srcCompat="@drawable/hafen3"
+        android:layout_marginLeft="366dp" />
+
+    <ImageView
+        android:id="@+id/generic_mitteRechts"
+        android:layout_width="40dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="362dp"
+        android:layout_marginTop="146dp"
+        app:srcCompat="@drawable/harborgeneric"
+        android:layout_marginLeft="362dp" />
+
+    <ImageView
+        android:id="@+id/untenLinks"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="162dp"
+        app:srcCompat="@drawable/hafen5"
+        android:layout_marginLeft="212dp" />
+
+    <ImageView
+        android:id="@+id/brick_untenLinks"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="162dp"
+        app:srcCompat="@drawable/harborgeneric"
+        android:layout_marginLeft="208dp" />
+
+    <ImageView
+        android:id="@+id/obenLinks"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="46dp"
+        app:srcCompat="@drawable/hafen1"
+        android:layout_marginLeft="212dp" />
+
+    <ImageView
+        android:id="@+id/generic_obenLinks"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="46dp"
+        app:srcCompat="@drawable/harborgeneric"
+        android:layout_marginLeft="208dp" />
+
+    <ImageView
+        android:id="@+id/oben"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="263dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/hafen1"
+        android:layout_marginLeft="263dp" />
+
+    <ImageView
+        android:id="@+id/grain_oben"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="259dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/harborgrain"
+        android:layout_marginLeft="259dp" />
+
+
+</FrameLayout>

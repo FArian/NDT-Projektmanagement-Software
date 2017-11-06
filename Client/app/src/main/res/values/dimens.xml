@@ -1,0 +1,33 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="groesse_feld">40dp</dimen>
+    <dimen name="groesse_siedlung">20dp</dimen>
+    <dimen name="strasse">20dp</dimen>
+    <dimen name="siedlung">15dp</dimen>
+    <dimen name="number">60dp</dimen>
+    <dimen name="height">370dp</dimen>
+    <dimen name="player_1_2_stastistic">75dp</dimen>
+    <dimen name="player_statistic_size">5dp</dimen>
+    <dimen name="height3">235dp</dimen>
+    <dimen name="height2">76dp</dimen>
+    <dimen name="plus_want_height">30dp</dimen>
+    <dimen name="plus_own_height">195dp</dimen>
+    <dimen name="minus_want_height">100dp</dimen>
+    <dimen name="minus_own_height">265dp</dimen>
+    <dimen name="pos1">112dp</dimen>
+    <dimen name="pos2">182dp</dimen>
+    <dimen name="pos3">255dp</dimen>
+    <dimen name="pos4">330dp</dimen>
+    <dimen name="pos5">402dp</dimen>
+    <dimen name="pos11">121dp</dimen>
+    <dimen name="pos22">193dp</dimen>
+    <dimen name="pos33">266dp</dimen>
+    <dimen name="pos44">341dp</dimen>
+    <dimen name="pos55">413dp</dimen>
+    <dimen name="pos111">155dp</dimen>
+    <dimen name="pos222">227dp</dimen>
+    <dimen name="pos333">300dp</dimen>
+    <dimen name="pos444">375dp</dimen>
+    <dimen name="pos555">447dp</dimen>
+
+</resources>

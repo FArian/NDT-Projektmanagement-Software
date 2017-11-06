@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/field_a"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="223dp"
+        android:layout_marginTop="45dp"/>
+
+    <ImageView
+        android:id="@+id/field_b"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="258dp"
+        android:layout_marginTop="45dp" />
+
+
+    <ImageView
+        android:id="@+id/field_c"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="293dp"
+        android:layout_marginTop="45dp"/>
+
+
+    <ImageView
+        android:id="@+id/field_d"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="328dp"
+        android:layout_marginTop="45dp" />
+
+
+    <ImageView
+        android:id="@+id/field_e"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="75dp" />
+
+
+    <ImageView
+        android:id="@+id/field_A"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="75dp"
+        android:adjustViewBounds="false"
+        app:srcCompat="@drawable/polygonlandore" />
+
+    <ImageView
+        android:id="@+id/field_B"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandlumber"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="75dp" />
+
+    <ImageView
+        android:id="@+id/field_C"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandgrain"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="75dp"/>
+
+    <ImageView
+        android:id="@+id/field_f"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="345dp"
+        android:layout_marginTop="75dp"  />
+
+    <ImageView
+        android:id="@+id/field_g"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="188dp"
+        android:layout_marginTop="105dp" />
+
+    <ImageView
+        android:id="@+id/field_D"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandbrick"
+        android:layout_marginLeft="223dp"
+        android:layout_marginTop="105dp" />
+
+    <ImageView
+        android:id="@+id/field_E"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandlumber"
+        android:layout_marginLeft="258dp"
+        android:layout_marginTop="105dp"/>
+
+    <ImageView
+        android:id="@+id/field_h"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="362dp"
+        android:layout_marginTop="105dp" />
+
+    <ImageView
+        android:id="@+id/field_i"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="135dp"/>
+
+    <ImageView
+        android:id="@+id/field_H"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandwool"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="135dp"/>
+
+    <ImageView
+        android:id="@+id/field_I"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandbrick"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="135dp" />
+
+    <ImageView
+        android:id="@+id/field_K"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/polygonlandore" />
+    <ImageView
+        android:id="@+id/field_L"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandwool"
+        android:layout_marginLeft="345dp"
+        android:layout_marginTop="135dp"/>
+
+    <ImageView
+        android:id="@+id/field_M"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandlumber"
+        android:layout_marginLeft="223dp"
+        android:layout_marginTop="165dp" />
+
+    <ImageView
+        android:id="@+id/field_N"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandore"
+        android:layout_marginLeft="258dp"
+        android:layout_marginTop="165dp" />
+
+    <ImageView
+        android:id="@+id/field_O"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandbrick"
+        android:layout_marginLeft="293dp"
+        android:layout_marginTop="165dp"/>
+
+    <ImageView
+        android:id="@+id/field_P"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandlumber"
+        android:layout_marginLeft="328dp"
+        android:layout_marginTop="165dp" />
+
+    <ImageView
+        android:id="@+id/field_l"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="363dp"
+        android:layout_marginTop="165dp" />
+
+    <ImageView
+        android:id="@+id/field_m"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="205dp"
+        android:layout_marginTop="195dp" />
+
+    <ImageView
+        android:id="@+id/field_Q"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandgrain"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="195dp" />
+
+    <ImageView
+        android:id="@+id/field_S"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonlandore"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="195dp" />
+
+    <ImageView
+        android:id="@+id/field_n"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="345dp"
+        android:layout_marginTop="195dp" />
+
+    <ImageView
+        android:id="@+id/field_o"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="223dp"
+        android:layout_marginTop="225dp" />
+
+    <ImageView
+        android:id="@+id/field_q"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="293dp"
+        android:layout_marginTop="225dp" />
+
+    <ImageView
+        android:id="@+id/field_r"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        app:srcCompat="@drawable/polygonsea"
+        android:layout_marginLeft="328dp"
+        android:layout_marginTop="225dp" />
+
+
+    <ImageView
+        android:id="@+id/field_G"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="328dp"
+        android:layout_marginTop="105dp"
+        app:srcCompat="@drawable/polygonlandwool" />
+
+    <ImageView
+        android:id="@+id/field_p"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="258dp"
+        android:layout_marginTop="225dp"
+        app:srcCompat="@drawable/polygonsea" />
+
+
+
+
+
+    <ImageView
+        android:id="@+id/field_F"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="293dp"
+        android:layout_marginTop="105dp"
+        app:srcCompat="@drawable/polygonlandwool" />
+
+    <ImageView
+        android:id="@+id/field_j"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="380dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/polygonsea" />
+
+
+    <ImageView
+        android:id="@+id/field_J"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/polygonlanddesert" />
+
+    <ImageView
+        android:id="@+id/field_R"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="195dp"
+        app:srcCompat="@drawable/polygonlandgrain" />
+
+    <ImageView
+        android:id="@+id/field_k"
+        android:layout_width="@dimen/groesse_feld"
+        android:layout_height="@dimen/groesse_feld"
+        android:layout_marginLeft="188dp"
+        android:layout_marginTop="165dp"
+        app:srcCompat="@drawable/polygonsea" />
+
+
+</FrameLayout>

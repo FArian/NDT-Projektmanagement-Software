@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/cross32"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="253dp"
+        android:layout_marginTop="165dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross42"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="158dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross52"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="288dp"
+        android:layout_marginTop="165dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross62"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="305dp"
+        android:layout_marginTop="158dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross72"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop="165dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross82"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="158dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross92"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="165dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross102"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="375dp"
+        android:layout_marginTop="158dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross11"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="185dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross21"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="195dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross31"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="253dp"
+        android:layout_marginTop="185dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross41"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="195dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross51"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="288dp"
+        android:layout_marginTop="185dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross61"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="305dp"
+        android:layout_marginTop="195dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross71"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop="185dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross81"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="195dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross91"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="185dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross12"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="165dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross02"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="158dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross22"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="158dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross03"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross23"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross43"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross63"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="305dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross83"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross103"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="375dp"
+        android:layout_marginTop="135dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross14"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="105dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross24"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="95dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross34"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="253dp"
+        android:layout_marginTop="105dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross44"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="95dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross54"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="288dp"
+        android:layout_marginTop="105dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross74"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop="105dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross84"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="95dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross94"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="105dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross30"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="253dp"
+        android:layout_marginTop="225dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross40"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross50"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="288dp"
+        android:layout_marginTop="225dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross60"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="305dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross70"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop="227dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross80"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="220dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross25"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="75dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross35"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="253dp"
+        android:layout_marginTop="65dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross45"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="75dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross55"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="288dp"
+        android:layout_marginTop="65dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross65"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="305dp"
+        android:layout_marginTop="75dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross75"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop="65dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross85"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="75dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross13"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="125dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross33"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="253dp"
+        android:layout_marginTop="125dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross53"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="288dp"
+        android:layout_marginTop="125dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross73"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop="125dp"
+        app:srcCompat="@drawable/crossempty" />
+
+
+    <ImageView
+        android:id="@+id/cross64"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="305dp"
+        android:layout_marginTop="95dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross93"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="125dp"
+        app:srcCompat="@drawable/crossempty" />
+
+    <ImageView
+        android:id="@+id/cross20"
+        android:layout_width="@dimen/siedlung"
+        android:layout_height="@dimen/siedlung"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="220dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/crossempty" />
+
+</FrameLayout>

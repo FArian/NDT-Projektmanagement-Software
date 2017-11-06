@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/justTest"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color"/>
+
+
+    <TextView
+        android:id="@+id/holz_anzeige_own"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos111"
+        android:layout_marginStart="@dimen/pos111"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color"/>
+
+    <TextView
+        android:id="@+id/holz_anzeige_want"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos11"
+        android:layout_marginStart="@dimen/pos11"
+        android:layout_marginTop="@dimen/height2"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/lehm_anzeige_own"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos222"
+        android:layout_marginStart="@dimen/pos222"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/lehm_anzeige_want"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos22"
+        android:layout_marginStart="@dimen/pos22"
+        android:layout_marginTop="@dimen/height2"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/schaf_anzeige_own"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos333"
+        android:layout_marginStart="@dimen/pos333"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/schaf_anzeige_want"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos33"
+        android:layout_marginStart="@dimen/pos33"
+        android:layout_marginTop="@dimen/height2"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/stroh_anzeige_own"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos444"
+        android:layout_marginStart="@dimen/pos444"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/stroh_anzeige_want"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos44"
+        android:layout_marginStart="@dimen/pos44"
+        android:layout_marginTop="@dimen/height2"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/stein_anzeige_own"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos555"
+        android:layout_marginStart="@dimen/pos555"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/stein_anzeige_want"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos55"
+        android:layout_marginStart="@dimen/pos55"
+        android:layout_marginTop="@dimen/height2"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/holz_anzeige_give"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos11"
+        android:layout_marginStart="@dimen/pos11"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/lehm_anzeige_give"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos22"
+        android:layout_marginStart="@dimen/pos22"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/schaf_anzeige_give"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos33"
+        android:layout_marginStart="@dimen/pos33"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/stroh_anzeige_give"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos44"
+        android:layout_marginStart="@dimen/pos44"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+    <TextView
+        android:id="@+id/stein_anzeige_give"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pos55"
+        android:layout_marginStart="@dimen/pos55"
+        android:layout_marginTop="@dimen/height3"
+        android:textColor="@color/trade_color" />
+
+</FrameLayout>

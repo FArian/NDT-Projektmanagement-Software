@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+
+    <TextView
+        android:id="@+id/lehm_anzeige"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="@dimen/height"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="260dp" />
+
+    <TextView
+        android:id="@+id/holz_anzeige"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="@dimen/height"
+        android:textColor="#FFFFFF" />
+
+
+    <TextView
+        android:id="@+id/wolle_anzeige"
+        android:layout_width="29dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="@dimen/height"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="340dp" />
+
+
+    <TextView
+        android:id="@+id/stroh_anzeige"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="415dp"
+        android:layout_marginTop="@dimen/height"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="415dp" />
+
+
+    <TextView
+        android:id="@+id/eisen_anzeige"
+        android:layout_width="21dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="490dp"
+        android:layout_marginTop="@dimen/height"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="490dp" />
+
+
+
+</FrameLayout>

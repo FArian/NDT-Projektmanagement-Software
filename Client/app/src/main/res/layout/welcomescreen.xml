@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            style="@style/BackGroundImageView"
+            android:layout_width="match_parent"
+            android:layout_height="511dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:visibility="visible"
+            app:srcCompat="@drawable/welcomebackground" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView"
+            android:text="@string/select_name"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="196dp"
+            android:alpha="1"
+            android:text="Willkommen! Wähle deine Farbe und deinen Namen!"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editText_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/background_dark" />
+
+        <TextView
+            android:id="@+id/colorselect"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editText_username"
+            android:layout_alignRight="@+id/editText_username"
+            android:layout_below="@+id/editText_username"
+            android:text="@string/select_color"
+            android:textColor="@android:color/black" />
+
+        <Spinner
+            android:id="@+id/colorspinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/colorselect"></Spinner>
+
+        <Button
+            android:id="@+id/ready_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/colorspinner"
+            android:layout_marginTop="32dp"
+            android:text="READY!" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
