@@ -19,36 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button start;
     private TextView output;
     private OkHttpClient client;
-
-    private final class EchoWebSocketListener extends WebSocketListener{
-
-    private static final int NORMAL_CLOSURE_STATUS = 1000;
-    @Override
-    public void onOpen(WebSocket webSocket, Response response) {
-        webSocket.send(ToJson.helloServer().toString()+ "\n");
-       //webSocket.close(NORMAL_CLOSURE_STATUS, "Goodbye !");
-    }
-    @Override
-    public void onMessage(WebSocket webSocket, String text) {
-        output("Receiving : " + text);
-
-    }
-    @Override
-    public void onMessage(WebSocket webSocket, ByteString bytes) {
-        output("Receiving bytes : " + bytes.hex());
-    }
-    @Override
-    public void onClosing(WebSocket webSocket, int code, String reason) {
-        webSocket.close(NORMAL_CLOSURE_STATUS, null);
-        webSocket.close(NORMAL_CLOSURE_STATUS, "Goodbye !");
-        output("Closing : " + code + " / " + reason);
-    }
-    @Override
-    public void onFailure(WebSocket webSocket, Throwable t, Response response) {
-        output("Error : " + t.getMessage());
-        
-    }
-}
+    private EchoWebSocketListener echoWebSocketListener;
 
     private void output(final String txt) {
         runOnUiThread(new Runnable() {
@@ -67,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         start = (Button)findViewById(R.id.start);
         output=(TextView)findViewById(R.id.output);
         client=new OkHttpClient();
+        echoWebSocketListener = new EchoWebSocketListener();
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,13 +46,15 @@ public class MainActivity extends AppCompatActivity {
                 start();
             }
         });
+
     }
 
     private void start() {
 
-        Request request = new Request.Builder().url("ws://10.180.51.53:9000/getsocket").build();
+        Request request = new Request.Builder().url("ws://192.168.178.50:9000/getsocket").build();
         EchoWebSocketListener listener = new EchoWebSocketListener();
         WebSocket ws=client.newWebSocket(request,listener);
         client.dispatcher().executorService().shutdown();
+        //ws.send(ToJson.message("Hey , im Client").toString()+"\n");
     }
 }

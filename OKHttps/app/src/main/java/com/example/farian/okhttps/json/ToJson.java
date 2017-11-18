@@ -33,4 +33,16 @@ public class ToJson {
         ((ObjectNode) root).put("Hello", msg);
         return root;
     }
+    /**
+     * Translates the request and information to connect a Android Client with the server
+     *
+     * @return
+     */
+    public static Object message(String key,String message) {
+        JsonNode msg = MAPPER.createObjectNode();
+        JsonNode root = MAPPER.createObjectNode();
+        ((ObjectNode) msg).put("Message", message);
+        ((ObjectNode) root).put(key, msg);
+        return root;
+    }
 }
