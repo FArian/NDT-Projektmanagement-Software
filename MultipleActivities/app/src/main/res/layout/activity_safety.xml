@@ -58,7 +58,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/logout_button"
+                    android:id="@+id/saftey_logout_button"
                     style="?android:textAppearanceSmall"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
