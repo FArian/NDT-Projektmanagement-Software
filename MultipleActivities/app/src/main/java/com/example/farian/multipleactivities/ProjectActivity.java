@@ -20,6 +20,22 @@ public class ProjectActivity extends Activity {
         Button safetyBtn= (Button) findViewById(R.id.safety_button);
         Button timeBtn=(Button) findViewById(R.id.time_button);
         Button reportBtn=(Button)findViewById(R.id.report_button);
+        Button myinfoBtn=(Button) findViewById(R.id.my_info_button);
+        Button materialBtn=(Button) findViewById(R.id.material_button);
+        materialBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),MaterialActivity.class);
+                startActivity(intent);
+            }
+        });
+        myinfoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),MyInfoActivity.class);
+                startActivity(intent);
+            }
+        });
         reportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

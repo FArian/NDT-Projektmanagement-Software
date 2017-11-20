@@ -71,16 +71,6 @@
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
             <Button
-                android:id="@+id/my_info_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="my information"
-                android:background="@android:color/white"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
-            <Button
                 android:id="@+id/material_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="150dp"
@@ -90,6 +80,17 @@
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
+            <Button
+                android:id="@+id/my_info_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="my information"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
 
             <Button
                 android:id="@+id/logout_button"

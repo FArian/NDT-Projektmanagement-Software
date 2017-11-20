@@ -28,6 +28,8 @@
         <activity android:name=".SafetyActivity"></activity>
         <activity android:name=".TimeActivity"></activity>
         <activity android:name=".ReportActivity"></activity>
+        <activity android:name=".MyInfoActivity"></activity>
+        <activity android:name=".MaterialActivity"></activity>
 
     </application>
 
