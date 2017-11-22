@@ -6,18 +6,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.farian.multipleactivities.connection.Client;
+
+
+import okhttp3.OkHttpClient;
+
 /**
  *
  */
 public class MainActivity extends Activity {
-    // UI references.
+    private Client client;
+    private OkHttpClient okHttpClient= new OkHttpClient();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        client= new Client();
         Button gotoProjectButton = (Button) findViewById(R.id.sign_in_button);
         gotoProjectButton.setOnClickListener(new View.OnClickListener() {
             @Override

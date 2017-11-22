@@ -15,4 +15,11 @@
     <color name="colorRed2">#DF013A</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="opaque_orange">#FF8800</color>
+    <color name="translucent_orange">#80FF8800</color>
+    <color name="text_color">#0099CC</color>
+    <color name="translucent_red">#80ff0000</color>
+    <color name="wl_blue">#2878ff</color>
+    <color name="wl_gray">#c1c1c1</color>
+    <color name="text2_color">#434343</color>
 </resources>
