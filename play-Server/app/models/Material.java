@@ -1,4 +1,7 @@
 package models;
+
+import java.util.ArrayList;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
@@ -7,18 +10,12 @@ public class Material {
 	private String model;
 	private Type type;
 	private int SerialNumber;
-	private Location location;
 
-	public Material(String name, String model, Type type, int serialNumber, Location location) {
-		setLocation(location);
+	public Material(String name, String model, Type type, int serialNumber) {
 		setModel(model);
 		setName(name);
 		setSerialNumber(serialNumber);
 		setType(type);
-	}
-
-	public void setLocation(Location location) {
-		this.location = location;
 	}
 
 	public void setModel(String model) {
@@ -37,9 +34,6 @@ public class Material {
 		SerialNumber = serialNumber;
 	}
 
-	public Location getLocation() {
-		return location;
-	}
 
 	public String getModel() {
 		return model;

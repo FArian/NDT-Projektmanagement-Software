@@ -10,18 +10,16 @@ import java.util.Calendar;
 import java.util.Calendar.Builder;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
 
 public class Main {
 
-	public static void main(String[] args) {
-
-		Personal personal = new Personal("Farhad", "Arian", "14.02.1983", 1, "KolumbusStr20A", "28.10.2017",
-				PersonalType.RADIOGRAPHER);
-		System.out.println(personal);
-
-	}
+    public static void main(String[] args) {
+        double x = 3 * 2.5;
+        System.out.println(x);
+    }
 
 }

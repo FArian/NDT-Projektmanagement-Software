@@ -1,7 +1,10 @@
 package models;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -9,6 +12,8 @@ import java.util.Date;
  */
 public abstract class DateFormatLocal {
 	private static String DATEFORMAT = "dd.MM.yyyy";
+	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+	private LocalDate localDate = LocalDate.now();
 
 	public String getDateFormat() {
 		return DATEFORMAT;
@@ -33,5 +38,6 @@ public abstract class DateFormatLocal {
 		return format2.format(date);
 
 	}
+
 
 }

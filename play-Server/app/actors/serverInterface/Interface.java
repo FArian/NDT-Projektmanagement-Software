@@ -21,7 +21,7 @@ public class Interface extends UntypedActor {
     private JsonFactory jsonFactory;
     private ObjectMapper mapper;
     private JsonParser parser;
-    private JsonNode message;
+    private JsonNode jsonNode;
     private String replayMessage;
 
     public Interface(ActorRef out, ObservableMail observableMail) {
@@ -29,8 +29,6 @@ public class Interface extends UntypedActor {
         this.setOut(out);
         this.setMapper(new ObjectMapper());
         this.setJsonFactory(getMapper().getFactory());
-        this.setParser(null);
-        this.setMessage(null);
         this.setLog(new ServerLog());
         this.setReplayMessage("i'm new client ");
         this.getLog().info(this.getReplayMessage());
@@ -81,8 +79,8 @@ public class Interface extends UntypedActor {
         return parser;
     }
 
-    public JsonNode getMessage() {
-        return message;
+    public JsonNode getJsonNode() {
+        return jsonNode;
     }
 
     public void setJsonFactory(JsonFactory jsonFactory) {
@@ -97,12 +95,13 @@ public class Interface extends UntypedActor {
         this.parser = parser;
     }
 
-    public void setMessage(JsonNode message) {
-        this.message = message;
+    public void setJsonNode(JsonNode jsonNode) {
+        this.jsonNode = jsonNode;
     }
 
     @Override
     public void onReceive(Object message) {
+
         if (message instanceof String) {
             this.setJsonFactory(this.getMapper().getFactory());
             JsonFactory factory = mapper.getFactory();
@@ -110,27 +109,36 @@ public class Interface extends UntypedActor {
                 System.out.println(" Receive Message in OnReceive Server : " + message);
                 parser = factory.createParser((String) message);
                 this.setParser(jsonFactory.createParser((String) message));
-                this.setMessage(this.getMapper().readTree(this.getParser()));
-                if (this.getMessage() != null) {
-                    this.messageActor(this.getMessage());
-                }else {
-                    this.getLog().info("You have null message");
-                    System.out.println("You have null message");
+                this.setJsonNode(this.getMapper().readTree(this.getParser()));
+                if (this.getJsonNode() != null) {
+                    this.messageActor(this.getJsonNode());
+                } else {
+                    this.getLog().info("You have null jsonNode");
+                    System.out.println("You have null jsonNode");
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+        } else {
+            /**
+             * if incoming jsonNode not json
+             */
+            System.out.println("Type of your jsonNode is not valid or not Json");
+
         }
+
+
     }
+
 
     public static Props props(ActorRef out, ObservableMail observableMail) {
         return Props.create(Interface.class, out, observableMail);
     }
 
     /**
-     * messageActoris manegment for messages from Client and answer back to client
+     * jsonNode Actors management for messages from Client and answer back to client
      *
      * @param json
      */
@@ -138,18 +146,36 @@ public class Interface extends UntypedActor {
         String jsonKey = json.fields().next().getKey();
         //------------------Message Type ------------------------------
         switch (jsonKey) {
-            case "Herausgeber":
+            case "Hello":
+                this.out.tell(TOJSON.replayMessage("Hey Client , im Server ").toString() + "\n", self());
+                this.output(TOJSON.replayMessage("Hey Client , im Server"));
 
-                if (true) {
-                    this.setReplayMessage("Hey im Server ");
-                    this.out.tell(TOJSON.replayMessage(this.getReplayMessage()).toString() + "\n", self());
-                    this.getLog().info("Info: send to client " + TOJSON.replayMessage(this.getReplayMessage()));
-
-                }
                 break;
-            case "Test":
+            case "Start":
+                this.out.tell(TOJSON.message("Start","OK").toString() + "\n", self());
+                this.output(TOJSON.message("Start","OK"));
                 break;
+            case "Safety Activity":
+                this.out.tell(TOJSON.message("Hi","Safety").toString() + "\n", self());
         }
 
     }
+
+    /**
+     * TODO
+     * @param txt
+     */
+    private void output(final Object txt){
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                out.tell(txt.toString() + "\n\n",self());
+
+            }
+        });
+
+    }
+
 }

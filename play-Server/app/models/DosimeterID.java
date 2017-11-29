@@ -1,8 +1,6 @@
 package models;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
@@ -16,6 +14,7 @@ public class DosimeterID {
 	private String calibrationInistitut;
 	private Location location;
 	private Type type;
+	private boolean status;
 	
 	
 	
