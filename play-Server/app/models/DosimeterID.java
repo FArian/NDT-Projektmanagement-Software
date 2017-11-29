@@ -1,6 +1,7 @@
 package models;
 
 
+import actors.serverInterface.ServerLog;
 /**
  * Created by F.Arian on 06.11.17.
  */
@@ -15,21 +16,53 @@ public class DosimeterID {
 	private Location location;
 	private Type type;
 	private boolean status;
+	private String calibrationMessage;
+	private ServerLog log;
 	
 	
 	
-	public DosimeterID(String serialNumber, String name, String madeIn, boolean calibration,
-			String calibrationDate,
-			String calibrationExpire, String calibrationInistitut, Location location, Type type) {
-		this.serialNumber = serialNumber;
-		this.name = name;
-		this.madeIn = madeIn;
-		this.calibration = calibration;
-		this.setCalibrationDate(calibrationDate);
-		this.setCalibrationExpire(calibrationExpire);
-		this.calibrationInistitut = calibrationInistitut;
-		this.location = location;
-		this.type = type;
+	public DosimeterID(String serialNumber, String name) {
+		this.setName(name);
+		this.setSerialNumber(serialNumber);
+		this.setStatus(true);
+		this.setCalibration(true);
+		this.setMadeIn(null);
+		this.setCalibrationDate(DateFormatLocal.getDate());
+		this.setCalibrationExpire(null);
+		this.setCalibrationInistitut(null);
+		this.setLocation(Location.CENTRAL);
+		this.setType(Type.SAFETY);
+		this.setCalibrationMessage("Calibration Message");
+		this.getLog().info("Dosimeter");
+	}
+
+	public ServerLog getLog() {
+		return log;
+	}
+
+	/**
+	 * status is true ,if calibration expert
+	 * @return
+	 */
+	public boolean isStatus() {
+		boolean result=getCalibrationExpire()==DateFormatLocal.getDate();
+		if(result){
+			this.setCalibrationMessage("calibration expert");
+			getLog().info(this.getCalibrationMessage());
+		}
+		return result;
+	}
+
+	public String getCalibrationMessage() {
+		return calibrationMessage;
+	}
+
+	public void setCalibrationMessage(String calibrationMessage) {
+		this.calibrationMessage = calibrationMessage;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public String getSerialNumber() {
 		return serialNumber;
@@ -85,4 +118,15 @@ public class DosimeterID {
 	public void setType(Type type) {
 		this.type = type;
 	}
+
+	/**
+	 * set message for Calibration
+	 */
+	public void calibrationMessage(){
+		if(getCalibrationExpire()==DateFormatLocal.addNewDayToDate(-14)){
+			this.setCalibrationMessage("in two weeks, the calibration will expire");
+			getLog().info(this.getCalibrationMessage());
+		}
+	}
+
 }
