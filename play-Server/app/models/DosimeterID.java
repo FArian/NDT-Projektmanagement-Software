@@ -41,16 +41,11 @@ public class DosimeterID {
 	}
 
 	/**
-	 * status is true ,if calibration expert
+	 * status is false ,if calibration expert
 	 * @return
 	 */
 	public boolean isStatus() {
-		boolean result=getCalibrationExpire()==DateFormatLocal.getDate();
-		if(result){
-			this.setCalibrationMessage("calibration expert");
-			getLog().info(this.getCalibrationMessage());
-		}
-		return result;
+		return !isCalibration();
 	}
 
 	public String getCalibrationMessage() {
@@ -82,7 +77,17 @@ public class DosimeterID {
 	public void setMadeIn(String madeIn) {
 		this.madeIn = madeIn;
 	}
+
+	/**
+	 * check it , if calibration expert ?
+	 * @return
+	 */
 	public boolean isCalibration() {
+		boolean result=getCalibrationExpire()==DateFormatLocal.getDate();
+		if(result){
+			this.setCalibrationMessage("calibration expert");
+			getLog().info(this.getCalibrationMessage());
+		}
 		return calibration;
 	}
 	public void setCalibration(boolean calibration) {
@@ -106,6 +111,11 @@ public class DosimeterID {
 	public void setCalibrationInistitut(String calibrationInistitut) {
 		this.calibrationInistitut = calibrationInistitut;
 	}
+
+	/**
+	 * where is the device now?
+	 * @return
+	 */
 	public Location getLocation() {
 		return location;
 	}
@@ -122,7 +132,8 @@ public class DosimeterID {
 	/**
 	 * set message for Calibration
 	 */
-	public void calibrationMessage(){
+	public void  calibrationMessage(){
+
 		if(getCalibrationExpire()==DateFormatLocal.addNewDayToDate(-14)){
 			this.setCalibrationMessage("in two weeks, the calibration will expire");
 			getLog().info(this.getCalibrationMessage());

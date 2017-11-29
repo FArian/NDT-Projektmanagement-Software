@@ -8,8 +8,13 @@ package models;
 public class Main {
 
     public static void main(String[] args) {
-        double x = 3 * 2.5;
-        System.out.println(x);
+        FilmBadge filmBadge=new FilmBadge("Serial03","FilmBadge");
+
+        filmBadge.getCalibrationMessage();
+        filmBadge.isCalibration();
+        filmBadge.calibrationMessage();
+        System.out.printf(filmBadge.getCalibrationMessage());
+        System.out.printf(filmBadge.getLocation().message(Location.CENTRAL));
     }
 
 }
