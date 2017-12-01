@@ -9,6 +9,4 @@ import java.util.*;
  */
 public class ObservableMail extends Observable {
 
-
-
 }

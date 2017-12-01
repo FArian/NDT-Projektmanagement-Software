@@ -1,29 +1,33 @@
 package models;
 
-import java.util.Date;
+import actors.serverInterface.ServerLog;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
 public class RadioActiveIsotope {
-
-
     private static String name;
-    private static double halfLife;
-    private Date date;
+    private double halfLife;
+    private static String date;
     private double activity;
     private double activityDimensions;
     private double price;
-
-
+    private String assembly_Model_Number;
+    private String gamma_Energy_Range;
+    private String approximate_Steel_Working_Thickness;
     private ISOTOPETYPE isotopetype;
-
-    private enum ISOTOPETYPE {IRIDIUM_192, SELENIUM_75}
+    private ServerLog log;
 
     public RadioActiveIsotope(ISOTOPETYPE type, double activity) {
-        this.setDate(null);
+        this.setDate(DateFormatLocal.getLocalDate());
         this.setIsotopetype(type);
         this.setActivity(activity);
-        this.setActivityDimensions(this.isotopetype, this.activity);
+        this.setActivityDimensions(type, activity);
+        this.setHalfLife(-1);
+        this.setSource_Assembly_and_Authorized_Contents(type);
+        this.setLog(new ServerLog());
+        this.getLog().info("RADIOACTIVEISOTOPE");
+
     }
 
     public void setActivityDimensions(double activityDimensions) {
@@ -39,28 +43,28 @@ public class RadioActiveIsotope {
     }
 
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static void setName(String name) {
+    public void setName(String name) {
         RadioActiveIsotope.name = name;
     }
 
-    public static double getHalfLife() {
-        return halfLife;
+    public double getHalfLife() {
+        return this.halfLife;
     }
 
-    public static void setHalfLife(double halfLife) {
-        RadioActiveIsotope.halfLife = halfLife;
+    public void setHalfLife(double halfLife) {
+        this.halfLife = halfLife;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(String date) {
+        this.date = DateFormatLocal.dateUpDate(date);
     }
 
     public double getActivity() {
@@ -83,7 +87,88 @@ public class RadioActiveIsotope {
         this.price = price;
     }
 
+    public String getAssembly_Model_Number() {
+        return assembly_Model_Number;
+    }
+
+    public void setAssembly_Model_Number(String assembly_Model_Number) {
+        this.assembly_Model_Number = assembly_Model_Number;
+    }
+
+    public String getGamma_Energy_Range() {
+        return gamma_Energy_Range;
+    }
+
+    public void setGamma_Energy_Range(String gamma_Energy_Range) {
+        this.gamma_Energy_Range = gamma_Energy_Range;
+    }
+
+    public String getApproximate_Steel_Working_Thickness() {
+        return approximate_Steel_Working_Thickness;
+    }
+
+    public void setApproximate_Steel_Working_Thickness(String approximate_Steel_Working_Thickness) {
+        this.approximate_Steel_Working_Thickness = approximate_Steel_Working_Thickness;
+    }
+
+    public ServerLog getLog() {
+        return log;
+    }
+
+    public void setLog(ServerLog log) {
+        this.log = log;
+    }
+
+    private void setSource_Assembly_and_Authorized_Contents(ISOTOPETYPE isotopetype) {
+        switch (isotopetype) {
+            case SELENIUM_75:
+                this.setAssembly_Model_Number("A424-25W");
+                this.setGamma_Energy_Range("66-401keV");
+                this.setHalfLife(120);
+                this.setApproximate_Steel_Working_Thickness("3-29mm");
+                break;
+            case IRIDIUM_192:
+                this.setAssembly_Model_Number("A424-9");
+                this.setGamma_Energy_Range("206-612keV");
+                this.setHalfLife(74);
+                this.setApproximate_Steel_Working_Thickness("12-63mm");
+                break;
+            case YTTERBIUM_169:
+                this.setAssembly_Model_Number("91810");
+                this.setGamma_Energy_Range("8-308keV");
+                this.setHalfLife(32);
+                this.setApproximate_Steel_Working_Thickness(" 2-20mm");
+                break;
+            case COBALT_60:
+                this.setAssembly_Model_Number("A424-19");
+                this.setGamma_Energy_Range("1.17-1.33MeV");
+                /**
+                 * Half-Life COBALT_60 = 5,27 years or 1923.55 days
+                 */
+                this.setHalfLife(1923.55);
+                this.setApproximate_Steel_Working_Thickness("50-150mm");
+                break;
+            case CAESIUM_137:
+                this.setAssembly_Model_Number("A424-30");
+                this.setGamma_Energy_Range("N/A");
+                /**
+                 * Half-Life CAESIUM_137 = 30 years or 10950 days
+                 */
+                this.setHalfLife(10950);
+                this.setApproximate_Steel_Working_Thickness("N/A");
+                break;
+
+        }
+
+    }
+
+    /**
+     *
+     * @param isotopetype
+     * @param activity
+     */
     private void setActivityDimensions(ISOTOPETYPE isotopetype, double activity) {
+        if(activity>100) return;
         switch (isotopetype) {
             case IRIDIUM_192:
                 if (activity == 100) {
@@ -151,9 +236,28 @@ public class RadioActiveIsotope {
                 }
 
                 break;
+            case CAESIUM_137:
+                break;
+            case COBALT_60:
+                break;
+            case YTTERBIUM_169:
+                break;
 
         }
 
     }
 
+    @Override
+    public String toString() {
+        return "RadioActiveIsotope{" +"\n" +
+                "halfLife=" + halfLife +"\n" +
+                ", activity=" + activity +"\n" +
+                ", activityDimensions=" + activityDimensions +"\n" +
+                ", price=" + price +"\n" +
+                ", assembly_Model_Number='" + assembly_Model_Number  +"\n" +
+                ", gamma_Energy_Range='" + gamma_Energy_Range  +"\n" +
+                ", approximate_Steel_Working_Thickness='" + approximate_Steel_Working_Thickness  +"\n" +
+                ", isotopetype=" + isotopetype +"\n" +
+                '}';
+    }
 }

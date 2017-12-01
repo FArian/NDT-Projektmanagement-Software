@@ -2,6 +2,11 @@ package models;
 
 
 import actors.serverInterface.ServerLog;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
@@ -18,6 +23,8 @@ public class DosimeterID {
 	private boolean status;
 	private String calibrationMessage;
 	private ServerLog log;
+	private LocalDate localDate= LocalDate.now();
+
 	
 	
 	
@@ -27,13 +34,15 @@ public class DosimeterID {
 		this.setStatus(true);
 		this.setCalibration(true);
 		this.setMadeIn(null);
-		this.setCalibrationDate(DateFormatLocal.getDate());
-		this.setCalibrationExpire(null);
+		this.setCalibrationDate(DateFormatLocal.getLocalDate());
+		this.setCalibrationExpire(DateFormatLocal.changeDate(0,6,0));
 		this.setCalibrationInistitut(null);
 		this.setLocation(Location.CENTRAL);
 		this.setType(Type.SAFETY);
-		this.setCalibrationMessage("Calibration Message");
-		this.getLog().info("Dosimeter");
+		this.setCalibrationMessage("First calibration message");
+		this.log= new ServerLog();
+		this.getLog().info("A Dosimeter is created");
+
 	}
 
 	public ServerLog getLog() {
@@ -49,7 +58,7 @@ public class DosimeterID {
 	}
 
 	public String getCalibrationMessage() {
-		return calibrationMessage;
+		return calibrationMessage + "\n";
 	}
 
 	public void setCalibrationMessage(String calibrationMessage) {
@@ -60,19 +69,19 @@ public class DosimeterID {
 		this.status = status;
 	}
 	public String getSerialNumber() {
-		return serialNumber;
+		return serialNumber + "\n";
 	}
 	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
 	}
 	public String getName() {
-		return name;
+		return name +"\n";
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
 	public String getMadeIn() {
-		return madeIn;
+		return madeIn +"\n";
 	}
 	public void setMadeIn(String madeIn) {
 		this.madeIn = madeIn;
@@ -94,19 +103,19 @@ public class DosimeterID {
 		this.calibration = calibration;
 	}
 	public String getCalibrationDate() {
-		return calibrationDate;
+		return calibrationDate +"\n";
 	}
 	public void setCalibrationDate(String calibrationDate) {
 		this.calibrationDate = DateFormatLocal.dateUpDate(calibrationDate);
 	}
 	public String getCalibrationExpire() {
-		return calibrationExpire;
+		return calibrationExpire +"\n";
 	}
 	public void setCalibrationExpire(String calibrationExpire) {
 		this.calibrationExpire = DateFormatLocal.dateUpDate(calibrationExpire);
 	}
 	public String getCalibrationInistitut() {
-		return calibrationInistitut;
+		return calibrationInistitut +"\n";
 	}
 	public void setCalibrationInistitut(String calibrationInistitut) {
 		this.calibrationInistitut = calibrationInistitut;
@@ -123,20 +132,21 @@ public class DosimeterID {
 		this.location = location;
 	}
 	public Type getType() {
-		return type;
+		return type ;
 	}
 	public void setType(Type type) {
 		this.type = type;
 	}
 
 	/**
-	 * set message for Calibration
+	 * send message to HPS for Calibration
+	 * in two weeks, the calibration will expire
 	 */
 	public void  calibrationMessage(){
 
 		if(getCalibrationExpire()==DateFormatLocal.addNewDayToDate(-14)){
-			this.setCalibrationMessage("in two weeks, the calibration will expire");
-			getLog().info(this.getCalibrationMessage());
+			this.setCalibrationMessage("in two weeks, the calibration will expire ");
+			getLog().info(this.getCalibrationMessage() +"\n");
 		}
 	}
 

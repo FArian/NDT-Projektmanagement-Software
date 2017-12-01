@@ -101,4 +101,6 @@ public class ServerLog extends Observable {
         ServerLog.folder = folder;
     }
 
+
+
 }
