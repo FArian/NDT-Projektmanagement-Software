@@ -2,14 +2,19 @@ package models;
 
 import actors.serverInterface.ServerLog;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
 public class RadioActiveIsotope {
+    private static final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.now();
     private static String name;
     private double halfLife;
     private static String date;
     private double activity;
+    private static double ACTIVITY;
     private double activityDimensions;
     private double price;
     private String assembly_Model_Number;
@@ -17,8 +22,10 @@ public class RadioActiveIsotope {
     private String approximate_Steel_Working_Thickness;
     private ISOTOPETYPE isotopetype;
     private ServerLog log;
+    private static LocalDateTime DATEOFINSTALATION = LOCAL_DATE_TIME.minusMinutes(1);
 
     public RadioActiveIsotope(ISOTOPETYPE type, double activity) {
+        this.ACTIVITY=activity;
         this.setDate(DateFormatLocal.getLocalDate());
         this.setIsotopetype(type);
         this.setActivity(activity);
@@ -26,9 +33,13 @@ public class RadioActiveIsotope {
         this.setHalfLife(-1);
         this.setSource_Assembly_and_Authorized_Contents(type);
         this.setLog(new ServerLog());
-        this.getLog().info("RADIOACTIVEISOTOPE");
-
+        this.getLog().info("Installation date of RADIOACTIVEISOTOPE: " + getDATEOFINSTALATION() + "\n");
     }
+
+    public static LocalDateTime getDATEOFINSTALATION() {
+        return DATEOFINSTALATION;
+    }
+
 
     public void setActivityDimensions(double activityDimensions) {
         this.activityDimensions = activityDimensions;
@@ -52,7 +63,30 @@ public class RadioActiveIsotope {
     }
 
     public double getHalfLife() {
+
         return this.halfLife;
+    }
+
+    /**
+     * get current Half Life of Radioactive Isotope
+     */
+    public void currentHalfLife() {
+        if (DATEOFINSTALATION != LOCAL_DATE_TIME) {
+            double[] time = DateFormatLocal.getPeriodTime(DATEOFINSTALATION.minusMonths(1));
+            double min = 0, hour = 0, days = 0, month = 0, years = 0;
+            min = time[0];
+            hour = time[1];
+            days = time[2];
+            month = time[3];
+            years = time[4];
+            days = days + (month * 30) + (years * 360);
+            if(days>0){
+                this.setActivity(this.getActivity() * Math.pow(2, -days / getHalfLife()));
+            }
+
+        }
+
+
     }
 
     public void setHalfLife(double halfLife) {
@@ -163,12 +197,11 @@ public class RadioActiveIsotope {
     }
 
     /**
-     *
      * @param isotopetype
      * @param activity
      */
     private void setActivityDimensions(ISOTOPETYPE isotopetype, double activity) {
-        if(activity>100) return;
+        if (activity > 100) return;
         switch (isotopetype) {
             case IRIDIUM_192:
                 if (activity == 100) {
@@ -249,15 +282,14 @@ public class RadioActiveIsotope {
 
     @Override
     public String toString() {
-        return "RadioActiveIsotope{" +"\n" +
-                "halfLife=" + halfLife +"\n" +
-                ", activity=" + activity +"\n" +
-                ", activityDimensions=" + activityDimensions +"\n" +
-                ", price=" + price +"\n" +
-                ", assembly_Model_Number='" + assembly_Model_Number  +"\n" +
-                ", gamma_Energy_Range='" + gamma_Energy_Range  +"\n" +
-                ", approximate_Steel_Working_Thickness='" + approximate_Steel_Working_Thickness  +"\n" +
-                ", isotopetype=" + isotopetype +"\n" +
+        return "RADIOACTIVE_ISOTOPE{" +"\n"+
+                "HALF_LIFE=" + halfLife +"\n"+
+                ", FIRST_ACTIVITY=" + ACTIVITY +"\n"+
+                ", CURRENT_ACTIVITY=" + activity +"\n"+
+                ", ACTIVITY_DIMENSIONS=" + activityDimensions +"\n"+
+                ", ASSEMBLY_MODEL_NUMBER=" + assembly_Model_Number + "\n"+
+                ", GAMMA_ENERGY_RANGE=" + gamma_Energy_Range + "\n"+
+                ", ISOTOPE_TYPE=" + isotopetype +"\n"+
                 '}';
     }
 }

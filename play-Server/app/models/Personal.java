@@ -7,8 +7,9 @@ public class Personal {
 	private String firstName;
 	private String lastName;
 	private String birthday;
-	private int personalId;
-	private String adress;
+	private double[] age;
+	private int id;
+	private String address;
 	private String companyName;
 	private String mobileNr;
 	private String telNr;
@@ -17,44 +18,32 @@ public class Personal {
 	private String weight;
 	private String height;
 	private String nationalId;
-	private String stratDate;
+	private String startDate;
 	private String finishedDate;
 	private PersonalType personalType;
 	private boolean status;
 
-	public Personal(String firstName, String lastName, String birthday, int personalId, String adress,
-			String companyName, String mobileNr, String telNr, TLD tld, FilmBadge filmBadge, String weight,
-			String height, String nationalId, String stratDate, PersonalType personalType, boolean status) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public Personal(String firstName, String lastName, String birthday, int id,TLD tld, FilmBadge filmBadge) {
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
 		this.setBirthday(birthday);
-		this.personalId = personalId;
-		this.adress = adress;
-		this.companyName = companyName;
-		this.mobileNr = mobileNr;
-		this.telNr = telNr;
-		this.tld = tld;
-		this.filmBadge = filmBadge;
-		this.weight = weight;
-		this.height = height;
-		this.nationalId = nationalId;
-		this.stratDate = DateFormatLocal.dateUpDate(stratDate);
-		this.finishedDate = DateFormatLocal.dateUpDate(null);
-		this.personalType = personalType;
-		this.status = status;
-	}
-
-	public Personal(String firstName, String lastName, String birthday, int personalId, String adress, String stratDate,
-			PersonalType personalType) {
-
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.birthday = birthday;
-		this.personalId = personalId;
-		this.adress = adress;
-		this.stratDate = stratDate;
-		this.personalType = personalType;
-		this.status = false;
+		this.setId(id);
+		this.setAddress("IT WAS NOT ENTERED");
+		this.setCompanyName("IT WAS NOT ENTERED");
+		this.setMobileNr("IT WAS NOT ENTERED");
+		this.setTelNr("IT WAS NOT ENTERED");
+		this.setTld(tld);
+		this.setFilmBadge(filmBadge);
+		this.setWeight("IT WAS NOT ENTERED");
+		this.setHeight("IT WAS NOT ENTERED");
+		this.setNationalId("IT WAS NOT ENTERED");
+		this.setStartDate(DateFormatLocal.dateUpDate("00.00.0000"));
+		this.setFinishedDate(DateFormatLocal.dateUpDate("00.00.0000"));
+		this.setPersonalType(PersonalType.RADIOGRAPHER);
+		if(id>0&&tld!=null&&filmBadge!=null){
+			this.setStatus(true);
+		}
+		this.age=new double[5];
 	}
 
 	public String getFirstName() {
@@ -80,23 +69,6 @@ public class Personal {
 	public void setBirthday(String birthday) {
 		this.birthday = DateFormatLocal.dateUpDate(birthday);
 	}
-
-	public int getPersonalId() {
-		return personalId;
-	}
-
-	public void setPersonalId(int personalId) {
-		this.personalId = personalId;
-	}
-
-	public String getAdress() {
-		return adress;
-	}
-
-	public void setAdress(String adress) {
-		this.adress = adress;
-	}
-
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -162,11 +134,11 @@ public class Personal {
 	}
 
 	public String getStratDate() {
-		return stratDate;
+		return startDate;
 	}
 
-	public void setStratDate(String stratDate) {
-		this.stratDate = DateFormatLocal.dateUpDate(stratDate);
+	public void setStartDate(String startDate) {
+		this.startDate = DateFormatLocal.dateUpDate(startDate);
 	}
 
 	public String getFinishedDate() {
@@ -193,13 +165,55 @@ public class Personal {
 		this.personalType = personalType;
 	}
 
-	@Override
-	public String toString() {
-		return "Personal [firstName=" + firstName + ", lastName=" + lastName + ", birthday=" + birthday
-				+ ", personalId=" + personalId + ", adress=" + adress + ", companyName=" + companyName + ", mobileNr="
-				+ mobileNr + ", telNr=" + telNr + ", tld=" + tld + ", filmBadge=" + filmBadge + ", weight=" + weight
-				+ ", height=" + height + ", nationalId=" + nationalId + ", stratDate=" + stratDate + ", finishedDate="
-				+ finishedDate + ", personalType=" + personalType + ", status=" + status + "]";
+	public double getAge() {
+		age=DateFormatLocal.getPeriodTime(this.getBirthday());
+		return age[4];
 	}
 
+
+
+	public  int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+
+	@Override
+	public String toString() {
+		return "PERSONAL{" +"\n"+
+				"FIRST_NAME=" + firstName +"\n"+
+				", LAST_NAME=" + lastName +"\n"+
+				", BIRTHDAY=" + birthday + "\n"+
+				", AGE=" + getAge() + "\n"+
+				", PERSONAL_ID=" + id +"\n"+
+				", ADDRESS=" + address + "\n"+
+				", COMPANY_NAME=" + companyName + "\n"+
+				", MOBILE_NR=" + mobileNr + "\n"+
+				", TEL_NR=" + telNr +"\n"+
+				", TLD=" + tld +"\n"+
+				", FILM_BADGE=" + filmBadge +"\n"+
+				", WEIGHT=" + weight +"\n"+
+				", HEIGHT=" + height +"\n"+
+				", NATIONAL_ID=" + nationalId +"\n"+
+				", START_DATE=" + startDate +"\n"+
+				", FINISHED_DATE=" + finishedDate +"\n"+
+				", PERSONAL_TYPE=" + personalType +"\n"+
+				", STATUS=" + status +"\n"+
+				'}';
+	}
 }

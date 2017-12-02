@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,14 +14,16 @@ import java.text.ParseException;
  * Created by F.Arian on 06.11.17.
  */
 public abstract class DateFormatLocal {
-    private static final String DATEFORMAT = "dd.MM.yyyy";
-    private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-    private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    private static final String DD_MM_YYYY = "dd.MM.yyyy";
+    private static final DateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
     private static final Calendar CALENDAR = Calendar.getInstance();
-    private static final Date date = new Date();
-    private static final LocalDate localDate = LocalDate.now();
-    private static final LocalDateTime localDateTime = LocalDateTime.now();
-    private static final long ltime = date.getTime() + 8 * 24 * 60 * 60 * 1000;
+    private static final Date DATE = new Date();
+    private static final LocalDate LOCAL_DATE = LocalDate.now();
+    private static final LocalDateTime LOCAL_DATE_TIME=LocalDateTime.now();
+    private static final DateTimeFormatter DATE_TIME_FORMATTER_GERMAN = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+    private static final long ltime = DATE.getTime() + 8 * 24 * 60 * 60 * 1000;
+
 
     /**
      *
@@ -33,12 +36,12 @@ public abstract class DateFormatLocal {
     }
 
     public String getDateFormat() {
-        return DATEFORMAT;
+        return DD_MM_YYYY;
     }
 
     public static String dateUpDate(String dateStr) {
 
-        SimpleDateFormat format2 = new SimpleDateFormat(DATEFORMAT);
+        SimpleDateFormat format2 = new SimpleDateFormat(DD_MM_YYYY);
         Date date = null;
         try {
             date = format2.parse(dateStr);
@@ -49,14 +52,13 @@ public abstract class DateFormatLocal {
         return format2.format(date);
 
     }
-
     /**
      * get localDateTime with english format
      *
      * @return
      */
     public static String getLocalDateTime() {
-        return dtf.format(localDateTime);
+        return DATE_TIME_FORMATTER.format(LOCAL_DATE_TIME);
     }
 
     /**
@@ -65,7 +67,8 @@ public abstract class DateFormatLocal {
      * @return
      */
     public static String getLocalDate() {
-        return DateTimeFormatter.ofPattern("dd.MM.yyyy").format(localDate);
+        String strDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LOCAL_DATE);
+        return DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LOCAL_DATE);
     }
 
     /**
@@ -95,7 +98,7 @@ public abstract class DateFormatLocal {
      * @return
      */
     public static String getCalendar() {
-        return sdf.format(CALENDAR.getTime()) +"\n";
+        return SIMPLE_DATE_FORMAT.format(CALENDAR.getTime()) +"\n";
     }
 
     /**
@@ -104,7 +107,7 @@ public abstract class DateFormatLocal {
      * @return
      */
     public static String getDate() {
-        return sdf.format(date);
+        return SIMPLE_DATE_FORMAT.format(DATE);
     }
 
     /**
@@ -115,16 +118,62 @@ public abstract class DateFormatLocal {
     public static String addNewDayToDate(int days) {
         CALENDAR.setTime(new Date());
         CALENDAR.add(Calendar.DATE, days);
-        return sdf.format(CALENDAR.getTime());
+        return SIMPLE_DATE_FORMAT.format(CALENDAR.getTime());
 
     }
 
+    /**
+     * minus two date
+     * @param pastDate:LocalDateTime
+     * @return result[0] min,s , result[1] hours,result[2] days ,result[3] months,result[4] years
+     */
+    public static double [] getPeriodTime(LocalDateTime pastDate){
+        double [] result=new double[5];
+        LocalDateTime toDay=LOCAL_DATE_TIME;
+        Period periodTime=Period.between(pastDate.toLocalDate(),toDay.toLocalDate());
 
-    @Override
-    public String toString() {
-        return "DateFormatLocal [getDateFormat()=" + getDateFormat() + ", getClass()=" + getClass() + ", hashCode()="
-                + hashCode() + ", toString()=" + super.toString() + "]";
+        result[0]=pastDate.getMinute()-toDay.getMinute();
+        result[1]=pastDate.getHour()-toDay.getHour();
+        result[2]=periodTime.getDays();
+        result[3]=periodTime.getMonths();
+        result[4]=periodTime.getYears();
+
+        return result;
     }
+    /**
+     * date just for String not accept
+     * @param strDate :System.in()
+     * @return result[0] min,s , result[1] hours,result[2] days ,result[3] months,result[4] years
+     */
+    public static double [] getPeriodTime(String strDate){
+        double [] result=new double[5];
+        LocalDateTime bd = LocalDateTime.parse(setTimetoDate(strDate), DATE_TIME_FORMATTER_GERMAN);
+        System.out.println("Date + Time"+setTimetoDate(strDate));
+        LocalDateTime cd = LocalDateTime.now();
+        int hr = cd.getHour() - bd.getHour();
+        int mn = cd.getMinute() - bd.getMinute();
+        Period time = Period.between(bd.toLocalDate(),cd.toLocalDate());
+        result[0]=mn;
+        result[1]=hr;
+        result[2]=time.getDays();
+        result[3]=time.getMonths();
+        result[4]=time.getYears();
+        return result;
 
+    }
+    public static String setTimetoDate(String strDate) {
+        String date = strDate;
+        String time = " 00:00";
+        StringBuffer sbResult = new StringBuffer("");
+
+        sbResult.setLength(strDate.length() + time.length());
+        for (int i = 0; i < date.length() + time.length(); i++) {
+            sbResult.replace(0,date.length(),date);
+        }
+        for(int i=date.length();i<sbResult.length();i++){
+            sbResult.replace(date.length(),sbResult.length(),time);
+        }
+        return sbResult.toString();
+    }
 
 }

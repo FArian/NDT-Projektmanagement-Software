@@ -344,7 +344,7 @@ public class RtCamera {
     }
 
     private String accreditation_For_Sentinel() {
-        String str = "SENTINELTM 880 Delta, Sigma, Elite, and Omega models are designed, tested and manufactured to meet\n" +
+        String str = "SENTINEL_TM 880 Delta, Sigma, Elite, and Omega models are designed, tested and manufactured to meet\n" +
                 "the requirements of ANSI N432-1980, ISO 3999-1 2000E, IAEA TS-R-1 (1996), USNRC 10CFR34,\n" +
                 "10CFR71, 49CFR173, MA-1059-D-334-S and CNSC R-061-0001-0-2012*. Additionally, the exposure\n" +
                 "devices are designed, manufactured and serviced under a QA program that has been accredited to ISO 9001\n" +
@@ -604,12 +604,27 @@ public class RtCamera {
 
     @Override
     public String toString() {
-        return "RtCamera{" +
-                "name=" + name + "\n" +
-                ", model=" + model + "\n" +
-                ", weight='" + weight + "\n" +
-                ", isotopes=" + isotopes + "\n" +
-                ", capacityPermision=" + capacityPermision +
+        return "RT_CAMERA{" + "\n" +
+                "NAME=" + name + "\n" +
+                ", MODEL=" + model + "\n" +
+                ", DIMENSIONS=" + dimensions + "\n" +
+                ", WEIGHT=" + weight + "\n" +
+                ", ACTIVITY_OF_DEPLETED_URANIUM_SHIELD=" + activity_Of_Depleted_Uranium_Shield + "\n" +
+                ", CERTIFICATION_TYPE_PACKAGE=" + certification_Type_Package + "\n" +
+                ", ACCREDITATION=" + accreditation + "\n" +
+                ", CONSTRUCTION_EXPOSURE_DEVICE=" + construction_Exposure_Device + "\n" +
+                ", REMOVABLE_JACKET='" + removable_Jacket + "\n" +
+                ", MATERIALS='" + materials + "\n" +
+                ", ISOTOPES=" + isotopes + "\n" +
+                ", CONTROLS_AND_GUIDE_TUBES=" + controls_and_Guide_Tubes + "\n" +
+                ", INSPECTION_REQUIREMENTS=" + inspection_Requirements + "\n" +
+                ", MAINTENANCE_REQUIREMENTS=" + maintenance_Requirements + "\n" +
+                ", PRIMARY_APPLICATION=" + primary_Application + "\n" +
+                ", SOURCE_ASSEMBLY_AND_AUTHORIZED_CONTENTS='" + source_Assembly_and_Authorized_Contents + "\n" +
+                ", CAPACITY_PERMISSION=" + capacityPermision + "\n" +
+                ", COUNTRY_REGION=" + country_Region + "\n" +
+                ", TOTAL_WEIGHT=" + totalweight + "\n" +
+                ", SAFETY_DETAIL=" + safetyDetail + "\n" +
                 '}';
     }
 }
