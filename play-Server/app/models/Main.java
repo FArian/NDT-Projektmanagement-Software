@@ -1,6 +1,9 @@
 package models;
 
 
+import org.joda.time.Days;
+
+import javax.print.attribute.standard.MediaSize;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -15,15 +18,13 @@ public class Main {
     public static void main(String[] args) {
         TLD tld = new TLD("00001", "FarhadTLD");
         FilmBadge filmBadge = new FilmBadge("0001myFilmBadge", "FarhadFilmBadge");
-        //RadioActiveIsotope isotope = new RadioActiveIsotope(ISOTOPETYPE.IRIDIUM_192, 120);
-        //RtCamera rtCamera = new RtCamera(NAME.SENTINEL, MODEL.SIGMA_880, isotope);
+        RadioActiveIsotope isotope = new RadioActiveIsotope(ISOTOPETYPE.IRIDIUM_192, 120);
+        RtCamera rtCamera = new RtCamera(NAME.SENTINEL, MODEL.SIGMA_880, isotope);
         Personal personal = new Personal("Farhad", "ARIAN", "14.02.1983", 1, tld, filmBadge);
 
-        System.out.println(personal);
+        //System.out.println(personal);
         //System.out.println(rtCamera);
-        //System.out.println(filmBadge);
-        //System.out.println(DateFormatLocal.getPeriodTime("14.02.1983"));
-
+        System.out.println("FILM: ");
 
     }
 

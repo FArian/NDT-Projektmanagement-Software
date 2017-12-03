@@ -7,7 +7,7 @@ public class Personal {
 	private String firstName;
 	private String lastName;
 	private String birthday;
-	private double[] age;
+	private int [] age;
 	private int id;
 	private String address;
 	private String companyName;
@@ -43,7 +43,7 @@ public class Personal {
 		if(id>0&&tld!=null&&filmBadge!=null){
 			this.setStatus(true);
 		}
-		this.age=new double[5];
+		this.age=new int[5];
 	}
 
 	public String getFirstName() {
@@ -165,9 +165,9 @@ public class Personal {
 		this.personalType = personalType;
 	}
 
-	public double getAge() {
+	public int[] getAge() {
 		age=DateFormatLocal.getPeriodTime(this.getBirthday());
-		return age[4];
+		return age;
 	}
 
 
@@ -199,7 +199,7 @@ public class Personal {
 				"FIRST_NAME=" + firstName +"\n"+
 				", LAST_NAME=" + lastName +"\n"+
 				", BIRTHDAY=" + birthday + "\n"+
-				", AGE=" + getAge() + "\n"+
+				", AGE= " + getAge()[4]+" YEARS OLD AND " +getAge()[3]+ " MONTH " + "\n"+
 				", PERSONAL_ID=" + id +"\n"+
 				", ADDRESS=" + address + "\n"+
 				", COMPANY_NAME=" + companyName + "\n"+

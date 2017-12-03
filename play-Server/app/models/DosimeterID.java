@@ -175,7 +175,7 @@ public class DosimeterID {
                 ", CALIBRATION_INSTITUTE=" + calibrationInstitut + "\n" +
                 ", LOCATION=" + location + "\n" +
                 ", TYPE=" + type + "\n" +
-                ", STATUS=" + status +
+                ", STATUS=" + status +"\n"+
                 ", CALIBRATION_MESSAGE=" + calibrationMessage + "\n" +
                 '}';
     }

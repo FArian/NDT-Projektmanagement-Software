@@ -19,7 +19,7 @@ public abstract class DateFormatLocal {
     private static final Calendar CALENDAR = Calendar.getInstance();
     private static final Date DATE = new Date();
     private static final LocalDate LOCAL_DATE = LocalDate.now();
-    private static final LocalDateTime LOCAL_DATE_TIME=LocalDateTime.now();
+    private static final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.now();
     private static final DateTimeFormatter DATE_TIME_FORMATTER_GERMAN = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
     private static final long ltime = DATE.getTime() + 8 * 24 * 60 * 60 * 1000;
@@ -52,6 +52,7 @@ public abstract class DateFormatLocal {
         return format2.format(date);
 
     }
+
     /**
      * get localDateTime with english format
      *
@@ -98,7 +99,7 @@ public abstract class DateFormatLocal {
      * @return
      */
     public static String getCalendar() {
-        return SIMPLE_DATE_FORMAT.format(CALENDAR.getTime()) +"\n";
+        return SIMPLE_DATE_FORMAT.format(CALENDAR.getTime()) + "\n";
     }
 
     /**
@@ -124,43 +125,52 @@ public abstract class DateFormatLocal {
 
     /**
      * minus two date
+     *
      * @param pastDate:LocalDateTime
      * @return result[0] min,s , result[1] hours,result[2] days ,result[3] months,result[4] years
      */
-    public static double [] getPeriodTime(LocalDateTime pastDate){
-        double [] result=new double[5];
-        LocalDateTime toDay=LOCAL_DATE_TIME;
-        Period periodTime=Period.between(pastDate.toLocalDate(),toDay.toLocalDate());
+    public static double[] getPeriodTime(LocalDateTime pastDate) {
+        double[] result = new double[5];
+        LocalDateTime toDay = LOCAL_DATE_TIME;
+        Period periodTime = Period.between(pastDate.toLocalDate(), toDay.toLocalDate());
 
-        result[0]=pastDate.getMinute()-toDay.getMinute();
-        result[1]=pastDate.getHour()-toDay.getHour();
-        result[2]=periodTime.getDays();
-        result[3]=periodTime.getMonths();
-        result[4]=periodTime.getYears();
+        result[0] = pastDate.getMinute() - toDay.getMinute();
+        result[1] = pastDate.getHour() - toDay.getHour();
+        result[2] = periodTime.getDays();
+        result[3] = periodTime.getMonths();
+        result[4] = periodTime.getYears();
 
         return result;
     }
+
     /**
      * date just for String not accept
+     *
      * @param strDate :System.in()
      * @return result[0] min,s , result[1] hours,result[2] days ,result[3] months,result[4] years
      */
-    public static double [] getPeriodTime(String strDate){
-        double [] result=new double[5];
+    public static int[] getPeriodTime(String strDate) {
+        int[] result = new int[5];
         LocalDateTime bd = LocalDateTime.parse(setTimetoDate(strDate), DATE_TIME_FORMATTER_GERMAN);
-        System.out.println("Date + Time"+setTimetoDate(strDate));
+        //System.out.println("Date + Time"+setTimetoDate(strDate));
         LocalDateTime cd = LocalDateTime.now();
         int hr = cd.getHour() - bd.getHour();
         int mn = cd.getMinute() - bd.getMinute();
-        Period time = Period.between(bd.toLocalDate(),cd.toLocalDate());
-        result[0]=mn;
-        result[1]=hr;
-        result[2]=time.getDays();
-        result[3]=time.getMonths();
-        result[4]=time.getYears();
+        Period time = Period.between(bd.toLocalDate(), cd.toLocalDate());
+        result[0] = mn;
+        result[1] = hr;
+        result[2] = time.getDays();
+        result[3] = time.getMonths();
+        result[4] = time.getYears();
         return result;
 
     }
+
+    /**
+     *
+     * @param strDate date
+     * @return dd.MM.yyyy HH:mm
+     */
     public static String setTimetoDate(String strDate) {
         String date = strDate;
         String time = " 00:00";
@@ -168,10 +178,10 @@ public abstract class DateFormatLocal {
 
         sbResult.setLength(strDate.length() + time.length());
         for (int i = 0; i < date.length() + time.length(); i++) {
-            sbResult.replace(0,date.length(),date);
+            sbResult.replace(0, date.length(), date);
         }
-        for(int i=date.length();i<sbResult.length();i++){
-            sbResult.replace(date.length(),sbResult.length(),time);
+        for (int i = date.length(); i < sbResult.length(); i++) {
+            sbResult.replace(date.length(), sbResult.length(), time);
         }
         return sbResult.toString();
     }

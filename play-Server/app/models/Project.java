@@ -10,7 +10,6 @@ public class Project {
 	private String location;
 	private ArrayList<Team> teams;
 	private ArrayList<Material> materials;
-	private TestType testType;
 	private String customer;
 	private String joinCompany;
 	private boolean join;
