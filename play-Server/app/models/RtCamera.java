@@ -2,6 +2,8 @@ package models;
 
 import actors.serverInterface.ServerLog;
 
+import java.util.ArrayList;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
@@ -9,6 +11,7 @@ public class RtCamera {
 
     private NAME name;
     private MODEL model;
+    private static String SERIAL_NUMBER;
     private String dimensions;
     private String weight;
     private String activity_Of_Depleted_Uranium_Shield;
@@ -17,7 +20,7 @@ public class RtCamera {
     private String construction_Exposure_Device;
     private String removable_Jacket;
     private String materials;
-    private RadioActiveIsotope isotopes;
+    private RadioActiveIsotope isotope;
     private String controls_and_Guide_Tubes;
     private String inspection_Requirements;
     private String maintenance_Requirements;
@@ -25,15 +28,21 @@ public class RtCamera {
     private String primary_Application;
     private String source_Assembly_and_Authorized_Contents;
     private boolean capacityPermision;
+    private boolean isotopeTypePermision;
     private String country_Region;
     private double totalweight;
     private String safetyDetail;
     private ServerLog log;
+    private ArrayList<ISOTOPETYPE> isotopetypes;
+    private Project project;
 
-    public RtCamera(NAME name, MODEL model, RadioActiveIsotope isotope) {
+    public RtCamera(NAME name, MODEL model, String serial_number, RadioActiveIsotope isotope) {
         this.setCapacityPermision(false);
+        this.setIsotopeTypePermision(false);
+        this.setSerialNumber(serial_number);
         this.setName(name);
         this.setModel(model);
+        this.isotopetypes = new ArrayList<>();
         this.setDevice_Source_Maximum_Capacity(model, isotope);
         // is RT Camera SENTINEL
         if (this.getName().equals(NAME.SENTINEL)) {
@@ -52,18 +61,22 @@ public class RtCamera {
             this.setSource_Assembly_and_Authorized_Contents(this.Source_Assembly_and_Authorized_Contents_For_Sentinel());
             this.setConstruction_Exposure_Device(this.construction_Exposure_Device_For_Sentinel());
 
+
         }
+
         this.setCountry(this.getName());
         this.setLog(new ServerLog());
         this.getLog().info("");
-        if (!this.isCapacityPermision()) {
-            this.getLog().info("RT CAMERA IS NOT ACTIVE," +
-                    "Safety specification of the camera was violated," +
-                    "please check the value of the ISOTOPE :" + isotope.getActivity() + " " +
+        if (!this.isCapacityPermision() && !this.isIsotopeTypePermision()) {
+            isIsotopeTypePermision();
+            this.getLog().info("RT CAMERA IS NOT ACTIVE," + "\n" +
+                    "Safety specification of the camera was violated," + "\n" +
+                    "please check the value of the ISOTOPE :" + isotope.getActivity() + "\n" +
                     "unsuitable for :" + this.getName() + "_" + this.getModel());
         } else {
             this.getLog().info("RT CAMERA IS ACTIVE");
         }
+        this.setProject(new Project());
 
 
     }
@@ -76,6 +89,18 @@ public class RtCamera {
     public void setName(NAME name) {
         this.name = name;
     }
+
+    public static String getSerialNumber() {
+        return SERIAL_NUMBER;
+    }
+
+    public static void setSerialNumber(String serialNumber) {
+        if(serialNumber!=null){
+            serialNumber=serialNumber.toUpperCase();
+        }
+        SERIAL_NUMBER = serialNumber;
+    }
+
 
     public MODEL getModel() {
         return model;
@@ -150,12 +175,12 @@ public class RtCamera {
     }
 
     public RadioActiveIsotope getIsotopes() {
-        return isotopes;
+        return isotope;
     }
 
     public void setIsotopes(RadioActiveIsotope isotopes) {
 
-        this.isotopes = isotopes;
+        this.isotope = isotopes;
     }
 
     public String getControls_and_Guide_Tubes() {
@@ -413,6 +438,11 @@ public class RtCamera {
     private void setDevice_Source_Maximum_Capacity(MODEL model, RadioActiveIsotope isotope) {
         switch (model) {
             case SIGMA_880:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+                this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
+                this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
+                this.isotopetypes.add(ISOTOPETYPE.YTTERBIUM_169);
+                this.isotopetypes.add(ISOTOPETYPE.CAESIUM_137);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 150) {
                     this.setCapacityPermision(true);
                     this.setIsotopes(isotope);
@@ -439,7 +469,14 @@ public class RtCamera {
                     this.setIsotopes(isotope);
                 }
                 break;
+
             case OMEGA_880:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+                this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
+                this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
+                this.isotopetypes.add(ISOTOPETYPE.YTTERBIUM_169);
+                this.isotopetypes.add(ISOTOPETYPE.CAESIUM_137);
+
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 80) {
                     this.setCapacityPermision(true);
                     this.setIsotopes(isotope);
@@ -464,6 +501,11 @@ public class RtCamera {
                 }
                 break;
             case DELTA_880:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+                this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
+                this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
+                this.isotopetypes.add(ISOTOPETYPE.YTTERBIUM_169);
+                this.isotopetypes.add(ISOTOPETYPE.CAESIUM_137);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 150) {
                     this.setCapacityPermision(true);
                     this.setIsotopes(isotope);
@@ -491,6 +533,11 @@ public class RtCamera {
                 }
                 break;
             case ELITA_880:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+                this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
+                this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
+                this.isotopetypes.add(ISOTOPETYPE.YTTERBIUM_169);
+                this.isotopetypes.add(ISOTOPETYPE.CAESIUM_137);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 150) {
                     this.setCapacityPermision(true);
                     this.setIsotopes(isotope);
@@ -518,6 +565,7 @@ public class RtCamera {
                 }
                 break;
             case SCARPRO_1075_880:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 81) {
                     this.setCapacityPermision(true);
                     this.setIsotopes(isotope);
@@ -525,6 +573,9 @@ public class RtCamera {
 
                 break;
             case Exertus_Dual_120:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+                this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
+
                 this.setTotalweight(22);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.IRIDIUM_192) && isotope.getActivity() <= 120) {
                     this.setCapacityPermision(true);
@@ -535,6 +586,9 @@ public class RtCamera {
                     this.setIsotopes(isotope);
                 }
             case Exertus_Dual_60:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+                this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
+
                 this.setTotalweight(18);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.IRIDIUM_192) && isotope.getActivity() <= 60) {
                     this.setCapacityPermision(true);
@@ -546,18 +600,24 @@ public class RtCamera {
                 }
                 break;
             case EXERTUS_LIGHT:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+
                 this.setTotalweight(6);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 140) {
                     this.setCapacityPermision(true);
                     this.setIsotopes(isotope);
                 }
             case EXERTUS_LIGHT_W:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+
                 this.setTotalweight(8);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 140) {
                     this.setCapacityPermision(true);
                     this.setIsotopes(isotope);
                 }
             case EXERTUS_CIRCA_120:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+
                 this.setTotalweight(40);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 100) {
                     this.setCapacityPermision(true);
@@ -566,6 +626,8 @@ public class RtCamera {
 
                 break;
             case EXERTUS_CIRCA_80:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+
                 this.setTotalweight(40);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 80) {
                     this.setCapacityPermision(true);
@@ -573,9 +635,9 @@ public class RtCamera {
                     break;
                 }
                 break;
-            case YG_192_S:
-                break;
             case EXERTUS_RID_Se4P:
+                this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
+
                 this.setTotalweight(7);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.SELENIUM_75) && isotope.getActivity() <= 120) {
                     this.setCapacityPermision(true);
@@ -583,6 +645,9 @@ public class RtCamera {
                 }
                 break;
             case EXERTUS_VOX_100:
+
+                this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
+
                 this.setTotalweight(185);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.COBALT_60) && isotope.getActivity() <= 100) {
                     this.setCapacityPermision(true);
@@ -591,6 +656,9 @@ public class RtCamera {
 
                 break;
             case EXERTUS_VOX_400:
+
+                this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
+
                 this.setTotalweight(320);
                 if (isotope.getIsotopetype().equals(ISOTOPETYPE.COBALT_60) && isotope.getActivity() <= 400) {
                     this.setCapacityPermision(true);
@@ -602,29 +670,105 @@ public class RtCamera {
         }
     }
 
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public RadioActiveIsotope getIsotope() {
+        return isotope;
+    }
+
+    public void setIsotope(RadioActiveIsotope isotope) {
+        this.isotope = isotope;
+    }
+
+    /**
+     * Check if camera allows to keep the isotopeType
+     *
+     * @param isotope
+     * @return boolean
+     */
+    private boolean isIsotopePermitToChargeRT_Camera(RadioActiveIsotope isotope) {
+
+        for (int i = 0; i < isotopetypes.size(); i++) {
+            if (isotope.getIsotopetype().equals(isotopetypes.get(i))) {
+
+                this.setIsotopeTypePermision(true);
+                return true;
+            }
+
+        }
+        if (!isIsotopeTypePermision()) {
+            this.getLog().info("SAFETY MEASURE WAS VIOLATED:\n" +
+                    "CAMERA DOES,NOT ALLOWS TO KEEP THE ISOTOPE TYPE:" + isotope.getIsotopetype() + "\n" +
+                    "CHECK IT:\n" +
+                    "CAMERA  ALLOWS TO KEEP THE ISOTOPETYPES :" + getIsotopetypes());
+        }
+
+        return false;
+    }
+
+    public boolean isIsotopeTypePermision() {
+        return isotopeTypePermision;
+    }
+
+    public void setIsotopeTypePermision(boolean isotopeTypePermision) {
+        this.isotopeTypePermision = isotopeTypePermision;
+    }
+
+    public ArrayList<ISOTOPETYPE> getIsotopetypes() {
+        return isotopetypes;
+    }
+
+    public void setIsotopetypes(ArrayList<ISOTOPETYPE> isotopetypes) {
+        this.isotopetypes = isotopetypes;
+    }
+
+    /**
+     * is a camera ready for a project ?
+     *
+     * @return boolean
+     */
+    public boolean ready_RT_CAMERA() {
+        this.isIsotopePermitToChargeRT_Camera(getIsotope());
+
+        if (!this.isCapacityPermision()) {
+            this.getLog().info("CHECK why isCapacityPermision(); = " + this.isCapacityPermision() + " ,go to : " + this.getClass());
+
+        }
+        if (!this.isotopeTypePermision) {
+            this.getLog().info("CHECK  why isotopeTypePermision(); = " + this.isotopeTypePermision + " ,go to : " + this.getClass());
+
+        }
+
+        return this.isIsotopeTypePermision() && isCapacityPermision();
+    }
+
+
     @Override
     public String toString() {
         return "RT_CAMERA{" + "\n" +
                 "NAME=" + name + "\n" +
                 ", MODEL=" + model + "\n" +
+                ", SERIAL_NUMBER=" + SERIAL_NUMBER + "\n" +
                 ", DIMENSIONS=" + dimensions + "\n" +
                 ", WEIGHT=" + weight + "\n" +
-               // ", ACTIVITY_OF_DEPLETED_URANIUM_SHIELD=" + activity_Of_Depleted_Uranium_Shield + "\n" +
-               // ", CERTIFICATION_TYPE_PACKAGE=" + certification_Type_Package + "\n" +
-               // ", ACCREDITATION=" + accreditation + "\n" +
-               // ", CONSTRUCTION_EXPOSURE_DEVICE=" + construction_Exposure_Device + "\n" +
-               // ", REMOVABLE_JACKET='" + removable_Jacket + "\n" +
-               // ", MATERIALS='" + materials + "\n" +
-                ", ISOTOPES=" + isotopes + "\n" +
-               // ", CONTROLS_AND_GUIDE_TUBES=" + controls_and_Guide_Tubes + "\n" +
-               // ", INSPECTION_REQUIREMENTS=" + inspection_Requirements + "\n" +
-                //", MAINTENANCE_REQUIREMENTS=" + maintenance_Requirements + "\n" +
-                ", PRIMARY_APPLICATION=" + primary_Application + "\n" +
-               // ", SOURCE_ASSEMBLY_AND_AUTHORIZED_CONTENTS='" + source_Assembly_and_Authorized_Contents + "\n" +
+                ", ISOTOPE_TYPES=" + isotopetypes + "\n" +
+                ", ISOTOPE=" + isotope + "\n" +
+                ", ISOTOPE_PERMISSION=" + this.isIsotopePermitToChargeRT_Camera(getIsotope()) + "\n" +
                 ", CAPACITY_PERMISSION=" + capacityPermision + "\n" +
+                ", RT_CAMERA_IS_READY=" + this.ready_RT_CAMERA() + "\n" +
+                ", PRIMARY_APPLICATION=" + primary_Application + "\n" +
                 ", COUNTRY_REGION=" + country_Region + "\n" +
                 ", TOTAL_WEIGHT=" + totalweight + "\n" +
                 ", SAFETY_DETAIL=" + safetyDetail + "\n" +
+                ", PROJECT_NAME=" + project.getName() + "\n" +
+                ", PROJECT_NR=" + project.getProjectNumber() + "\n" +
+                ", PROJECT_LOCATION=" + project.getLocation() + "\n" +
                 '}';
     }
 }

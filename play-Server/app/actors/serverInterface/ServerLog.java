@@ -1,5 +1,4 @@
 package actors.serverInterface;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
@@ -13,8 +12,6 @@ import java.util.logging.Logger;
  * Created by F.Arian on 06.11.17.
  */
 public class ServerLog extends Observable {
-
-
     private Logger log;
     private static File folder;
 
@@ -46,7 +43,6 @@ public class ServerLog extends Observable {
                 ret += record.getLevel() + " :";
                 ret += this.formatMessage(record);
                 ret += "\r\n";
-
                 return ret;
             }
         });
@@ -61,8 +57,9 @@ public class ServerLog extends Observable {
      * @param msg
      */
     public void info(String msg) {
+
         notifyView(msg);
-        getLog().info(msg);
+        getLog().info("\n"+msg);
     }
 
     /**

@@ -3,7 +3,7 @@ package models;
 import actors.serverInterface.ServerLog;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
+
 
 /**
  * Created by F.Arian on 06.11.17.
@@ -23,6 +23,7 @@ public class RadioActiveIsotope {
     private ISOTOPETYPE isotopetype;
     private ServerLog log;
     private static LocalDateTime DATEOFINSTALATION = LOCAL_DATE_TIME.minusMinutes(1);
+    private Project project;
 
     public RadioActiveIsotope(ISOTOPETYPE type, double activity) {
         this.ACTIVITY=activity;
@@ -33,7 +34,8 @@ public class RadioActiveIsotope {
         this.setHalfLife(-1);
         this.setSource_Assembly_and_Authorized_Contents(type);
         this.setLog(new ServerLog());
-        this.getLog().info("Installation date of RADIOACTIVEISOTOPE: " + getDATEOFINSTALATION() + "\n");
+        this.getLog().info("Installation date of RADIOACTIVEISOTOPE: " + getDATEOFINSTALATION() + "");
+        this.setProject(new Project());
     }
 
     public static LocalDateTime getDATEOFINSTALATION() {
@@ -280,16 +282,28 @@ public class RadioActiveIsotope {
 
     }
 
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     @Override
     public String toString() {
         return "RADIOACTIVE_ISOTOPE{" +"\n"+
+                ", ISOTOPE_TYPE=" + isotopetype +"\n"+
                 "HALF_LIFE=" + halfLife +"\n"+
                 ", FIRST_ACTIVITY=" + ACTIVITY +"\n"+
                 ", CURRENT_ACTIVITY=" + activity +"\n"+
                 ", ACTIVITY_DIMENSIONS=" + activityDimensions +"\n"+
                 ", ASSEMBLY_MODEL_NUMBER=" + assembly_Model_Number + "\n"+
                 ", GAMMA_ENERGY_RANGE=" + gamma_Energy_Range + "\n"+
-                ", ISOTOPE_TYPE=" + isotopetype +"\n"+
+
+                ", PROJECT_NAME=" + project.getName() +"\n"+
+                ", PROJECT_NR=" + project.getProjectNumber() +"\n"+
+                ", PROJECT_LOCATION=" + project.getLocation()+"\n"+
                 '}';
     }
 }

@@ -18,6 +18,7 @@ public class DosimeterID {
     private boolean status;
     private String calibrationMessage;
     private ServerLog log;
+    private Project project;
 
     public DosimeterID(String serialNumber, String name) {
         this.setName(name);
@@ -36,6 +37,7 @@ public class DosimeterID {
         if(isStatus()){
             this.calibrationMessage();
         }
+        this.setProject(new Project());
 
     }
 
@@ -163,6 +165,23 @@ public class DosimeterID {
         }
     }
 
+    public String getCalibrationInstitut() {
+        return calibrationInstitut;
+    }
+
+    public void setCalibrationInstitut(String calibrationInstitut) {
+        this.calibrationInstitut = calibrationInstitut;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+
     @Override
     public String toString() {
         return "DOSIMETER_ID{" + "\n" +
@@ -177,6 +196,9 @@ public class DosimeterID {
                 ", TYPE=" + type + "\n" +
                 ", STATUS=" + status +"\n"+
                 ", CALIBRATION_MESSAGE=" + calibrationMessage + "\n" +
+                ", PROJECT_NAME=" + project.getName() +"\n"+
+                ", PROJECT_NR=" + project.getProjectNumber() +"\n"+
+                ", PROJECT_LOCATION=" + project.getLocation()+"\n"+
                 '}';
     }
 }

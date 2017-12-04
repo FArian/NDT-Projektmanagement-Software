@@ -292,6 +292,17 @@ public enum Type {
             return null;
         }
     },
+    HS800 {
+        @Override
+        public MODEL getModel(MODEL model) {
+            for (int i = 0; i < MODEL.values().length; i++) {
+                if (MODEL.values()[i].equals(model)) {
+                    return MODEL.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    },
     IX59 {
         @Override
         public MODEL getModel(MODEL model) {

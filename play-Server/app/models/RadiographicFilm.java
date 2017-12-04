@@ -2,7 +2,6 @@ package models;
 
 
 import actors.serverInterface.ServerLog;
-import scala.util.parsing.combinator.testing.Str;
 
 import java.util.ArrayList;
 
@@ -11,16 +10,20 @@ import java.util.ArrayList;
  */
 public class RadiographicFilm {
     private NAME filmName;
+    private ArrayList<Type> ndtType;
     private Type type;
     private MODEL model;
     private SIZE size;
     private Location location;
     private double amountFilm;
+    private boolean filmIsExpirt;
     /**
      * list all gama ray and xRay for film
      */
     private ArrayList<ISOTOPETYPE> isotopetypes;
-
+    /**
+     * Films Types ,if is from list will be set best contrast
+     */
     private ArrayList<Type> filmsTypes;
     /**
      * a isotope for Film , if is from list will be set best contrast
@@ -37,6 +40,8 @@ public class RadiographicFilm {
     private int widthFilm;
     private ServerLog log;
     private String featuresandMajorApplications;
+    private double base_Fog;
+    private Project project;
 
 
     public RadiographicFilm(NAME filmname, Type filmType, MODEL gamaRayOrXraySheetOrRoll, SIZE size) {
@@ -55,8 +60,17 @@ public class RadiographicFilm {
         this.isotopetypes = new ArrayList<>();
         this.setIsotopetype(ISOTOPETYPE.IRIDIUM_192);
         this.relativeExposureFactors();
+        this.ndtType = new ArrayList<>();
+        this.ndtType.add(Type.RT);
+        this.ndtType.add(Type.D_ROOM);
+        this.setFilmIsexpirt(false);
+        this.setBase_Fog(-1);
+        this.setProject(new Project());
     }
 
+    /**
+     * set Relative Exposure Factors
+     */
     private void relativeExposureFactors() {
         this.setDevelopTemperature_C(-1);
         this.setDevelopImmersionTime_S(-1);
@@ -65,7 +79,7 @@ public class RadiographicFilm {
         this.setContrast(-1);
 
         if (getFilmName().equals(NAME.KODAK)) {
-            this.contrastUpdate(480, 26);
+            this.contrastUpdate(480, 26,getType());
             this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
             this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
             this.isotopetypes.add(ISOTOPETYPE.X_Ray220KV);
@@ -77,8 +91,8 @@ public class RadiographicFilm {
             this.filmsTypes.add(Type.DR50);
 
             switch (getType()) {
+
                 case DR50:
-                    this.setContrast(7.2);
                     if (isotopetype.equals(ISOTOPETYPE.COBALT_60) ||
                             isotopetype.equals(ISOTOPETYPE.IRIDIUM_192) ||
                             isotopetype.equals(ISOTOPETYPE.X_Ray120KV)) {
@@ -155,6 +169,8 @@ public class RadiographicFilm {
             }
         }
         if (getFilmName().equals(NAME.AGFA)) {
+            this.contrastUpdate(480,28,getType());
+            this.setWeightFilm(11);
             this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
             this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
             this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
@@ -498,27 +514,98 @@ public class RadiographicFilm {
     /**
      * set contrast for KODAK with X_ray 200/220kv
      */
-    private void contrastUpdate(int timeS, int temperC) {
+    private void contrastUpdate(int timeS, int temperC,Type type) {
         /**
          * Processor Cycle 8 min 79°F or 26°C
          */
-        this.setDevelopTemperature_C(developTemperature_C);
-        this.setDevelopImmersionTime_S(developImmersionTime_S);
+        this.setDevelopTemperature_C(temperC);
+        this.setDevelopImmersionTime_S(timeS);
         double time = this.getDevelopImmersionTime_S();
         double temp = this.getDevelopTemperature_C();
-        //26°C and 8 min
-        if (time == 480 && temp == 26) {
-            this.setContrast(7.2);
-        }
-        //28°C and 8 min
-        if (time == 480 && temp == 28) {
-            this.setContrast(4.5);
-        }
-        //30°C and 6 min
-        if (time == 360 && temp == 30) {
-            this.setContrast(4.7);
-        }
 
+        switch (type){
+            case DR50:
+                //26°C and 8 min
+                if (time == 480 && temp == 26) {
+                    this.setContrast(5.4);
+                    this.setBase_Fog(0.19);
+                }
+                //30°C and 5 min
+                if (time == 300 && temp == 30) {
+                    this.setContrast(5.55);
+                    this.setBase_Fog(0.20);
+
+                }
+                break;
+            case M100:
+                //26°C and 8 min
+                if (time == 480 && temp == 26) {
+                    this.setContrast(5.4);
+                    this.setBase_Fog(0.19);
+                }
+                //30°C and 5 min
+                if (time == 300 && temp == 30) {
+                    this.setContrast(5.25);
+                    this.setBase_Fog(0.19);
+
+                }
+                break;
+            case MX125:
+                //26°C and 8 min
+                if (time == 480 && temp == 26) {
+                    this.setContrast(5.15);
+                    this.setBase_Fog(0.20);
+                }
+                //30°C and 5 min
+                if (time == 300 && temp == 30) {
+                    this.setContrast(5.05);
+                    this.setBase_Fog(0.20);
+
+                }
+                break;
+            case T200:
+                //26°C and 8 min
+                if (time == 480 && temp == 26) {
+                    this.setContrast(4.7);
+                    this.setBase_Fog(0.20);
+                }
+                //30°C and 5 min
+                if (time == 300 && temp == 30) {
+                    this.setContrast(4.7);
+                    this.setBase_Fog(0.20);
+
+                }
+                break;
+            case AA400:
+                //26°C and 8 min
+                if (time == 480 && temp == 26) {
+                    this.setContrast(4.7);
+                    this.setBase_Fog(0.20);
+                }
+                //30°C and 5 min
+                if (time == 300 && temp == 30) {
+                    this.setContrast(4.65);
+                    this.setBase_Fog(0.20);
+
+                }
+                break;
+            case HS800:
+                //26°C and 8 min
+                if (time == 480 && temp == 26) {
+                    this.setContrast(4.4);
+                    this.setBase_Fog(0.22);
+                }
+                //30°C and 5 min
+                if (time == 300 && temp == 30) {
+                    this.setContrast(4.3);
+                    this.setBase_Fog(0.23);
+
+                }
+
+
+
+
+        }
     }
 
     private void amountFilm() {
@@ -756,6 +843,17 @@ public class RadiographicFilm {
         return isotopetypes;
     }
 
+    /**
+     * @param isotopetype
+     * @return check if isotope is in list
+     */
+    public boolean isIsotope(ISOTOPETYPE isotopetype) {
+        for (int i = 0; i < isotopetypes.size(); i++) {
+            return isotopetypes.get(i).equals(isotopetype);
+        }
+        return false;
+    }
+
     public void setIsotopetypes(ArrayList<ISOTOPETYPE> isotopetypes) {
         this.isotopetypes = isotopetypes;
     }
@@ -768,6 +866,17 @@ public class RadiographicFilm {
         this.filmsTypes = filmsTypes;
     }
 
+    /**
+     * @param filmType
+     * @return check if FilmType is in list
+     */
+    public boolean isFilmType(Type filmType) {
+        for (int i = 0; i < filmsTypes.size(); i++) {
+            return filmsTypes.get(i).equals(filmType);
+        }
+        return false;
+    }
+
     public String getFeaturesandMajorApplications() {
         return featuresandMajorApplications;
     }
@@ -776,11 +885,73 @@ public class RadiographicFilm {
         this.featuresandMajorApplications = featuresandMajorApplications;
     }
 
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public ArrayList<Type> getNdtType() {
+        return ndtType;
+    }
 
     /**
-     * set Relative Exposure Factors
+     * @param type
+     * @return boolean
      */
-    public void SetRelativeExposureFactors() {
+    public boolean isNdtType(Type type) {
+        for (int i = 0; i < ndtType.size(); i++) {
+            return ndtType.get(i).equals(type);
+        }
+        return false;
+    }
 
+    public boolean isFilmIsexpirt() {
+        return filmIsExpirt;
+    }
+
+    public void setFilmIsexpirt(boolean filmIsExpirt) {
+        this.filmIsExpirt = filmIsExpirt;
+    }
+
+    public double getBase_Fog() {
+        return base_Fog;
+    }
+
+    public void setBase_Fog(double base_Fog) {
+        this.base_Fog = base_Fog;
+    }
+
+
+    @Override
+    public String toString() {
+        return "RADIOGRAPHIC_FILM{" +"\n"+
+                "FILM_NAME=" + filmName +"\n"+
+                ", NDT_TYPE=" + ndtType +"\n"+
+                ", FILM_TYPE=" + type +"\n"+
+                ", FILM_MODEL=" + model +"\n"+
+                ", FILM_SIZE=" + size +"\n"+
+                ", LOCATION=" + location +"\n"+
+                ", AMOUNT_FILM=" + amountFilm +"\n"+
+                ", FILM_IS_EXPIRT=" + filmIsExpirt +"\n"+
+                ", ISOTOPE_TYPES=" + isotopetypes +"\n"+
+                ", FILM_TYPES=" + filmsTypes +"\n"+
+                ", ISOTOPE_TYPE=" + isotopetype +"\n"+
+                ", DEVELOP_TEMPERATURE_°C=" + developTemperature_C +"\n"+
+                ", DEVELOP_IMMERSION_TIME_Sec=" + developImmersionTime_S +"\n"+
+                ", CONTRAST=" + contrast +"\n"+
+                ", RELATIVE_EXPOSURE_FACTORS=" + relativeExposureFactors +"\n"+
+                ", EXPIRY_DATE='" + expiryDate +"\n"+
+                ", NUMBER_OF_BOX_SHEETS=" + numberOfBoxSheets +"\n"+
+                ", WEIGHT_FILM=" + weightFilm +"\n"+
+                ", LENGTH_FILM=" + lengthFilm +"\n"+
+                ", WIDTH_FILM=" + widthFilm +"\n"+
+                ", FEATURES_AND_MAJOR_APPLICATIONS='" + featuresandMajorApplications +"\n"+
+                ", PROJECT_NAME=" + project.getName() +"\n"+
+                ", PROJECT_NR=" + project.getProjectNumber() +"\n"+
+                ", PROJECT_LOCATION=" + project.getLocation()+"\n"+
+                '}';
     }
 }
