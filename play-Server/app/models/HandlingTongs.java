@@ -11,7 +11,7 @@ public class HandlingTongs extends MATERIAL {
     private ServerLog log=new ServerLog();
 
     public HandlingTongs() {
-        super("HANDLING_TONGS",DATA.creatId("SET IT"), TYPE.SAFETY);
+        super("HANDLING_TONGS",DATA.creatId("-HANDLING_TONGS"), TYPE.SAFETY);
         this.setLength(-1);
         this.id=DATA.generateUniqueId();
         this.getLog().info(" NEW OBJECT CREATED, NAME : " +getName() +" "+getClass());
@@ -46,7 +46,6 @@ public class HandlingTongs extends MATERIAL {
                 ", SERIAL_NUMBER= " + super.getSerialNumber() +
                 ", MODEL= " + super.getModel() +
                 ", TYPE= " + super.getType() +
-                ", SERIAL_NUMBER= " + super.getSerialNumber() +
                 ", PROJECT_NAME= " + super.getProject().getName() +
                 ", PROJECT_NR= " + super.getProject().getProjectNumber() +
                 ", PROJECT_LOCATION= " + super.getProject().getLocation()+
