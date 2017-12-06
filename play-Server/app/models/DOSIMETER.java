@@ -1,11 +1,9 @@
 package models;
-
-
 import actors.serverInterface.ServerLog;
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class DosimeterID {
+public class DOSIMETER {
     private String serialNumber;
     private String name;
     private String madeIn;
@@ -13,31 +11,30 @@ public class DosimeterID {
     private String calibrationDate;
     private String calibrationExpire;
     private String calibrationInstitut;
-    private Location location;
-    private Type type;
+    private LOCATION location;
+    private TYPE type;
     private boolean status;
     private String calibrationMessage;
-    private ServerLog log;
+    private ServerLog log=new ServerLog();
     private Project project;
 
-    public DosimeterID(String serialNumber, String name) {
-        this.setName(name);
-        this.setSerialNumber(serialNumber);
+    public DOSIMETER() {
+        this.setSerialNumber(DATA.generateUniqueId());
         this.setStatus(true);
         this.setCalibration(true);
-        this.setMadeIn(null);
-        this.setCalibrationDate(DateFormatLocal.getLocalDate());
-        this.setCalibrationExpire(DateFormatLocal.changeDate(0, 6, 0));
-        this.setCalibrationInistitut(null);
-        this.setLocation(Location.CENTRAL);
-        this.setType(Type.SAFETY);
+        this.setMadeIn("NOT SET");
+        this.setCalibrationDate(DATA.getLocalDate());
+        this.setCalibrationExpire(DATA.changeDate(0, 0, 1));
+        this.setCalibrationInistitut("NOT SET");
+        this.setLocation(LOCATION.CENTRAL);
+        this.setType(TYPE.SAFETY);
         this.setCalibrationMessage("FIRST CALIBRATION MESSAGE");
-        this.log = new ServerLog();
-        this.getLog().info(" A DOSIMETER: "+getName()+"WITH SERIAL_NUMBER: "+getSerialNumber()+"IS CREATED.");
+        this.getLog().info("NEW OBJECT CREATED,NAME:  "+getName().toString()+"");
         if(isStatus()){
             this.calibrationMessage();
         }
         this.setProject(new Project());
+        this.setName("MY_DOSIMETER");
 
     }
 
@@ -96,7 +93,7 @@ public class DosimeterID {
      * @return
      */
     public boolean isCalibration() {
-        boolean result = getCalibrationExpire() == DateFormatLocal.getDate();
+        boolean result = getCalibrationExpire() == DATA.getDate();
         if (result) {
             this.setCalibrationMessage("CALIBRATION EXPERT");
             getLog().info(this.getCalibrationMessage());
@@ -113,7 +110,7 @@ public class DosimeterID {
     }
 
     public void setCalibrationDate(String calibrationDate) {
-        this.calibrationDate = DateFormatLocal.dateUpDate(calibrationDate);
+        this.calibrationDate = DATA.dateUpDate(calibrationDate);
     }
 
     public String getCalibrationExpire() {
@@ -121,7 +118,7 @@ public class DosimeterID {
     }
 
     public void setCalibrationExpire(String calibrationExpire) {
-        this.calibrationExpire = DateFormatLocal.dateUpDate(calibrationExpire);
+        this.calibrationExpire = DATA.dateUpDate(calibrationExpire);
     }
 
     public String getCalibrationInistitut() {
@@ -137,19 +134,19 @@ public class DosimeterID {
      *
      * @return
      */
-    public Location getLocation() {
+    public LOCATION getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(LOCATION location) {
         this.location = location;
     }
 
-    public Type getType() {
+    public TYPE getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(TYPE type) {
         this.type = type;
     }
 
@@ -159,7 +156,7 @@ public class DosimeterID {
      */
     public void calibrationMessage() {
 
-        if (getCalibrationExpire() == DateFormatLocal.addNewDayToDate(-14)) {
+        if (getCalibrationExpire() == DATA.addNewDayToDate(-14)) {
             this.setCalibrationMessage("IN TWO WEEKS, THE CALIBRATION WILL BE EXPIRED.");
             getLog().info(this.getCalibrationMessage() + "\n");
         }
@@ -182,23 +179,24 @@ public class DosimeterID {
     }
 
 
+
     @Override
     public String toString() {
         return "DOSIMETER_ID{" + "\n" +
-                "SERIAL_NUMBER=" + serialNumber + "\n" +
-                ", NAME=" + name + "\n" +
-                ", MADE_IN=" + madeIn + "\n" +
-                ", CALIBRATION=" + calibration + "\n" +
-                ", CALIBRATION_DATE=" + calibrationDate + "\n" +
-                ", CALIBRATION_EXPIRE=" + calibrationExpire + "\n" +
-                ", CALIBRATION_INSTITUTE=" + calibrationInstitut + "\n" +
-                ", LOCATION=" + location + "\n" +
-                ", TYPE=" + type + "\n" +
-                ", STATUS=" + status +"\n"+
-                ", CALIBRATION_MESSAGE=" + calibrationMessage + "\n" +
-                ", PROJECT_NAME=" + project.getName() +"\n"+
-                ", PROJECT_NR=" + project.getProjectNumber() +"\n"+
+                "SERIAL_NUMBER=" + serialNumber +
+                ", NAME=" + name +
+                ", MADE_IN=" + madeIn +
+                ", CALIBRATION=" + calibration +
+                ", CALIBRATION_DATE=" + calibrationDate +
+                ", CALIBRATION_EXPIRE=" + calibrationExpire +
+                ", CALIBRATION_INSTITUTE=" + calibrationInstitut +
+                ", LOCATION=" + location +
+                ", TYPE=" + type +
+                ", STATUS=" + status +
+                ", CALIBRATION_MESSAGE=" + calibrationMessage +
+                ", PROJECT_NAME=" + project.getName() +
+                ", PROJECT_NR=" + project.getProjectNumber() +
                 ", PROJECT_LOCATION=" + project.getLocation()+"\n"+
-                '}';
+                "}";
     }
 }

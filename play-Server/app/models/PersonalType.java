@@ -2,7 +2,7 @@ package models;
 /**
  * Created by F.Arian on 06.11.17.
  */
-public enum PersonalType {
+public enum PERSONALTYPE {
 	
 	HPS,RADIOGRAPHER,TEAMLEADER,ASSISTENT;
 

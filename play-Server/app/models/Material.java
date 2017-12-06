@@ -1,23 +1,32 @@
 package models;
 
 
+import actors.serverInterface.ServerLog;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class Material {
+public class MATERIAL {
 	private String name;
 	private String model;
-	private Type type;
-	private int SerialNumber;
+	private TYPE type;
+	private String SerialNumber;
 	private Project project;
+	private ServerLog log=new ServerLog();
 
-	public Material(String name, String model, Type type, int serialNumber) {
+	public MATERIAL(String name, String model, TYPE type) {
 		setModel(model);
 		setName(name);
-		setSerialNumber(serialNumber);
+		setSerialNumber(DATA.generateUniqueId());
 		setType(type);
 		this.setProject(new Project());
+
 	}
+
+	public ServerLog getLog() {
+		return log;
+	}
+
 
 	public void setModel(String model) {
 		this.model = model;
@@ -27,11 +36,11 @@ public class Material {
 		this.name = name;
 	}
 
-	public void setType(Type type) {
+	public void setType(TYPE type) {
 		this.type = type;
 	}
 
-	public void setSerialNumber(int serialNumber) {
+	public void setSerialNumber(String serialNumber) {
 		SerialNumber = serialNumber;
 	}
 
@@ -44,11 +53,11 @@ public class Material {
 		return name;
 	}
 
-	public int getSerialNumber() {
+	public String getSerialNumber() {
 		return SerialNumber;
 	}
 
-	public Type getType() {
+	public TYPE getType() {
 		return type;
 	}
 
@@ -60,4 +69,17 @@ public class Material {
 		this.project = project;
 	}
 
+
+	@Override
+	public String toString() {
+		return "MATERIAL{" +
+				", NAME='" + getName() +"\n"+
+				", MODEL='" + getModel() +"\n"+
+				", TYPE=" + getType() +"\n"+
+				", SERIAL_NUMBER=" + getSerialNumber() +"\n"+
+				", PROJECT_NAME=" + project.getName() +"\n"+
+				", PROJECT_NR=" + project.getProjectNumber() +"\n"+
+				", PROJECT_LOCATION=" + project.getLocation()+"\n"+
+				"}";
+	}
 }

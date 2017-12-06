@@ -1,0 +1,30 @@
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+NEW OBJECT CREATED,NAME:  null
+
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+NEW FILM CREATED AND EXPIRY DATE IS AFTER 2 YEARS
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+ NEW OBJECT CREATED, NAME : HANDLING_TONGS class models.HandlingTongs
+INFO :
+ NEW OBJECT CREATED, NAME : VIEWER
+INFO :
+NEW OBJECT CREATED,NAME:  null
+
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+ NEW OBJECT CREATED, NAME : OTHER class models.ChemicalsDeveloper
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+ NEW OBJECT CREATED, NAME : OTHER class models.ChemicalsFixer

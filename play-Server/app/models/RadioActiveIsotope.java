@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class RadioActiveIsotope {
+public class RadioactiveIsotope {
     private static final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.now();
     private static String name;
     private double halfLife;
@@ -21,22 +21,36 @@ public class RadioActiveIsotope {
     private String gamma_Energy_Range;
     private String approximate_Steel_Working_Thickness;
     private ISOTOPETYPE isotopetype;
-    private ServerLog log;
+    private ServerLog log=new ServerLog();
     private static LocalDateTime DATEOFINSTALATION = LOCAL_DATE_TIME.minusMinutes(1);
     private Project project;
+    private static String id;
+    private String serialNumber;
 
-    public RadioActiveIsotope(ISOTOPETYPE type, double activity) {
+    public RadioactiveIsotope(ISOTOPETYPE type, double activity) {
         this.ACTIVITY=activity;
-        this.setDate(DateFormatLocal.getLocalDate());
+        this.setDate(DATA.getLocalDate());
         this.setIsotopetype(type);
+        this.setName(type.name().toString());
         this.setActivity(activity);
         this.setActivityDimensions(type, activity);
         this.setHalfLife(-1);
         this.setSource_Assembly_and_Authorized_Contents(type);
-        this.setLog(new ServerLog());
-        this.getLog().info("Installation date of RADIOACTIVEISOTOPE: " + getDATEOFINSTALATION() + "");
+        this.getLog().info("NEW OBJECT CREATED, NAME : "+getName()+
+                " , INSTALLATION DATE OF RADIOACTIVEISOTOPE: -> (" + DATA.getLocalDate() + ")");
         this.setProject(new Project());
+        this.id=DATA.generateUniqueId();
+        this.setSerialNumber(DATA.generateUniqueId());
     }
+
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
 
     public static LocalDateTime getDATEOFINSTALATION() {
         return DATEOFINSTALATION;
@@ -61,7 +75,7 @@ public class RadioActiveIsotope {
     }
 
     public void setName(String name) {
-        RadioActiveIsotope.name = name;
+        RadioactiveIsotope.name = name;
     }
 
     public double getHalfLife() {
@@ -74,7 +88,7 @@ public class RadioActiveIsotope {
      */
     public void currentHalfLife() {
         if (DATEOFINSTALATION != LOCAL_DATE_TIME) {
-            double[] time = DateFormatLocal.getPeriodTime(DATEOFINSTALATION.minusMonths(1));
+            double[] time = DATA.getPeriodTime(DATEOFINSTALATION.minusMonths(1));
             double min = 0, hour = 0, days = 0, month = 0, years = 0;
             min = time[0];
             hour = time[1];
@@ -100,7 +114,7 @@ public class RadioActiveIsotope {
     }
 
     public void setDate(String date) {
-        this.date = DateFormatLocal.dateUpDate(date);
+        this.date = DATA.dateUpDate(date);
     }
 
     public double getActivity() {
@@ -282,6 +296,7 @@ public class RadioActiveIsotope {
 
     }
 
+
     public Project getProject() {
         return project;
     }
@@ -290,20 +305,32 @@ public class RadioActiveIsotope {
         this.project = project;
     }
 
+    public static double getACTIVITY() {
+        return ACTIVITY;
+    }
+
+    public static String getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "RADIOACTIVE_ISOTOPE{" +"\n"+
-                ", ISOTOPE_TYPE=" + isotopetype +"\n"+
-                "HALF_LIFE=" + halfLife +"\n"+
-                ", FIRST_ACTIVITY=" + ACTIVITY +"\n"+
-                ", CURRENT_ACTIVITY=" + activity +"\n"+
-                ", ACTIVITY_DIMENSIONS=" + activityDimensions +"\n"+
-                ", ASSEMBLY_MODEL_NUMBER=" + assembly_Model_Number + "\n"+
-                ", GAMMA_ENERGY_RANGE=" + gamma_Energy_Range + "\n"+
+                ", ISOTOPE_TYPE= " + isotopetype +
+                ", PRICE= " + price +
+                ", ID= " + getId() +
+                ", SERIAL_NUMBER= " + serialNumber+
+                ", HALF_LIFE= " + halfLife +
+                ", FIRST_ACTIVITY= " + ACTIVITY +
+                ", CURRENT_ACTIVITY= " + activity +
+                ", ACTIVITY_DIMENSIONS= " + activityDimensions +
+                ", ASSEMBLY_MODEL_NUMBER= " + assembly_Model_Number +
+                ", GAMMA_ENERGY_RANGE= " + gamma_Energy_Range +
+                ", PROJECT_NAME= " + project.getName() +
+                ", PROJECT_NR= " + project.getProjectNumber() +
+                ", PROJECT_LOCATION= " + project.getLocation()+"\n"+
+                //", APPROXIMATE_STEEL_WORKING_THICKNESS= " + approximate_Steel_Working_Thickness + "\n"+
+                "}";
 
-                ", PROJECT_NAME=" + project.getName() +"\n"+
-                ", PROJECT_NR=" + project.getProjectNumber() +"\n"+
-                ", PROJECT_LOCATION=" + project.getLocation()+"\n"+
-                '}';
     }
 }

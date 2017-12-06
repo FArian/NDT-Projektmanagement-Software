@@ -9,11 +9,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.text.ParseException;
+import java.util.UUID;
 
 /**
  * Created by F.Arian on 06.11.17.
  */
-public abstract class DateFormatLocal {
+public abstract class DATA {
     private static final String DD_MM_YYYY = "dd.MM.yyyy";
     private static final DateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
     private static final Calendar CALENDAR = Calendar.getInstance();
@@ -68,8 +69,12 @@ public abstract class DateFormatLocal {
      * @return
      */
     public static String getLocalDate() {
-        String strDate = DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LOCAL_DATE);
+
         return DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LOCAL_DATE);
+    }
+
+    public static String convertDate(LocalDate localDate){
+        return DateTimeFormatter.ofPattern("dd.MM.yyyy").format(localDate);
     }
 
     /**
@@ -185,5 +190,37 @@ public abstract class DateFormatLocal {
         }
         return sbResult.toString();
     }
+
+    public  static String creatId(String keyId) {
+        String result = "";
+        double d;
+        for (int i = 1; i < 4; i++) {
+            d = Math.random() * 10;
+            result = result + ((int) d);
+            if (i % 3 == 0) {
+                result = result + keyId;
+            }
+        }
+        return result;
+    }
+    public static String generateUniqueId() {
+        UUID idOne = UUID.randomUUID();
+        String str = "" + idOne;
+        int uid = str.hashCode();
+        String filterStr = "" + uid;
+        str = filterStr.replaceAll("-", "");
+        return String.valueOf(Integer.parseInt(str));
+    }
+
+    public static int generateUniqueId_Int() {
+        UUID idOne = UUID.randomUUID();
+        String str = "" + idOne;
+        int uid = str.hashCode();
+        String filterStr = "" + uid;
+        str = filterStr.replaceAll("-", "");
+        return Integer.parseInt(str);
+    }
+
+
 
 }

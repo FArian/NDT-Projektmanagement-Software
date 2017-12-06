@@ -10,13 +10,14 @@ import java.util.ArrayList;
  */
 public class RadiographicFilm {
     private NAME filmName;
-    private ArrayList<Type> ndtType;
-    private Type type;
+    private ArrayList<TYPE> ndtType;
+    private TYPE type;
     private MODEL model;
     private SIZE size;
-    private Location location;
+    private LOCATION location;
     private double amountFilm;
     private boolean filmIsExpirt;
+    private static String id;
     /**
      * list all gama ray and xRay for film
      */
@@ -24,7 +25,7 @@ public class RadiographicFilm {
     /**
      * Films Types ,if is from list will be set best contrast
      */
-    private ArrayList<Type> filmsTypes;
+    private ArrayList<TYPE> filmsTypes;
     /**
      * a isotope for Film , if is from list will be set best contrast
      */
@@ -42,9 +43,10 @@ public class RadiographicFilm {
     private String featuresandMajorApplications;
     private double base_Fog;
     private Project project;
+    private String serialNumber;
 
 
-    public RadiographicFilm(NAME filmname, Type filmType, MODEL gamaRayOrXraySheetOrRoll, SIZE size) {
+    public RadiographicFilm(NAME filmname, TYPE filmType, MODEL gamaRayOrXraySheetOrRoll, SIZE size) {
         this.setFilmName(filmname);
         this.setType(filmType);
         this.setModel(gamaRayOrXraySheetOrRoll);
@@ -52,21 +54,41 @@ public class RadiographicFilm {
         this.amountFilm();
         this.setAmountFilm(getLengthFilm());
         this.setWeightFilm(-1);
-        this.setExpiryDate(DateFormatLocal.changeDate(0, 0, 2));
+        this.setExpiryDate(DATA.changeDate(0, 0, 2));
         this.log = new ServerLog();
         this.getLog().info("NEW FILM CREATED AND EXPIRY DATE IS AFTER 2 YEARS");
-        this.setLocation(Location.CENTRAL);
+        this.setLocation(LOCATION.CENTRAL);
         this.filmsTypes = new ArrayList<>();
         this.isotopetypes = new ArrayList<>();
         this.setIsotopetype(ISOTOPETYPE.IRIDIUM_192);
         this.relativeExposureFactors();
         this.ndtType = new ArrayList<>();
-        this.ndtType.add(Type.RT);
-        this.ndtType.add(Type.D_ROOM);
+        this.ndtType.add(TYPE.RT);
+        this.ndtType.add(TYPE.D_ROOM);
         this.setFilmIsexpirt(false);
         this.setBase_Fog(-1);
         this.setProject(new Project());
+        this.setSerialumber(creatId("-"+getFilmName().name().toString()));
+        this.id=DATA.generateUniqueId();
     }
+
+    public void setNdtType(ArrayList<TYPE> ndtType) {
+        this.ndtType = ndtType;
+    }
+
+    public String getSerialumber() {
+        return serialNumber;
+    }
+
+    public void setSerialumber(String serialumber) {
+        this.serialNumber = serialumber;
+    }
+
+
+    public static String getId() {
+        return id;
+    }
+
 
     /**
      * set Relative Exposure Factors
@@ -84,11 +106,11 @@ public class RadiographicFilm {
             this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
             this.isotopetypes.add(ISOTOPETYPE.X_Ray220KV);
             this.isotopetypes.add(ISOTOPETYPE.X_Ray120KV);
-            this.filmsTypes.add(Type.AA400);
-            this.filmsTypes.add(Type.T200);
-            this.filmsTypes.add(Type.MX125);
-            this.filmsTypes.add(Type.M100);
-            this.filmsTypes.add(Type.DR50);
+            this.filmsTypes.add(TYPE.AA400);
+            this.filmsTypes.add(TYPE.T200);
+            this.filmsTypes.add(TYPE.MX125);
+            this.filmsTypes.add(TYPE.M100);
+            this.filmsTypes.add(TYPE.DR50);
 
             switch (getType()) {
 
@@ -177,13 +199,13 @@ public class RadiographicFilm {
             this.isotopetypes.add(ISOTOPETYPE.X_Ray200KV);
             this.isotopetypes.add(ISOTOPETYPE.X_Ray100KV);
             this.isotopetypes.add(ISOTOPETYPE.LINAC_8MeV);
-            this.filmsTypes.add(Type.STRUCTURIX_D2);
-            this.filmsTypes.add(Type.STRUCTURIX_D3_sc);
-            this.filmsTypes.add(Type.STRUCTURIX_D3);
-            this.filmsTypes.add(Type.STRUCTURIX_D4);
-            this.filmsTypes.add(Type.STRUCTURIX_D5);
-            this.filmsTypes.add(Type.STRUCTURIX_D7);
-            this.filmsTypes.add(Type.STRUCTURIX_D8);
+            this.filmsTypes.add(TYPE.STRUCTURIX_D2);
+            this.filmsTypes.add(TYPE.STRUCTURIX_D3_sc);
+            this.filmsTypes.add(TYPE.STRUCTURIX_D3);
+            this.filmsTypes.add(TYPE.STRUCTURIX_D4);
+            this.filmsTypes.add(TYPE.STRUCTURIX_D5);
+            this.filmsTypes.add(TYPE.STRUCTURIX_D7);
+            this.filmsTypes.add(TYPE.STRUCTURIX_D8);
             switch (getType()) {
                 case STRUCTURIX_D2:
                     this.setContrast(6.0);
@@ -334,14 +356,14 @@ public class RadiographicFilm {
             this.isotopetypes.add(ISOTOPETYPE.X_Ray200KV);
             this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
             this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
-            this.filmsTypes.add(Type.IX20);
-            this.filmsTypes.add(Type.IX25);
-            this.filmsTypes.add(Type.IX50);
-            this.filmsTypes.add(Type.IX80);
-            this.filmsTypes.add(Type.IX100);
-            this.filmsTypes.add(Type.IX150);
-            this.filmsTypes.add(Type.IX29);
-            this.filmsTypes.add(Type.IX59);
+            this.filmsTypes.add(TYPE.IX20);
+            this.filmsTypes.add(TYPE.IX25);
+            this.filmsTypes.add(TYPE.IX50);
+            this.filmsTypes.add(TYPE.IX80);
+            this.filmsTypes.add(TYPE.IX100);
+            this.filmsTypes.add(TYPE.IX150);
+            this.filmsTypes.add(TYPE.IX29);
+            this.filmsTypes.add(TYPE.IX59);
 
             switch (getType()) {
                 case IX20:
@@ -514,7 +536,7 @@ public class RadiographicFilm {
     /**
      * set contrast for KODAK with X_ray 200/220kv
      */
-    private void contrastUpdate(int timeS, int temperC,Type type) {
+    private void contrastUpdate(int timeS, int temperC, TYPE type) {
         /**
          * Processor Cycle 8 min 79°F or 26°C
          */
@@ -717,11 +739,11 @@ public class RadiographicFilm {
         this.filmName = filmName;
     }
 
-    public Type getType() {
+    public TYPE getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(TYPE type) {
         this.type = type;
     }
 
@@ -789,11 +811,11 @@ public class RadiographicFilm {
         this.relativeExposureFactors = relativeExposureFactors;
     }
 
-    public Location getLocation() {
+    public LOCATION getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(LOCATION location) {
         this.location = location;
     }
 
@@ -858,11 +880,11 @@ public class RadiographicFilm {
         this.isotopetypes = isotopetypes;
     }
 
-    public ArrayList<Type> getFilmsTypes() {
+    public ArrayList<TYPE> getFilmsTypes() {
         return filmsTypes;
     }
 
-    public void setFilmsTypes(ArrayList<Type> filmsTypes) {
+    public void setFilmsTypes(ArrayList<TYPE> filmsTypes) {
         this.filmsTypes = filmsTypes;
     }
 
@@ -870,7 +892,7 @@ public class RadiographicFilm {
      * @param filmType
      * @return check if FilmType is in list
      */
-    public boolean isFilmType(Type filmType) {
+    public boolean isFilmType(TYPE filmType) {
         for (int i = 0; i < filmsTypes.size(); i++) {
             return filmsTypes.get(i).equals(filmType);
         }
@@ -893,7 +915,7 @@ public class RadiographicFilm {
         this.project = project;
     }
 
-    public ArrayList<Type> getNdtType() {
+    public ArrayList<TYPE> getNdtType() {
         return ndtType;
     }
 
@@ -901,7 +923,7 @@ public class RadiographicFilm {
      * @param type
      * @return boolean
      */
-    public boolean isNdtType(Type type) {
+    public boolean isNdtType(TYPE type) {
         for (int i = 0; i < ndtType.size(); i++) {
             return ndtType.get(i).equals(type);
         }
@@ -923,35 +945,54 @@ public class RadiographicFilm {
     public void setBase_Fog(double base_Fog) {
         this.base_Fog = base_Fog;
     }
+    /**
+     * create id String
+     * @param keyId
+     * @return id
+     */
+    public String creatId(String keyId) {
+        String result = "";
+        double d;
+        for (int i = 1; i < 4; i++) {
+            d = Math.random() * 10;
+            result = result + ((int) d);
+            if (i % 3 == 0) {
+                result = result + keyId;
+            }
+        }
+        return result;
+    }
 
 
     @Override
     public String toString() {
-        return "RADIOGRAPHIC_FILM{" +"\n"+
-                "FILM_NAME=" + filmName +"\n"+
-                ", NDT_TYPE=" + ndtType +"\n"+
-                ", FILM_TYPE=" + type +"\n"+
-                ", FILM_MODEL=" + model +"\n"+
-                ", FILM_SIZE=" + size +"\n"+
-                ", LOCATION=" + location +"\n"+
-                ", AMOUNT_FILM=" + amountFilm +"\n"+
-                ", FILM_IS_EXPIRT=" + filmIsExpirt +"\n"+
-                ", ISOTOPE_TYPES=" + isotopetypes +"\n"+
-                ", FILM_TYPES=" + filmsTypes +"\n"+
-                ", ISOTOPE_TYPE=" + isotopetype +"\n"+
-                ", DEVELOP_TEMPERATURE_°C=" + developTemperature_C +"\n"+
-                ", DEVELOP_IMMERSION_TIME_Sec=" + developImmersionTime_S +"\n"+
-                ", CONTRAST=" + contrast +"\n"+
-                ", RELATIVE_EXPOSURE_FACTORS=" + relativeExposureFactors +"\n"+
-                ", EXPIRY_DATE='" + expiryDate +"\n"+
-                ", NUMBER_OF_BOX_SHEETS=" + numberOfBoxSheets +"\n"+
-                ", WEIGHT_FILM=" + weightFilm +"\n"+
-                ", LENGTH_FILM=" + lengthFilm +"\n"+
-                ", WIDTH_FILM=" + widthFilm +"\n"+
-                ", FEATURES_AND_MAJOR_APPLICATIONS='" + featuresandMajorApplications +"\n"+
-                ", PROJECT_NAME=" + project.getName() +"\n"+
-                ", PROJECT_NR=" + project.getProjectNumber() +"\n"+
-                ", PROJECT_LOCATION=" + project.getLocation()+"\n"+
-                '}';
+        return "RADIOGRAPHIC_FILM{ " +"\n"+
+                ", FILM_NAME= " + filmName +
+                ", SERIAL_NUMBER= " + serialNumber +
+                ", ID= " + getId() +
+                ", NDT_TYPE= " + ndtType +
+                ", FILM_TYPE= " + type +
+                ", FILM_MODEL= " + model +
+                ", FILM_SIZE= " + size +
+                ", LOCATION= " + location +
+                ", AMOUNT_FILM= " + amountFilm +
+                ", FILM_IS_EXPIRT= " + filmIsExpirt +
+                ", ISOTOPE_TYPES= " + isotopetypes +
+                ", FILM_TYPES= " + filmsTypes +
+                ", ISOTOPE_TYPE= " + isotopetype +
+                ", DEVELOP_TEMPERATURE_°C= " + developTemperature_C +
+                ", DEVELOP_IMMERSION_TIME_Sec= " + developImmersionTime_S +
+                ", CONTRAST= " + contrast +
+                ", RELATIVE_EXPOSURE_FACTORS= " + relativeExposureFactors +
+                ", EXPIRY_DATE= " + expiryDate +
+                ", NUMBER_OF_BOX_SHEETS= " + numberOfBoxSheets +
+                ", WEIGHT_FILM= " + weightFilm +
+                ", LENGTH_FILM= " + lengthFilm +
+                ", WIDTH_FILM= " + widthFilm +
+                ", FEATURES_AND_MAJOR_APPLICATIONS= " + featuresandMajorApplications +
+                ", PROJECT_NAME= " + project.getName() +
+                ", PROJECT_NR= " + project.getProjectNumber() +
+                ", PROJECT_LOCATION= " + project.getLocation()+"\n"+
+                "}";
     }
 }

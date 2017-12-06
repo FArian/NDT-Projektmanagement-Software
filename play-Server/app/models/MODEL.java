@@ -177,7 +177,265 @@ public enum MODEL {
             }
             return null;
         }
-    };
+    },
+    MANUAL_STOP_BATH {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    },
+    INDUSTREX_MANUAL_FIXER  {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    INDUSTREX_AUTOMATIC_SINGLE_PART_DEVELOPER_REPLENISHER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    } ,
+    INDUSTREX_AUTOMATIC_LO_FIXER_AND_REPLENISHER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    } ,
+    MANUAL_RINSE_SOLUTION {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    } ,
+    INDUSTREX_MANUAL_DEVELOPER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    },
+    FV_2009_PLUS_PORTABLE_LED_FILM_VIEWER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    FV_2009_T_LED_FILM_VIEWER_WITH_BUILT_IN_DENSITOMETER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    FV_2010_PLUS_PORTABLE_LED_FILM_VIEWER_WITH_ELECTRONIC_MASKING {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    M_1_AND_M_2_FILM_VIEWER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    X_3_AND_X_3eco_FILM_VIEWER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    X_5_FILM_VIEWER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    X_4_AND_X_4eco_FILM_VIEWER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    },
+    FV_2008_LED_HIGH_INTENSITY_FILM_VIEWER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    MODEL_USA {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    MODEL_GERMANY {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    MODEL_IRAN {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    MODEL_CHINA {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    MODEL_KOREA {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    MODEL_JAPAN {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    MODEL_TURKEY {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ,
+    OTHER {
+        @Override
+        public DESCRIPTION getDescription(DESCRIPTION description) {
+            for (int i = 0; i < DESCRIPTION.values().length; i++) {
+                if (DESCRIPTION.values()[i].equals(description)) {
+                    return DESCRIPTION.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    }
+    ;
 
     public enum DESCRIPTION {
         AGFA_D7_FILM_VACUPAC_PB_BOX_100_SHEETS {
@@ -363,6 +621,17 @@ public enum MODEL {
                 return null;
             }
         }, KODAK_AA_400_382_FILM_LEADPACK_ROLL_WITH_LEAD_SCREENS {
+            @Override
+            public SIZE getSize(SIZE size) {
+                for (int i = 0; i < SIZE.values().length; i++) {
+                    if (SIZE.values()[i].equals(size)) {
+                        return SIZE.values().clone()[i];
+                    }
+                }
+                return null;
+            }
+        }
+        , OTHER {
             @Override
             public SIZE getSize(SIZE size) {
                 for (int i = 0; i < SIZE.values().length; i++) {

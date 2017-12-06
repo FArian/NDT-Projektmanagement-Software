@@ -12,6 +12,7 @@ public class RtCamera {
     private NAME name;
     private MODEL model;
     private static String SERIAL_NUMBER;
+    private static String id;
     private String dimensions;
     private String weight;
     private String activity_Of_Depleted_Uranium_Shield;
@@ -20,7 +21,7 @@ public class RtCamera {
     private String construction_Exposure_Device;
     private String removable_Jacket;
     private String materials;
-    private RadioActiveIsotope isotope;
+    private RadioactiveIsotope isotope;
     private String controls_and_Guide_Tubes;
     private String inspection_Requirements;
     private String maintenance_Requirements;
@@ -32,17 +33,16 @@ public class RtCamera {
     private String country_Region;
     private double totalweight;
     private String safetyDetail;
-    private ServerLog log;
+    private ServerLog log=new ServerLog();
     private ArrayList<ISOTOPETYPE> isotopetypes;
     private Project project;
 
-    public RtCamera(NAME name, MODEL model, String serial_number, RadioActiveIsotope isotope) {
+    public RtCamera(NAME name, MODEL model,RadioactiveIsotope isotope) {
         this.setCapacityPermision(false);
         this.setIsotopeTypePermision(false);
-        this.setSerialNumber(serial_number);
         this.setName(name);
         this.setModel(model);
-        this.isotopetypes = new ArrayList<>();
+        this.isotopetypes=new ArrayList<>();
         this.setDevice_Source_Maximum_Capacity(model, isotope);
         // is RT Camera SENTINEL
         if (this.getName().equals(NAME.SENTINEL)) {
@@ -60,13 +60,9 @@ public class RtCamera {
             this.setPrimary_Application(this.primary_Application_For_Sentinel());
             this.setSource_Assembly_and_Authorized_Contents(this.Source_Assembly_and_Authorized_Contents_For_Sentinel());
             this.setConstruction_Exposure_Device(this.construction_Exposure_Device_For_Sentinel());
-
-
         }
 
         this.setCountry(this.getName());
-        this.setLog(new ServerLog());
-        this.getLog().info("");
         if (!this.isCapacityPermision() && !this.isIsotopeTypePermision()) {
             isIsotopeTypePermision();
             this.getLog().info("RT CAMERA IS NOT ACTIVE," + "\n" +
@@ -74,9 +70,11 @@ public class RtCamera {
                     "please check the value of the ISOTOPE :" + isotope.getActivity() + "\n" +
                     "unsuitable for :" + this.getName() + "_" + this.getModel());
         } else {
-            this.getLog().info("RT CAMERA IS ACTIVE");
+            this.getLog().info(" NEW OBJECT CREATED, NAME : " +getName());
         }
         this.setProject(new Project());
+        this.setSerialNumber(DATA.creatId("-"+model.name().toString()));
+        this.id=DATA.generateUniqueId();
 
 
     }
@@ -174,11 +172,11 @@ public class RtCamera {
         this.materials = materials;
     }
 
-    public RadioActiveIsotope getIsotopes() {
+    public RadioactiveIsotope getIsotopes() {
         return isotope;
     }
 
-    public void setIsotopes(RadioActiveIsotope isotopes) {
+    public void setIsotopes(RadioactiveIsotope isotopes) {
 
         this.isotope = isotopes;
     }
@@ -435,7 +433,7 @@ public class RtCamera {
     /**
      * @param model of RT Camera and here will be check capacity safety!
      */
-    private void setDevice_Source_Maximum_Capacity(MODEL model, RadioActiveIsotope isotope) {
+    private void setDevice_Source_Maximum_Capacity(MODEL model, RadioactiveIsotope isotope) {
         switch (model) {
             case SIGMA_880:
                 this.isotopetypes.add(ISOTOPETYPE.SELENIUM_75);
@@ -678,11 +676,11 @@ public class RtCamera {
         this.project = project;
     }
 
-    public RadioActiveIsotope getIsotope() {
+    public RadioactiveIsotope getIsotope() {
         return isotope;
     }
 
-    public void setIsotope(RadioActiveIsotope isotope) {
+    public void setIsotope(RadioactiveIsotope isotope) {
         this.isotope = isotope;
     }
 
@@ -692,7 +690,7 @@ public class RtCamera {
      * @param isotope
      * @return boolean
      */
-    private boolean isIsotopePermitToChargeRT_Camera(RadioActiveIsotope isotope) {
+    private boolean isIsotopePermitToChargeRT_Camera(RadioactiveIsotope isotope) {
 
         for (int i = 0; i < isotopetypes.size(); i++) {
             if (isotope.getIsotopetype().equals(isotopetypes.get(i))) {
@@ -748,27 +746,34 @@ public class RtCamera {
         return this.isIsotopeTypePermision() && isCapacityPermision();
     }
 
+    public static String getId() {
+        return id;
+    }
+
+
+
 
     @Override
     public String toString() {
         return "RT_CAMERA{" + "\n" +
-                "NAME=" + name + "\n" +
+                ", NAME=" + name +
+                ", ID=" + getId()+
                 ", MODEL=" + model + "\n" +
-                ", SERIAL_NUMBER=" + SERIAL_NUMBER + "\n" +
-                ", DIMENSIONS=" + dimensions + "\n" +
-                ", WEIGHT=" + weight + "\n" +
-                ", ISOTOPE_TYPES=" + isotopetypes + "\n" +
-                ", ISOTOPE=" + isotope + "\n" +
-                ", ISOTOPE_PERMISSION=" + this.isIsotopePermitToChargeRT_Camera(getIsotope()) + "\n" +
-                ", CAPACITY_PERMISSION=" + capacityPermision + "\n" +
-                ", RT_CAMERA_IS_READY=" + this.ready_RT_CAMERA() + "\n" +
-                ", PRIMARY_APPLICATION=" + primary_Application + "\n" +
-                ", COUNTRY_REGION=" + country_Region + "\n" +
-                ", TOTAL_WEIGHT=" + totalweight + "\n" +
-                ", SAFETY_DETAIL=" + safetyDetail + "\n" +
-                ", PROJECT_NAME=" + project.getName() + "\n" +
-                ", PROJECT_NR=" + project.getProjectNumber() + "\n" +
+                ", SERIAL_NUMBER=" + SERIAL_NUMBER +
+                ", DIMENSIONS=" + dimensions +
+                ", WEIGHT=" + weight +
+                ", ISOTOPE_TYPES=" + isotopetypes +
+                ", ISOTOPE=" + isotope +
+                ", ISOTOPE_PERMISSION=" + this.isIsotopePermitToChargeRT_Camera(getIsotope()) +
+                ", CAPACITY_PERMISSION=" + capacityPermision +
+                ", RT_CAMERA_IS_READY=" + this.ready_RT_CAMERA() +
+                ", PRIMARY_APPLICATION=" + primary_Application +
+                ", COUNTRY_REGION=" + country_Region +
+                ", TOTAL_WEIGHT=" + totalweight +
+                ", SAFETY_DETAIL=" + safetyDetail +
+                ", PROJECT_NAME=" + project.getName() +
+                ", PROJECT_NR=" + project.getProjectNumber() +
                 ", PROJECT_LOCATION=" + project.getLocation() + "\n" +
-                '}';
+                "}";
     }
 }

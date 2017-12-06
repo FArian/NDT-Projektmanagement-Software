@@ -8,7 +8,7 @@ public class Personal {
     private String lastName;
     private String birthday;
     private int[] age;
-    private int id;
+    private static String id;
     private String address;
     private String companyName;
     private String mobileNr;
@@ -20,14 +20,15 @@ public class Personal {
     private String nationalId;
     private String startDate;
     private String finishedDate;
-    private PersonalType personalType;
+    private PERSONALTYPE personalType;
     private boolean status;
     private Project project;
+    private GeigerDosimeterAlarm geiger;
+    private PocketDosimeter dosimeter;
 
-    public Personal(String firstName, String lastName, String birthday, int id, TLD tld, FilmBadge filmBadge) {
+    public Personal(String firstName, String lastName, String birthday, TLD tld, FilmBadge filmBadge) {
         this.setFirstName(firstName);
         this.setBirthday(birthday);
-        this.setId(id);
         this.setAddress("IT WAS NOT ENTERED");
         this.setCompanyName("IT WAS NOT ENTERED");
         this.setMobileNr("IT WAS NOT ENTERED");
@@ -38,16 +39,36 @@ public class Personal {
         this.setHeight("IT WAS NOT ENTERED");
         this.setNationalId("IT WAS NOT ENTERED");
         this.setLastName(lastName);
-        this.setStartDate(DateFormatLocal.dateUpDate("00.00.0000"));
-        this.setFinishedDate(DateFormatLocal.dateUpDate("00.00.0000"));
-        this.setPersonalType(PersonalType.RADIOGRAPHER);
-        if (id > 0 && tld != null && filmBadge != null) {
+        this.setStartDate(DATA.dateUpDate("00.00.0000"));
+        this.setFinishedDate(DATA.dateUpDate("00.00.0000"));
+        this.setPersonalType(PERSONALTYPE.RADIOGRAPHER);
+        if (tld != null && filmBadge != null) {
             this.setStatus(true);
         }
         this.age = new int[5];
         this.setProject(new Project());
+        this.id=creatId("-"+getLastName());
+        this.setGeiger(new GeigerDosimeterAlarm());
+        this.setDosimeter(new PocketDosimeter());
 
     }
+
+    public GeigerDosimeterAlarm getGeiger() {
+        return geiger;
+    }
+
+    public void setGeiger(GeigerDosimeterAlarm geiger) {
+        this.geiger = geiger;
+    }
+
+    public PocketDosimeter getDosimeter() {
+        return dosimeter;
+    }
+
+    public void setDosimeter(PocketDosimeter dosimeter) {
+        this.dosimeter = dosimeter;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -76,7 +97,7 @@ public class Personal {
                 setCompanyName("شرکت ایران ول");
                 setMobileNr("گوشتکوب خدایاری");
                 setTelNr("فروخته");
-                this.setBirthday(DateFormatLocal.changeDate(0, 0, -120));
+                this.setBirthday(DATA.changeDate(0, 0, -120));
             }
             lastName = lastName.toUpperCase();
 
@@ -89,7 +110,7 @@ public class Personal {
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = DateFormatLocal.dateUpDate(birthday);
+        this.birthday = DATA.dateUpDate(birthday);
     }
 
     public String getCompanyName() {
@@ -161,7 +182,7 @@ public class Personal {
     }
 
     public void setStartDate(String startDate) {
-        this.startDate = DateFormatLocal.dateUpDate(startDate);
+        this.startDate = DATA.dateUpDate(startDate);
     }
 
     public String getFinishedDate() {
@@ -169,7 +190,7 @@ public class Personal {
     }
 
     public void setFinishedDate(String finishedDate) {
-        this.finishedDate = DateFormatLocal.dateUpDate(finishedDate);
+        this.finishedDate = DATA.dateUpDate(finishedDate);
     }
 
     public boolean isStatus() {
@@ -180,26 +201,22 @@ public class Personal {
         this.status = status;
     }
 
-    public PersonalType getPersonalType() {
+    public PERSONALTYPE getPersonalType() {
         return personalType;
     }
 
-    public void setPersonalType(PersonalType personalType) {
+    public void setPersonalType(PERSONALTYPE personalType) {
         this.personalType = personalType;
     }
 
     public int[] getAge() {
-        age = DateFormatLocal.getPeriodTime(this.getBirthday());
+        age = DATA.getPeriodTime(this.getBirthday());
         return age;
     }
 
 
-    public int getId() {
+    public String getId() {
         return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getAddress() {
@@ -221,31 +238,45 @@ public class Personal {
     public void setProject(Project project) {
         this.project = project;
     }
+    public  String creatId(String keyId) {
+        String result = "";
+        double d;
+        for (int i = 1; i < 4; i++) {
+            d = Math.random() * 10;
+            result = result + ((int) d);
+            if (i % 3 == 0) {
+                result = result + keyId;
+            }
+        }
+        return result;
+    }
 
 
     @Override
     public String toString() {
-        return "PERSONAL{" + "\n" +
-                "FIRST_NAME=" + firstName + "\n" +
-                ", LAST_NAME=" + lastName + "\n" +
-                ", BIRTHDAY=" + birthday + "\n" +
+        return "PERSONAL{ " + "\n" +
+                ", FIRST_NAME= " + firstName + "\n" +
+                ", LAST_NAME= " + lastName + "\n" +
+                ", ID= " + id + "\n" +
+                ", BIRTHDAY= " + birthday + "\n" +
                 ", AGE= " + getAge()[4] + " YEARS OLD AND " + getAge()[3] + " MONTH " + "\n" +
-                ", PERSONAL_ID=" + id + "\n" +
-                ", ADDRESS=" + address + "\n" +
-                ", COMPANY_NAME=" + companyName + "\n" +
-                ", MOBILE_NR=" + mobileNr + "\n" +
-                ", TEL_NR=" + telNr + "\n" +
-                ", TLD=" + tld + "\n" +
-                ", FILM_BADGE=" + filmBadge + "\n" +
-                ", WEIGHT=" + weight + "\n" +
-                ", HEIGHT=" + height + "\n" +
-                ", NATIONAL_ID=" + nationalId + "\n" +
-                ", START_DATE=" + startDate + "\n" +
-                ", FINISHED_DATE=" + finishedDate + "\n" +
-                ", PERSONAL_TYPE=" + personalType + "\n" +
-                ", STATUS=" + status + "\n" +
-                ", PROJECT_NAME=" + project.getName() + "\n" +
-                ", PROJECT_NR=" + project.getProjectNumber() + "\n" +
-                '}';
+                ", ADDRESS= " + address + "\n" +
+                ", COMPANY_NAME= " + companyName + "\n" +
+                ", MOBILE_NR= " + mobileNr + "\n" +
+                ", TEL_NR= " + telNr + "\n" +
+                ", TLD= " + tld + "\n" +
+                ", FILM_BADGE= " + filmBadge + "\n" +
+                ", GEIGER_DOSIMETER_ALARM= " + geiger + "\n" +
+                ", POCKET_DOSIMETER= " + dosimeter + "\n" +
+                ", WEIGHT= " + weight + "\n" +
+                ", HEIGHT= " + height + "\n" +
+                ", NATIONAL_ID= " + nationalId + "\n" +
+                ", START_DATE= " + startDate + "\n" +
+                ", FINISHED_DATE= " + finishedDate + "\n" +
+                ", PERSONAL_TYPE= " + personalType + "\n" +
+                ", STATUS= " + status + "\n" +
+                ", PROJECT_NAME= " + project.getName() + "\n" +
+                ", PROJECT_NR= " + project.getProjectNumber() + "\n" +
+                " }";
     }
 }

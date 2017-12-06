@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -9,22 +10,16 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     private static final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.now();
+    private static final LocalDate LOCAL_DATE=LocalDate.now();
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
     public static void main(String[] args) {
-        TLD tld = new TLD("00001", "FarhadTLD");
-        FilmBadge filmBadge = new FilmBadge("0001myFilmBadge", "FarhadFilmBadge");
-        RadioActiveIsotope isotope = new RadioActiveIsotope(ISOTOPETYPE.IRIDIUM_192, 100);
-        RtCamera rtCamera = new RtCamera(NAME.SENTINEL, MODEL.SIGMA_880,null, isotope);
+        RadioactiveIsotope isotope = new RadioactiveIsotope(ISOTOPETYPE.IRIDIUM_192, 100);
+        RtCamera camera=new RtCamera(NAME.SENTINEL,MODEL.SIGMA_880,isotope);
+        Personal personal=new Personal("Farhad","arian","13.02.1983",new TLD(),new FilmBadge());
+        Team team=new Team(personal, TYPE.RT,camera);
+        System.out.println(team);
 
-        //Personal personal = new Personal("Farhad", "khodayary", "14.02.1983", 1, tld, filmBadge);
-        //RadiographicFilm filmAGFA=new RadiographicFilm(NAME.AGFA,Type.STRUCTURIX_D4,MODEL.ROLL,SIZE.ROLLPAC_100mmX90m);
-        //RadiographicFilm filmKodak=new RadiographicFilm(NAME.KODAK,Type.AA400,MODEL.ROLL,SIZE.ROLLPAC_100mmX100m);
-        //RadiographicFilm filmFujiFilm=new RadiographicFilm(NAME.FUJIFILM,Type.IX20,MODEL.ROLL,SIZE.ROLLPAC_100mmX100m);
-
-        //System.out.println(personal);
-        //System.out.println("START :" +"\n"+rtCamera);
-        //System.out.println(filmAGFA);
 
 
     }
