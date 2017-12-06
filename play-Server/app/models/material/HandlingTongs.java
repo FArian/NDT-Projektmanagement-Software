@@ -1,6 +1,8 @@
-package models;
+package models.material;
 
 import actors.serverInterface.ServerLog;
+import models.DATA;
+import models.enums.TYPE;
 
 /**
  * Created by F.Arian on 29.11.17.
@@ -11,9 +13,9 @@ public class HandlingTongs extends MATERIAL {
     private ServerLog log=new ServerLog();
 
     public HandlingTongs() {
-        super("HANDLING_TONGS",DATA.creatId("-HANDLING_TONGS"), TYPE.SAFETY);
+        super("HANDLING_TONGS", TYPE.SAFETY);
         this.setLength(-1);
-        this.id=DATA.generateUniqueId();
+        this.id= DATA.generateUniqueId();
         this.getLog().info(" NEW OBJECT CREATED, NAME : " +getName() +" "+getClass());
 
     }

@@ -1,5 +1,7 @@
 package models;
 
+import actors.serverInterface.ServerLog;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -9,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.text.ParseException;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -26,6 +29,9 @@ public abstract class DATA {
     private static final long ltime = DATE.getTime() + 8 * 24 * 60 * 60 * 1000;
 
 
+    private static ServerLog log = new ServerLog();
+
+
     /**
      *
      */
@@ -34,6 +40,10 @@ public abstract class DATA {
         CALENDAR.set(Calendar.MONTH, 1);
         CALENDAR.set(Calendar.YEAR, 2012);
         CALENDAR.add(Calendar.DAY_OF_MONTH, 5);
+    }
+
+    public static ServerLog getLog() {
+        return log;
     }
 
     public String getDateFormat() {
@@ -73,7 +83,7 @@ public abstract class DATA {
         return DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LOCAL_DATE);
     }
 
-    public static String convertDate(LocalDate localDate){
+    public static String convertDate(LocalDate localDate) {
         return DateTimeFormatter.ofPattern("dd.MM.yyyy").format(localDate);
     }
 
@@ -172,7 +182,6 @@ public abstract class DATA {
     }
 
     /**
-     *
      * @param strDate date
      * @return dd.MM.yyyy HH:mm
      */
@@ -191,7 +200,7 @@ public abstract class DATA {
         return sbResult.toString();
     }
 
-    public  static String creatId(String keyId) {
+    public static String creatId(String keyId) {
         String result = "";
         double d;
         for (int i = 1; i < 4; i++) {
@@ -203,6 +212,7 @@ public abstract class DATA {
         }
         return result;
     }
+
     public static String generateUniqueId() {
         UUID idOne = UUID.randomUUID();
         String str = "" + idOne;
@@ -221,6 +231,25 @@ public abstract class DATA {
         return Integer.parseInt(str);
     }
 
+    public static int counter(int start) {
+        int counter = start;
+        counter ++;
+        return counter;
+    }
+
+    private static void showRandomInteger(int aStart, int aEnd, Random aRandom) {
+        if (aStart > aEnd) {
+            throw new IllegalArgumentException("Start cannot exceed End.");
+        }
+        //get the range, casting to long to avoid overflow problems
+        long range = (long) aEnd - (long) aStart + 1;
+        // compute a fraction of the range, 0 <= frac < range
+        long fraction = (long) (range * aRandom.nextDouble());
+        int randomNumber = (int) (fraction + aStart);
+        log.info("Generated : " + randomNumber);
+
+
+    }
 
 
 }

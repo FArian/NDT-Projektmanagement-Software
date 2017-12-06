@@ -1,4 +1,17 @@
 INFO :
+ NEW OBJECT CREATED, NAME : VIEWER
+INFO :
+NEW OBJECT CREATED,NAME:  null
+
+INFO :
  NEW OBJECT CREATED, NAME : null class models.Project
 INFO :
- NEW OBJECT CREATED, NAME : OTHER class models.ChemicalsFixer
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+ NEW OBJECT CREATED, NAME : OTHER class models.processing.ChemicalsDeveloper
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+ NEW OBJECT CREATED, NAME : OTHER class models.processing.ChemicalsFixer
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project

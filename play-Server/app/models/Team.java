@@ -1,6 +1,13 @@
 package models;
 
 import actors.serverInterface.ServerLog;
+import models.dosimeter.RadiometerDosimeter;
+import models.enums.*;
+import models.material.HandlingTongs;
+import models.material.RadiationSigns;
+import models.material.Viewer;
+import models.processing.ChemicalsDeveloper;
+import models.processing.ChemicalsFixer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +33,8 @@ public class Team {
     private Project project;
     private ServerLog log=new ServerLog();
     private String teamReport;
+    private static int counter=DATA.counter(0);
+    public int getCounter() {return counter;}
 
     public Team(Personal personals, TYPE teamType, RtCamera rtCamera) {
         this.personals.add(personals);
@@ -34,7 +43,7 @@ public class Team {
         this.setLocation(LOCATION.CENTRAL);
 
         if(getType().equals(TYPE.RT)){
-            this.films.add(new RadiographicFilm(NAME.OTHER, TYPE.OTHER,MODEL.OTHER,SIZE.OTHER));
+            this.films.add(new RadiographicFilm(NAME.OTHER, TYPE.OTHER, MODEL.OTHER, SIZE.OTHER));
             this.setRtCamera(rtCamera);
             this.setStatus(rtCamera.ready_RT_CAMERA());
             if(!isStatus()){

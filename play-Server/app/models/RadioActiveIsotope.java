@@ -1,6 +1,7 @@
 package models;
 
 import actors.serverInterface.ServerLog;
+import models.enums.ISOTOPETYPE;
 
 import java.time.LocalDateTime;
 
@@ -26,6 +27,8 @@ public class RadioactiveIsotope {
     private Project project;
     private static String id;
     private String serialNumber;
+    private static int counter=DATA.counter(0);
+    public int getCounter() {return counter;}
 
     public RadioactiveIsotope(ISOTOPETYPE type, double activity) {
         this.ACTIVITY=activity;

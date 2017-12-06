@@ -2,6 +2,7 @@ package models;
 
 
 import actors.serverInterface.ServerLog;
+import models.enums.*;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,8 @@ public class RadiographicFilm {
     private double base_Fog;
     private Project project;
     private String serialNumber;
+    private static int counter=DATA.counter(0);
+    public int getCounter() {return counter;}
 
 
     public RadiographicFilm(NAME filmname, TYPE filmType, MODEL gamaRayOrXraySheetOrRoll, SIZE size) {

@@ -1,4 +1,6 @@
-package models;
+package models.enums;
+
+import models.enums.MODEL;
 
 /**
  * Created by F.Arian on 06.11.17.

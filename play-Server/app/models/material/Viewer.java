@@ -1,12 +1,17 @@
-package models;
+package models.material;
 
 
 import actors.serverInterface.ServerLog;
+import models.DATA;
+import models.enums.LOCATION;
+import models.enums.MODEL;
+import models.enums.SIZE;
+import models.enums.TYPE;
 
 /**
  * Created by F.Arian on 29.11.17.
  */
-public class Viewer {
+public class Viewer extends MATERIAL{
     private String name;
     private String serialNumber;
     private MODEL model;
@@ -14,20 +19,21 @@ public class Viewer {
     private LOCATION location;
     private String buyDate;
     private boolean status;
-    private String id;
+    private static String id;
     private ServerLog log=new ServerLog();
     private TYPE type;
     private String madeIn;
     private SIZE size;
+    private static int counter= DATA.counter(0);
+    public int getCounter() {return counter;}
 
     public Viewer() {
-        this.setName("VIEWER");
+        super("VIEWER",TYPE.D_ROOM);
         this.setModel(MODEL.MODEL_GERMANY);
         this.setDetdescriptive("CURRENTLY NOT CHANGED");
         this.setLocation(LOCATION.CENTRAL);
         this.setBuyDate(null);
         this.setStatus(true);
-        this.setType(TYPE.D_ROOM);
         this.id=DATA.generateUniqueId();
         this.setSerialNumber(DATA.generateUniqueId());
         this.getLog().info(" NEW OBJECT CREATED, NAME : " +getName());
@@ -51,11 +57,6 @@ public class Viewer {
 
     public void setMadeIn(String madeIn) {
         this.madeIn = madeIn;
-    }
-
-
-    public MODEL getModel() {
-        return model;
     }
 
     public void setModel(MODEL model) {
@@ -132,9 +133,9 @@ public class Viewer {
     @Override
     public String toString() {
         return "VIEWER{" +"\n"+
-                ", NAME= " + name +
+                ", NAME= " + super.getName() +
                 ", ID= " + id +
-                ", MODEL= " + getModel() +
+                ", MODEL= " + super.getModel() +
                 ", SIZE= " + size +"\n"+
                 ", SERIAL_NUMBER= " + serialNumber +
                 ", DET_DESCRIPTIVE= " + detdescriptive +

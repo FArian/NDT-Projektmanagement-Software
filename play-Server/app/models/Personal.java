@@ -1,5 +1,11 @@
 package models;
 
+import models.dosimeter.FilmBadge;
+import models.dosimeter.GeigerDosimeterAlarm;
+import models.dosimeter.PocketDosimeter;
+import models.dosimeter.Tld;
+import models.enums.PERSONALTYPE;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
@@ -13,7 +19,7 @@ public class Personal {
     private String companyName;
     private String mobileNr;
     private String telNr;
-    private TLD tld;
+    private Tld tld;
     private FilmBadge filmBadge;
     private String weight;
     private String height;
@@ -25,8 +31,10 @@ public class Personal {
     private Project project;
     private GeigerDosimeterAlarm geiger;
     private PocketDosimeter dosimeter;
+    private static int counter=DATA.counter(0);
+    public int getCounter() {return counter;}
 
-    public Personal(String firstName, String lastName, String birthday, TLD tld, FilmBadge filmBadge) {
+    public Personal(String firstName, String lastName, String birthday, Tld tld, FilmBadge filmBadge) {
         this.setFirstName(firstName);
         this.setBirthday(birthday);
         this.setAddress("IT WAS NOT ENTERED");
@@ -137,11 +145,11 @@ public class Personal {
         this.telNr = telNr;
     }
 
-    public TLD getTld() {
+    public Tld getTld() {
         return tld;
     }
 
-    public void setTld(TLD tld) {
+    public void setTld(Tld tld) {
         this.tld = tld;
     }
 

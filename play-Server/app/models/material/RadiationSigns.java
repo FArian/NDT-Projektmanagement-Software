@@ -1,9 +1,13 @@
-package models;
+package models.material;
+
+import models.DATA;
+import models.enums.TYPE;
+
 
 /**
  * Created by F.Arian on 29.11.17.
  */
-public class RadiationSigns {
+public class RadiationSigns extends MATERIAL {
 
 
     private String name;
@@ -11,9 +15,8 @@ public class RadiationSigns {
     private static String id;
 
     public RadiationSigns() {
-        this.name ="DEFAULT-NAME";
-        this.setType(TYPE.SAFETY);
-        this.id=DATA.generateUniqueId();
+        super("DEFAULT-NAME",TYPE.SAFETY);
+        this.id= DATA.generateUniqueId();
     }
 
     public static String getId() {

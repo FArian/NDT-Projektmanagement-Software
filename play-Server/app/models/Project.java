@@ -1,7 +1,6 @@
 package models;
 
 import actors.serverInterface.ServerLog;
-import com.sun.tools.javac.util.*;
 
 import java.util.*;
 import java.util.List;
@@ -11,26 +10,28 @@ import java.util.List;
  */
 public class Project {
 	private String name;
-	private int projectNumber;
+	private String projectNumber;
 	private String location;
 	private String customer;
 	private String joinCompany;
 	private boolean join;
-	private static String id;
+	private static String id=DATA.generateUniqueId();
 	private List<Team> teams= new LinkedList<>();
-
-
 	private ServerLog log=new ServerLog();
-
+	private static int counter=DATA.counter(0);
+	public int getCounter() {return counter;}
 
 	public Project(){
 		this.setName(null);
-		this.setProjectNumber(0);
 		this.setLocation(null);
-		this.id=creatId("-"+getName());
+		this.getId();
+		this.setProjectNumber(DATA.creatId("-"));
 		this.getLog().info(" NEW OBJECT CREATED, NAME : " +getName() +" " + getClass());
 
 	}
+
+
+
 
 		public int size() {
 			return 0;
@@ -144,11 +145,11 @@ public class Project {
 
 	}
 
-	public int getProjectNumber() {
+	public String getProjectNumber() {
 		return projectNumber;
 	}
 
-	public void setProjectNumber(int projectNumber) {
+	public void setProjectNumber(String projectNumber) {
 		this.projectNumber = projectNumber;
 	}
 

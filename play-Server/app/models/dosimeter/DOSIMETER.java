@@ -1,5 +1,10 @@
-package models;
+package models.dosimeter;
 import actors.serverInterface.ServerLog;
+import models.DATA;
+import models.enums.LOCATION;
+import models.Project;
+import models.enums.TYPE;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
@@ -17,6 +22,8 @@ public class DOSIMETER {
     private String calibrationMessage;
     private ServerLog log=new ServerLog();
     private Project project;
+    private static int counter= DATA.counter(0);
+    public int getCounter() {return counter;}
 
     public DOSIMETER() {
         this.setSerialNumber(DATA.generateUniqueId());

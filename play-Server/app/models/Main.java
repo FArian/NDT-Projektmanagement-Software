@@ -1,5 +1,12 @@
 package models;
 
+import models.dosimeter.FilmBadge;
+import models.dosimeter.Tld;
+import models.enums.ISOTOPETYPE;
+import models.enums.MODEL;
+import models.enums.NAME;
+import models.enums.TYPE;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,12 +22,11 @@ public class Main {
 
     public static void main(String[] args) {
         RadioactiveIsotope isotope = new RadioactiveIsotope(ISOTOPETYPE.IRIDIUM_192, 100);
-        RtCamera camera=new RtCamera(NAME.SENTINEL,MODEL.SIGMA_880,isotope);
-        Personal personal=new Personal("Farhad","arian","13.02.1983",new TLD(),new FilmBadge());
+        RtCamera camera=new RtCamera(NAME.SENTINEL, MODEL.SIGMA_880,isotope);
+        Personal personal=new Personal("Farhad","arian","13.02.1983",new Tld(),new FilmBadge());
         Team team=new Team(personal, TYPE.RT,camera);
+        Project project=new Project();
         System.out.println(team);
-
-
 
     }
 

@@ -1,5 +1,8 @@
-package models;
+package models.dosimeter;
 
+
+import models.DATA;
+import models.dosimeter.DOSIMETER;
 
 /**
  * Created by F.Arian on 06.11.17.
@@ -9,7 +12,7 @@ public class FilmBadge extends DOSIMETER {
 	private static String id;
 
 	public FilmBadge() {
-		this.id=DATA.generateUniqueId();
+		this.id= DATA.generateUniqueId();
 	}
 	public static String getId() {
 		return id;

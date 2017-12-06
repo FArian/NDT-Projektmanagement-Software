@@ -1,6 +1,8 @@
-package models;
+package models.material;
 
 import actors.serverInterface.ServerLog;
+import models.DATA;
+import models.enums.TYPE;
 
 /**
  * Created by F.Arian on 29.11.17.
@@ -10,8 +12,8 @@ public class LeadAron extends MATERIAL {
     private ServerLog log=new ServerLog();
 
     public LeadAron() {
-        super("LeadAron",DATA.creatId("-LEAD_ARON"), TYPE.SAFETY);
-        this.id=DATA.generateUniqueId();
+        super("LeadAron", TYPE.SAFETY);
+        this.id= DATA.generateUniqueId();
         this.getLog().info(" NEW OBJECT CREATED, NAME: "+getName());
     }
     public static String getId() {

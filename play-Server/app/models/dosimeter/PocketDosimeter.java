@@ -1,28 +1,27 @@
-package models;
+package models.dosimeter;
 
-
+import models.DATA;
+import models.dosimeter.DOSIMETER;
 
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class TLD extends DOSIMETER {
+public class PocketDosimeter extends DOSIMETER {
 
 	private static String id;
 
-	public TLD() {
-		this.id=DATA.generateUniqueId();
+	public PocketDosimeter() {
+		this.id= DATA.generateUniqueId();
 	}
 	public static String getId() {
 		return id;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "TLD{" +"\n"+
-				", NAME= " + super.getName()+
+		return "\n POCKET_DOSIMETER{" +
 				", SERIAL_NUMBER= " + super.getSerialNumber() +
+				", NAME= " + super.getName()+
 				", ID= " + this.getId()+
 				", MADE_IN= " + super.getMadeIn() +
 				", CALIBRATION= " + super.isCalibration() +

@@ -1,6 +1,11 @@
-package models;
+package models.processing;
 
 import actors.serverInterface.ServerLog;
+import models.*;
+import models.enums.LOCATION;
+import models.enums.MODEL;
+import models.enums.NAME;
+import models.enums.SIZE;
 
 import java.time.LocalDate;
 
@@ -20,7 +25,8 @@ public class PROCESSING {
     private ServerLog log= new ServerLog();
     private static final LocalDate LOCAL_DATE = LocalDate.now();
     private String serialNumber;
-
+    private static int counter=DATA.counter(0);
+    public int getCounter() {return counter;}
     public PROCESSING(NAME name, MODEL model, SIZE size) {
         this.setName(name);
         this.setModel(model);
@@ -33,6 +39,7 @@ public class PROCESSING {
         this.setSerialNumber(DATA.generateUniqueId());
 
     }
+
 
     public String getSerialNumber() {
         return serialNumber;

@@ -1,29 +1,12 @@
 INFO :
  NEW OBJECT CREATED, NAME : null class models.Project
 INFO :
- NEW OBJECT CREATED, NAME: LeadAron
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
+ NEW OBJECT CREATED, NAME : OTHER class models.processing.ChemicalsDeveloper
 INFO :
  NEW OBJECT CREATED, NAME : null class models.Project
 INFO :
-NEW FILM CREATED AND EXPIRY DATE IS AFTER 2 YEARS
+ NEW OBJECT CREATED, NAME : OTHER class models.processing.ChemicalsFixer
 INFO :
  NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : HANDLING_TONGS class models.HandlingTongs
-INFO :
- NEW OBJECT CREATED, NAME : VIEWER
-INFO :
-NEW OBJECT CREATED,NAME:  null
-
-INFO :
- NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : OTHERclass models.ChemicalsDeveloper
-INFO :
- NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : OTHERclass models.ChemicalsFixer

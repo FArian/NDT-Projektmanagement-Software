@@ -1,6 +1,9 @@
 package models;
 
 import actors.serverInterface.ServerLog;
+import models.enums.ISOTOPETYPE;
+import models.enums.MODEL;
+import models.enums.NAME;
 
 import java.util.ArrayList;
 
@@ -36,6 +39,8 @@ public class RtCamera {
     private ServerLog log=new ServerLog();
     private ArrayList<ISOTOPETYPE> isotopetypes;
     private Project project;
+    private static int counter=DATA.counter(0);
+    public int getCounter() {return counter;}
 
     public RtCamera(NAME name, MODEL model,RadioactiveIsotope isotope) {
         this.setCapacityPermision(false);

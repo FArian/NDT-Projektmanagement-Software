@@ -1,9 +1,15 @@
 INFO :
+NEW FILM CREATED AND EXPIRY DATE IS AFTER 2 YEARS
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
+INFO :
  NEW OBJECT CREATED, NAME : null class models.Project
 INFO :
  NEW OBJECT CREATED, NAME : null class models.Project
 INFO :
- NEW OBJECT CREATED, NAME : HANDLING_TONGS class models.HandlingTongs
+ NEW OBJECT CREATED, NAME : HANDLING_TONGS class models.material.HandlingTongs
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
 INFO :
  NEW OBJECT CREATED, NAME : VIEWER
 INFO :
@@ -14,8 +20,10 @@ INFO :
 INFO :
  NEW OBJECT CREATED, NAME : null class models.Project
 INFO :
- NEW OBJECT CREATED, NAME : OTHER class models.ChemicalsDeveloper
+ NEW OBJECT CREATED, NAME : OTHER class models.processing.ChemicalsDeveloper
 INFO :
  NEW OBJECT CREATED, NAME : null class models.Project
 INFO :
- NEW OBJECT CREATED, NAME : OTHER class models.ChemicalsFixer
+ NEW OBJECT CREATED, NAME : OTHER class models.processing.ChemicalsFixer
+INFO :
+ NEW OBJECT CREATED, NAME : null class models.Project
