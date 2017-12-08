@@ -12,10 +12,35 @@ import java.net.NetworkInterface;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Enumeration;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
 public class LocalHostAddress {
+
+    public static String getLocalIpAddress() {
+        try {
+
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses();
+                     enumIpAddr.hasMoreElements(); ) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    String ipv4;
+                    // for getting IPV4 format
+                    if (!inetAddress.isLoopbackAddress() && InetAddressUtils.isIPv4Address(ipv4 = inetAddress.getHostAddress())) {
+                        //System.out.println(ipv4);
+                        String ip = inetAddress.getHostAddress().toString();
+                        return ip;
+                    }
+                }
+            }
+        } catch (Exception ex) {
+
+            //Logger.getLogger("IP Address", ex.toString());
+        }
+        return null;
+    }
 
     public void connectionInfo() {
         try {
@@ -55,29 +80,5 @@ public class LocalHostAddress {
         };
         thread.start();
 
-    }
-
-    public static String getLocalIpAddress() {
-        try {
-
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
-                NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses();
-                     enumIpAddr.hasMoreElements(); ) {
-                    InetAddress inetAddress = enumIpAddr.nextElement();
-                    String ipv4;
-                    // for getting IPV4 format
-                    if (!inetAddress.isLoopbackAddress() && InetAddressUtils.isIPv4Address(ipv4 = inetAddress.getHostAddress())) {
-                        //System.out.println(ipv4);
-                        String ip = inetAddress.getHostAddress().toString();
-                        return ip;
-                    }
-                }
-            }
-        } catch (Exception ex) {
-
-            //Logger.getLogger("IP Address", ex.toString());
-        }
-        return null;
     }
 }

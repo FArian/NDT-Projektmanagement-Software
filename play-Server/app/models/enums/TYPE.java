@@ -1,11 +1,21 @@
 package models.enums;
 
-import models.enums.MODEL;
 
 /**
  * Created by F.Arian on 06.11.17.
  */
 public enum TYPE {
+    QUALITY {
+        @Override
+        public MODEL getModel(MODEL model) {
+            for (int i = 0; i < MODEL.values().length; i++) {
+                if (MODEL.values()[i].equals(model)) {
+                    return MODEL.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    },
     OTHER {
         @Override
         public MODEL getModel(MODEL model) {

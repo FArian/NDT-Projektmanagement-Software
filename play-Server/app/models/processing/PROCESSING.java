@@ -1,7 +1,7 @@
 package models.processing;
 
-import actors.serverInterface.ServerLog;
-import models.*;
+import models.ServerLog;
+import models.DATA;
 import models.enums.LOCATION;
 import models.enums.MODEL;
 import models.enums.NAME;
@@ -15,18 +15,17 @@ import java.time.LocalDate;
  */
 public class PROCESSING {
 
+    private static final LocalDate LOCAL_DATE = LocalDate.now();
     private NAME name;
     private MODEL model;
     private SIZE size;
     private String description;
     private String expireDate;
     private LOCATION location;
-    private Project project;
-    private ServerLog log= new ServerLog();
-    private static final LocalDate LOCAL_DATE = LocalDate.now();
+    private ServerLog log = new ServerLog();
     private String serialNumber;
-    private static int counter=DATA.counter(0);
-    public int getCounter() {return counter;}
+
+
     public PROCESSING(NAME name, MODEL model, SIZE size) {
         this.setName(name);
         this.setModel(model);
@@ -34,8 +33,7 @@ public class PROCESSING {
         this.setLocation(LOCATION.CENTRAL);
         this.setDescription("not yet set");
         this.setExpireDate(DATA.convertDate(LOCAL_DATE.plusYears(1)));
-        this.setProject(new Project());
-        this.getLog().info(" NEW OBJECT CREATED, NAME : "+getModel().name().toString() +" "+getClass());
+        this.getLog().info("NEW OBJECT CREATED,NAME:  " +getClass() + "\n");
         this.setSerialNumber(DATA.generateUniqueId());
 
     }
@@ -107,27 +105,18 @@ public class PROCESSING {
         return this.getExpireDate().equals(DATA.getLocalDate());
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
     @Override
     public String toString() {
         return "PROCESSING{" + "\n" +
-                ", NAME= " + name + "\n" +
-                ", ID_DEV = " + ChemicalsDeveloper.getID() + "\n" +
-                ", ID_FIX= " + ChemicalsFixer.getID() + "\n" +
-                ", MODEL= " + model + "\n" +
-                ", SIZE= " + size + "\n" +
-                ", DESCRIPTION= " + description + "\n" +
-                ", EXPIRE_DATE= " + expireDate + "\n" +
-                ", DATE_IS_EXPIRED= " + isExpiredDate() + "\n" +
-                ", LOCATION= " + getLocation() + "\n" +
+                ", NAME= " + name +
+                ", ID_DEV = " + Developer.getID() +
+                ", ID_FIX= " + Fixer.getID() +
+                ", MODEL= " + model +
+                ", SIZE= " + size +
+                ", DESCRIPTION= " + description +
+                ", EXPIRE_DATE= " + expireDate +
+                ", DATE_IS_EXPIRED= " + isExpiredDate() +
+                ", LOCATION= " + getLocation() +
                 '}';
     }
 

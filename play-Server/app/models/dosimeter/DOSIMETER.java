@@ -1,8 +1,8 @@
 package models.dosimeter;
-import actors.serverInterface.ServerLog;
+
+import models.ServerLog;
 import models.DATA;
 import models.enums.LOCATION;
-import models.Project;
 import models.enums.TYPE;
 
 /**
@@ -20,10 +20,7 @@ public class DOSIMETER {
     private TYPE type;
     private boolean status;
     private String calibrationMessage;
-    private ServerLog log=new ServerLog();
-    private Project project;
-    private static int counter= DATA.counter(0);
-    public int getCounter() {return counter;}
+    private ServerLog log = new ServerLog();
 
     public DOSIMETER() {
         this.setSerialNumber(DATA.generateUniqueId());
@@ -36,14 +33,14 @@ public class DOSIMETER {
         this.setLocation(LOCATION.CENTRAL);
         this.setType(TYPE.SAFETY);
         this.setCalibrationMessage("FIRST CALIBRATION MESSAGE");
-        this.getLog().info("NEW OBJECT CREATED,NAME:  "+getName().toString()+"");
-        if(isStatus()){
+        this.getLog().info("NEW OBJECT CREATED,NAME:  " +getClass() + "");
+        if (isStatus()) {
             this.calibrationMessage();
         }
-        this.setProject(new Project());
         this.setName("MY_DOSIMETER");
 
     }
+
 
     public ServerLog getLog() {
         return log;
@@ -58,16 +55,16 @@ public class DOSIMETER {
         return !isCalibration();
     }
 
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     public String getCalibrationMessage() {
         return calibrationMessage + "\n";
     }
 
     public void setCalibrationMessage(String calibrationMessage) {
         this.calibrationMessage = calibrationMessage;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public String getSerialNumber() {
@@ -177,16 +174,6 @@ public class DOSIMETER {
         this.calibrationInstitut = calibrationInstitut;
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-
-
     @Override
     public String toString() {
         return "DOSIMETER_ID{" + "\n" +
@@ -201,9 +188,6 @@ public class DOSIMETER {
                 ", TYPE=" + type +
                 ", STATUS=" + status +
                 ", CALIBRATION_MESSAGE=" + calibrationMessage +
-                ", PROJECT_NAME=" + project.getName() +
-                ", PROJECT_NR=" + project.getProjectNumber() +
-                ", PROJECT_LOCATION=" + project.getLocation()+"\n"+
                 "}";
     }
 }

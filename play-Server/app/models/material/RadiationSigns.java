@@ -10,26 +10,35 @@ import models.enums.TYPE;
 public class RadiationSigns extends MATERIAL {
 
 
+    private static String id;
+    private static int instanceCounter = 0;
     private String name;
     private TYPE type;
-    private static String id;
+    private int counter = 0;
 
     public RadiationSigns() {
-        super("DEFAULT-NAME",TYPE.SAFETY);
-        this.id= DATA.generateUniqueId();
+        super("DEFAULT-NAME", TYPE.SAFETY);
+        this.id = DATA.generateUniqueId();
+        instanceCounter++;
+        counter = instanceCounter;
     }
 
     public static String getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-            this.name = name.toLowerCase();
+        this.name = name.toLowerCase();
 
 
+    }
+
+    public int getCounter() {
+        return counter;
     }
 
     public TYPE getType() {
@@ -43,10 +52,11 @@ public class RadiationSigns extends MATERIAL {
 
     @Override
     public String toString() {
-        return "RADIOATIO_SIGNS{" +"\n"+
-                ", NAME= " + name +"\n"+
-                ", ID= " + getId() +"\n"+
-                ", TYPE= " + type +"\n"+
-                "}";
+        return "\n"+"RADIATION_SIGNS{" +
+                "  NAME= " + name +
+                ", ID= " + getId() +
+                ", TYPE= " + type +
+                ", COUNTER = " + getCounter() +
+                "}"+"\n";
     }
 }

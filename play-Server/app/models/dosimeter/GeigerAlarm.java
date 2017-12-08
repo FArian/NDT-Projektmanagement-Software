@@ -1,18 +1,21 @@
 package models.dosimeter;
 
 import models.DATA;
-import models.dosimeter.DOSIMETER;
 
 /**
  * Created by F.Arian on 06.11.17.
  */
 
-public class GeigerDosimeterAlarm extends DOSIMETER {
+public class GeigerAlarm extends DOSIMETER {
 
     private static String id;
+    private static int instanceCounter = 0;
+    private int counter = 0;
 
-    public GeigerDosimeterAlarm() {
+    public GeigerAlarm() {
         this.id = DATA.generateUniqueId();
+        instanceCounter++;
+        counter = instanceCounter;
 
     }
 
@@ -20,12 +23,16 @@ public class GeigerDosimeterAlarm extends DOSIMETER {
         return id;
     }
 
+    public int getCounter() {
+        return counter;
+    }
+
     @Override
     public String toString() {
-        return "GEIGER_DOSIMETER_ALARM{" + "\n" +
+        return "\n" +"GEIGER_ALARM{" +
+                "  NAME= " + super.getName() +
                 ", SERIAL_NUMBER= " + super.getSerialNumber() +
-                ", NAME= " + super.getName()+
-                ", ID= " + this.getId()+
+                ", ID= " + this.getId() +
                 ", MADE_IN= " + super.getMadeIn() +
                 ", CALIBRATION= " + super.isCalibration() +
                 ", CALIBRATION_DATE= " + super.getCalibrationDate() +
@@ -35,9 +42,7 @@ public class GeigerDosimeterAlarm extends DOSIMETER {
                 ", TYPE= " + super.getType() +
                 ", STATUS= " + super.isStatus() +
                 ", CALIBRATION_MESSAGE= " + super.getCalibrationMessage() +
-                ", PROJECT_NAME= " + super.getProject().getName() +
-                ", PROJECT_NR= " + super.getProject().getProjectNumber() +
-                ", PROJECT_LOCATION= " + super.getProject().getLocation()+"\n"+
-                "}";
+                ", COUNTER = " + getCounter() +
+                "}"+"\n";
     }
 }

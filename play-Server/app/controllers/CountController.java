@@ -1,10 +1,11 @@
 package controllers;
 
-import javax.inject.*;
-import play.*;
-import play.mvc.*;
-
+import play.mvc.Controller;
+import play.mvc.Result;
 import services.Counter;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * This controller demonstrates how to use dependency injection to
@@ -19,7 +20,7 @@ public class CountController extends Controller {
 
     @Inject
     public CountController(Counter counter) {
-       this.counter = counter;
+        this.counter = counter;
     }
 
     /**

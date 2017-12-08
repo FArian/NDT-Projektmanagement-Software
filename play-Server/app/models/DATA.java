@@ -1,8 +1,7 @@
 package models;
 
-import actors.serverInterface.ServerLog;
-
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,7 +9,6 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
-import java.text.ParseException;
 import java.util.Random;
 import java.util.UUID;
 
@@ -31,23 +29,8 @@ public abstract class DATA {
 
     private static ServerLog log = new ServerLog();
 
-
-    /**
-     *
-     */
-    public void goToCalender() {
-        CALENDAR.set(Calendar.DAY_OF_MONTH, 1);
-        CALENDAR.set(Calendar.MONTH, 1);
-        CALENDAR.set(Calendar.YEAR, 2012);
-        CALENDAR.add(Calendar.DAY_OF_MONTH, 5);
-    }
-
     public static ServerLog getLog() {
         return log;
-    }
-
-    public String getDateFormat() {
-        return DD_MM_YYYY;
     }
 
     public static String dateUpDate(String dateStr) {
@@ -106,7 +89,6 @@ public abstract class DATA {
 
         return null;
     }
-
 
     /**
      * get Calender with english format
@@ -231,10 +213,16 @@ public abstract class DATA {
         return Integer.parseInt(str);
     }
 
-    public static int counter(int start) {
-        int counter = start;
-        counter ++;
-        return counter;
+    public static int counter(int x1) {
+        int x = x1;
+        x++;
+        return x;
+    }
+
+    public static int counter() {
+        int x = 0;
+        x++;
+        return x;
     }
 
     private static void showRandomInteger(int aStart, int aEnd, Random aRandom) {
@@ -249,6 +237,20 @@ public abstract class DATA {
         log.info("Generated : " + randomNumber);
 
 
+    }
+
+    /**
+     *
+     */
+    public void goToCalender() {
+        CALENDAR.set(Calendar.DAY_OF_MONTH, 1);
+        CALENDAR.set(Calendar.MONTH, 1);
+        CALENDAR.set(Calendar.YEAR, 2012);
+        CALENDAR.add(Calendar.DAY_OF_MONTH, 5);
+    }
+
+    public String getDateFormat() {
+        return DD_MM_YYYY;
     }
 
 

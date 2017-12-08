@@ -2,44 +2,49 @@ package models.dosimeter;
 
 
 import models.DATA;
-import models.dosimeter.DOSIMETER;
+
 
 /**
  * Created by F.Arian on 06.11.17.
  */
 
 public class FilmBadge extends DOSIMETER {
-	private static String id;
+    private static String id;
+    private static int instanceCounter = 0;
+    private int counter = 0;
 
-	public FilmBadge() {
-		this.id= DATA.generateUniqueId();
-	}
-	public static String getId() {
-		return id;
-	}
+    public FilmBadge() {
+        this.id = DATA.generateUniqueId();
+        instanceCounter++;
+        counter = instanceCounter;
+    }
+
+    public static String getId() {
+        return id;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
 
 
+    @Override
+    public String toString() {
+        return "\n"+"FILM_BADGE{ " +
+                "  NAME= " + super.getName() +
+                ", SERIAL_NUMBER= " + super.getSerialNumber() +
+                ", ID= " + this.getId() +
+                ", MADE_IN= " + super.getMadeIn() +
+                ", CALIBRATION= " + super.isCalibration() +
+                ", CALIBRATION_DATE= " + super.getCalibrationDate() +
+                ", CALIBRATION_EXPIRE= " + super.getCalibrationExpire() +
+                ", CALIBRATION_INSTITUTE= " + super.getCalibrationInistitut() +
+                ", LOCATION= " + super.getLocation() +
+                ", TYPE= " + super.getType() +
+                ", STATUS= " + super.isStatus() +
+                ", CALIBRATION_MESSAGE= " + super.getCalibrationMessage() +
+                ", COUNTER = " + getCounter() +
+                "}"+"\n";
 
-
-	@Override
-	public String toString() {
-		return "FILM_BADGE{ " +"\n"+
-				", SERIAL_NUMBER= " + super.getSerialNumber() +
-				", NAME= " + super.getName()+
-				", ID= " + this.getId()+
-				", MADE_IN= " + super.getMadeIn() +
-				", CALIBRATION= " + super.isCalibration() +
-				", CALIBRATION_DATE= " + super.getCalibrationDate() +
-				", CALIBRATION_EXPIRE= " + super.getCalibrationExpire() +
-				", CALIBRATION_INSTITUTE= " + super.getCalibrationInistitut() +
-				", LOCATION= " + super.getLocation() +
-				", TYPE= " + super.getType() +
-				", STATUS= " + super.isStatus() +
-				", CALIBRATION_MESSAGE= " + super.getCalibrationMessage() +
-				", PROJECT_NAME= " + super.getProject().getName() +
-				", PROJECT_NR= " + super.getProject().getProjectNumber() +
-				", PROJECT_LOCATION= " + super.getProject().getLocation()+"\n"+
-		        "}";
-
-	}
+    }
 }

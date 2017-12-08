@@ -5,16 +5,16 @@ import models.DATA;
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class PocketDosimeter extends DOSIMETER {
-
+public class Radiometer extends DOSIMETER {
     private static String id;
     private static int instanceCounter = 0;
     private int counter = 0;
 
-    public PocketDosimeter() {
+    public Radiometer() {
         this.id = DATA.generateUniqueId();
         instanceCounter++;
         counter = instanceCounter;
+
     }
 
     public static String getId() {
@@ -27,7 +27,7 @@ public class PocketDosimeter extends DOSIMETER {
 
     @Override
     public String toString() {
-        return "\n"+"POCKET_DOSIMETER{" +
+        return "\n"+"RADIOMETER{" +
                 "  NAME= " + super.getName() +
                 ", SERIAL_NUMBER= " + super.getSerialNumber() +
                 ", ID= " + this.getId() +

@@ -1,6 +1,7 @@
-package models;
+package models.RT;
 
-import actors.serverInterface.ServerLog;
+import models.ServerLog;
+import models.DATA;
 import models.enums.ISOTOPETYPE;
 
 import java.time.LocalDateTime;
@@ -9,29 +10,29 @@ import java.time.LocalDateTime;
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class RadioactiveIsotope {
+public class Isotope {
     private static final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.now();
     private static String name;
-    private double halfLife;
     private static String date;
-    private double activity;
     private static double ACTIVITY;
+    private static LocalDateTime DATEOFINSTALATION = LOCAL_DATE_TIME.minusMinutes(1);
+    private static String id;
+    private static int instanceCounter = 0;
+    int counter = 0;
+    private double halfLife;
+    private double activity;
     private double activityDimensions;
     private double price;
     private String assembly_Model_Number;
     private String gamma_Energy_Range;
     private String approximate_Steel_Working_Thickness;
     private ISOTOPETYPE isotopetype;
-    private ServerLog log=new ServerLog();
-    private static LocalDateTime DATEOFINSTALATION = LOCAL_DATE_TIME.minusMinutes(1);
-    private Project project;
-    private static String id;
+    private ServerLog log = new ServerLog();
     private String serialNumber;
-    private static int counter=DATA.counter(0);
-    public int getCounter() {return counter;}
 
-    public RadioactiveIsotope(ISOTOPETYPE type, double activity) {
-        this.ACTIVITY=activity;
+
+    public Isotope(ISOTOPETYPE type, double activity) {
+        this.ACTIVITY = activity;
         this.setDate(DATA.getLocalDate());
         this.setIsotopetype(type);
         this.setName(type.name().toString());
@@ -39,11 +40,29 @@ public class RadioactiveIsotope {
         this.setActivityDimensions(type, activity);
         this.setHalfLife(-1);
         this.setSource_Assembly_and_Authorized_Contents(type);
-        this.getLog().info("NEW OBJECT CREATED, NAME : "+getName()+
+        this.getLog().info("NEW OBJECT CREATED, NAME : " + getName() + getClass()+
                 " , INSTALLATION DATE OF RADIOACTIVEISOTOPE: -> (" + DATA.getLocalDate() + ")");
-        this.setProject(new Project());
-        this.id=DATA.generateUniqueId();
+        this.id = DATA.generateUniqueId();
         this.setSerialNumber(DATA.generateUniqueId());
+        instanceCounter++;
+        counter = instanceCounter;
+
+    }
+
+    public static LocalDateTime getDATEOFINSTALATION() {
+        return DATEOFINSTALATION;
+    }
+
+    public static double getACTIVITY() {
+        return ACTIVITY;
+    }
+
+    public static String getId() {
+        return id;
+    }
+
+    public int getCounter() {
+        return counter;
     }
 
     public String getSerialNumber() {
@@ -54,16 +73,6 @@ public class RadioactiveIsotope {
         this.serialNumber = serialNumber;
     }
 
-
-    public static LocalDateTime getDATEOFINSTALATION() {
-        return DATEOFINSTALATION;
-    }
-
-
-    public void setActivityDimensions(double activityDimensions) {
-        this.activityDimensions = activityDimensions;
-    }
-
     public ISOTOPETYPE getIsotopetype() {
         return isotopetype;
     }
@@ -72,18 +81,21 @@ public class RadioactiveIsotope {
         this.isotopetype = isotopetype;
     }
 
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        RadioactiveIsotope.name = name;
+        Isotope.name = name;
     }
 
     public double getHalfLife() {
 
         return this.halfLife;
+    }
+
+    public void setHalfLife(double halfLife) {
+        this.halfLife = halfLife;
     }
 
     /**
@@ -99,17 +111,13 @@ public class RadioactiveIsotope {
             month = time[3];
             years = time[4];
             days = days + (month * 30) + (years * 360);
-            if(days>0){
+            if (days > 0) {
                 this.setActivity(this.getActivity() * Math.pow(2, -days / getHalfLife()));
             }
 
         }
 
 
-    }
-
-    public void setHalfLife(double halfLife) {
-        this.halfLife = halfLife;
     }
 
     public String getDate() {
@@ -130,6 +138,10 @@ public class RadioactiveIsotope {
 
     public double getActivityDimensions() {
         return activityDimensions;
+    }
+
+    public void setActivityDimensions(double activityDimensions) {
+        this.activityDimensions = activityDimensions;
     }
 
     public double getPrice() {
@@ -299,41 +311,21 @@ public class RadioactiveIsotope {
 
     }
 
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public static double getACTIVITY() {
-        return ACTIVITY;
-    }
-
-    public static String getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
-        return "RADIOACTIVE_ISOTOPE{" +"\n"+
-                ", ISOTOPE_TYPE= " + isotopetype +
+        return "\n"+"ISOTOPE{" +
+                " ISOTOPE_TYPE= " + isotopetype +
                 ", PRICE= " + price +
                 ", ID= " + getId() +
-                ", SERIAL_NUMBER= " + serialNumber+
+                ", SERIAL_NUMBER= " + serialNumber +
                 ", HALF_LIFE= " + halfLife +
                 ", FIRST_ACTIVITY= " + ACTIVITY +
                 ", CURRENT_ACTIVITY= " + activity +
                 ", ACTIVITY_DIMENSIONS= " + activityDimensions +
                 ", ASSEMBLY_MODEL_NUMBER= " + assembly_Model_Number +
                 ", GAMMA_ENERGY_RANGE= " + gamma_Energy_Range +
-                ", PROJECT_NAME= " + project.getName() +
-                ", PROJECT_NR= " + project.getProjectNumber() +
-                ", PROJECT_LOCATION= " + project.getLocation()+"\n"+
-                //", APPROXIMATE_STEEL_WORKING_THICKNESS= " + approximate_Steel_Working_Thickness + "\n"+
-                "}";
+                ", COUNTER = " + getCounter() +
+                "}" + "\n";
 
     }
 }

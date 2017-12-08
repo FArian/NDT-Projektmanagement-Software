@@ -1,19 +1,16 @@
-package actors.serverInterface;
+package models;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
-import java.util.logging.FileHandler;
-import java.util.logging.Formatter;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 /**
  * Created by F.Arian on 06.11.17.
  */
 public class ServerLog extends Observable {
-    private Logger log;
     private static File folder;
+    private Logger log;
 
     /**
      * Constructor that creates the main Logger
@@ -50,6 +47,14 @@ public class ServerLog extends Observable {
 
     }
 
+    public static File getFolder() {
+        return folder;
+    }
+
+    public static void setFolder(File folder) {
+        ServerLog.folder = folder;
+    }
+
     /**
      * uses the getLog().info(string) method but also notifies the view with
      * that string
@@ -59,7 +64,7 @@ public class ServerLog extends Observable {
     public void info(String msg) {
 
         notifyView(msg);
-        getLog().info("\n"+msg);
+        getLog().info("\n" + msg);
     }
 
     /**
@@ -81,10 +86,6 @@ public class ServerLog extends Observable {
         return log;
     }
 
-    public static File getFolder() {
-        return folder;
-    }
-
     /**
      * Setter for the Logger
      *
@@ -93,11 +94,6 @@ public class ServerLog extends Observable {
     public void setLog(Logger log) {
         this.log = log;
     }
-
-    public static void setFolder(File folder) {
-        ServerLog.folder = folder;
-    }
-
 
 
 }

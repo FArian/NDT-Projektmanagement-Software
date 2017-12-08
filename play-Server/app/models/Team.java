@@ -1,13 +1,14 @@
 package models;
 
-import actors.serverInterface.ServerLog;
-import models.dosimeter.RadiometerDosimeter;
+import models.RT.Film;
+import models.RT.RT_Camera;
+import models.dosimeter.Radiometer;
 import models.enums.*;
 import models.material.HandlingTongs;
 import models.material.RadiationSigns;
 import models.material.Viewer;
-import models.processing.ChemicalsDeveloper;
-import models.processing.ChemicalsFixer;
+import models.processing.Developer;
+import models.processing.Fixer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,52 +17,67 @@ import java.util.List;
  * Created by F.Arian on 06.11.17.
  */
 public class Team {
-    private TYPE type;
     private static String id;
+    private static int instanceCounter = 0;
+    int counter = 0;
+    private TYPE type;
     private String name;
-    private List<Personal> personals=new ArrayList<>();
-    private List<ChemicalsDeveloper> developers= new ArrayList<>();
-    private List<ChemicalsFixer> fixers=new ArrayList<>();
-    private List<RadiographicFilm> films=new ArrayList<>();
-    private RadiometerDosimeter dosimeter;
+    private List<Personal> personals = new ArrayList<>();
+    private List<Developer> developers = new ArrayList<>();
+    private List<Fixer> fixers = new ArrayList<>();
+    private List<Film> films = new ArrayList<>();
+    private Radiometer dosimeter;
     private Viewer viewer;
     private HandlingTongs handlingTongs;
-    private RtCamera rtCamera;
-    private List<RadiationSigns> signs=new ArrayList<>();
+    private RT_Camera rtCamera;
+    private List<RadiationSigns> signs = new ArrayList<>();
     private LOCATION location;
     private boolean status;
-    private Project project;
-    private ServerLog log=new ServerLog();
+    private ServerLog log = new ServerLog();
     private String teamReport;
-    private static int counter=DATA.counter(0);
-    public int getCounter() {return counter;}
 
-    public Team(Personal personals, TYPE teamType, RtCamera rtCamera) {
+
+    public Team(Personal personals, TYPE teamType, RT_Camera rtCamera) {
         this.personals.add(personals);
         this.setType(teamType);
         this.setTeamReport("TEAM START REPORT");
         this.setLocation(LOCATION.CENTRAL);
 
-        if(getType().equals(TYPE.RT)){
-            this.films.add(new RadiographicFilm(NAME.OTHER, TYPE.OTHER, MODEL.OTHER, SIZE.OTHER));
+        if (getType().equals(TYPE.RT)) {
+            this.films.add(new Film(NAME.OTHER, TYPE.OTHER, MODEL.OTHER, SIZE.OTHER));
             this.setRtCamera(rtCamera);
             this.setStatus(rtCamera.ready_RT_CAMERA());
-            if(!isStatus()){
+            if (!isStatus()) {
                 this.getLog().info(" CHECK IF IS RT_CAMERA READY ? ".toString());
             }
 
             this.signs.add(new RadiationSigns());
             this.setHandlingTongs(new HandlingTongs());
             this.setViewer(new Viewer());
-            this.setDosimeter(new RadiometerDosimeter());
-            this.developers.add(new ChemicalsDeveloper(NAME.OTHER,MODEL.OTHER,SIZE.OTHER));
-            this.fixers.add(new ChemicalsFixer(NAME.OTHER,MODEL.OTHER,SIZE.OTHER));
+            this.setDosimeter(new Radiometer());
+            this.developers.add(new Developer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER));
+            this.fixers.add(new Fixer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER));
 
         }
-        this.id=DATA.creatId("-"+getType().name().toString());
-        this.setName(getId()+"_TEAM");
+        this.id = DATA.creatId("-" + getType().name().toString());
+        this.setName(getId() + "_TEAM");
+        instanceCounter++;
+        counter = instanceCounter;
+        this.getLog().info("NEW OBJECT CREATED,NAME :" + getName() + "-" + getClass());
 
 
+    }
+
+    public static String getId() {
+        return id;
+    }
+
+    public static void setId(String id) {
+        Team.id = id;
+    }
+
+    public int getCounter() {
+        return counter;
     }
 
     public String getTeamReport() {
@@ -72,11 +88,9 @@ public class Team {
         this.teamReport = teamReport;
     }
 
-
     public ServerLog getLog() {
         return log;
     }
-
 
     public TYPE getType() {
         return type;
@@ -84,14 +98,6 @@ public class Team {
 
     public void setType(TYPE type) {
         this.type = type;
-    }
-
-    public static String getId() {
-        return id;
-    }
-
-    public static void setId(String id) {
-        Team.id = id;
     }
 
     public String getName() {
@@ -110,35 +116,35 @@ public class Team {
         this.personals = personals;
     }
 
-    public List<ChemicalsDeveloper> getDevelopers() {
+    public List<Developer> getDevelopers() {
         return developers;
     }
 
-    public void setDevelopers(List<ChemicalsDeveloper> developers) {
+    public void setDevelopers(List<Developer> developers) {
         this.developers = developers;
     }
 
-    public List<ChemicalsFixer> getFixers() {
+    public List<Fixer> getFixers() {
         return fixers;
     }
 
-    public void setFixers(List<ChemicalsFixer> fixers) {
+    public void setFixers(List<Fixer> fixers) {
         this.fixers = fixers;
     }
 
-    public List<RadiographicFilm> getFilms() {
+    public List<Film> getFilms() {
         return films;
     }
 
-    public void setFilms(List<RadiographicFilm> films) {
+    public void setFilms(List<Film> films) {
         this.films = films;
     }
 
-    public RadiometerDosimeter getDosimeter() {
+    public Radiometer getDosimeter() {
         return dosimeter;
     }
 
-    public void setDosimeter(RadiometerDosimeter dosimeter) {
+    public void setDosimeter(Radiometer dosimeter) {
         this.dosimeter = dosimeter;
     }
 
@@ -158,11 +164,11 @@ public class Team {
         this.handlingTongs = handlingTongs;
     }
 
-    public RtCamera getRtCamera() {
+    public RT_Camera getRtCamera() {
         return rtCamera;
     }
 
-    public void setRtCamera(RtCamera rtCamera) {
+    public void setRtCamera(RT_Camera rtCamera) {
         this.rtCamera = rtCamera;
     }
 
@@ -190,19 +196,11 @@ public class Team {
         this.status = status;
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
 
     @Override
     public String toString() {
-        return "TEAM{" + "\n"+
-                ", NAME= " + name +
+        return "TEAM{" +
+                "  NAME= " + name +
                 ", TYPE= " + type +
                 ", ID= " + id +
                 ", DOSIMETER= " + dosimeter +
@@ -210,14 +208,14 @@ public class Team {
                 ", HANDLING_TONGS= " + handlingTongs +
                 ", SIGNS= " + signs +
                 ", LOCATION= " + location +
-                ", STATUS= " + status +
-                ", PROJECT= " + project +
-                ", TEAM_REPORT= " + teamReport +
                 ", PERSONALS= " + personals +
                 ", RT_CAMERA= " + rtCamera +
                 ", FILMS= " + films +
                 ", DEVELOPERS= " + developers +
-                ", FIXERS= " + fixers +"\n"+
+                ", FIXERS= " + fixers +
+                ", STATUS= " + status +
+                ", TEAM_REPORT= " + teamReport +
+                ", COUNTER = " + getCounter() +
                 "}";
     }
 }

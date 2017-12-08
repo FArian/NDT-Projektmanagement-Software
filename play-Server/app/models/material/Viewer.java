@@ -1,7 +1,7 @@
 package models.material;
 
 
-import actors.serverInterface.ServerLog;
+import models.ServerLog;
 import models.DATA;
 import models.enums.LOCATION;
 import models.enums.MODEL;
@@ -11,7 +11,9 @@ import models.enums.TYPE;
 /**
  * Created by F.Arian on 29.11.17.
  */
-public class Viewer extends MATERIAL{
+public class Viewer extends MATERIAL {
+    private static String id;
+    private static int instanceCounter = 0;
     private String name;
     private String serialNumber;
     private MODEL model;
@@ -19,27 +21,31 @@ public class Viewer extends MATERIAL{
     private LOCATION location;
     private String buyDate;
     private boolean status;
-    private static String id;
-    private ServerLog log=new ServerLog();
+    private ServerLog log = new ServerLog();
     private TYPE type;
     private String madeIn;
     private SIZE size;
-    private static int counter= DATA.counter(0);
-    public int getCounter() {return counter;}
+    private int counter = 0;
 
     public Viewer() {
-        super("VIEWER",TYPE.D_ROOM);
+        super("VIEWER", TYPE.D_ROOM);
         this.setModel(MODEL.MODEL_GERMANY);
         this.setDetdescriptive("CURRENTLY NOT CHANGED");
         this.setLocation(LOCATION.CENTRAL);
         this.setBuyDate(null);
         this.setStatus(true);
-        this.id=DATA.generateUniqueId();
+        this.id = DATA.generateUniqueId();
         this.setSerialNumber(DATA.generateUniqueId());
-        this.getLog().info(" NEW OBJECT CREATED, NAME : " +getName());
+        this.getLog().info(" NEW OBJECT CREATED, NAME : " + getName());
         this.setMadeIn("GERMANY");
         this.setSize(SIZE.VIEWING_SCREEN_100X400mm);
+        instanceCounter++;
+        counter = instanceCounter;
 
+    }
+
+    public int getCounter() {
+        return counter;
     }
 
     public SIZE getSize() {
@@ -90,7 +96,7 @@ public class Viewer extends MATERIAL{
         this.name = name;
     }
 
-    public String  getSerialNumber() {
+    public String getSerialNumber() {
         return serialNumber;
     }
 
@@ -132,18 +138,19 @@ public class Viewer extends MATERIAL{
 
     @Override
     public String toString() {
-        return "VIEWER{" +"\n"+
-                ", NAME= " + super.getName() +
+        return "\n"+"VIEWER{" +
+                "  NAME= " + super.getName() +
                 ", ID= " + id +
                 ", MODEL= " + super.getModel() +
-                ", SIZE= " + size +"\n"+
+                ", SIZE= " + size +
                 ", SERIAL_NUMBER= " + serialNumber +
                 ", DET_DESCRIPTIVE= " + detdescriptive +
                 ", LOCATION= " + location +
                 ", BUY_DATE= " + buyDate +
                 ", STATUS= " + status +
                 ", TYPE= " + type +
-                ", MADE_IN= " + madeIn +"\n"+
-                "}";
+                ", MADE_IN= " + madeIn +
+                ", COUNTER = " + getCounter() +
+                "}"+"\n";
     }
 }

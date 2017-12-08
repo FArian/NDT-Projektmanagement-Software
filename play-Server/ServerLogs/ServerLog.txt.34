@@ -1,19 +1,5 @@
 INFO :
- NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : HANDLING_TONGS class models.HandlingTongs
-INFO :
- NEW OBJECT CREATED, NAME : VIEWER
-INFO :
-NEW OBJECT CREATED,NAME:  null
+NEW OBJECT CREATED,NAME:  class models.processing.Fixer
 
 INFO :
- NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : OTHERclass models.ChemicalsDeveloper
-INFO :
- NEW OBJECT CREATED, NAME : null class models.Project
-INFO :
- NEW OBJECT CREATED, NAME : OTHERclass models.ChemicalsFixer
+NEW OBJECT CREATED,NAME :184-RT_TEAM-class models.Team

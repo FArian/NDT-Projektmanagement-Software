@@ -1,7 +1,8 @@
-package models;
+package models.RT;
 
 
-import actors.serverInterface.ServerLog;
+import models.ServerLog;
+import models.DATA;
 import models.enums.*;
 
 import java.util.ArrayList;
@@ -9,7 +10,9 @@ import java.util.ArrayList;
 /**
  * Created by F.Arian on 02.12.17.
  */
-public class RadiographicFilm {
+public class Film {
+    private static String id;
+    private static int instanceCounter = 0;
     private NAME filmName;
     private ArrayList<TYPE> ndtType;
     private TYPE type;
@@ -18,7 +21,6 @@ public class RadiographicFilm {
     private LOCATION location;
     private double amountFilm;
     private boolean filmIsExpirt;
-    private static String id;
     /**
      * list all gama ray and xRay for film
      */
@@ -43,13 +45,11 @@ public class RadiographicFilm {
     private ServerLog log;
     private String featuresandMajorApplications;
     private double base_Fog;
-    private Project project;
     private String serialNumber;
-    private static int counter=DATA.counter(0);
-    public int getCounter() {return counter;}
+    private int counter = 0;
 
 
-    public RadiographicFilm(NAME filmname, TYPE filmType, MODEL gamaRayOrXraySheetOrRoll, SIZE size) {
+    public Film(NAME filmname, TYPE filmType, MODEL gamaRayOrXraySheetOrRoll, SIZE size) {
         this.setFilmName(filmname);
         this.setType(filmType);
         this.setModel(gamaRayOrXraySheetOrRoll);
@@ -70,13 +70,19 @@ public class RadiographicFilm {
         this.ndtType.add(TYPE.D_ROOM);
         this.setFilmIsexpirt(false);
         this.setBase_Fog(-1);
-        this.setProject(new Project());
-        this.setSerialumber(creatId("-"+getFilmName().name().toString()));
-        this.id=DATA.generateUniqueId();
+        this.setSerialumber(DATA.creatId("-" + getFilmName().name().toString()));
+        this.id = DATA.generateUniqueId();
+        instanceCounter++;
+        counter = instanceCounter;
+        this.getLog().info("NEW OBJECT CREATED,NAME:  " +getClass() + "");
     }
 
-    public void setNdtType(ArrayList<TYPE> ndtType) {
-        this.ndtType = ndtType;
+    public static String getId() {
+        return id;
+    }
+
+    public int getCounter() {
+        return counter;
     }
 
     public String getSerialumber() {
@@ -86,12 +92,6 @@ public class RadiographicFilm {
     public void setSerialumber(String serialumber) {
         this.serialNumber = serialumber;
     }
-
-
-    public static String getId() {
-        return id;
-    }
-
 
     /**
      * set Relative Exposure Factors
@@ -104,7 +104,7 @@ public class RadiographicFilm {
         this.setContrast(-1);
 
         if (getFilmName().equals(NAME.KODAK)) {
-            this.contrastUpdate(480, 26,getType());
+            this.contrastUpdate(480, 26, getType());
             this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
             this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
             this.isotopetypes.add(ISOTOPETYPE.X_Ray220KV);
@@ -194,7 +194,7 @@ public class RadiographicFilm {
             }
         }
         if (getFilmName().equals(NAME.AGFA)) {
-            this.contrastUpdate(480,28,getType());
+            this.contrastUpdate(480, 28, getType());
             this.setWeightFilm(11);
             this.isotopetypes.add(ISOTOPETYPE.COBALT_60);
             this.isotopetypes.add(ISOTOPETYPE.IRIDIUM_192);
@@ -548,7 +548,7 @@ public class RadiographicFilm {
         double time = this.getDevelopImmersionTime_S();
         double temp = this.getDevelopTemperature_C();
 
-        switch (type){
+        switch (type) {
             case DR50:
                 //26°C and 8 min
                 if (time == 480 && temp == 26) {
@@ -626,8 +626,6 @@ public class RadiographicFilm {
                     this.setBase_Fog(0.23);
 
                 }
-
-
 
 
         }
@@ -728,11 +726,9 @@ public class RadiographicFilm {
         }
     }
 
-
     public ServerLog getLog() {
         return log;
     }
-
 
     public NAME getFilmName() {
         return filmName;
@@ -830,7 +826,6 @@ public class RadiographicFilm {
         this.expiryDate = expiryDate;
     }
 
-
     public int getWeightFilm() {
         return weightFilm;
     }
@@ -855,7 +850,6 @@ public class RadiographicFilm {
         this.widthFilm = widthFilm;
     }
 
-
     public int getNumberOfBoxSheets() {
         return numberOfBoxSheets;
     }
@@ -868,6 +862,10 @@ public class RadiographicFilm {
         return isotopetypes;
     }
 
+    public void setIsotopetypes(ArrayList<ISOTOPETYPE> isotopetypes) {
+        this.isotopetypes = isotopetypes;
+    }
+
     /**
      * @param isotopetype
      * @return check if isotope is in list
@@ -877,10 +875,6 @@ public class RadiographicFilm {
             return isotopetypes.get(i).equals(isotopetype);
         }
         return false;
-    }
-
-    public void setIsotopetypes(ArrayList<ISOTOPETYPE> isotopetypes) {
-        this.isotopetypes = isotopetypes;
     }
 
     public ArrayList<TYPE> getFilmsTypes() {
@@ -910,16 +904,12 @@ public class RadiographicFilm {
         this.featuresandMajorApplications = featuresandMajorApplications;
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
     public ArrayList<TYPE> getNdtType() {
         return ndtType;
+    }
+
+    public void setNdtType(ArrayList<TYPE> ndtType) {
+        this.ndtType = ndtType;
     }
 
     /**
@@ -948,28 +938,11 @@ public class RadiographicFilm {
     public void setBase_Fog(double base_Fog) {
         this.base_Fog = base_Fog;
     }
-    /**
-     * create id String
-     * @param keyId
-     * @return id
-     */
-    public String creatId(String keyId) {
-        String result = "";
-        double d;
-        for (int i = 1; i < 4; i++) {
-            d = Math.random() * 10;
-            result = result + ((int) d);
-            if (i % 3 == 0) {
-                result = result + keyId;
-            }
-        }
-        return result;
-    }
 
 
     @Override
     public String toString() {
-        return "RADIOGRAPHIC_FILM{ " +"\n"+
+        return "\n"+"FILM{ " +
                 ", FILM_NAME= " + filmName +
                 ", SERIAL_NUMBER= " + serialNumber +
                 ", ID= " + getId() +
@@ -993,9 +966,7 @@ public class RadiographicFilm {
                 ", LENGTH_FILM= " + lengthFilm +
                 ", WIDTH_FILM= " + widthFilm +
                 ", FEATURES_AND_MAJOR_APPLICATIONS= " + featuresandMajorApplications +
-                ", PROJECT_NAME= " + project.getName() +
-                ", PROJECT_NR= " + project.getProjectNumber() +
-                ", PROJECT_LOCATION= " + project.getLocation()+"\n"+
-                "}";
+                ", COUNTER = " + getCounter() +
+                "}" + "\n";
     }
 }

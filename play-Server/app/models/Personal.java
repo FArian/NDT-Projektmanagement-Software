@@ -1,25 +1,30 @@
 package models;
 
 import models.dosimeter.FilmBadge;
-import models.dosimeter.GeigerDosimeterAlarm;
+import models.dosimeter.GeigerAlarm;
 import models.dosimeter.PocketDosimeter;
-import models.dosimeter.Tld;
+import models.dosimeter.TLD;
 import models.enums.PERSONALTYPE;
 
 /**
  * Created by F.Arian on 06.11.17.
  */
 public class Personal {
+    private static String id;
+    /**
+     * instance counter for objects
+     */
+    private static int instanceCounter = 0;
+    int counter = 0;
     private String firstName;
     private String lastName;
     private String birthday;
     private int[] age;
-    private static String id;
     private String address;
     private String companyName;
     private String mobileNr;
     private String telNr;
-    private Tld tld;
+    private TLD tld;
     private FilmBadge filmBadge;
     private String weight;
     private String height;
@@ -28,13 +33,12 @@ public class Personal {
     private String finishedDate;
     private PERSONALTYPE personalType;
     private boolean status;
-    private Project project;
-    private GeigerDosimeterAlarm geiger;
+    private GeigerAlarm geiger;
     private PocketDosimeter dosimeter;
-    private static int counter=DATA.counter(0);
-    public int getCounter() {return counter;}
+    private ServerLog log = new ServerLog();
 
-    public Personal(String firstName, String lastName, String birthday, Tld tld, FilmBadge filmBadge) {
+
+    public Personal(String firstName, String lastName, String birthday, TLD tld, FilmBadge filmBadge) {
         this.setFirstName(firstName);
         this.setBirthday(birthday);
         this.setAddress("IT WAS NOT ENTERED");
@@ -54,18 +58,33 @@ public class Personal {
             this.setStatus(true);
         }
         this.age = new int[5];
-        this.setProject(new Project());
-        this.id=creatId("-"+getLastName());
-        this.setGeiger(new GeigerDosimeterAlarm());
+        this.id = DATA.creatId("-" + getLastName());
+        this.setGeiger(new GeigerAlarm());
         this.setDosimeter(new PocketDosimeter());
+
+
+        instanceCounter++;
+        counter = instanceCounter;
+        getLog().info("NEW OBJECT CREATED, FIRSTNAME: " + getFirstName() + " NAME: " + getLastName() + "-" + getClass());
+
 
     }
 
-    public GeigerDosimeterAlarm getGeiger() {
+    public ServerLog getLog() {
+        return log;
+    }
+
+
+    public int getCounter() {
+
+        return counter;
+    }
+
+    public GeigerAlarm getGeiger() {
         return geiger;
     }
 
-    public void setGeiger(GeigerDosimeterAlarm geiger) {
+    public void setGeiger(GeigerAlarm geiger) {
         this.geiger = geiger;
     }
 
@@ -145,11 +164,11 @@ public class Personal {
         this.telNr = telNr;
     }
 
-    public Tld getTld() {
+    public TLD getTld() {
         return tld;
     }
 
-    public void setTld(Tld tld) {
+    public void setTld(TLD tld) {
         this.tld = tld;
     }
 
@@ -189,10 +208,6 @@ public class Personal {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = DATA.dateUpDate(startDate);
-    }
-
     public String getFinishedDate() {
         return finishedDate;
     }
@@ -222,7 +237,6 @@ public class Personal {
         return age;
     }
 
-
     public String getId() {
         return this.id;
     }
@@ -239,52 +253,34 @@ public class Personal {
         return startDate;
     }
 
-    public Project getProject() {
-        return project;
+    public void setStartDate(String startDate) {
+        this.startDate = DATA.dateUpDate(startDate);
     }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-    public  String creatId(String keyId) {
-        String result = "";
-        double d;
-        for (int i = 1; i < 4; i++) {
-            d = Math.random() * 10;
-            result = result + ((int) d);
-            if (i % 3 == 0) {
-                result = result + keyId;
-            }
-        }
-        return result;
-    }
-
 
     @Override
     public String toString() {
-        return "PERSONAL{ " + "\n" +
-                ", FIRST_NAME= " + firstName + "\n" +
-                ", LAST_NAME= " + lastName + "\n" +
-                ", ID= " + id + "\n" +
-                ", BIRTHDAY= " + birthday + "\n" +
-                ", AGE= " + getAge()[4] + " YEARS OLD AND " + getAge()[3] + " MONTH " + "\n" +
-                ", ADDRESS= " + address + "\n" +
-                ", COMPANY_NAME= " + companyName + "\n" +
-                ", MOBILE_NR= " + mobileNr + "\n" +
-                ", TEL_NR= " + telNr + "\n" +
-                ", TLD= " + tld + "\n" +
-                ", FILM_BADGE= " + filmBadge + "\n" +
-                ", GEIGER_DOSIMETER_ALARM= " + geiger + "\n" +
-                ", POCKET_DOSIMETER= " + dosimeter + "\n" +
-                ", WEIGHT= " + weight + "\n" +
-                ", HEIGHT= " + height + "\n" +
-                ", NATIONAL_ID= " + nationalId + "\n" +
-                ", START_DATE= " + startDate + "\n" +
-                ", FINISHED_DATE= " + finishedDate + "\n" +
-                ", PERSONAL_TYPE= " + personalType + "\n" +
-                ", STATUS= " + status + "\n" +
-                ", PROJECT_NAME= " + project.getName() + "\n" +
-                ", PROJECT_NR= " + project.getProjectNumber() + "\n" +
-                " }";
+        return  "  PERSONAL{ " +
+                "  FIRST_NAME= " + firstName +
+                ", LAST_NAME= " + lastName +
+                ", ID= " + id +
+                ", BIRTHDAY= " + birthday +
+                ", AGE= " + getAge()[4] + " YEARS OLD AND " + getAge()[3] + " MONTH " +
+                ", ADDRESS= " + address +
+                ", COMPANY_NAME= " + companyName +
+                ", MOBILE_NR= " + mobileNr +
+                ", TEL_NR= " + telNr +
+                ", TLD= " + tld +
+                ", FILM_BADGE= " + filmBadge +
+                ", GEIGER_DOSIMETER_ALARM= " + geiger +
+                ", POCKET_DOSIMETER= " + dosimeter +
+                ", WEIGHT= " + weight +
+                ", HEIGHT= " + height +
+                ", NATIONAL_ID= " + nationalId +
+                ", START_DATE= " + startDate +
+                ", FINISHED_DATE= " + finishedDate +
+                ", PERSONAL_TYPE= " + personalType +
+                ", STATUS= " + status +
+                ", COUNTER = " + getCounter() +
+                "}"+"\n";
     }
 }

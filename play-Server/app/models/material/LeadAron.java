@@ -1,6 +1,6 @@
 package models.material;
 
-import actors.serverInterface.ServerLog;
+import models.ServerLog;
 import models.DATA;
 import models.enums.TYPE;
 
@@ -9,15 +9,24 @@ import models.enums.TYPE;
  */
 public class LeadAron extends MATERIAL {
     private static String id;
-    private ServerLog log=new ServerLog();
+    private static int instanceCounter = 0;
+    private ServerLog log = new ServerLog();
+    private int counter = 0;
 
     public LeadAron() {
         super("LeadAron", TYPE.SAFETY);
-        this.id= DATA.generateUniqueId();
-        this.getLog().info(" NEW OBJECT CREATED, NAME: "+getName());
+        this.id = DATA.generateUniqueId();
+        this.getLog().info(" NEW OBJECT CREATED, NAME: " + getName());
+        instanceCounter++;
+        counter = instanceCounter;
     }
+
     public static String getId() {
         return id;
+    }
+
+    public int getCounter() {
+        return counter;
     }
 
     public ServerLog getLog() {
@@ -27,15 +36,13 @@ public class LeadAron extends MATERIAL {
 
     @Override
     public String toString() {
-        return "LEAD_ARON{ " +"\n"+
-                ", NAME= " + super.getName() +"\n"+
-                ", ID= " + getId() +"\n"+
-                ", MODEL= " + getModel() +"\n"+
-                ", TYPE= " + getType() +"\n"+
-                ", SERIAL_NUMBER= " + getSerialNumber() +"\n"+
-                ", PROJECT_NAME= " + super.getProject().getName() +"\n"+
-                ", PROJECT_NR= " + super.getProject().getProjectNumber() +"\n"+
-                ", PROJECT_LOCATION= " + super.getProject().getLocation()+"\n"+
-                "} ";
+        return "\n"+"LEAD_ARON{ " +
+                "  NAME= " + super.getName() +
+                ", ID= " + getId() +
+                ", MODEL= " + getModel() +
+                ", TYPE= " + getType() +
+                ", SERIAL_NUMBER= " + getSerialNumber() +
+                ", COUNTER = " + getCounter() +
+                "}"+"\n";
     }
 }

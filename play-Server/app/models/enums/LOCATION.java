@@ -11,19 +11,19 @@ public enum LOCATION {
         String result = null;
         switch (location) {
             case CENTRAL:
-                result = "The device is now in CENTRAL".toUpperCase()+"\n";
+                result = "The device is now in CENTRAL".toUpperCase() + "\n";
                 break;
             case PROJECT:
-                result = "The device is now in PROJECT".toUpperCase()+"\n";
+                result = "The device is now in PROJECT".toUpperCase() + "\n";
                 break;
             case ONTHEWAY:
-                result = "The device is now ON THE WAY".toUpperCase()+"\n";
+                result = "The device is now ON THE WAY".toUpperCase() + "\n";
                 break;
             case ATOMENERGIE_INSTITUT:
-                result = "The device is now in Institute for Nuclear Power Engineering".toUpperCase()+"\n";
+                result = "The device is now in Institute for Nuclear Power Engineering".toUpperCase() + "\n";
                 break;
             default:
-                result = "Location has not been communicated".toUpperCase()+"\n";
+                result = "Location has not been communicated".toUpperCase() + "\n";
                 break;
         }
 

@@ -8,6 +8,18 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import models.Personal;
+import models.RT.Isotope;
+import models.RT.RT_Camera;
+import models.ServerLog;
+import models.Team;
+import models.dosimeter.FilmBadge;
+import models.dosimeter.TLD;
+import models.enums.ISOTOPETYPE;
+import models.enums.MODEL;
+import models.enums.NAME;
+import models.enums.TYPE;
+import play.libs.Json;
 
 import java.io.IOException;
 
@@ -34,6 +46,10 @@ public class Interface extends UntypedActor {
         this.getLog().info(this.getReplayMessage());
     }
 
+    public static Props props(ActorRef out, ObservableMail observableMail) {
+        return Props.create(Interface.class, out, observableMail);
+    }
+
     public String getReplayMessage() {
         return replayMessage;
     }
@@ -58,41 +74,40 @@ public class Interface extends UntypedActor {
         this.observableMail = observableMail;
     }
 
+    public ActorRef getOut() {
+        return out;
+    }
 
     public void setOut(ActorRef out) {
         this.out = out;
-    }
-
-    public ActorRef getOut() {
-        return out;
     }
 
     public JsonFactory getJsonFactory() {
         return jsonFactory;
     }
 
-    public ObjectMapper getMapper() {
-        return mapper;
-    }
-
-    public JsonParser getParser() {
-        return parser;
-    }
-
-    public JsonNode getJsonNode() {
-        return jsonNode;
-    }
-
     public void setJsonFactory(JsonFactory jsonFactory) {
         this.jsonFactory = jsonFactory;
+    }
+
+    public ObjectMapper getMapper() {
+        return mapper;
     }
 
     public void setMapper(ObjectMapper mapper) {
         this.mapper = mapper;
     }
 
+    public JsonParser getParser() {
+        return parser;
+    }
+
     public void setParser(JsonParser parser) {
         this.parser = parser;
+    }
+
+    public JsonNode getJsonNode() {
+        return jsonNode;
     }
 
     public void setJsonNode(JsonNode jsonNode) {
@@ -102,7 +117,9 @@ public class Interface extends UntypedActor {
     @Override
     public void onReceive(Object message) {
 
+
         if (message instanceof String) {
+            //messageActor((JsonNode) message);
             this.setJsonFactory(this.getMapper().getFactory());
             JsonFactory factory = mapper.getFactory();
             try {
@@ -132,11 +149,6 @@ public class Interface extends UntypedActor {
 
     }
 
-
-    public static Props props(ActorRef out, ObservableMail observableMail) {
-        return Props.create(Interface.class, out, observableMail);
-    }
-
     /**
      * jsonNode Actors management for messages from Client and answer back to client
      *
@@ -152,26 +164,40 @@ public class Interface extends UntypedActor {
 
                 break;
             case "Start":
-                this.out.tell(TOJSON.message("Start","OK").toString() + "\n", self());
-                this.output(TOJSON.message("Start","OK"));
+                this.out.tell(TOJSON.message("Start", "OK").toString() + "\n", self());
+                this.output(TOJSON.message("Start", "OK"));
                 break;
             case "Safety Activity":
-                this.out.tell(TOJSON.message("Hi","Safety").toString() + "\n", self());
+                this.out.tell(TOJSON.message("Hi", "Safety").toString() + "\n", self());
+                break;
+            case "PERSONAL":
+                Isotope isotope = new Isotope(ISOTOPETYPE.IRIDIUM_192, 100);
+                Isotope isotope2 = new Isotope(ISOTOPETYPE.IRIDIUM_192, 100);
+                RT_Camera camera = new RT_Camera(NAME.SENTINEL, MODEL.SIGMA_880, isotope);
+                RT_Camera camera2 = new RT_Camera(NAME.SENTINEL, MODEL.SIGMA_880, isotope2);
+                Personal personal = new Personal("Far-had", "arian", "13.02.1983", new TLD(), new FilmBadge());
+                Personal personal2 = new Personal("Farhad", "arian", "13.02.1983", new TLD(), new FilmBadge());
+                Team team = new Team(personal, TYPE.RT, camera);
+                Team team2 = new Team(personal2, TYPE.RT, camera2);
+                JsonNode personalJson=Json.toJson(camera.toString());
+                this.out.tell(personalJson.toString().replace("\\n", "\n"),self());
+
         }
 
     }
 
     /**
      * TODO
+     *
      * @param txt
      */
-    private void output(final Object txt){
+    private void output(final Object txt) {
 
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                out.tell(txt.toString() + "\n\n",self());
+                out.tell(txt.toString() + "\n\n", self());
 
             }
         });

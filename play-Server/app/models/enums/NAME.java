@@ -1,102 +1,100 @@
 package models.enums;
 
-import models.enums.TYPE;
-
 /**
  * Created by F.Arian on 01.12.17.
  */
 public enum NAME {
-    OTHER{
+    OTHER {
         @Override
         public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
                     return TYPE.values().clone()[i];
                 }
             }
             return TYPE.RT_CAMERA;
         }
     },
-    SENTINEL{
+    SENTINEL {
         @Override
         public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
                     return TYPE.values().clone()[i];
                 }
             }
             return TYPE.RT_CAMERA;
         }
     },
-    GAMMAMAT{
+    GAMMAMAT {
         @Override
         public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
                     return TYPE.values().clone()[i];
                 }
             }
             return TYPE.RT_CAMERA;
         }
     },
-    Dandong_XY_Electric{
+    Dandong_XY_Electric {
         @Override
         public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
                     return TYPE.values().clone()[i];
                 }
             }
             return TYPE.RT_CAMERA;
         }
     },
-    OSERIX{
+    OSERIX {
         @Override
         public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
                     return TYPE.values().clone()[i];
                 }
             }
             return TYPE.RT_CAMERA;
         }
-    },AGFA{
+    }, AGFA {
         @Override
         public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
                     return TYPE.values().clone()[i];
                 }
             }
             return null;
-            
+
         }
-    },KODAK{
+    }, KODAK {
         @Override
         public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
-                    return TYPE.values().clone()[i];
-                }
-            }
-            return null;
-        }
-    },FUJIFILM{
-        @Override
-        public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
                     return TYPE.values().clone()[i];
                 }
             }
             return null;
         }
-    },
-    NDT{
+    }, FUJIFILM {
         @Override
         public TYPE getType(TYPE type) {
-            for(int i = 0; i< TYPE.values().length; i++){
-                if(TYPE.values()[i].equals(type)){
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
+                    return TYPE.values().clone()[i];
+                }
+            }
+            return null;
+        }
+    },
+    NDT {
+        @Override
+        public TYPE getType(TYPE type) {
+            for (int i = 0; i < TYPE.values().length; i++) {
+                if (TYPE.values()[i].equals(type)) {
                     return TYPE.values().clone()[i];
                 }
             }

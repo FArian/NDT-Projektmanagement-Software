@@ -1,7 +1,7 @@
 package actors.serverInterface;
 
 
-import java.util.*;
+import java.util.Observable;
 
 
 /**

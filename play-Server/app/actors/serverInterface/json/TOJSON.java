@@ -1,4 +1,5 @@
 package actors.serverInterface.json;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -27,12 +28,13 @@ public class TOJSON {
         ((ObjectNode) root).put("Replay message", message);
         return root;
     }
+
     /**
      * Translates the request and information to connect a Android Client with the server
      *
      * @return
      */
-    public static Object message(String key,String message) {
+    public static Object message(String key, String message) {
         JsonNode msg = MAPPER.createObjectNode();
         JsonNode root = MAPPER.createObjectNode();
         ((ObjectNode) msg).put("Message", message);
