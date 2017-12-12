@@ -12,7 +12,7 @@ import models.enums.TYPE;
  * Created by F.Arian on 29.11.17.
  */
 public class Viewer extends MATERIAL {
-    private static String id;
+    private  String id;
     private static int instanceCounter = 0;
     private String name;
     private String serialNumber;

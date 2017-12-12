@@ -7,7 +7,7 @@ import models.DATA;
  */
 public class PocketDosimeter extends DOSIMETER {
 
-    private static String id;
+    private  String id;
     private static int instanceCounter = 0;
     private int counter = 0;
 
@@ -17,7 +17,7 @@ public class PocketDosimeter extends DOSIMETER {
         counter = instanceCounter;
     }
 
-    public static String getId() {
+    public  String getId() {
         return id;
     }
 

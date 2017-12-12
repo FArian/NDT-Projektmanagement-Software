@@ -6,7 +6,7 @@ import java.util.*;
  * Created by F.Arian on 06.11.17.
  */
 public class Project {
-    private static String id = DATA.generateUniqueId();
+    private String id ;
     private static int instanceCounter = 0;
     int counter = 0;
     private String name;
@@ -23,7 +23,7 @@ public class Project {
 
     public Project() {
         this.setLocation("NOT SET");
-        this.getId();
+        this.id=DATA.generateUniqueId();
         instanceCounter++;
         counter = instanceCounter;
         this.setName("ParsJonobi");
@@ -55,7 +55,7 @@ public class Project {
         this.finishDate=DATA.dateUpDate(finishDate);
     }
 
-    public static String getId() {
+    public  String getId() {
         return id;
     }
 

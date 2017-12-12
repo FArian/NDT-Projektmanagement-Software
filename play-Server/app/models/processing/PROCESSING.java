@@ -109,8 +109,6 @@ public class PROCESSING {
     public String toString() {
         return "PROCESSING{" + "\n" +
                 ", NAME= " + name +
-                ", ID_DEV = " + Developer.getID() +
-                ", ID_FIX= " + Fixer.getID() +
                 ", MODEL= " + model +
                 ", SIZE= " + size +
                 ", DESCRIPTION= " + description +

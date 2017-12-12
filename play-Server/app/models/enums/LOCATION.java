@@ -29,4 +29,11 @@ public enum LOCATION {
 
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "LOCATION{} " + super.toString();
+    }
+
+
 }

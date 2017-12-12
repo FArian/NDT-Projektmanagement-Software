@@ -10,7 +10,7 @@ import models.enums.SIZE;
  * Created by F.Arian on 04.12.17.
  */
 public class Developer extends PROCESSING {
-    private static String id;
+    private  String id;
     private static int instanceCounter = 0;
     private int counter = 0;
 
@@ -27,7 +27,7 @@ public class Developer extends PROCESSING {
      *
      * @return
      */
-    public static String getID() {
+    public  String getID() {
         return id;
     }
 

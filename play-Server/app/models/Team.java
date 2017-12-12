@@ -17,7 +17,7 @@ import java.util.List;
  * Created by F.Arian on 06.11.17.
  */
 public class Team {
-    private static String id;
+    private  String id;
     private static int instanceCounter = 0;
     int counter = 0;
     private TYPE type;
@@ -68,12 +68,12 @@ public class Team {
 
     }
 
-    public static String getId() {
+    public  String getId() {
         return id;
     }
 
-    public static void setId(String id) {
-        Team.id = id;
+    public  void setId(String id) {
+        this.id = id;
     }
 
     public int getCounter() {

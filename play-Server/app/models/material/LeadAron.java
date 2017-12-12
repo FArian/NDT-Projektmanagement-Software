@@ -8,7 +8,7 @@ import models.enums.TYPE;
  * Created by F.Arian on 29.11.17.
  */
 public class LeadAron extends MATERIAL {
-    private static String id;
+    private  String id;
     private static int instanceCounter = 0;
     private ServerLog log = new ServerLog();
     private int counter = 0;
@@ -21,7 +21,7 @@ public class LeadAron extends MATERIAL {
         counter = instanceCounter;
     }
 
-    public static String getId() {
+    public  String getId() {
         return id;
     }
 

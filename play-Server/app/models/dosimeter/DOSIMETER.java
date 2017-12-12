@@ -8,7 +8,7 @@ import models.enums.TYPE;
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class DOSIMETER {
+public abstract class DOSIMETER {
     private String serialNumber;
     private String name;
     private String madeIn;

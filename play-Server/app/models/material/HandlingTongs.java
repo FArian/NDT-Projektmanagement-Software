@@ -8,7 +8,7 @@ import models.enums.TYPE;
  * Created by F.Arian on 29.11.17.
  */
 public class HandlingTongs extends MATERIAL {
-    private static String id;
+    private  String id;
     private static int instanceCounter = 0;
     private double length;
     private int counter = 0;

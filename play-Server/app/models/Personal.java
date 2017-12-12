@@ -10,7 +10,7 @@ import models.enums.PERSONALTYPE;
  * Created by F.Arian on 06.11.17.
  */
 public class Personal {
-    private static String id;
+    private String id;
     /**
      * instance counter for objects
      */
@@ -32,21 +32,21 @@ public class Personal {
     private String startDate;
     private String finishedDate;
     private PERSONALTYPE personalType;
-    private boolean status;
     private GeigerAlarm geiger;
     private PocketDosimeter dosimeter;
     private ServerLog log = new ServerLog();
+    private boolean isInRest;
 
 
-    public Personal(String firstName, String lastName, String birthday, TLD tld, FilmBadge filmBadge) {
+    public Personal(String firstName, String lastName, String birthday) {
         this.setFirstName(firstName);
         this.setBirthday(birthday);
         this.setAddress("IT WAS NOT ENTERED");
         this.setCompanyName("IT WAS NOT ENTERED");
         this.setMobileNr("IT WAS NOT ENTERED");
         this.setTelNr("IT WAS NOT ENTERED");
-        this.setTld(tld);
-        this.setFilmBadge(filmBadge);
+        this.setTld(new TLD());
+        this.setFilmBadge(new FilmBadge());
         this.setWeight("IT WAS NOT ENTERED");
         this.setHeight("IT WAS NOT ENTERED");
         this.setNationalId("IT WAS NOT ENTERED");
@@ -54,21 +54,18 @@ public class Personal {
         this.setStartDate(DATA.dateUpDate("00.00.0000"));
         this.setFinishedDate(DATA.dateUpDate("00.00.0000"));
         this.setPersonalType(PERSONALTYPE.RADIOGRAPHER);
-        if (tld != null && filmBadge != null) {
-            this.setStatus(true);
-        }
         this.age = new int[5];
         this.id = DATA.creatId("-" + getLastName());
         this.setGeiger(new GeigerAlarm());
         this.setDosimeter(new PocketDosimeter());
-
-
         instanceCounter++;
         counter = instanceCounter;
         getLog().info("NEW OBJECT CREATED, FIRSTNAME: " + getFirstName() + " NAME: " + getLastName() + "-" + getClass());
-
-
+        this.setIsInRest(false);
+        tld.setName("MY_TLD_"+getLastName());
+        filmBadge.setName("MY_FilmBadge_"+getLastName());
     }
+
 
     public ServerLog getLog() {
         return log;
@@ -130,6 +127,7 @@ public class Personal {
 
         }
         this.lastName = lastName;
+        this.id = DATA.creatId("-" + lastName);
     }
 
     public String getBirthday() {
@@ -216,13 +214,25 @@ public class Personal {
         this.finishedDate = DATA.dateUpDate(finishedDate);
     }
 
+
     public boolean isStatus() {
-        return status;
+        if (this.tld == null) {
+            return false;
+        }
+        if (this.filmBadge == null) {
+            return false;
+        }
+        return true;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public boolean setIsInRest(boolean isInRest) {
+        return this.isInRest = isInRest;
     }
+
+    public boolean getIsInRest() {
+        return this.isInRest;
+    }
+
 
     public PERSONALTYPE getPersonalType() {
         return personalType;
@@ -259,8 +269,9 @@ public class Personal {
 
     @Override
     public String toString() {
-        return  "  PERSONAL{ " +
-                "  FIRST_NAME= " + firstName +
+        return "  PERSONAL{ " +
+                "  STATUS= " + isStatus() +
+                ", FIRST_NAME= " + firstName +
                 ", LAST_NAME= " + lastName +
                 ", ID= " + id +
                 ", BIRTHDAY= " + birthday +
@@ -279,8 +290,7 @@ public class Personal {
                 ", START_DATE= " + startDate +
                 ", FINISHED_DATE= " + finishedDate +
                 ", PERSONAL_TYPE= " + personalType +
-                ", STATUS= " + status +
                 ", COUNTER = " + getCounter() +
-                "}"+"\n";
+                "}" + "\n";
     }
 }

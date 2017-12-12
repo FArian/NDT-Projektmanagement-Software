@@ -175,12 +175,13 @@ public class Interface extends UntypedActor {
                 Isotope isotope2 = new Isotope(ISOTOPETYPE.IRIDIUM_192, 100);
                 RT_Camera camera = new RT_Camera(NAME.SENTINEL, MODEL.SIGMA_880, isotope);
                 RT_Camera camera2 = new RT_Camera(NAME.SENTINEL, MODEL.SIGMA_880, isotope2);
-                Personal personal = new Personal("Far-had", "arian", "13.02.1983", new TLD(), new FilmBadge());
-                Personal personal2 = new Personal("Farhad", "arian", "13.02.1983", new TLD(), new FilmBadge());
+                Personal personal = new Personal("Far-had", "arian", "13.02.1983");
+                Personal personal2 = new Personal("Farhad", "arian", "13.02.1983");
                 Team team = new Team(personal, TYPE.RT, camera);
                 Team team2 = new Team(personal2, TYPE.RT, camera2);
                 JsonNode personalJson=Json.toJson(camera.toString());
                 this.out.tell(personalJson.toString().replace("\\n", "\n"),self());
+                break;
 
         }
 

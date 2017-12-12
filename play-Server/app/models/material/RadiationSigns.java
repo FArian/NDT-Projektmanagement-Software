@@ -10,7 +10,7 @@ import models.enums.TYPE;
 public class RadiationSigns extends MATERIAL {
 
 
-    private static String id;
+    private  String id;
     private static int instanceCounter = 0;
     private String name;
     private TYPE type;
@@ -23,7 +23,7 @@ public class RadiationSigns extends MATERIAL {
         counter = instanceCounter;
     }
 
-    public static String getId() {
+    public  String getId() {
         return id;
     }
 

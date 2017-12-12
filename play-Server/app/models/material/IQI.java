@@ -9,16 +9,17 @@ import models.enums.TYPE;
  */
 public class IQI extends MATERIAL {
     private static int instanceCounter = 0;
-    private static String id = DATA.generateUniqueId();
+    private  String id;
     private int counter = 0;
 
     public IQI() {
         super("IQI", TYPE.QUALITY);
         instanceCounter++;
         counter = instanceCounter;
+        this.id=DATA.generateUniqueId();
     }
 
-    public static String getId() {
+    public  String getId() {
         return id;
     }
 
