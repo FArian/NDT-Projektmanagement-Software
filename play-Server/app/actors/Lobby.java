@@ -120,6 +120,22 @@ public class Lobby extends Observable {
         return null;
     }
 
+    /**
+     *
+     * @param email
+     * @return if new Personal , then true
+     */
+    public boolean isNewPersonal(String email) {
+        boolean result = false;
+        for (int i = 0; i < personalInLobby.size(); i++) {
+            if (personalInLobby.get(i).getEmail().equals(email)) {
+                result = true;
+            }
+
+        }
+        return result;
+    }
+
 
     public ArrayList<Personal> getPersonalInLobby() {
         return personalInLobby;

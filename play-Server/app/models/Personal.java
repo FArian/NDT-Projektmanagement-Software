@@ -24,6 +24,7 @@ public class Personal {
     private String companyName;
     private String mobileNr;
     private String telNr;
+    private String email;
     private TLD tld;
     private FilmBadge filmBadge;
     private String weight;
@@ -51,6 +52,7 @@ public class Personal {
         this.setHeight("IT WAS NOT ENTERED");
         this.setNationalId("IT WAS NOT ENTERED");
         this.setLastName(lastName);
+        this.setEmail("EMAIL NOT SET");
         this.setStartDate(DATA.dateUpDate("00.00.0000"));
         this.setFinishedDate(DATA.dateUpDate("00.00.0000"));
         this.setPersonalType(PERSONALTYPE.RADIOGRAPHER);
@@ -224,6 +226,15 @@ public class Personal {
         }
         return true;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 
     public boolean setIsInRest(boolean isInRest) {
         return this.isInRest = isInRest;

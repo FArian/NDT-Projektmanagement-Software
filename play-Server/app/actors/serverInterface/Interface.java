@@ -1,5 +1,6 @@
 package actors.serverInterface;
 
+import actors.Lobby;
 import actors.serverInterface.json.TOJSON;
 import akka.actor.ActorRef;
 import akka.actor.Props;
@@ -13,8 +14,6 @@ import models.RT.Isotope;
 import models.RT.RT_Camera;
 import models.ServerLog;
 import models.Team;
-import models.dosimeter.FilmBadge;
-import models.dosimeter.TLD;
 import models.enums.ISOTOPETYPE;
 import models.enums.MODEL;
 import models.enums.NAME;
@@ -35,8 +34,10 @@ public class Interface extends UntypedActor {
     private JsonParser parser;
     private JsonNode jsonNode;
     private String replayMessage;
+    private Lobby lobby;
 
     public Interface(ActorRef out, ObservableMail observableMail) {
+        this.lobby = null;
         this.setObservableMail(observableMail);
         this.setOut(out);
         this.setMapper(new ObjectMapper());
@@ -179,9 +180,18 @@ public class Interface extends UntypedActor {
                 Personal personal2 = new Personal("Farhad", "arian", "13.02.1983");
                 Team team = new Team(personal, TYPE.RT, camera);
                 Team team2 = new Team(personal2, TYPE.RT, camera2);
-                JsonNode personalJson=Json.toJson(camera.toString());
-                this.out.tell(personalJson.toString().replace("\\n", "\n"),self());
+                JsonNode personalJson = Json.toJson(camera.toString());
+                this.out.tell(personalJson.toString().replace("\\n", "\n"), self());
                 break;
+            case "NEW_USER_ASK":
+                String email = json.get("NEW_USER_ASK").get("Message").textValue();
+                boolean check=false;
+                if(lobby!=null){
+                    check=lobby.isNewPersonal(email);
+                }
+
+                out.tell(TOJSON.booleanAnswer("NEW_USER_ANSWER",check).toString() + "\n",self());
+
 
         }
 
