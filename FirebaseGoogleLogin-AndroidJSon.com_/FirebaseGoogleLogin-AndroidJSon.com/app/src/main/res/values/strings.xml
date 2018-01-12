@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">NDT-Client</string>
+    <string name="weiter">Weiter</string>
+    <string name="abmelden">abmelden</string>
+    <string name="safety">Radiation Safety</string>
+    <string name="time">Time</string>
+    <string name="report">Report</string>
+    <string name="need_material">Need Material</string>
+    <string name="my_information">my Information</string>
+    <string name="alarm">Alarm</string>
+    <string name="birthday">Geburtstag</string>
+    <string name="title_activity_safety">SafetyActivity</string>
+    <string name="quit">quit</string>
+    <string name="which_thing_is_alive">Which thing is alive?</string>
+    <string name="_0">0</string>
+    <string name="score">Score</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="edit_text">EDIT</string>
+    <string name="bunker_inside">Inside bunker(max 7,5 μSv/h)  </string>
+    <string name="bunker_outside">Outside bunker (max 2,5 μSv/h)  </string>
+    <string name="car_inside">Driver place(max 2,5 μSv/h)  </string>
+    <string name="car_outside">Around the car(max 7,5 μSv/h)</string>
+    <string name="submit">submit</string>
+    <string name="standard_camera">On camera (max 2 mSv/h)</string>
+    <string name="forbidden_area">Forbidden area ( D° >= 2 mSv/h)</string>
+    <string name="control_area">Control area(2 mμSv/h >D°>25 μSv/h)</string>
+    <string name="free_area">Free area(25 μSv/h > D°)</string>
+    <string name="distance_1m">1m distance from camera(max 20 μSv/h)</string>
+    <string name="camera">CAMERA</string>
+    <string name="bunker">BUNKER</string>
+    <string name="transport">TRANSPORT</string>
+    <string name="area">AREA</string>
+    <string name="set_values">SET VALUES</string>
+    <string name="info">Please click on picture and set the values</string>
+    <string name="delete_item">delete</string>
+    <string name="cant_be_empty">Cant be empty</string>
+    <string name="your_name">Your name:</string>
+    <string name="personal_id">Your id:</string>
+    <string name="team_name">Your teams name:</string>
+    <string name="standard_inside">Inside bunker(max 7,5 μSv/h)  </string>
+    <string name="dose_rat">1000 μSv/h = 1 mSv/h</string>
+    <string name="standard_outside">Outside bunker (max 2,5 μSv/h)  </string>
+    <string name="clicked_item">Clicked item : %1$s</string>
+    <string name="logout">logout</string>
+    <string name="start">start</string>
+    <string name="action_settings">Settings</string>
+
+
+</resources>

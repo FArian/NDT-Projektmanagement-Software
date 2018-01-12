@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/left"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorSilver">
+
+        <EditText
+            android:id="@+id/edit_text_around_rt_camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_text_info"
+            android:hint="@string/standard_camera"
+            android:textColorHint="@color/white"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/edit_text_distance_1m_rt_camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_around_rt_camera"
+            android:hint="@string/distance_1m"
+            android:textColorHint="@color/white"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/edit_text_forbidden_area"
+            android:layout_below="@id/view_text_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/forbidden_area"
+            android:textColorHint="@color/white"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/edit_text_control_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_forbidden_area"
+            android:hint="@string/control_area"
+            android:textColorHint="@color/white"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/edit_text_free_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_control_area"
+            android:hint="@string/free_area"
+            android:textColorHint="@color/white"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/edit_text_inside_bunker"
+            android:layout_below="@id/view_text_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/standard_inside"
+            android:textColorHint="@color/white"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/edit_text_outside_bunker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_inside_bunker"
+            android:hint="@string/standard_outside"
+            android:textColorHint="@color/white"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/edit_text_in_car"
+            android:layout_below="@id/view_text_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/car_inside"
+            android:textColorHint="@color/white"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/edit_text_out_car"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_in_car"
+            android:hint="@string/car_outside"
+            android:textColorHint="@color/white"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/view_text_info"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/info" />
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="398dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/area_btn"
+                    android:layout_width="200dp"
+                    android:layout_below="@id/edit_text_free_area"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="317dp"
+                    android:background="@color/colorYellow"
+                    android:text="@string/area" />
+
+                <Button
+                    android:id="@+id/transport_btn"
+                    android:layout_below="@id/edit_text_free_area"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorYellow"
+                    android:text="@string/transport" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/camera_btn"
+                    android:layout_width="200dp"
+                    android:layout_below="@id/edit_text_free_area"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="64dp"
+                    android:background="@color/colorGreen"
+                    android:text="@string/camera" />
+
+                <Button
+                    android:id="@+id/bunker_btn"
+                    android:layout_below="@id/edit_text_free_area"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorGreen"
+                    android:text="@string/bunker" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    //Start right RelativeLayout
+    <RelativeLayout
+        android:id="@+id/right"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/view_text_around_rt_camera"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/light_blue"
+            android:text="DOSE RATE ON CAMERA"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/view_text_distance_1m_rt_camera"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/view_text_around_rt_camera"
+            android:background="@color/light_blue"
+            android:text="DOSE RATE WITH DISTANCE 1m FROM CAMERA"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/view_text_forbidden_area"
+            android:layout_width="match_parent"
+            android:background="@color/light_blue"
+            android:layout_height="50dp"
+            android:layout_below="@id/view_text_distance_1m_rt_camera"
+            android:text="DOSE RATE ON FORBIDDEN AREA"
+            android:textColor="@color/white"
+
+            />
+
+        <TextView
+            android:id="@+id/view_text_control_area"
+            android:background="@color/light_blue"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/view_text_forbidden_area"
+            android:text="DOSE RATE ON CONTROL AREA"
+            android:textColor="@color/white"
+            />
+
+
+        <TextView
+            android:id="@+id/view_text_free_area"
+            android:background="@color/light_blue"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/view_text_control_area"
+            android:text="DOSE RATE ON FREE AREA"
+            android:textColor="@color/white"
+            />
+
+
+        <TextView
+            android:id="@+id/view_text_inside_bunker"
+            android:background="@color/light_blue"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/view_text_free_area"
+            android:text="DOSE RATE INSIDE BUNKER"
+            android:textColor="@color/white"
+            />
+
+
+        <TextView
+            android:id="@+id/view_text_outside_bunker"
+            android:background="@color/light_blue"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/view_text_inside_bunker"
+            android:text="DOSE RATE OUTSIDE BUNKER"
+            android:textColor="@color/white"
+            />
+
+
+        <TextView
+            android:id="@+id/view_text_in_car"
+            android:background="@color/light_blue"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/view_text_outside_bunker"
+            android:text="DOSE RATE ON CAR DRIVER PLACE"
+            android:textColor="@color/white"
+            />
+
+
+        <TextView
+            android:id="@+id/view_text_out_car"
+            android:background="@color/light_blue"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/view_text_in_car"
+            android:text="DOSE RATE ON AROUND CAR"
+            android:textColor="@color/white"
+            />
+        <Button
+            android:id="@+id/set_value_btn"
+            android:layout_below="@+id/view_text_out_car"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/set_values"
+            android:background="@color/white"
+            />
+
+        //End right RelativeLayout
+    </RelativeLayout>
+
+
+</LinearLayout>
