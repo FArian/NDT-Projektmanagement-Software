@@ -1,20 +1,16 @@
 package com.androidjson.firebasegooglelogin_androidjsoncom;
 
-import android.app.Dialog;
-
-import android.os.Bundle;
-import android.view.Window;
-import android.widget.ImageView;
 import android.app.Activity;
+import android.app.Dialog;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.Item;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.RecyclerViewAdapter;
@@ -22,7 +18,10 @@ import com.androidjson.firebasegooglelogin_androidjsoncom.client.RecyclerViewIte
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
 import com.google.gson.Gson;
 
-public class SafetyActivity extends Activity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class AlarmActivity extends Activity {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -45,30 +44,23 @@ public class SafetyActivity extends Activity {
 
         //Create model list
         items = new ArrayList<>();
-        items.add(new Item("person", "YOUR INFO", "value",R.drawable.person));
-        //------Camera---------
-        items.add(new Item("on_camera", "On camera /n (max 2 mSv/h)", "value " + "mSv/h", R.drawable.rt_camera_min));
-        items.add(new Item("around_camera", "With 1m distance from camera(max 20 μSv/h)", "value " + "μSv/h", R.drawable.rt_camera_min));
-        //------bunker---------
-        items.add(new Item("bunker_inside", "Inside bunker(max 7,5 μSv/h)", "value " + "μSv/h", R.drawable.bunker));
-        items.add(new Item("bunker_outside", "Outside bunker(max 2,5 μSv/h)", "value " + "μSv/h", R.drawable.bunker));
-        //-------Transport-----
-        items.add(new Item("transport_inside", "Driver place(max 2,5 μSv/h)", "value " + "μSv/h", R.drawable.transport_car));
-        items.add(new Item("transport_outside", "Around the car(max7,5 μSv/h)", "value " + "μSv/h", R.drawable.transport_car));
-        //-------Area----------
-        items.add(new Item("forbidden_area", "Forbidden area(D° >= 2 mSv/h)", "value " + "mSv/h", R.drawable.radiation_area));
-        items.add(new Item("control_area", "Control area(2 mμSv/h >D°>25 μSv/h)", "value " + "μSv/h", R.drawable.radiation_area));
-        items.add(new Item("free_area", "Free area(25 μSv/h > D°)", "value " + "μSv/h", R.drawable.radiation_area));
+        final  String  EMERGENCY_MESSAGE=
+                "1 : Remote Handling tongs " +"\n"+
+                "2: Shielded container" +"\n"+
+                "3: Hand tools -> wrench,pliers,croppers" +"\n"+
+                "4: Fist aid kit" +"\n"+
+                "5: Radiation warning labels & signs" +"\n"+
+                "6: Barriers/ropes" +"\n"+
+                "7: call HPS";
 
-        //----------------------------------Test---------------------------------------------------
-        items.add(new Item("", "Radioactive", "", R.drawable.radioactive));
-        //--------------------------------------Test------------------------------------------------
+        items.add(new Item("ALARM", "RADIATION EMERGENCY MESSAGE", EMERGENCY_MESSAGE, R.drawable.emergency_equipment));
+
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         //Create an adapter
-        adapter = new RecyclerViewAdapter(SafetyActivity.this, items);
+        adapter = new RecyclerViewAdapter(AlarmActivity.this, items);
 
         //Create custom interface object and send it to adapter
         //Adapter trigger it when any item view is clicked
@@ -76,13 +68,13 @@ public class SafetyActivity extends Activity {
             @Override
             public void onItemClick(View view, int position) {
                 showEditDialog(position);
-                Toast.makeText(SafetyActivity.this, getResources().getString(R.string.clicked_item, items.get(position).getInfo()), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AlarmActivity.this, getResources().getString(R.string.clicked_item, items.get(position).getInfo()), Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onItemLongClick(View view, int position) {
-                //showEditDialog(position);
+                showEditDialog(position);
 
             }
         });
@@ -105,7 +97,7 @@ public class SafetyActivity extends Activity {
     //-------------------------------------edit_text---------------------------
 
     private void showEditDialog(final int position) {
-        final Dialog dialog = new Dialog(SafetyActivity.this);
+        final Dialog dialog = new Dialog(AlarmActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.edit_dialog);
 
@@ -132,7 +124,7 @@ public class SafetyActivity extends Activity {
                     //Close dialog
                     dialog.dismiss();
                 } else {
-                    Toast.makeText(SafetyActivity.this, getResources().getString(R.string.cant_be_empty), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AlarmActivity.this, getResources().getString(R.string.cant_be_empty), Toast.LENGTH_SHORT).show();
                 }
             }
         });

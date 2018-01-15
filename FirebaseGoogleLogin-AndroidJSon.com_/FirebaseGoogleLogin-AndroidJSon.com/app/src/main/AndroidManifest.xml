@@ -5,9 +5,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/project"
@@ -16,9 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
-            tools:replace="android:value"
             android:name="android.support.VERSION"
-            android:value="25.3.1" />
+            android:value="25.3.1"
+            tools:replace="android:value" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -34,7 +35,22 @@
         </activity>
         <activity
             android:name=".MaterialActivity"
-            android:label="@string/title_activity_safety"
+            android:label="@string/title_activity_material"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ReportActivity"
+            android:label="@string/title_activity_report"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".TimeActivity"
+            android:label="@string/title_activity_time"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".AlarmActivity"
+            android:label="@string/title_activity_alarm"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 

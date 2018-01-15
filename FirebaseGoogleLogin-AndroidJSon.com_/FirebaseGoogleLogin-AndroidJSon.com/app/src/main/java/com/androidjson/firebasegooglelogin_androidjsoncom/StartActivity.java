@@ -31,9 +31,10 @@ public class StartActivity extends Activity {
     private WebSocket webSocket;
     private Personal person;
     private LinearLayout list_view_items_line1, list_view_items_line2;
+    private android.support.v7.widget.RecyclerView recyclerView;
     //Items list
     // Array of strings items
-    private String[] items = new String[]{"Item", "Report", "Time", "Material", "Alarm", "Logout"};
+    private String[] items = new String[]{"Safety", "Report", "Time", "Material", "Alarm", "Logout"};
 
     // Array of integers points to images stored in /res/drawable-ldpi/
     int[] flags = new int[]{
@@ -44,12 +45,13 @@ public class StartActivity extends Activity {
             R.drawable.alarm,
             R.drawable.logout
     };
-    private String itemsMessage[] = {"Item is first", "", "", "", "", ""};
+    private String itemsMessage[] = {"Safety is first", "Make report", "Calculator radiation time", "Current list of materials in project", "Radiation emergency message", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        recyclerView=(android.support.v7.widget.RecyclerView) findViewById(R.id.recycler_view);
         list_view_items_line1 = (LinearLayout) findViewById(R.id.line1);
         list_view_items_line2 = (LinearLayout) findViewById(R.id.line2);
         Gson gson = new Gson();
@@ -99,10 +101,12 @@ public class StartActivity extends Activity {
                         goToNextPage(position);
                         break;
                     case 1:
-                        //TODO
+                        //report
+                        goToNextPage(position);
                         break;
                     case 2:
-                        //TODO
+                        //time
+                        goToNextPage(position);
                         break;
                     case 3:
                         //material
@@ -110,10 +114,12 @@ public class StartActivity extends Activity {
 
                         break;
                     case 4:
-                        //TODO
+                        //alarm
+                        goToNextPage(position);
                         break;
                     case 5:
-                        //TODO
+                        //logout
+                        goToNextPage(position);
                         break;
 
 
@@ -150,26 +156,41 @@ public class StartActivity extends Activity {
                 myJson = gson.toJson(person);
                 intent.putExtra("Personal", myJson);
                 startActivity(intent);
-               
-
                 break;
             case 1:
-                //TODO
+                // report activity
+                intent = new Intent(getApplicationContext(), ReportActivity.class);
+                myJson = gson.toJson(person);
+                intent.putExtra("Personal", myJson);
+                startActivity(intent);
                 break;
             case 2:
-                //TODO
+                // time activity
+                intent = new Intent(getApplicationContext(), TimeActivity.class);
+                myJson = gson.toJson(person);
+                intent.putExtra("Personal", myJson);
+                startActivity(intent);
                 break;
             case 3:
+                // material activity
                 intent = new Intent(getApplicationContext(), MaterialActivity.class);
                 myJson = gson.toJson(person);
                 intent.putExtra("Personal", myJson);
                 startActivity(intent);
                 break;
             case 4:
-                //TODO
+                // alarm activity
+                intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                myJson = gson.toJson(person);
+                intent.putExtra("Personal", myJson);
+                startActivity(intent);
                 break;
             case 5:
-                //TODO
+                // main activity
+                intent = new Intent(getApplicationContext(), MainActivity.class);
+                //myJson = gson.toJson(person);
+                //intent.putExtra("Personal", myJson);
+                startActivity(intent);
                 break;
 
 
@@ -178,14 +199,6 @@ public class StartActivity extends Activity {
 
     }
 
-    @SuppressLint("ResourceAsColor")
-    private void changeColorObject(Object object) {
-
-        if (object.equals(list_view_items_line1)) {
-            list_view_items_line1.setBackgroundColor(R.color.white);
-            list_view_items_line2.setBackgroundColor(R.color.white);
-        }
-    }
 
 
 }

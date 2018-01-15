@@ -23,5 +23,10 @@
         <item name="cardPreventCornerOverlap">false</item>
         <item name="cardUseCompatPadding">true</item>
     </style>
+    <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+
+    </style>
+    <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+    </style>
 
 </resources>

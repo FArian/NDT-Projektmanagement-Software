@@ -39,29 +39,29 @@ public class MaterialActivity extends Activity {
         Gson gson = new Gson();
         personal = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_safety);
+        setContentView(R.layout.activity_items);
         bindViews();
 
         //Create model list
         items = new ArrayList<>();
 
-        items.add(new Item("FILMBADGE", "YOUR FILMBADGE", "value " + " mSv/h", R.drawable.film_badge));
-        items.add(new Item("TLD", "YOUR TLD", "value " + " mSv/h", R.drawable.tld_badge));
-        items.add(new Item("DOSIMETER", "YOUR POCKET DOSIMETER ", "value", R.drawable.dosimeters));
-        items.add(new Item("GEIGER", "YOUR GEIGER ALARM", "value", R.drawable.geiger));
+        items.add(new Item("FILMBADGE", "YOUR FILMBADGE", "value " + " mSv/h", R.drawable.film_badge_min));
+        items.add(new Item("TLD", "YOUR TLD", "value " + " mSv/h", R.drawable.tld_badge_min));
+        items.add(new Item("DOSIMETER", "YOUR POCKET DOSIMETER ", "value", R.drawable.dosimeters_min));
+        items.add(new Item("GEIGER", "YOUR GEIGER ALARM", "value", R.drawable.geiger_min));
 
-        items.add(new Item("RADIOMETER", "TEAMS RADIOMETER", "value", R.drawable.radiometer));
+        items.add(new Item("RADIOMETER", "TEAMS RADIOMETER", "value", R.drawable.radiometer_min));
         items.add(new Item("LEAD_ARON", "TEAMS LEAD ARON", "value", R.drawable.lead_aron2));
         items.add(new Item("RADIATION_SINGS", "TEAMS RADIATION SINGS", "value", R.drawable.radiation_sings2));
 
         items.add(new Item("HANDLING_TONGS", "TEAMS HANDLING TONGS", "value", R.drawable.handling_tongs));
-        items.add(new Item("EMERGENCY_STORAGE_CONTAINER", "Teams EMERGENCY STORAGE CONTAINER", "value", R.drawable.emergency_storage_container));
+        items.add(new Item("EMERGENCY_STORAGE_CONTAINER", "Teams EMERGENCY STORAGE CONTAINER", "value", R.drawable.emergency_storage_container_min));
 
-        items.add(new Item("RT_CAMERA", "TEAMS RT CAMERA ", "value", R.drawable.rt_camera));
-        items.add(new Item("RT_FILM", "TEAMS RT FILM ", "value", R.drawable.agfa_film));
+        items.add(new Item("RT_CAMERA", "TEAMS RT CAMERA ", "value", R.drawable.rt_camera_min));
+        items.add(new Item("RT_FILM", "TEAMS RT FILM ", "value", R.drawable.agfa_film_min));
         items.add(new Item("IQI", "INPATIENT QUALITY INDICATORS -> IQI", "value", R.drawable.iqi));
-        items.add(new Item("FILM_DEVELOPMENT_CHEMICALS", "FILM DEVELOPMENT CHEMICALS", "value", R.drawable.developer));
-        items.add(new Item("FILM_FIXER_CHEMICALS", "FILM FIXER CHEMICALS", "value", R.drawable.fixer));
+        items.add(new Item("FILM_DEVELOPMENT_CHEMICALS", "FILM DEVELOPMENT CHEMICALS", "value", R.drawable.developer_min));
+        items.add(new Item("FILM_FIXER_CHEMICALS", "FILM FIXER CHEMICALS", "value", R.drawable.fixer_min));
 
 
         layoutManager = new LinearLayoutManager(this);

@@ -18,6 +18,9 @@ public class Item {
         this.type=type;
         this.safetyCoverDrawableId = safetyCoverDrawableId;
     }
+    public Item(){
+
+    }
 
     public String getInfo() {
         return info;
@@ -50,5 +53,6 @@ public class Item {
     public void setType(String type) {
         this.type = type;
     }
+
 
 }
