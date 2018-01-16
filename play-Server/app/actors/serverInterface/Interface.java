@@ -14,6 +14,7 @@ import models.RT.Isotope;
 import models.RT.RT_Camera;
 import models.ServerLog;
 import models.Team;
+import models.client.Report;
 import models.enums.ISOTOPETYPE;
 import models.enums.MODEL;
 import models.enums.NAME;
@@ -120,7 +121,7 @@ public class Interface extends UntypedActor {
 
 
         if (message instanceof String) {
-            //messageActor((JsonNode) message);
+           // messageActor((JsonNode) message);
             this.setJsonFactory(this.getMapper().getFactory());
             JsonFactory factory = mapper.getFactory();
             try {
@@ -156,6 +157,8 @@ public class Interface extends UntypedActor {
      * @param json
      */
     private synchronized void messageActor(JsonNode json) {
+
+
         String jsonKey = json.fields().next().getKey();
         //------------------Message Type ------------------------------
         switch (jsonKey) {
@@ -191,6 +194,14 @@ public class Interface extends UntypedActor {
                 }
 
                 out.tell(TOJSON.booleanAnswer("NEW_USER_ANSWER",check).toString() + "\n",self());
+                break;
+            case "counter":
+                System.out.println("counter "+jsonKey);
+                out.tell(TOJSON.message("Report","I have your report message").toString()+"\n",self());
+                break;
+            case "REPORT":
+                System.out.println("REPORT"+jsonKey);
+
 
 
         }

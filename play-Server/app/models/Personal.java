@@ -282,6 +282,7 @@ public class Personal {
     public String toString() {
         return "  PERSONAL{ " +
                 "  STATUS= " + isStatus() +
+                "  EMAIL= " + getEmail() +
                 ", FIRST_NAME= " + firstName +
                 ", LAST_NAME= " + lastName +
                 ", ID= " + id +
