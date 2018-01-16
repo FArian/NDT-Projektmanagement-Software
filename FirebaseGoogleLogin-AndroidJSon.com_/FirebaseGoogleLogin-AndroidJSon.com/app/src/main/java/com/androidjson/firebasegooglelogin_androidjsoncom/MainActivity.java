@@ -36,8 +36,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
-
-import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Calendar;
 

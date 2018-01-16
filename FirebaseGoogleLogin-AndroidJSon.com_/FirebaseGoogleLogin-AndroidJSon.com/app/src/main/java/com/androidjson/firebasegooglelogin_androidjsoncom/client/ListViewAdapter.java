@@ -16,7 +16,6 @@ import com.androidjson.firebasegooglelogin_androidjsoncom.R;
 public class ListViewAdapter extends BaseAdapter {
 
     private Item items;
-    private Material material;
     private LayoutInflater inflater;
 
     public ListViewAdapter(Context context, Item item) {
@@ -25,11 +24,9 @@ public class ListViewAdapter extends BaseAdapter {
         this.items = item;
     }
 
-    public ListViewAdapter(Context context, Material material) {
+    public ListViewAdapter(Context context) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //Adapter has to know your model list
-        this.material = material;
-
     }
 
     /**
@@ -92,6 +89,8 @@ public class ListViewAdapter extends BaseAdapter {
                 case R.layout.list_view_items:
                     convertView = inflater.inflate(R.layout.list_view_items, null, false);
                     break;
+                case R.layout.report_layout:
+                    convertView=inflater.inflate(R.layout.report_layout,null,false);
             }
 
             //Create a holder object and bind its views

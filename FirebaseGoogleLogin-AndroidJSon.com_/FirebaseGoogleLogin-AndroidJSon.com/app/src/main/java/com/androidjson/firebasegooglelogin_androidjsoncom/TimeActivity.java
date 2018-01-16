@@ -18,10 +18,7 @@ import android.widget.Toast;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.RecyclerViewAdapter;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
 import com.google.gson.Gson;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 public class TimeActivity extends Activity implements View.OnClickListener {
@@ -67,11 +64,9 @@ public class TimeActivity extends Activity implements View.OnClickListener {
             switch (spinner_thickness.getSelectedItem().toString()) {
                 case "Inch":
                     thickness = convert_Inch_to_Cm(thickness);
-
                     break;
                 case "mm":
                     thickness = convert_mm_to_Cm(thickness);
-
                     break;
 
             }

@@ -9,7 +9,6 @@ public class Item {
     private String info;
     private String value;
     private String type;
-
     private int safetyCoverDrawableId;
 
     public Item(String type, String info, String value, int safetyCoverDrawableId) {

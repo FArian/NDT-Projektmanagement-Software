@@ -98,7 +98,7 @@ public class Client {
         return log;
     }
     public void start() {
-        Request request = new Request.Builder().url("ws://10.176.87.194:9000/getsocket").build();
+        Request request = new Request.Builder().url("ws://10.176.84.55:9000/getsocket").build();
         if (request != null && listener != null) {
             WebSocket ws = client.newWebSocket(request, listener);
             webSocket = ws;
@@ -181,8 +181,6 @@ public class Client {
             switch (jsonKey) {
                 case "Replay message":
                     webSocket.send(ToJson.message("Start","I want to start").toString() +"\n");
-
-
                     break;
                 case "Start":
                     webSocket.send(ToJson.message("Client","Thanks").toString() +"\n");

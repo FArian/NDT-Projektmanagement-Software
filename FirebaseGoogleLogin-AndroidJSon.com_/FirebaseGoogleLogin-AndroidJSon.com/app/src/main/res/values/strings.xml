@@ -46,6 +46,7 @@
     <string name="dose_rat">1000 μSv/h = 1 mSv/h</string>
     <string name="standard_outside">Outside bunker (max 2,5 μSv/h)  </string>
     <string name="clicked_item">Clicked item : %1$s</string>
+    <string name="value_is_false">Value is false: %1$s</string>
     <string name="logout">logout</string>
     <string name="action_settings">Settings</string>
     <string-array name="radiation_measurement_arrays">
@@ -102,6 +103,38 @@
     <string name="example4">EX 4</string>
     <string name="example25">EX 25</string>
     <string name="speed_factor">Speed/Factor</string>
+    <string name="country_prompt">Choose a country</string>
+    <string name="film">Film</string>
+    <string name="used">Used</string>
+    <string name="date_of_report">Date of report :</string>
+    <string name="send">send</string>
+
+    <string-array name="film_type_arrays">
+        <item>ROLL</item>
+        <item>SHEET</item>
+    </string-array>
+
+    <string-array name="measureUp_arrays">
+        <item>cm</item>
+        <item>mm</item>
+        <item>m</item>
+    </string-array>
+    <string-array name="film_name_arrays">
+        <item>AGFA</item>
+        <item>KODAK</item>
+        <item>FUJI</item>
+    </string-array>
+    <string-array name="film_model_arrays">
+        <item>D4</item>
+        <item>D7</item>
+        <item>D3</item>
+        <item>MX125</item>
+        <item>AA400</item>
+    </string-array>
+    <string-array name="film_length_arrays">
+        <item>90m</item>
+        <item>100m</item>
+    </string-array>
 
 
 </resources>
