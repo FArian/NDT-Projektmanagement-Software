@@ -1,9 +1,9 @@
 package com.androidjson.firebasegooglelogin_androidjsoncom;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +36,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 
@@ -45,7 +46,7 @@ import okhttp3.WebSocket;
 // Importing Google GMS Auth API Libraries.
 //Import other Classes
 
-public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
 
     // TAG is for show some tag logs in LOG screen.
     public static final String TAG = "MainActivity";
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     public GoogleApiClient googleApiClient;
 
     // Sing out and next buttons
-    private Button SignOut_btn, next_btn, birthday_btn;
+    private Button signOut_btn, radiographer_btn, health_physic_btn, birthday_btn;
 
     // Google Sign In button .
     private com.google.android.gms.common.SignInButton signInButton;
@@ -87,28 +88,21 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         //create connection with Websocket
         webSocket = client.getWebSocket();
         client.getClient();
+        bindViews();
         personal = new Personal();
-        signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        user_pic = (ImageView) findViewById(R.id.user_pic);
-
-        SignOut_btn = (Button) findViewById(R.id.sign_out);
-        next_btn = (Button) findViewById(R.id.next);
-        birthday_btn = (Button) findViewById(R.id.birthday_btn);
-
-        LoginUserName = (TextView) findViewById(R.id.textViewName);
-
-        LoginUserEmail = (TextView) findViewById(R.id.textViewEmail);
-        LoginUserBirthday = (TextView) findViewById(R.id.birthday_txt);
-
-        signInButton = (com.google.android.gms.common.SignInButton) findViewById(R.id.sign_in_button);
-
         // Getting Firebase Auth Instance into firebaseAuth object.
         firebaseAuth = FirebaseAuth.getInstance();
-
         // Hiding the TextView on activity start up time.
         LoginUserEmail.setVisibility(View.GONE);
         LoginUserName.setVisibility(View.GONE);
         LoginUserBirthday.setVisibility(View.GONE);
+
+        signInButton.setOnClickListener(this);
+        health_physic_btn.setOnClickListener(this);
+        radiographer_btn.setOnClickListener(this);
+        signOut_btn.setOnClickListener(this);
+        birthday_btn.setOnClickListener(this);
+        LoginUserBirthday.setOnClickListener(this);
 
 
         // Creating and Configuring Google Sign In object.
@@ -124,52 +118,25 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 .enableAutoManage(MainActivity.this, new GoogleApiClient.OnConnectionFailedListener() {
                     @Override
                     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
                     }
                 } /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions)
                 .build();
+    }
 
+    @SuppressLint("ResourceAsColor")
+    private void bindViews() {
 
-        // Adding Click listener to User Sign in Google button.
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                UserSignInMethod();
-
-            }
-        });
-
-        // Adding Click Listener to User Sign Out button.
-        SignOut_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                UserSignOutFunction();
-
-            }
-        });
-        // with next button after login go to next page
-        next_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                birthday_btn.setVisibility(View.GONE);
-                goToNextPage();
-
-
-            }
-        });
-
-
-        birthday_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");
-
-            }
-        });
+        signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        user_pic = (ImageView) findViewById(R.id.user_pic);
+        signOut_btn = (Button) findViewById(R.id.sign_out);
+        radiographer_btn = (Button) findViewById(R.id.radiographer_btn);
+        health_physic_btn = (Button) findViewById(R.id.health_physic_btn);
+        birthday_btn = (Button) findViewById(R.id.birthday_btn);
+        LoginUserName = (TextView) findViewById(R.id.textViewName);
+        LoginUserEmail = (TextView) findViewById(R.id.textViewEmail);
+        LoginUserBirthday = (TextView) findViewById(R.id.birthday_txt);
+        signInButton = (com.google.android.gms.common.SignInButton) findViewById(R.id.sign_in_button);
 
     }
 
@@ -180,16 +147,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         String currentDateString = DateFormat.getDateInstance(DateFormat.DEFAULT).format(calendar.getTime());
-        LoginUserBirthday.setText(" Geburtsdatum : " + currentDateString);
-
-        LoginUserBirthday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                birthday_btn.setVisibility(View.VISIBLE);
-
-            }
-        });
+        LoginUserBirthday.setText(" Birthday : " + currentDateString);
         this.birthday = currentDateString;
+
     }
 
 
@@ -197,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         Intent intent = new Intent(getApplicationContext(), StartActivity.class);
         personal = new Personal(getFirstName(), getLastName());
         personal.setEmail(getEmail());
-        Gson gson=new Gson();
+        Gson gson = new Gson();
         String myJson = gson.toJson(personal);
         intent.putExtra("Personal", myJson);
         startActivity(intent);
@@ -206,11 +166,10 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     // Sign In function Starts From Here.
     public void UserSignInMethod() {
-
         // Passing Google Api Client into Intent.
         Intent AuthIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
-
         startActivityForResult(AuthIntent, RequestSignInCode);
+
     }
 
     @Override
@@ -252,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                             String name = firebaseUser.getDisplayName();
                             setFirstName(parsingName(name)[0].toString());
                             setLastName(parsingName(name)[1].toUpperCase());
-                            String email= firebaseUser.getEmail().toString();
+                            String email = firebaseUser.getEmail().toString();
                             setEmail(email);
                             personal.setFirstName(getFirstName());
                             personal.setLastName(getLastName());
@@ -262,12 +221,11 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                                 birthday_btn.setVisibility(View.VISIBLE);
                             }
                             // Showing Log out button.
-                            SignOut_btn.setVisibility(View.VISIBLE);
-                            next_btn.setVisibility(View.VISIBLE);
-
+                            signOut_btn.setVisibility(View.VISIBLE);
+                            radiographer_btn.setVisibility(View.VISIBLE);
+                            health_physic_btn.setVisibility(View.VISIBLE);
                             // Hiding Login in button.
                             signInButton.setVisibility(View.GONE);
-
                             // Showing the TextView.
                             LoginUserEmail.setVisibility(View.VISIBLE);
                             LoginUserName.setVisibility(View.VISIBLE);
@@ -279,6 +237,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                             String str = firebaseUser.getPhotoUrl().toString();
                             Picasso.with(getApplicationContext()).load(str).into(user_pic);
                             //Glide.with(getApplicationContext()).load(str).into(user_pic);
+                            Toast.makeText(MainActivity.this, " Welcome " + getFirstName()+ " " + getLastName(),
+                                    Toast.LENGTH_SHORT).show();
 
 
                         } else {
@@ -294,23 +254,22 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         // Sing Out the User.
         firebaseAuth.signOut();
 
-        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
+        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(@NonNull Status status) {
+                // Write down your any code here which you want to execute After Sign Out.
 
-                        // Write down your any code here which you want to execute After Sign Out.
+                // Printing Logout toast message on screen.
+                Toast.makeText(MainActivity.this, "Logout Successfully", Toast.LENGTH_LONG).show();
 
-                        // Printing Logout toast message on screen.
-                        Toast.makeText(MainActivity.this, "Logout Successfully", Toast.LENGTH_LONG).show();
-
-                    }
-                });
+            }
+        });
 
         // After logout Hiding sign out button.
-        SignOut_btn.setVisibility(View.GONE);
+        signOut_btn.setVisibility(View.GONE);
         // After logout Hiding next button.
-        next_btn.setVisibility(View.GONE);
+        radiographer_btn.setVisibility(View.GONE);
+        health_physic_btn.setVisibility(View.GONE);
         birthday_btn.setVisibility(View.GONE);
 
         // After logout setting up email and name to null.
@@ -378,5 +337,40 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     }
 
 
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.health_physic_btn:
+                //TODO
+                break;
+            case R.id.radiographer_btn:
+                // with radiographer button after login go to next page
+                birthday_btn.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this, "Your are Radiographer", Toast.LENGTH_LONG).show();
+                goToNextPage();
+                break;
+            case R.id.sign_out:
+                // Adding Click Listener to User Sign Out button.
+                UserSignOutFunction();
+                break;
+            case R.id.sign_in_button:
+                // Adding Click listener to User Sign in Google button.
+                UserSignInMethod();
+                break;
+            case R.id.birthday_btn:
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), TAG);
+                Toast.makeText(MainActivity.this, "Birthday", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.birthday_txt:
+                birthday_btn.setVisibility(View.VISIBLE);
+                break;
+        }
 
+    }
 }

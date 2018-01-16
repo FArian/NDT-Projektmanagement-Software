@@ -2,6 +2,7 @@ package com.androidjson.firebasegooglelogin_androidjsoncom.client;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by F.Arian on 15.01.18.

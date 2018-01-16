@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">NDT-Client</string>
-    <string name="weiter">Weiter</string>
+    <string name="radiographer">RADIOGRAPHER</string>
+    <string name="health_physic">HEALTH PHYSIC</string>
     <string name="abmelden">abmelden</string>
     <string name="safety">Radiation Safety</string>
     <string name="time">Time</string>
@@ -8,7 +9,7 @@
     <string name="need_material">Need Material</string>
     <string name="my_information">my Information</string>
     <string name="alarm">Alarm</string>
-    <string name="birthday">Geburtstag</string>
+    <string name="birthday">BIRTHDAY</string>
     <string name="title_activity_safety">SafetyActivity</string>
     <string name="title_activity_material">MaterialActivity</string>
     <string name="title_activity_report">ReportActivity</string>

@@ -17,13 +17,10 @@ import com.androidjson.firebasegooglelogin_androidjsoncom.connection.Client;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.google.api.client.json.Json;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.google.gson.GsonBuilder;
 import com.fasterxml.jackson.core.JsonParser;
-
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -297,6 +294,8 @@ public class ReportActivity extends AppCompatActivity implements DatePickerDialo
      * send report Message to Server
      */
     public void sendMessageToServer(){
+        GsonBuilder builder = new GsonBuilder();
+        gson = builder.create();
         String myJson=gson.toJson(report);
         client.getWebSocket().send(myJson);
 
