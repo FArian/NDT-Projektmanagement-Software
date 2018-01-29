@@ -1,7 +1,8 @@
 package actors;
 
 import models.Personal;
-
+import models.dosimeter.FilmBadge;
+import models.dosimeter.TLD;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -12,10 +13,18 @@ public class Lobby extends Observable {
 
     private ArrayList<Personal> personalInLobby;
     private ArrayList<Personal> personalToReady;
+    private ArrayList<TLD> tldsInLobby;
+    private ArrayList<TLD> tldsToReady;
+    private ArrayList<FilmBadge> filmBadgesInLobby;
+    private ArrayList<FilmBadge> filmBadgesToReady;
 
     public Lobby() {
         personalInLobby = new ArrayList<>();
         personalToReady = new ArrayList<>();
+        tldsInLobby = new ArrayList<>();
+        tldsToReady = new ArrayList<>();
+        filmBadgesInLobby = new ArrayList<>();
+        filmBadgesToReady = new ArrayList<>();
 
     }
 
@@ -27,6 +36,7 @@ public class Lobby extends Observable {
     public void addPersonalInLobby(Personal personal) {
         if (personalInLobby.size() == 0) {
             this.personalInLobby.add(personal);
+
         }
         for (int i = 0; i < personalInLobby.size(); i++) {
             if (!personalInLobby.get(i).getId().equals(personal.getId())) {
@@ -38,7 +48,53 @@ public class Lobby extends Observable {
                 return;
             }
         }
+        setChanged();
+        notifyObservers();
 
+    }
+
+    public void addFilmBadgeInLobby(FilmBadge filmBadge) {
+        if (filmBadgesInLobby.size() == 0) {
+            this.filmBadgesInLobby.add(filmBadge);
+        }
+        for (int i = 0; i < filmBadgesInLobby.size(); i++) {
+            if (!filmBadgesInLobby.get(i).getId().equals(filmBadge.getId())) {
+                this.filmBadgesInLobby.add(filmBadge);
+                return;
+            }
+            if (filmBadgesInLobby.get(i).isStatus()) {
+                addFilmBadgeToReady(filmBadge);
+                return;
+            }
+        }
+        setChanged();
+        notifyObservers();
+
+    }
+
+    public void addTldInLobby(TLD tld) {
+        if (tldsInLobby.size() == 0) {
+            this.tldsInLobby.add(tld);
+        }
+        for (int i = 0; i < tldsInLobby.size(); i++) {
+            if (!tldsInLobby.get(i).getId().equals(tld.getId())) {
+                this.tldsInLobby.add(tld);
+                return;
+            }
+            if (tldsInLobby.get(i).isStatus()) {
+                addTldToReady(tld);
+                return;
+            }
+        }
+        setChanged();
+        notifyObservers();
+
+    }
+
+    private void addTldToReady(TLD tld) {
+        this.tldsToReady.add(tld);
+        setChanged();
+        notifyObservers();
     }
 
     /**
@@ -48,6 +104,14 @@ public class Lobby extends Observable {
      */
     public void addPersonalToReady(Personal personal) {
         this.personalToReady.add(personal);
+        setChanged();
+        notifyObservers();
+    }
+
+    public void addFilmBadgeToReady(FilmBadge filmBadge) {
+        this.filmBadgesToReady.add(filmBadge);
+        setChanged();
+        notifyObservers();
     }
 
     /**
@@ -121,7 +185,6 @@ public class Lobby extends Observable {
     }
 
     /**
-     *
      * @param email
      * @return if new Personal , then true
      */
@@ -131,7 +194,6 @@ public class Lobby extends Observable {
             if (personalInLobby.get(i).getEmail().equals(email)) {
                 result = true;
             }
-
         }
         return result;
     }
@@ -145,13 +207,22 @@ public class Lobby extends Observable {
         return personalToReady;
     }
 
-    @Override
-    public String toString() {
-        return "\n" + "Lobby{" +
-                "  personalInLobby=" + personalInLobby +
-                ",  personalInLobbySize=" + personalInLobby.size() +
-                ", personalToReady=" + personalToReady +
-                ", personalToReady=" + personalToReady.size() +
-                "}" + "\n";
+    public ArrayList<TLD> getTldsInLobby() {
+        return tldsInLobby;
     }
+
+    public ArrayList<TLD> getTldsToReady() {
+        return tldsToReady;
+    }
+
+    public ArrayList<FilmBadge> getFilmBadgesInLobby() {
+        return filmBadgesInLobby;
+    }
+
+    public ArrayList<FilmBadge> getFilmBadgesToReady() {
+        return filmBadgesToReady;
+    }
+
+
+
 }

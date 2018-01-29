@@ -1,15 +1,16 @@
 package models.dosimeter;
 
 
+import com.fasterxml.jackson.annotation.JsonRootName;
 import models.DATA;
 
 
 /**
  * Created by F.Arian on 06.11.17.
  */
-
+@JsonRootName("FilmBadge")
 public class FilmBadge extends DOSIMETER {
-    private  String id;
+    private String id;
     private static int instanceCounter = 0;
     private int counter = 0;
 
@@ -30,7 +31,7 @@ public class FilmBadge extends DOSIMETER {
 
     @Override
     public String toString() {
-        return "\n"+"FILM_BADGE{ " +
+        return "\n" + "FILM_BADGE{ " +
                 "  NAME= " + super.getName() +
                 ", SERIAL_NUMBER= " + super.getSerialNumber() +
                 ", ID= " + this.getId() +
@@ -44,7 +45,7 @@ public class FilmBadge extends DOSIMETER {
                 ", STATUS= " + super.isStatus() +
                 ", CALIBRATION_MESSAGE= " + super.getCalibrationMessage() +
                 ", COUNTER = " + getCounter() +
-                "}"+"\n";
+                "}" + "\n";
 
     }
 }

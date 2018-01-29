@@ -41,6 +41,7 @@ public class TOJSON {
         ((ObjectNode) root).put(key, msg);
         return root;
     }
+
     /**
      * boolean answer
      *
@@ -51,6 +52,18 @@ public class TOJSON {
         JsonNode root = MAPPER.createObjectNode();
         ((ObjectNode) msg).put("Message", answer);
         ((ObjectNode) root).put(key, msg);
+        return root;
+    }
+
+    /**
+     * @param key
+     * @param object
+     * @return String Json Message
+     */
+    public static Object sendObjectWithKey(String key, Object object) {
+        JsonNode root = MAPPER.createObjectNode();
+        JsonNode node = MAPPER.convertValue(object.toString(), JsonNode.class);
+        ((ObjectNode) root).put(key, node);
         return root;
     }
 

@@ -1,24 +1,68 @@
 INFO :
-NEW FILM CREATED AND EXPIRY DATE IS AFTER 2 YEARS
+i'm new client 
 INFO :
-NEW OBJECT CREATED,NAME:  class models.RT.Film
+i'm new client 
 INFO :
-NEW OBJECT CREATED,NAME:  class models.material.RadiationSigns
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
 INFO :
-NEW OBJECT CREATED,NAME:  class models.material.HandlingTongs
+i'm new client 
 INFO :
- NEW OBJECT CREATED, NAME : HANDLING_TONGS class models.material.HandlingTongs
+i'm new client 
 INFO :
-NEW OBJECT CREATED,NAME:  class models.material.Viewer
+i'm new client 
 INFO :
- NEW OBJECT CREATED, NAME : VIEWER
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
 INFO :
-NEW OBJECT CREATED,NAME:  class models.dosimeter.Radiometer
+i'm new client 
 INFO :
-NEW OBJECT CREATED,NAME:  class models.processing.Developer
-
+i'm new client 
 INFO :
-NEW OBJECT CREATED,NAME:  class models.processing.Fixer
-
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
 INFO :
-NEW OBJECT CREATED,NAME :347-RT_TEAM-class models.Team
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
+INFO :
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+i'm new client 
+INFO :
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge
+INFO :
+NEW OBJECT CREATED,NAME:  class models.dosimeter.FilmBadge

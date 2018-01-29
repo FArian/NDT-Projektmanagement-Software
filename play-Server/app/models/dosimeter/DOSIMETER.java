@@ -42,6 +42,7 @@ public abstract class DOSIMETER {
     }
 
 
+
     public ServerLog getLog() {
         return log;
     }

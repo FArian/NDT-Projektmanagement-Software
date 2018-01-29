@@ -10,18 +10,23 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.Personal;
+import models.RT.Film;
 import models.RT.Isotope;
 import models.RT.RT_Camera;
 import models.ServerLog;
 import models.Team;
-import models.client.Report;
+import models.dosimeter.*;
 import models.enums.ISOTOPETYPE;
 import models.enums.MODEL;
 import models.enums.NAME;
 import models.enums.TYPE;
+import models.material.*;
+import models.processing.Developer;
+import models.processing.Fixer;
 import play.libs.Json;
 
 import java.io.IOException;
+
 
 /**
  * Created by F.Arian on 06.11.17.
@@ -31,14 +36,14 @@ public class Interface extends UntypedActor {
     private ActorRef out;
     private ServerLog log;
     private JsonFactory jsonFactory;
-    private ObjectMapper mapper;
+    private ObjectMapper mapper = new ObjectMapper();
     private JsonParser parser;
     private JsonNode jsonNode;
     private String replayMessage;
     private Lobby lobby;
 
     public Interface(ActorRef out, ObservableMail observableMail) {
-        this.lobby = null;
+        this.lobby = new Lobby();
         this.setObservableMail(observableMail);
         this.setOut(out);
         this.setMapper(new ObjectMapper());
@@ -119,9 +124,8 @@ public class Interface extends UntypedActor {
     @Override
     public void onReceive(Object message) {
 
-
         if (message instanceof String) {
-           // messageActor((JsonNode) message);
+
             this.setJsonFactory(this.getMapper().getFactory());
             JsonFactory factory = mapper.getFactory();
             try {
@@ -171,9 +175,6 @@ public class Interface extends UntypedActor {
                 this.out.tell(TOJSON.message("Start", "OK").toString() + "\n", self());
                 this.output(TOJSON.message("Start", "OK"));
                 break;
-            case "Safety Activity":
-                this.out.tell(TOJSON.message("Hi", "Safety").toString() + "\n", self());
-                break;
             case "PERSONAL":
                 Isotope isotope = new Isotope(ISOTOPETYPE.IRIDIUM_192, 100);
                 Isotope isotope2 = new Isotope(ISOTOPETYPE.IRIDIUM_192, 100);
@@ -183,26 +184,90 @@ public class Interface extends UntypedActor {
                 Personal personal2 = new Personal("Farhad", "arian", "13.02.1983");
                 Team team = new Team(personal, TYPE.RT, camera);
                 Team team2 = new Team(personal2, TYPE.RT, camera2);
-                JsonNode personalJson = Json.toJson(camera.toString());
-                this.out.tell(personalJson.toString().replace("\\n", "\n"), self());
+                //JsonNode personalJson = Json.toJson(camera.toString());
+                //this.out.tell(personalJson.toString().replace("\\n", "\n"), self());
                 break;
             case "NEW_USER_ASK":
-                String email = json.get("NEW_USER_ASK").get("Message").textValue();
-                boolean check=false;
-                if(lobby!=null){
-                    check=lobby.isNewPersonal(email);
+                String email = json.get("NEW_USER_ASK").textValue();
+                boolean check = false;
+                if (lobby != null) {
+                    check = lobby.isNewPersonal(email);
                 }
 
-                out.tell(TOJSON.booleanAnswer("NEW_USER_ANSWER",check).toString() + "\n",self());
+                out.tell(TOJSON.booleanAnswer("NEW_USER_ANSWER", check).toString() + "\n", self());
                 break;
-            case "counter":
-                System.out.println("counter "+jsonKey);
-                out.tell(TOJSON.message("Report","I have your report message").toString()+"\n",self());
+            case "id":
+                System.out.println("counter " + jsonKey);
+                out.tell(TOJSON.message("Report", "I have your report message").toString() + "\n", self());
                 break;
             case "REPORT":
-                System.out.println("REPORT"+jsonKey);
+                System.out.println("REPORT" + jsonKey);
+                break;
+            case "Safety Warning":
+                //TODO send message to HPS
+                out.tell(TOJSON.message("Warning answer", "I have your message").toString() + "\n", sender());
+                break;
+            case "Create FILMBADGE":
+                FilmBadge filmBadge = Json.fromJson(json, FilmBadge.class);
+                lobby.addFilmBadgeInLobby(filmBadge);
 
-
+                /**
+                 * send object to Client with key
+                 */
+                out.tell(TOJSON.sendObjectWithKey("MyFilmBadge", filmBadge).toString(), self());
+                break;
+            case "Create TLD":
+                TLD tld = Json.fromJson(json, TLD.class);
+                lobby.addTldInLobby(tld);
+                break;
+            case "Create DOSIMETER":
+                PocketDosimeter dosimeter = Json.fromJson(json, PocketDosimeter.class);
+                //TODO
+                break;
+            case "Create GEIGER":
+                GeigerAlarm geigerAlarm = Json.fromJson(json, GeigerAlarm.class);
+                //TODO
+                break;
+            case "Create RADIOMETER":
+                Radiometer radiometer = Json.fromJson(json, Radiometer.class);
+                //TODO
+                break;
+            case "Create LEAD ARON":
+                LeadAron leadAron = Json.fromJson(json, LeadAron.class);
+                //TODO
+                break;
+            case "Create RADIATION SINGS":
+                RadiationSigns radiationSigns = Json.fromJson(json, RadiationSigns.class);
+                //TODO
+                break;
+            case "Create HANDLING TONGS":
+                HandlingTongs handlingTongs = Json.fromJson(json, HandlingTongs.class);
+                //TODO
+                break;
+            case "Create EMERGENCY STORAGE CONTAINER":
+                EmergencyStorageContainer container = Json.fromJson(json, EmergencyStorageContainer.class);
+                //TODO
+                break;
+            case "Create RT CAMERA":
+                RT_Camera rt_camera = Json.fromJson(json, RT_Camera.class);
+                //TODO
+                break;
+            case "Create RT FILM":
+                Film film = Json.fromJson(json, Film.class);
+                //TODO
+                break;
+            case "Create IQI":
+                IQI iqi = Json.fromJson(json, IQI.class);
+                //TODO
+                break;
+            case "Create FILM DEVELOPER":
+                Developer developer = Json.fromJson(json, Developer.class);
+                //TODO
+                break;
+            case "Create FILM FIXER":
+                Fixer fixer = Json.fromJson(json, Fixer.class);
+                //TODO
+                break;
 
         }
 
