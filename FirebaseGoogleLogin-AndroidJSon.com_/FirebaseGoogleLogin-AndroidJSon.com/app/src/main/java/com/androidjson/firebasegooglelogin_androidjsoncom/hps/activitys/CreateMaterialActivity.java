@@ -370,6 +370,9 @@ public class CreateMaterialActivity extends FragmentActivity {
                         adapter.notifyDataSetChanged();
                         //Close dialog
                         dialog.dismiss();
+
+                        System.out.println(radiationSigns);
+                        System.out.println(radiationSigns.toString());
                         /**
                          * send object to Server
                          */
@@ -424,10 +427,11 @@ public class CreateMaterialActivity extends FragmentActivity {
                         String camera_model = spinner_model.getSelectedItem().toString();
                         String isotope_type = spinner_isotope.getSelectedItem().toString();
                         String activityText = editText_value_activity.getText().toString();
-                        double activity = Double.parseDouble(editText_value_activity.getText().toString());
+
                         if (activityText == null || activityText.isEmpty()) {
                             Toast.makeText(CreateMaterialActivity.this, "value is empty", Toast.LENGTH_SHORT).show();
                         } else {
+                            double activity = Double.parseDouble(editText_value_activity.getText().toString());
                             isotope_none.setActivity(activity);
                         }
                         camera.setName(NAME.valueOf(camera_name));

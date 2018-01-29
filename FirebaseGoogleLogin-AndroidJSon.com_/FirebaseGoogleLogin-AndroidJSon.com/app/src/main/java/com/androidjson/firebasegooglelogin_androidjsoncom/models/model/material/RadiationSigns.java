@@ -11,8 +11,6 @@ public class RadiationSigns extends MATERIAL {
 
     private  String id;
     private static int instanceCounter = 0;
-    private String name;
-    private TYPE type;
     private int counter = 0;
 
     public RadiationSigns() {
@@ -26,35 +24,18 @@ public class RadiationSigns extends MATERIAL {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name.toLowerCase();
-
-
-    }
 
     public int getCounter() {
         return counter;
-    }
-
-    public TYPE getType() {
-        return type;
-    }
-
-    public void setType(TYPE type) {
-        this.type = type;
     }
 
 
     @Override
     public String toString() {
         return "\n"+"RADIATION_SIGNS{" +
-                "  NAME= " + name +
+                "  NAME= " + super.getName() +
                 ", ID= " + getId() +
-                ", TYPE= " + type +
+                ", TYPE= " + super.getType() +
                 ", COUNTER = " + getCounter() +
                 "}"+"\n";
     }
