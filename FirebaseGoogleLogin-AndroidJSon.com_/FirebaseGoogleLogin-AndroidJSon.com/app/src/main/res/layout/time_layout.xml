@@ -2,15 +2,22 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/background"
+    android:background="@drawable/back"
+    android:scrollbars="none"
     android:stretchColumns="2">
-
+    <TextView
+        android:id="@+id/text_view_isotope_info"
+        android:layout_width="match_parent"
+        android:background="@color/easyfei_black"
+        android:textColor="@color/easyfei_green"
+        android:layout_height="wrap_content"
+        />
 
     <TableRow>
 
         <TextView
-            android:layout_width="169dp"
-            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_column="0"
             android:padding="3dip"
             android:text="@string/isotope" />
 
@@ -20,6 +27,14 @@
             android:layout_height="30dp"
             android:entries="@array/isotope_arrays"
             android:textColor="@color/easyfei_green" />
+        <TextView
+            android:id="@+id/text_view_ft"
+            android:layout_width="wrap_content"
+            android:layout_column="2"
+            android:text="@string/ft"
+            android:textColor="@color/red"
+            android:padding="3dip" />
+
     </TableRow>
 
     <View android:layout_height="2dip" />
@@ -27,7 +42,8 @@
     <TableRow>
 
         <TextView
-            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_column="0"
             android:padding="3dip"
             android:text="@string/material" />
 
@@ -37,6 +53,12 @@
             android:layout_height="30dp"
             android:entries="@array/material_arrays"
             android:prompt="@string/material_prompt" />
+        <TextView
+            android:id="@+id/text_view_ft_warning"
+            android:layout_width="wrap_content"
+            android:layout_column="2"
+            android:textColor="@color/red"
+            android:padding="3dip" />
     </TableRow>
 
 
@@ -124,72 +146,63 @@
             android:textColor="@color/colorBlack" />
     </TableRow>
 
-    <TableRow>
+    <Chronometer
+        android:id="@+id/simpleChronometer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@color/easyfei_black"
+        android:textColor="@color/easyfei_green"
+        android:textSize="@dimen/activity_vertical_margin" />
 
-        <Button
-            android:layout_column="1"
-            android:id="@+id/calculate_btn"
-            android:background="@color/colorPrimary"
-            android:padding="3dip"
-            android:text="@string/calculate" />
-    </TableRow>
+    <TextView
+        android:id="@+id/text_View_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:text="@string/result" />
 
-    <TableRow>
-
-        <TextView
-            android:padding="3dip"
-            android:id="@+id/text_View_result"
-            android:text="@string/result"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/text_view_calculate_result"
-            android:layout_height="70dp"
-            android:layout_column="1"
-            android:textSize="@dimen/activity_vertical_margin"
-            android:visibility="gone"
-            android:padding="3dip"
-            android:textColor="@color/easyfei_green"
-            />
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:id="@+id/start_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:background="@color/colorPrimary"
-            android:text="@string/start"
-            android:visibility="gone"
-             />
-
-        <Button
-            android:id="@+id/stop_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_column="2"
-            android:background="@color/colorPrimary"
-            android:text="@string/stop"
-            android:visibility="gone"
-           />
-    </TableRow>
+    <TextView
+        android:id="@+id/text_view_calculate_result"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:padding="3dip"
+        android:textColor="@color/easyfei_green"
+        android:textSize="@dimen/activity_vertical_margin" />
 
     <TextView
         android:id="@+id/text_View_result_time"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:textSize="@dimen/activity_vertical_margin"
         android:textColor="@color/colorRed"
-        android:visibility="gone"
-        />
-    <Chronometer
-        android:id="@+id/simpleChronometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/easyfei_black"
         android:textSize="@dimen/activity_vertical_margin"
-        android:textColor="@color/easyfei_green"
-       />
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/start_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start" />
+
+        <Button
+            android:id="@+id/calculate_btn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="3dip"
+            android:text="@string/calculate" />
+
+        <Button
+            android:id="@+id/stop_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stop" />
+
+
+    </LinearLayout>
 
 </TableLayout>

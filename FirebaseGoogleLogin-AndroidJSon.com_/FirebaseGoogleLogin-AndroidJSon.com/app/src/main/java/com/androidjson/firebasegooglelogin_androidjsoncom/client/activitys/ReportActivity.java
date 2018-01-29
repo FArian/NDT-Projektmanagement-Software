@@ -1,4 +1,4 @@
-package com.androidjson.firebasegooglelogin_androidjsoncom;
+package com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.DatePickerFragment;
+import com.androidjson.firebasegooglelogin_androidjsoncom.R;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.Report;
 import com.androidjson.firebasegooglelogin_androidjsoncom.connection.Client;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
@@ -32,9 +35,6 @@ public class ReportActivity extends AppCompatActivity implements DatePickerDialo
     public static final String TAG = "ReportActivity";
     private Personal personal;
     private  Gson gson;
-    private JsonNode reportJson;
-    private WebSocket webSocket;
-    private OkHttpClient okHttpClient;
     private Client client;
     private Report report;
     private Spinner spinner_film_name, spinner_film_type, spinner_film_model, spinner_film_length,
@@ -48,6 +48,8 @@ public class ReportActivity extends AppCompatActivity implements DatePickerDialo
     private String[] unit_value;
     private double[] counter_value;
     private String reportDate;
+    private static String email;
+
 
 
     @Override
@@ -55,18 +57,13 @@ public class ReportActivity extends AppCompatActivity implements DatePickerDialo
         report = new Report();
         gson = new Gson();
         personal = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
+        email=personal.getEmail();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.report_layout);
-        okHttpClient = new OkHttpClient();
         client = new Client();
-        //create connection with Websocket
-        webSocket = client.getWebSocket();
-        client.getClient();
         bindViews();
         send_btn.setOnClickListener(this);
         datePicker.setOnClickListener(this);
-
-
     }
 
 
@@ -230,6 +227,7 @@ public class ReportActivity extends AppCompatActivity implements DatePickerDialo
         reportDate = currentDateString;
         text_date_of_report.setTextSize(20);
         datePicker.setVisibility(View.GONE);
+
         text_date_of_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -279,11 +277,11 @@ public class ReportActivity extends AppCompatActivity implements DatePickerDialo
                 send_btn.setVisibility(View.GONE);
                 text_view_message.setVisibility(View.VISIBLE);
                 text_view_message.setText("The following message sent to server"+ "\n" + report.toString() +"");
-                sendMessageToServer();
+                sendMessageToClient();
                 break;
             case R.id.date_picker:
                 DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "DatePicker");
+                datePicker.show(getSupportFragmentManager(), TAG);
                 break;
 
         }
@@ -293,22 +291,11 @@ public class ReportActivity extends AppCompatActivity implements DatePickerDialo
     /**
      * send report Message to Server
      */
-    public void sendMessageToServer(){
+    public void sendMessageToClient(){
         GsonBuilder builder = new GsonBuilder();
         gson = builder.create();
         String myJson=gson.toJson(report);
         client.getWebSocket().send(myJson);
-
-        //just for Test
-        ObjectMapper mapper=new ObjectMapper();
-        JsonFactory factory=mapper.getJsonFactory();
-        try {
-            JsonParser jp=factory.createJsonParser(gson.toJson(report.toString()));
-            JsonNode jsonNode=mapper.readTree(jp);
-            //client.getWebSocket().send(jsonNode.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
 

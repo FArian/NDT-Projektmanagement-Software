@@ -11,7 +11,6 @@ import java.util.Calendar;
  * Created by F.Arian on 04.12.17.
  */
 public class PROCESSING {
-
     private static final Calendar LOCAL_DATE = Calendar.getInstance();
     private NAME name;
     private MODEL model;
@@ -19,6 +18,7 @@ public class PROCESSING {
     private String description;
     private String expireDate;
     private LOCATION location;
+    private String productionDate;
 
     private String serialNumber;
 
@@ -29,13 +29,23 @@ public class PROCESSING {
         this.setSize(size);
         this.setLocation(LOCATION.CENTRAL);
         this.setDescription("not yet set");
-        this.setExpireDate(DATA.convertDate(LOCAL_DATE));
+        this.setProductionDate(LOCAL_DATE.toString());
+        this.setExpireDate(LOCAL_DATE.toString());
         this.setSerialNumber(DATA.generateUniqueId());
+    }
 
+    public String getProductionDate() {
+        return productionDate;
+    }
 
+    public void setProductionDate(String productionDate) {
+        this.productionDate = productionDate;
     }
 
 
+    public void setExpireDate(String expireDate) {
+        this.expireDate = expireDate;
+    }
     public String getSerialNumber() {
         return serialNumber;
     }
@@ -79,9 +89,7 @@ public class PROCESSING {
         return expireDate;
     }
 
-    public void setExpireDate(String expireDate) {
-        this.expireDate = expireDate;
-    }
+
 
     public LOCATION getLocation() {
         return location;

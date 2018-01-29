@@ -3,33 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/back_with_logo"
     android:padding="20dp"
-    android:scrollbars="vertical"
+    android:scrollbars="none"
     tools:context="com.androidjson.firebasegooglelogin_androidjsoncom.MainActivity">
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:textColor="#000"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/center_textView"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:textColor="#000" />
 
     <ImageView
         android:id="@+id/user_pic"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:background="@drawable/person" />
+        android:background="@drawable/person1" />
+    <TextView
+        android:id="@+id/center_textView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/user_pic"/>
 
     <Button
         android:id="@+id/sign_out"
-        android:textColor="#000"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:text="@string/abmelden"
+        android:textColor="#000"
         android:visibility="gone" />
 
     <TextView
@@ -58,40 +64,51 @@
         android:layout_below="@+id/birthday_txt"
         android:layout_centerHorizontal="true"
         android:gravity="right"
-        android:textColor="#000"/>
+        android:textColor="#000" />
 
-    <Button
-        android:id="@+id/radiographer_btn"
+
+    <ImageView
+        android:id="@+id/health_physic_pic"
+        android:layout_below="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewEmail"
+        android:layout_gravity="left"
         android:layout_marginTop="39dp"
-        android:textColor="#000"
-        android:text="@string/radiographer"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/health_physic_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/radiographer_btn"
-        android:layout_marginTop="39dp"
-        android:textColor="#000"
+        android:background="@drawable/healthphysics"
         android:text="@string/health_physic"
-        android:visibility="gone" />
+        android:textColor="#000" />
+    <ImageView
+        android:id="@+id/radiographer_pic"
+        android:layout_below="@+id/health_physic_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="39dp"
+        android:background="@drawable/radiographer"
+        android:textColor="#000" />
+
+    <TableLayout
+        android:id="@+id/linearLayout_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_pic"
+        android:scrollbars="none"
+        android:stretchColumns="1"
+        android:orientation="vertical">
+
+    </TableLayout>
+
 
     <Button
         android:id="@+id/birthday_btn"
-        android:textColor="#000"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/health_physic_btn"
+        android:layout_below="@id/linearLayout_main"
         android:layout_marginTop="39dp"
         android:text="@string/birthday"
-        android:visibility="gone"/>
+        android:textColor="#000"
+        android:visibility="gone" />
 
 
 </RelativeLayout>

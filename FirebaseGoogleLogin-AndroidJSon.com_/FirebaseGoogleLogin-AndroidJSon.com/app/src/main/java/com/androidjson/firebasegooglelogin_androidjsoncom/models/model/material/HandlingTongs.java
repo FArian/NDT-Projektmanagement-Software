@@ -15,7 +15,6 @@ public class HandlingTongs extends MATERIAL {
 
     public HandlingTongs() {
         super("HANDLING_TONGS", TYPE.SAFETY);
-
         this.setLength(-1);
         this.id = DATA.generateUniqueId();
         instanceCounter++;

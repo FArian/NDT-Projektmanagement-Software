@@ -119,7 +119,7 @@ public abstract class DOSIMETER {
     }
 
     public void setCalibrationDate(String calibrationDate) {
-        this.calibrationDate = DATA.dateUpDate(calibrationDate);
+        this.calibrationDate = calibrationDate;
     }
 
     public String getCalibrationExpire() {
@@ -127,7 +127,7 @@ public abstract class DOSIMETER {
     }
 
     public void setCalibrationExpire(String calibrationExpire) {
-        this.calibrationExpire = DATA.dateUpDate(calibrationExpire);
+        this.calibrationExpire = calibrationExpire;
     }
 
     public String getCalibrationInistitut() {

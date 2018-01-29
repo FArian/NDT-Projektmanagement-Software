@@ -1,11 +1,16 @@
 package com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT;
 
-import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.*;
-import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.*;
-
-
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.DATA;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.ISOTOPETYPE;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.LOCATION;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.MODEL;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.NAME;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.SIZE;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.TYPE;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by F.Arian on 02.12.17.
@@ -14,8 +19,7 @@ public class Film {
     private static String id;
     private static int instanceCounter = 0;
     private NAME filmName;
-
-    private ArrayList<TYPE> ndtType;
+    private List<TYPE> ndtType;
     private TYPE type;
     private MODEL model;
     private SIZE size;
@@ -25,20 +29,22 @@ public class Film {
     /**
      * list all gama ray and xRay for film
      */
-    private ArrayList<ISOTOPETYPE> isotopetypes;
+    private List<ISOTOPETYPE> isotopetypes = new ArrayList<>();
+
     /**
      * Films Types ,if is from list will be set best contrast
      */
-    private ArrayList<TYPE> filmsTypes;
+    private List<TYPE> filmsTypes = new ArrayList<>();
     /**
      * a isotope for Film , if is from list will be set best contrast
      */
-    private ISOTOPETYPE isotopetype;
+    private ISOTOPETYPE isotopetype = ISOTOPETYPE.IRIDIUM_192;
     private double developTemperature_C;
     private double developImmersionTime_S;
     private double contrast;
     private double relativeExposureFactors;
     private String expiryDate;
+    private String date;
     private int numberOfBoxSheets;
     private int weightFilm;
     private int lengthFilm;
@@ -49,8 +55,8 @@ public class Film {
     private int counter = 0;
 
 
-    public Film(NAME filmname, TYPE filmType, MODEL gamaRayOrXraySheetOrRoll, SIZE size) {
-        this.setFilmName(filmname);
+    public Film(NAME filmName, TYPE filmType, MODEL gamaRayOrXraySheetOrRoll, SIZE size) {
+        this.setFilmName(filmName);
         this.setType(filmType);
         this.setModel(gamaRayOrXraySheetOrRoll);
         this.setSize(size);
@@ -61,18 +67,49 @@ public class Film {
         this.setLocation(LOCATION.CENTRAL);
         this.filmsTypes = new ArrayList<>();
         this.isotopetypes = new ArrayList<>();
-        this.setIsotopetype(ISOTOPETYPE.IRIDIUM_192);
-        this.relativeExposureFactors();
         this.ndtType = new ArrayList<>();
         this.ndtType.add(TYPE.RT);
         this.ndtType.add(TYPE.D_ROOM);
         this.setFilmIsexpirt(false);
         this.setBase_Fog(-1);
-        this.setSerialumber(DATA.creatId("-" + getFilmName().name().toString()));
+
+    }
+
+    /**
+     * default constructor
+     */
+    public Film() {
+
+    }
+
+    public void updateFilm() {
+        setFilmName(getFilmName());
+        setType(getType());
+        setModel(getModel());
+        setSize(getSize());
+        amountFilm();
+        setAmountFilm(getLengthFilm());
+        setWeightFilm(getWidthFilm());
+        setDate(getDate());
+        setExpiryDate(getExpiryDate());
+        setBase_Fog(getBase_Fog());
+        this.setSerialNumber(DATA.creatId("-" + getFilmName().name().toString()));
         this.id = DATA.generateUniqueId();
         instanceCounter++;
         counter = instanceCounter;
+        if(getIsotopetype()!=null){
+            relativeExposureFactors();
+        }
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 
     public static String getId() {
         return id;
@@ -82,15 +119,16 @@ public class Film {
         return counter;
     }
 
-    public String getSerialumber() {
+    public String getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialumber(String serialumber) {
-        this.serialNumber = serialumber;
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
     }
 
     /**
+     * should be Isotope set and than call this Method
      * set Relative Exposure Factors
      */
     private void relativeExposureFactors() {
@@ -265,6 +303,7 @@ public class Film {
                     if (isotopetype.equals(ISOTOPETYPE.X_Ray100KV)) {
                         this.setRelativeExposureFactors(3.0);
                     }
+
                     if (isotopetype.equals(ISOTOPETYPE.X_Ray200KV)) {
                         this.setRelativeExposureFactors(2.7);
                     }
@@ -852,7 +891,7 @@ public class Film {
         this.numberOfBoxSheets = numberOfBoxSheets;
     }
 
-    public ArrayList<ISOTOPETYPE> getIsotopetypes() {
+    public List<ISOTOPETYPE> getIsotopetypes() {
         return isotopetypes;
     }
 
@@ -871,7 +910,7 @@ public class Film {
         return false;
     }
 
-    public ArrayList<TYPE> getFilmsTypes() {
+    public List<TYPE> getFilmsTypes() {
         return filmsTypes;
     }
 
@@ -898,7 +937,7 @@ public class Film {
         this.featuresandMajorApplications = featuresandMajorApplications;
     }
 
-    public ArrayList<TYPE> getNdtType() {
+    public List<TYPE> getNdtType() {
         return ndtType;
     }
 
@@ -925,6 +964,15 @@ public class Film {
         this.filmIsExpirt = filmIsExpirt;
     }
 
+    public boolean isFilmExpirt() {
+        Calendar today = Calendar.getInstance();
+        if (getExpiryDate().equals(today)) {
+            setFilmIsexpirt(true);
+            return true;
+        }
+        return false;
+    }
+
     public double getBase_Fog() {
         return base_Fog;
     }
@@ -936,7 +984,7 @@ public class Film {
 
     @Override
     public String toString() {
-        return "\n"+"FILM{ " +
+        return "\n" + "FILM{ " +
                 ", FILM_NAME= " + filmName +
                 ", SERIAL_NUMBER= " + serialNumber +
                 ", ID= " + getId() +
@@ -946,7 +994,7 @@ public class Film {
                 ", FILM_SIZE= " + size +
                 ", LOCATION= " + location +
                 ", AMOUNT_FILM= " + amountFilm +
-                ", FILM_IS_EXPIRT= " + filmIsExpirt +
+                ", FILM_IS_EXPIRT= " + isFilmExpirt() +
                 ", ISOTOPE_TYPES= " + isotopetypes +
                 ", FILM_TYPES= " + filmsTypes +
                 ", ISOTOPE_TYPE= " + isotopetype +

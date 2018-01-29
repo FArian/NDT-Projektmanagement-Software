@@ -616,7 +616,8 @@ public enum MODEL {
                 }
                 return null;
             }
-        }, OTHER {
+        },
+        OTHER {
             @Override
             public SIZE getSize(SIZE size) {
                 for (int i = 0; i < SIZE.values().length; i++) {

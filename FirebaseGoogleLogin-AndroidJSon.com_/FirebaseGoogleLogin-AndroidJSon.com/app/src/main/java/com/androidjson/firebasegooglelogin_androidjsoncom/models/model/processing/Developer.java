@@ -21,6 +21,7 @@ public class Developer extends PROCESSING {
         counter = instanceCounter;
     }
 
+
     /**
      * static for calling from parent Class in toString()
      *

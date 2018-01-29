@@ -5,18 +5,19 @@ import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.*;
 
 import org.threeten.bp.LocalDateTime;
 
+import java.util.Calendar;
+
 /**
  * Created by F.Arian on 06.11.17.
  */
 public class Isotope {
-    private static final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.now();
+
     private static String name;
     private static String date;
-    private static double ACTIVITY;
-    private static LocalDateTime DATEOFINSTALATION = LOCAL_DATE_TIME.minusMinutes(1);
+    private double ACTIVITY;
     private static String id;
     private static int instanceCounter = 0;
-    int counter = 0;
+    private int counter = 0;
     private double halfLife;
     private double activity;
     private double activityDimensions;
@@ -27,13 +28,12 @@ public class Isotope {
     private ISOTOPETYPE isotopetype;
     private String serialNumber;
 
-
     public Isotope(ISOTOPETYPE type, double activity) {
-        this.ACTIVITY = activity;
-        this.setDate(DATA.getLocalDate());
+        this.ACTIVITY=activity;
+        this.setActivity(getACTIVITY());
+        this.setDate("NOT SET");
         this.setIsotopetype(type);
         this.setName(type.name().toString());
-        this.setActivity(activity);
         this.setActivityDimensions(type, activity);
         this.setHalfLife(-1);
         this.setSource_Assembly_and_Authorized_Contents(type);
@@ -44,11 +44,23 @@ public class Isotope {
 
     }
 
-    public static LocalDateTime getDATEOFINSTALATION() {
-        return DATEOFINSTALATION;
+    /**
+     * update isotope in create material
+     * that will be call to setUpdate infos
+     */
+    public void updateIsotope(){
+        this.setIsotopetype(getIsotopetype());
+        this.setName(getIsotopetype().name());
+        this.setActivityDimensions(getIsotopetype(), getACTIVITY());
+        this.setHalfLife(getHalfLife());
+        this.setSource_Assembly_and_Authorized_Contents(getIsotopetype());
+        this.ACTIVITY=getActivity();
+
     }
 
-    public static double getACTIVITY() {
+
+
+    public  double getACTIVITY() {
         return ACTIVITY;
     }
 
@@ -93,34 +105,14 @@ public class Isotope {
         this.halfLife = halfLife;
     }
 
-    /**
-     * get current Half Life of Radioactive Isotope
-     */
-    public void currentHalfLife() {
-        if (DATEOFINSTALATION != LOCAL_DATE_TIME) {
-            double[] time = DATA.getPeriodTime(DATEOFINSTALATION.minusMonths(1));
-            double min = 0, hour = 0, days = 0, month = 0, years = 0;
-            min = time[0];
-            hour = time[1];
-            days = time[2];
-            month = time[3];
-            years = time[4];
-            days = days + (month * 30) + (years * 360);
-            if (days > 0) {
-                this.setActivity(this.getActivity() * Math.pow(2, -days / getHalfLife()));
-            }
 
-        }
-
-
-    }
 
     public String getDate() {
         return date;
     }
 
     public void setDate(String date) {
-        this.date = DATA.dateUpDate(date);
+        this.date = date;
     }
 
     public double getActivity() {
@@ -307,8 +299,8 @@ public class Isotope {
                 ", ID= " + getId() +
                 ", SERIAL_NUMBER= " + serialNumber +
                 ", HALF_LIFE= " + halfLife +
-                ", FIRST_ACTIVITY= " + ACTIVITY +
-                ", CURRENT_ACTIVITY= " + activity +
+                ", FIRST_ACTIVITY= " + getACTIVITY() +
+                ", CURRENT_ACTIVITY= " + getActivity() +
                 ", ACTIVITY_DIMENSIONS= " + activityDimensions +
                 ", ASSEMBLY_MODEL_NUMBER= " + assembly_Model_Number +
                 ", GAMMA_ENERGY_RANGE= " + gamma_Energy_Range +

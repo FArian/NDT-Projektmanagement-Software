@@ -1,5 +1,7 @@
 package com.androidjson.firebasegooglelogin_androidjsoncom.client;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.R;
+
 /**
  * Created by F.Arian on 07.01.18.
  */
@@ -10,6 +12,8 @@ public class Item {
     private String value;
     private String type;
     private int safetyCoverDrawableId;
+    private boolean warning=false;
+
 
     public Item(String type, String info, String value, int safetyCoverDrawableId) {
         this.info = info;
@@ -17,7 +21,16 @@ public class Item {
         this.type=type;
         this.safetyCoverDrawableId = safetyCoverDrawableId;
     }
+    public Item(String type, String info, int safetyCoverDrawableId) {
+        this.info = info;
+        this.value = "";
+        this.type=type;
+        this.safetyCoverDrawableId = safetyCoverDrawableId;
+    }
     public Item(){
+        this.info="";
+        this.value="";
+        this.safetyCoverDrawableId= R.drawable.report_logo;
 
     }
 
@@ -51,6 +64,14 @@ public class Item {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public boolean isWarning() {
+        return warning;
+    }
+
+    public void setWarning(boolean warning) {
+        this.warning = warning;
     }
 
 

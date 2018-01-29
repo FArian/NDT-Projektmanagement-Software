@@ -3,12 +3,17 @@ package com.androidjson.firebasegooglelogin_androidjsoncom.connection;
 import android.util.Log;
 
 import com.androidjson.firebasegooglelogin_androidjsoncom.json.ToJson;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.dosimeter.FilmBadge;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.dosimeter.TLD;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.Observable;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -21,7 +26,7 @@ import okio.ByteString;
  * Created by F.Arian on 22.11.17.
  */
 
-public class Client {
+public class Client extends Observable{
 
     private WebSocket webSocket;
     private String replayMsg;
@@ -32,6 +37,10 @@ public class Client {
     private static final int NORMAL_CLOSURE_STATUS = 1000;
     private EchoWebSocketListener listener;
     private boolean isNewUser;
+    private String receiveMessage;
+    private Gson gson;
+    private FilmBadge filmBadge;
+    private TLD tld;
 
 
     public Client() {
@@ -40,6 +49,7 @@ public class Client {
         this.setWebSocket(null);
         this.start();
         isNewUser = true;
+        gson= new Gson();
     }
 
 
@@ -63,6 +73,15 @@ public class Client {
         this.listener = listener;
 
     }
+
+    public String getReceiveMessage() {
+        return receiveMessage;
+    }
+
+    public void setReceiveMessage(String receiveMessage) {
+        this.receiveMessage = receiveMessage;
+    }
+
 
     public void setClient(OkHttpClient okHttpClient) {
         this.client = okHttpClient;
@@ -128,7 +147,7 @@ public class Client {
 
         @Override
         public void onOpen(WebSocket webSocket, Response response) {
-            //webSocket.send(ToJson.helloServer().toString()+ "\n");
+            webSocket.send(ToJson.helloServer().toString()+ "\n");
             // webSocket.close(NORMAL_CLOSURE_STATUS, "Goodbye !");
         }
 
@@ -182,7 +201,8 @@ public class Client {
          *
          * @param json
          */
-        private synchronized void messageActor(JsonNode json) {
+        private synchronized void messageActor(JsonNode json) throws JsonProcessingException {
+
             String jsonKey = json.fields().next().getKey();
             //------------------Message Type ------------------------------
             switch (jsonKey) {
@@ -196,6 +216,15 @@ public class Client {
                 case "NEW_USER_ANSWER":
                     isNewUser = json.get("NEW_USER_ANSWER").get("Message").booleanValue();
                     setIsNewUser(isNewUser);
+                    break;
+                case "Warning answer":
+                    setReceiveMessage(json.get("Warning answer").textValue());
+                    break;
+                case "FilmBadge":
+
+                    FilmBadge filmBadge=gson.fromJson(String.valueOf(json),FilmBadge.class);
+
+                    break;
 
             }
         }

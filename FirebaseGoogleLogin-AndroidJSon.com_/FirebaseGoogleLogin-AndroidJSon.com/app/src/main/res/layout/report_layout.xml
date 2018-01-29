@@ -1,211 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/background"
+    android:background="@drawable/back"
+    android:scrollbars="none"
     android:stretchColumns="2">
 
-    <TableRow>
+        <TableRow>
+            <Spinner
+                android:id="@+id/spinner_film_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:entries="@array/film_name_arrays" />
+            <Spinner
+                android:id="@+id/spinner_film_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:entries="@array/film_type_arrays"
+                android:gravity="left" />
 
 
-        <Spinner
-            android:id="@+id/spinner_film_name"
+            <Spinner
+                android:id="@+id/spinner_film_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_gravity="left"
+                android:entries="@array/film_model_arrays" />
+
+            <Spinner
+                android:id="@+id/spinner_film_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:layout_gravity="left"
+                android:entries="@array/film_length_arrays" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/size1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="left"
+                android:hint="size ex 30"
+                android:inputType="numberDecimal" />
+
+            <Spinner
+                android:id="@+id/spinner_measureUp1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:entries="@array/measureUp_arrays" />
+
+            <EditText
+                android:id="@+id/edit_text_counter1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:hint="Counter"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/size2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="left"
+                android:hint="size ex 30"
+                android:inputType="numberDecimal" />
+
+            <Spinner
+                android:id="@+id/spinner_measureUp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:entries="@array/measureUp_arrays" />
+
+            <EditText
+                android:id="@+id/edit_text_counter2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:hint="Counter"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/size3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="left"
+                android:hint="size ex 30"
+                android:inputType="numberDecimal" />
+
+            <Spinner
+                android:id="@+id/spinner_measureUp3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:entries="@array/measureUp_arrays" />
+
+            <EditText
+                android:id="@+id/edit_text_counter3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:hint="Counter"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/size4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="left"
+                android:hint="size ex 30"
+                android:inputType="numberDecimal" />
+
+            <Spinner
+                android:id="@+id/spinner_measureUp4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:entries="@array/measureUp_arrays" />
+
+            <EditText
+                android:id="@+id/edit_text_counter4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:hint="Counter"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/size5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="left"
+                android:hint="size ex 30"
+                android:inputType="numberDecimal" />
+
+            <Spinner
+                android:id="@+id/spinner_measureUp5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:entries="@array/measureUp_arrays" />
+
+            <EditText
+                android:id="@+id/edit_text_counter5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:hint="Counter"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:entries="@array/film_name_arrays" />
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/text_date_of_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_of_report"
+                android:textColor="@color/colorPrimaryDark" />
 
-        <Spinner
-            android:id="@+id/spinner_film_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:entries="@array/film_type_arrays"
-            android:gravity="left" />
+            <DatePicker
+                android:id="@+id/date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_date_of_report" />
 
+            <Button
+                android:id="@+id/send_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/date_picker"
+                android:text="send" />
 
-        <Spinner
-            android:id="@+id/spinner_film_model"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_gravity="left"
-            android:entries="@array/film_model_arrays" />
-
-        <Spinner
-            android:id="@+id/spinner_film_length"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="3"
-            android:layout_gravity="left"
-            android:entries="@array/film_length_arrays" />
-
-    </TableRow>
-
-    <TableRow>
-
-        <EditText
-            android:id="@+id/size1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:gravity="left"
-            android:hint="size ex 30"
-            android:inputType="numberDecimal" />
-
-        <Spinner
-            android:id="@+id/spinner_measureUp1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:entries="@array/measureUp_arrays" />
-
-        <EditText
-            android:id="@+id/edit_text_counter1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:hint="Counter"
-            android:inputType="numberDecimal" />
-    </TableRow>
-    <TableRow>
-
-        <EditText
-            android:id="@+id/size2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:gravity="left"
-            android:hint="size ex 30"
-            android:inputType="numberDecimal" />
-
-        <Spinner
-            android:id="@+id/spinner_measureUp2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:entries="@array/measureUp_arrays" />
-
-        <EditText
-            android:id="@+id/edit_text_counter2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:hint="Counter"
-            android:inputType="numberDecimal" />
-    </TableRow>
-
-    <TableRow>
-
-        <EditText
-            android:id="@+id/size3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:gravity="left"
-            android:hint="size ex 30"
-            android:inputType="numberDecimal" />
-
-        <Spinner
-            android:id="@+id/spinner_measureUp3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:entries="@array/measureUp_arrays" />
-
-        <EditText
-            android:id="@+id/edit_text_counter3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:hint="Counter"
-            android:inputType="numberDecimal" />
-    </TableRow>
-    <TableRow>
-
-        <EditText
-            android:id="@+id/size4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:gravity="left"
-            android:hint="size ex 30"
-            android:inputType="numberDecimal" />
-
-        <Spinner
-            android:id="@+id/spinner_measureUp4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:entries="@array/measureUp_arrays" />
-
-        <EditText
-            android:id="@+id/edit_text_counter4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:hint="Counter"
-            android:inputType="numberDecimal" />
-    </TableRow>
-    <TableRow>
-
-        <EditText
-            android:id="@+id/size5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:gravity="left"
-            android:hint="size ex 30"
-            android:inputType="numberDecimal" />
-
-        <Spinner
-            android:id="@+id/spinner_measureUp5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:entries="@array/measureUp_arrays" />
-
-        <EditText
-            android:id="@+id/edit_text_counter5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:hint="Counter"
-            android:inputType="numberDecimal" />
-    </TableRow>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/text_date_of_report"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date_of_report"
-            android:textColor="@color/colorPrimaryDark" />
-
-        <DatePicker
-            android:id="@+id/date_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_date_of_report" />
-
-        <Button
-            android:id="@+id/send_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/date_picker"
-            android:text="send" />
-        <TextView
-            android:id="@+id/text_view_message"
-            android:layout_width="wrap_content"
-            android:textColor="@color/colorPrimaryDark"
-            android:visibility="gone"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/date_picker"/>
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/text_view_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/date_picker"
+                android:textColor="@color/colorPrimaryDark"
+                android:visibility="gone" />
+        </RelativeLayout>
 </TableLayout>

@@ -18,9 +18,6 @@ public class MATERIAL {
         setModel(DATA.creatId("-" + name));
         setSerialNumber(DATA.generateUniqueId());
         setType(type);
-
-
-
     }
 
 

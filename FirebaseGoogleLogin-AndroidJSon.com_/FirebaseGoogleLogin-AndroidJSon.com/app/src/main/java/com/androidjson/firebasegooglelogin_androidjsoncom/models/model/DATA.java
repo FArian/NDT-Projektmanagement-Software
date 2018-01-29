@@ -32,7 +32,7 @@ public abstract class DATA extends DialogFragment {
 
     public static String dateUpDate(String dateStr) {
 
-        SimpleDateFormat format2 = new SimpleDateFormat(DD_MM_YYYY);
+        SimpleDateFormat format2 = new SimpleDateFormat("dd.mm.yyyy");
         Date date = null;
         try {
             date = format2.parse(dateStr);

@@ -14,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.StartActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.connection.Client;
+import com.androidjson.firebasegooglelogin_androidjsoncom.hps.activitys.StarterActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.json.ToJson;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.DatePickerFragment;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     public GoogleApiClient googleApiClient;
 
     // Sing out and next buttons
-    private Button signOut_btn, radiographer_btn, health_physic_btn, birthday_btn;
+    private Button signOut_btn, birthday_btn;
 
     // Google Sign In button .
     private com.google.android.gms.common.SignInButton signInButton;
@@ -76,8 +79,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     private String lastName;
     private String email;
     private String birthday;
-    private ImageView user_pic;
+    private ImageView user_pic, radiographer_pic, health_physic_pic;
     private Personal personal;
+    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         setContentView(R.layout.activity_main);
         okHttpClient = new OkHttpClient();
         client = new Client();
+        gson = new Gson();
         //create connection with Websocket
         webSocket = client.getWebSocket();
         client.getClient();
@@ -98,11 +103,13 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         LoginUserBirthday.setVisibility(View.GONE);
 
         signInButton.setOnClickListener(this);
-        health_physic_btn.setOnClickListener(this);
-        radiographer_btn.setOnClickListener(this);
+        health_physic_pic.setOnClickListener(this);
+        radiographer_pic.setOnClickListener(this);
         signOut_btn.setOnClickListener(this);
         birthday_btn.setOnClickListener(this);
         LoginUserBirthday.setOnClickListener(this);
+        //TODO the radiographer_pic Button should be gone , now just for test is visible
+        radiographer_pic.setVisibility(View.VISIBLE);
 
 
         // Creating and Configuring Google Sign In object.
@@ -130,8 +137,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         user_pic = (ImageView) findViewById(R.id.user_pic);
         signOut_btn = (Button) findViewById(R.id.sign_out);
-        radiographer_btn = (Button) findViewById(R.id.radiographer_btn);
-        health_physic_btn = (Button) findViewById(R.id.health_physic_btn);
+        radiographer_pic = (ImageView) findViewById(R.id.radiographer_pic);
+        health_physic_pic = (ImageView) findViewById(R.id.health_physic_pic);
         birthday_btn = (Button) findViewById(R.id.birthday_btn);
         LoginUserName = (TextView) findViewById(R.id.textViewName);
         LoginUserEmail = (TextView) findViewById(R.id.textViewEmail);
@@ -157,9 +164,14 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         Intent intent = new Intent(getApplicationContext(), StartActivity.class);
         personal = new Personal(getFirstName(), getLastName());
         personal.setEmail(getEmail());
-        Gson gson = new Gson();
+
         String myJson = gson.toJson(personal);
         intent.putExtra("Personal", myJson);
+        startActivity(intent);
+    }
+
+    private void goToNextPageHPS() {
+        Intent intent = new Intent(getApplicationContext(), StarterActivity.class);
         startActivity(intent);
     }
 
@@ -216,14 +228,14 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                             personal.setFirstName(getFirstName());
                             personal.setLastName(getLastName());
                             personal.setEmail(email);
-                            client.getWebSocket().send(ToJson.message("NEW_USER_ASK", getEmail()).toString());
+                            client.getWebSocket().send(ToJson.message("NEW_USER_ASK", email, getEmail()).toString());
                             if (!client.isNewUser()) {
                                 birthday_btn.setVisibility(View.VISIBLE);
                             }
                             // Showing Log out button.
                             signOut_btn.setVisibility(View.VISIBLE);
-                            radiographer_btn.setVisibility(View.VISIBLE);
-                            health_physic_btn.setVisibility(View.VISIBLE);
+                            radiographer_pic.setVisibility(View.VISIBLE);
+                            health_physic_pic.setVisibility(View.VISIBLE);
                             // Hiding Login in button.
                             signInButton.setVisibility(View.GONE);
                             // Showing the TextView.
@@ -237,7 +249,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                             String str = firebaseUser.getPhotoUrl().toString();
                             Picasso.with(getApplicationContext()).load(str).into(user_pic);
                             //Glide.with(getApplicationContext()).load(str).into(user_pic);
-                            Toast.makeText(MainActivity.this, " Welcome " + getFirstName()+ " " + getLastName(),
+
+                            Toast.makeText(MainActivity.this, " Welcome " + getFirstName() + " " + getLastName(),
                                     Toast.LENGTH_SHORT).show();
 
 
@@ -268,8 +281,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         // After logout Hiding sign out button.
         signOut_btn.setVisibility(View.GONE);
         // After logout Hiding next button.
-        radiographer_btn.setVisibility(View.GONE);
-        health_physic_btn.setVisibility(View.GONE);
+        radiographer_pic.setVisibility(View.GONE);
+        health_physic_pic.setVisibility(View.GONE);
         birthday_btn.setVisibility(View.GONE);
 
         // After logout setting up email and name to null.
@@ -345,13 +358,14 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.health_physic_btn:
-                //TODO
+            case R.id.health_physic_pic:
+                Toast.makeText(MainActivity.this, "Health Physics User", Toast.LENGTH_LONG).show();
+                goToNextPageHPS();
                 break;
-            case R.id.radiographer_btn:
+            case R.id.radiographer_pic:
                 // with radiographer button after login go to next page
                 birthday_btn.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this, "Your are Radiographer", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Radiographer User", Toast.LENGTH_LONG).show();
                 goToNextPage();
                 break;
             case R.id.sign_out:

@@ -90,7 +90,7 @@ public class ListViewAdapter extends BaseAdapter {
                     convertView = inflater.inflate(R.layout.list_view_items, null, false);
                     break;
                 case R.layout.report_layout:
-                    convertView=inflater.inflate(R.layout.report_layout,null,false);
+                    convertView = inflater.inflate(R.layout.report_layout, null, false);
             }
 
             //Create a holder object and bind its views

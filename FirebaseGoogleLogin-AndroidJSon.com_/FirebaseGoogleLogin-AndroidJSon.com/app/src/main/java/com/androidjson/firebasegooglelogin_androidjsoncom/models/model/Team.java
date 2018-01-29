@@ -3,7 +3,11 @@ package com.androidjson.firebasegooglelogin_androidjsoncom.models.model;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT.Film;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT.RT_Camera;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.dosimeter.Radiometer;
-import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.*;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.LOCATION;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.MODEL;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.NAME;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.SIZE;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.TYPE;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.HandlingTongs;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.RadiationSigns;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.Viewer;
@@ -17,12 +21,10 @@ import java.util.List;
  * Created by F.Arian on 06.11.17.
  */
 public class Team {
-    private  String id;
+    private String id;
     private static int instanceCounter = 0;
     int counter = 0;
     private TYPE type;
-
-
     private String name;
     private List<Personal> personals = new ArrayList<>();
     private List<Developer> developers = new ArrayList<>();
@@ -66,14 +68,17 @@ public class Team {
         counter = instanceCounter;
 
 
+    }
+
+    public Team() {
 
     }
 
-    public  String getId() {
+    public String getId() {
         return id;
     }
 
-    public  void setId(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -88,7 +93,6 @@ public class Team {
     public void setTeamReport(String teamReport) {
         this.teamReport = teamReport;
     }
-
 
 
     public TYPE getType() {
@@ -113,6 +117,10 @@ public class Team {
 
     public void setPersonals(List<Personal> personals) {
         this.personals = personals;
+    }
+
+    public void setPersonals(Personal personal) {
+        this.personals.add(personal);
     }
 
     public List<Developer> getDevelopers() {

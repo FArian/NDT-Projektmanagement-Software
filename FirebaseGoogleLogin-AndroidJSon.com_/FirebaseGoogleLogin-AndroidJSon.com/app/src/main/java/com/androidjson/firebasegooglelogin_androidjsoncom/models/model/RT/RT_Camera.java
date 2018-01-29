@@ -1,19 +1,23 @@
 package com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT;
-import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.*;
-import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.*;
+
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.DATA;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.ISOTOPETYPE;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.MODEL;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.NAME;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class RT_Camera {
+public class RT_Camera extends Observable {
 
     private static String SERIAL_NUMBER;
     private static String id;
     private static String operating_Temperature_Range;
     private static int instanceCounter = 0;
-    int counter = 0;
+    private int counter = 0;
     private NAME name;
     private MODEL model;
     private String dimensions;
@@ -38,7 +42,6 @@ public class RT_Camera {
     private ArrayList<ISOTOPETYPE> isotopetypes;
 
 
-
     public RT_Camera(NAME name, MODEL model, Isotope isotope) {
         this.setCapacityPermision(false);
         this.setIsotopeTypePermision(false);
@@ -47,6 +50,43 @@ public class RT_Camera {
         this.isotopetypes = new ArrayList<>();
         this.setDevice_Source_Maximum_Capacity(model, isotope);
         // is RT Camera SENTINEL
+        if (this.getName().equals(NAME.SENTINEL)) {
+            this.setDimensions(this.dimensions_For_Sentinel());
+            this.setWeight(this.setWeight_Sentinel_Models(model));
+            this.setActivity_Of_Depleted_Uranium_Shield(this.activity_of_Depleted_Uranium_Shield_For_Sentinel());
+            this.setCertification_Type_Package(this.certification_Type_Package_For_Sentinel());
+            this.setAccreditation(this.accreditation_For_Sentinel());
+            this.setRemovable_Jacket(this.removable_Jacket_For_Sentinel());
+            this.setMaterials(this.materials_For_Sentinel());
+            this.setControls_and_Guide_Tubes(this.controls_and_Guide_Tubes_For_Sentinel());
+            this.setInspection_Requirements(this.inspection_Requirements_For_Sentinel());
+            this.setMaintenance_Requirements(this.maintenance_Requirements_For_Sentinel());
+            this.setOperating_Temperature_Range(this.operating_Temperature_Range_For_Sentinel());
+            this.setPrimary_Application(this.primary_Application_For_Sentinel());
+            this.setSource_Assembly_and_Authorized_Contents(this.Source_Assembly_and_Authorized_Contents_For_Sentinel());
+            this.setConstruction_Exposure_Device(this.construction_Exposure_Device_For_Sentinel());
+
+
+        }
+
+    }
+
+    /**
+     * default constructor
+     */
+    public RT_Camera(){
+        this.name=NAME.OTHER;
+        this.isotope=new Isotope(ISOTOPETYPE.OTHER,-1);
+
+    }
+
+    /**
+     * update camera in create material
+     * that will be call to setUpdate infos
+     */
+    public void updateCamera() {
+        this.setDevice_Source_Maximum_Capacity(this.model, this.isotope);
+        this.setCountry(this.getName());
         if (this.getName().equals(NAME.SENTINEL)) {
             this.setDimensions(this.dimensions_For_Sentinel());
             this.setWeight(this.setWeight_Sentinel_Models(model));
@@ -75,7 +115,6 @@ public class RT_Camera {
         }
         this.setSerialNumber(DATA.creatId("-" + model.name().toString()));
         this.id = DATA.generateUniqueId();
-        //counter=DATA.counter(instanceCounter,counter);
 
     }
 
@@ -127,6 +166,7 @@ public class RT_Camera {
     }
 
     public void setWeight(String weight) {
+        setWeight_Sentinel_Models(this.model);
         this.weight = weight;
     }
 
@@ -732,7 +772,7 @@ public class RT_Camera {
 
     @Override
     public String toString() {
-        return "\n"+"RT_CAMERA{" +
+        return "\n" + "RT_CAMERA{" +
                 ", NAME=" + name +
                 ", ID=" + getId() +
                 ", MODEL=" + model +

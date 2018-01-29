@@ -1,4 +1,4 @@
-package com.androidjson.firebasegooglelogin_androidjsoncom;
+package com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.R;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.Item;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.RecyclerViewAdapter;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.RecyclerViewItemClickListener;
@@ -44,14 +45,14 @@ public class AlarmActivity extends Activity {
 
         //Create model list
         items = new ArrayList<>();
-        final  String  EMERGENCY_MESSAGE=
-                "1 : Remote Handling tongs " +"\n"+
-                "2: Shielded container" +"\n"+
-                "3: Hand tools -> wrench,pliers,croppers" +"\n"+
-                "4: Fist aid kit" +"\n"+
-                "5: Radiation warning labels & signs" +"\n"+
-                "6: Barriers/ropes" +"\n"+
-                "7: call HPS";
+        final String EMERGENCY_MESSAGE =
+                "1 : Remote Handling tongs " + "\n" +
+                        "2: Shielded container" + "\n" +
+                        "3: Hand tools -> wrench,pliers,croppers" + "\n" +
+                        "4: Fist aid kit" + "\n" +
+                        "5: Radiation warning labels & signs" + "\n" +
+                        "6: Barriers/ropes" + "\n" +
+                        "7: call HPS";
 
         items.add(new Item("ALARM", "RADIATION EMERGENCY MESSAGE", EMERGENCY_MESSAGE, R.drawable.emergency_equipment));
 
@@ -104,7 +105,7 @@ public class AlarmActivity extends Activity {
 
         //Bind dialog views
         final EditText value_edittext = (EditText) dialog.findViewById(R.id.edit_text_value);
-        final Button submit_Button = (Button) dialog.findViewById(R.id.submit_button);
+        final Button edit_btn = (Button) dialog.findViewById(R.id.edit_btn);
         Button deleteButton = (Button) dialog.findViewById(R.id.delete_button);
 
         //Set clicked to value edittext
@@ -112,7 +113,7 @@ public class AlarmActivity extends Activity {
 
         //When edit button is clicked, first edit edittext should be checked if it is empty
         //If it is not empty, data and listview item should be changed.
-        submit_Button.setOnClickListener(new View.OnClickListener() {
+        edit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

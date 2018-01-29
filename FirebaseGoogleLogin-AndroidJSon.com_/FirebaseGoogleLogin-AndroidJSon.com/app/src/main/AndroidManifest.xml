@@ -11,7 +11,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/project"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -27,32 +27,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartActivity" />
+        <activity android:name=".client.activitys.StartActivity" />
         <activity
-            android:name=".SafetyActivity"
+            android:name=".client.activitys.SafetyActivity"
             android:label="@string/title_activity_safety"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.ActionBar">
+
         </activity>
         <activity
-            android:name=".MaterialActivity"
+            android:name=".client.activitys.MaterialActivity"
             android:label="@string/title_activity_material"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.ActionBar">
+
         </activity>
         <activity
-            android:name=".ReportActivity"
+            android:name=".client.activitys.ReportActivity"
             android:label="@string/title_activity_report"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.ActionBar">
+
         </activity>
         <activity
-            android:name=".TimeActivity"
+            android:name=".client.activitys.TimeActivity"
             android:label="@string/title_activity_time"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.ActionBar"></activity>
         <activity
-            android:name=".AlarmActivity"
+            android:name=".client.activitys.AlarmActivity"
             android:label="@string/title_activity_alarm"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.ActionBar"></activity>
+        <activity
+            android:name=".hps.activitys.StarterActivity"
+            android:label="@string/title_activity_creator"
+            android:theme="@style/AppTheme.ActionBar"></activity>
+        <activity
+            android:name=".hps.activitys.CreateMaterialActivity"
+            android:label="@string/title_activity_create_material"
+            android:theme="@style/AppTheme.ActionBar"></activity>
+
 
     </application>
 </manifest>

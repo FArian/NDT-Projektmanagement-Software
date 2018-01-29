@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/easyfei_black"
+    android:scrollbars="none"
+    android:stretchColumns="1">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="Item"
+        android:textColor="@color/red"
+        android:textStyle="italic" />
+
+    <TableRow
+        android:id="@+id/row_name"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:gravity="left"
+            android:text="@string/name" />
+
+        <Spinner
+            android:id="@+id/spinner_name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:gravity="right" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_type"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_type"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:gravity="left"
+            android:text="@string/type" />
+
+        <Spinner
+            android:id="@+id/spinner_type"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:gravity="right" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_model"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_model"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:gravity="left"
+            android:text="@string/model" />
+
+        <Spinner
+            android:id="@+id/spinner_model"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:gravity="right" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_size"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:gravity="left"
+            android:text="@string/size" />
+
+        <Spinner
+            android:id="@+id/spinner_size"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:gravity="right" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_isotope"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_isotope"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="0"
+            android:gravity="left"
+            android:text="@string/isotope" />
+
+        <Spinner
+            android:id="@+id/spinner_isotope"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:gravity="right" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_activity"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/value_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:gravity="left"
+            android:hint="activity"
+            android:inputType="numberDecimal" />
+
+        <Spinner
+            android:id="@+id/spinner_activity_units"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:entries="@array/activity_arrays" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_dose"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/value_dose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:hint="dose"
+            android:inputType="numberDecimal" />
+
+        <Spinner
+            android:id="@+id/spinner_dose_units"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:entries="@array/radiation_units_arrays" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row_info"
+        android:visibility="gone">
+        <EditText
+            android:id="@+id/edit_text_name"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:textColorHint="@color/easyfei_green"
+            android:hint="@string/set_name"
+            android:gravity="center" />
+        <EditText
+            android:id="@+id/edit_text_serial_number"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textColorHint="@color/easyfei_green"
+            android:hint="@string/serial_number"
+            android:gravity="center" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/row_length"
+        android:visibility="gone">
+        <EditText
+            android:id="@+id/edit_value_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:gravity="left"
+            android:hint="set length value"
+            android:inputType="numberDecimal" />
+
+        <Spinner
+            android:id="@+id/spinner_length_units"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:entries="@array/distance_arrays" />
+    </TableRow>
+
+    <Space android:layout_height="30dp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:id="@+id/date"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/set_date_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/easyfei_green"
+                android:text="@string/date" />
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/row_calibration_date"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/set_date_info1_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:onClick="setDate"
+                android:text="SET Date" />
+
+            <TextView
+                android:id="@+id/text_date"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="date1"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row_expire_date"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/expire_date_info2_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:onClick="setExpireDate"
+                android:text="Expire DATE" />
+
+            <TextView
+                android:id="@+id/text_expire_date"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="date2"
+                android:textColor="@color/colorPrimaryDark" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row_iqi"
+            android:visibility="gone">
+            <EditText
+                android:id="@+id/edit_text_iqi_pos0"
+                android:layout_width="wrap_content"
+                android:hint="@string/set_values"
+                android:inputType="number"
+                android:layout_column="0"
+                android:layout_height="40dp"/>
+            <Spinner
+                android:id="@+id/spinner_iqi_pos1"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:entries="@array/iqi_pos2_arrays"
+                android:layout_column="1"/>
+            <Spinner
+                android:id="@+id/spinner_iqi_pos2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/iqi_pos3_arrays"
+                android:layout_column="2"/>
+            <EditText
+                android:id="@+id/edit_text_iqi_pos3"
+                android:layout_width="wrap_content"
+                android:inputType="number"
+                android:hint="@string/set_values"
+                android:layout_column="3"
+                android:layout_height="40dp"/>
+            <EditText
+                android:id="@+id/edit_text_iqi_pos4"
+                android:layout_width="wrap_content"
+                android:inputType="number"
+                android:hint="@string/counter"
+                android:layout_column="4"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+
+    </TableLayout>
+
+
+    <Space android:layout_height="30dp" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <DatePicker
+            android:id="@+id/date_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/creat_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date_picker"
+            android:text="@string/create" />
+    </RelativeLayout>
+</TableLayout>

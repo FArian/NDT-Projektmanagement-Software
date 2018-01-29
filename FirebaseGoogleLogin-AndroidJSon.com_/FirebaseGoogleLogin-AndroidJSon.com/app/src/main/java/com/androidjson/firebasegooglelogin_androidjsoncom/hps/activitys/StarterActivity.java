@@ -1,9 +1,10 @@
-package com.androidjson.firebasegooglelogin_androidjsoncom;
+package com.androidjson.firebasegooglelogin_androidjsoncom.hps.activitys;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +15,12 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.R;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.AlarmActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.ReportActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.SafetyActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.TimeActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.connection.Client;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
 import com.google.gson.Gson;
 
@@ -21,40 +28,41 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import okhttp3.WebSocket;
 
-
-public class StartActivity extends Activity {
+public class StarterActivity extends Activity {
 
     // TAG is for show some tag logs in LOG screen.
-    public static final String TAG = "StartActivity";
-    private WebSocket webSocket;
+    public static final String TAG = "StarterActivity";
     private Personal person;
     private LinearLayout list_view_items_line1, list_view_items_line2;
     private android.support.v7.widget.RecyclerView recyclerView;
+    private Client client;
+    private Gson gson;
     //Items list
     // Array of strings items
-    private String[] items = new String[]{"Safety", "Report", "Time", "Material", "Alarm", "Logout"};
+    private String[] items = new String[]{"PROJECTS", " TEAMS ", " PERSONALS", " MATERIALS", " MESSAGES", " ALARM"};
 
     // Array of integers points to images stored in /res/drawable-ldpi/
     int[] flags = new int[]{
-            R.drawable.safety,
-            R.drawable.report,
-            R.drawable.time,
-            R.drawable.material,
-            R.drawable.alarm,
-            R.drawable.logout
+            R.drawable.project,
+            R.drawable.team,
+            R.drawable.person1,
+            R.drawable.material1,
+            R.drawable.message,
+            R.drawable.alarm1,
     };
-    private String itemsMessage[] = {"Safety is first", "Make report", "Calculator radiation time", "Current list of materials in project", "Radiation emergency message", ""};
+    private String itemsMessage[] = {"Projects", " Teams ", " Personals ", " Materials", " Messages from Client", " Alarm from Client"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        recyclerView=(android.support.v7.widget.RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         list_view_items_line1 = (LinearLayout) findViewById(R.id.line1);
         list_view_items_line2 = (LinearLayout) findViewById(R.id.line2);
-        Gson gson = new Gson();
+        client = new Client();
+        gson = new Gson();
+
         person = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
         // Each row in the list stores country name, currency and flag
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
@@ -151,45 +159,37 @@ public class StartActivity extends Activity {
         Intent intent;
         switch (position) {
             case 0:
-                // safety activity
+                // projects activity
                 intent = new Intent(getApplicationContext(), SafetyActivity.class);
                 myJson = gson.toJson(person);
                 intent.putExtra("Personal", myJson);
-                startActivity(intent);
+                //startActivity(intent);
                 break;
             case 1:
-                // report activity
+                // teams activity
                 intent = new Intent(getApplicationContext(), ReportActivity.class);
                 myJson = gson.toJson(person);
                 intent.putExtra("Personal", myJson);
                 startActivity(intent);
                 break;
             case 2:
-                // time activity
+                // personal activity
                 intent = new Intent(getApplicationContext(), TimeActivity.class);
                 myJson = gson.toJson(person);
                 intent.putExtra("Personal", myJson);
-                startActivity(intent);
+                //startActivity(intent);
                 break;
             case 3:
                 // material activity
-                intent = new Intent(getApplicationContext(), MaterialActivity.class);
-                myJson = gson.toJson(person);
-                intent.putExtra("Personal", myJson);
+                intent = new Intent(getApplicationContext(), CreateMaterialActivity.class);
                 startActivity(intent);
                 break;
             case 4:
+                //message activity
+                //TODO
+            case 5:
                 // alarm activity
                 intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                myJson = gson.toJson(person);
-                intent.putExtra("Personal", myJson);
-                startActivity(intent);
-                break;
-            case 5:
-                // main activity
-                intent = new Intent(getApplicationContext(), MainActivity.class);
-                //myJson = gson.toJson(person);
-                //intent.putExtra("Personal", myJson);
                 startActivity(intent);
                 break;
 
@@ -198,7 +198,6 @@ public class StartActivity extends Activity {
 
 
     }
-
 
 
 }
