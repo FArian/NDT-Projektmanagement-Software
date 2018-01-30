@@ -10,6 +10,7 @@ public class MATERIAL {
     private String model;
     private TYPE type;
     private String SerialNumber;
+    private boolean isStatus;
 
 
 
@@ -27,6 +28,14 @@ public class MATERIAL {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public boolean isStatus() {
+        return isStatus;
+    }
+
+    public void setStatus(boolean status) {
+        isStatus = status;
     }
 
     public String getName() {
