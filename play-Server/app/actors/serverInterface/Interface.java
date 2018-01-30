@@ -9,17 +9,10 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import models.Personal;
 import models.RT.Film;
-import models.RT.Isotope;
 import models.RT.RT_Camera;
 import models.ServerLog;
-import models.Team;
 import models.dosimeter.*;
-import models.enums.ISOTOPETYPE;
-import models.enums.MODEL;
-import models.enums.NAME;
-import models.enums.TYPE;
 import models.material.*;
 import models.processing.Developer;
 import models.processing.Fixer;
@@ -176,16 +169,6 @@ public class Interface extends UntypedActor {
                 this.output(TOJSON.message("Start", "OK"));
                 break;
             case "PERSONAL":
-                Isotope isotope = new Isotope(ISOTOPETYPE.IRIDIUM_192, 100);
-                Isotope isotope2 = new Isotope(ISOTOPETYPE.IRIDIUM_192, 100);
-                RT_Camera camera = new RT_Camera(NAME.SENTINEL, MODEL.SIGMA_880, isotope);
-                RT_Camera camera2 = new RT_Camera(NAME.SENTINEL, MODEL.SIGMA_880, isotope2);
-                Personal personal = new Personal("Far-had", "arian", "13.02.1983");
-                Personal personal2 = new Personal("Farhad", "arian", "13.02.1983");
-                Team team = new Team(personal, TYPE.RT, camera);
-                Team team2 = new Team(personal2, TYPE.RT, camera2);
-                //JsonNode personalJson = Json.toJson(camera.toString());
-                //this.out.tell(personalJson.toString().replace("\\n", "\n"), self());
                 break;
             case "NEW_USER_ASK":
                 String email = json.get("NEW_USER_ASK").textValue();
@@ -208,8 +191,9 @@ public class Interface extends UntypedActor {
                 out.tell(TOJSON.message("Warning answer", "I have your message").toString() + "\n", sender());
                 break;
             case "Create FILMBADGE":
-                FilmBadge filmBadge = Json.fromJson(json, FilmBadge.class);
+                FilmBadge filmBadge = Json.fromJson(json.get("Create FILMBADGE"), FilmBadge.class);
                 lobby.addFilmBadgeInLobby(filmBadge);
+
 
                 /**
                  * send object to Client with key
@@ -217,59 +201,80 @@ public class Interface extends UntypedActor {
                 out.tell(TOJSON.sendObjectWithKey("MyFilmBadge", filmBadge).toString(), self());
                 break;
             case "Create TLD":
-                TLD tld = Json.fromJson(json, TLD.class);
+                TLD tld = Json.fromJson(json.get("Create TLD"), TLD.class);
                 lobby.addTldInLobby(tld);
+
                 break;
             case "Create DOSIMETER":
-                PocketDosimeter dosimeter = Json.fromJson(json, PocketDosimeter.class);
-                //TODO
+                PocketDosimeter dosimeter = Json.fromJson(json.get("Create DOSIMETER"), PocketDosimeter.class);
+                lobby.addDosimeterInLobby(dosimeter);
+                System.out.println(lobby.getDosimetersInLobby());
                 break;
             case "Create GEIGER":
-                GeigerAlarm geigerAlarm = Json.fromJson(json, GeigerAlarm.class);
-                //TODO
+                GeigerAlarm geigerAlarm = Json.fromJson(json.get("Create GEIGER"), GeigerAlarm.class);
+                lobby.addGeigerInLobby(geigerAlarm);
+                System.out.println(lobby.getGeigerAlarmsInLobby());
                 break;
             case "Create RADIOMETER":
-                Radiometer radiometer = Json.fromJson(json, Radiometer.class);
-                //TODO
+                Radiometer radiometer = Json.fromJson(json.get("Create RADIOMETER"), Radiometer.class);
+                lobby.addRadiometerInLobby(radiometer);
+
+                System.out.println(lobby.getRadiometersInLobby());
                 break;
             case "Create LEAD ARON":
-                LeadAron leadAron = Json.fromJson(json, LeadAron.class);
-                //TODO
+                LeadAron leadAron = Json.fromJson(json.get("Create LEAD ARON"), LeadAron.class);
+                lobby.addLeadAronInLobby(leadAron);
+
+                System.out.println(lobby.getLeadAronsInLobby());
                 break;
             case "Create RADIATION SINGS":
-                RadiationSigns radiationSigns = Json.fromJson(json, RadiationSigns.class);
-                //TODO
+                RadiationSigns radiationSigns = Json.fromJson(json.get("Create RADIATION SINGS"), RadiationSigns.class);
+                lobby.addRadiationSignsInLobby(radiationSigns);
+                System.out.println(lobby.getRadiationSignsInLobby());
                 break;
             case "Create HANDLING TONGS":
-                HandlingTongs handlingTongs = Json.fromJson(json, HandlingTongs.class);
-                //TODO
+                HandlingTongs handlingTongs = Json.fromJson(json.get("Create HANDLING TONGS"), HandlingTongs.class);
+                lobby.addHandlingTongsInLobby(handlingTongs);
+                System.out.println(lobby.getHandlingTongsInLobby());
                 break;
             case "Create EMERGENCY STORAGE CONTAINER":
-                EmergencyStorageContainer container = Json.fromJson(json, EmergencyStorageContainer.class);
-                //TODO
+                EmergencyStorageContainer container = Json.fromJson(json.get("Create EMERGENCY STORAGE CONTAINER"), EmergencyStorageContainer.class);
+                lobby.addEmergencyStorageContainerInLobby(container);
+                System.out.println(lobby.getContainersInLobby());
                 break;
             case "Create RT CAMERA":
-                RT_Camera rt_camera = Json.fromJson(json, RT_Camera.class);
-                //TODO
+                RT_Camera rt_camera = Json.fromJson(json.get("Create RT CAMERA"), RT_Camera.class);
+                lobby.addRT_CameraInLobby(rt_camera);
+                System.out.println(lobby.getRt_camerasInLobby());
                 break;
             case "Create RT FILM":
-                Film film = Json.fromJson(json, Film.class);
-                //TODO
+                Film film = Json.fromJson(json.get("Create RT FILM"), Film.class);
+                lobby.addFilmInLobby(film);
+                System.out.println(lobby.getFilmsInLobby());
                 break;
             case "Create IQI":
-                IQI iqi = Json.fromJson(json, IQI.class);
-                //TODO
+                IQI iqi = Json.fromJson(json.get("Create IQI"), IQI.class);
+                lobby.addIqiInLobby(iqi);
+                System.out.println(lobby.getIqisInLobby());
                 break;
             case "Create FILM DEVELOPER":
-                Developer developer = Json.fromJson(json, Developer.class);
-                //TODO
+                Developer developer = Json.fromJson(json.get("Create FILM DEVELOPER"), Developer.class);
+                lobby.addDeveloperInLobby(developer);
+                System.out.println(developer);
+
                 break;
             case "Create FILM FIXER":
-                Fixer fixer = Json.fromJson(json, Fixer.class);
-                //TODO
+                Fixer fixer = Json.fromJson(json.get("Create FILM FIXER"), Fixer.class);
+                lobby.addFixerInLobby(fixer);
+                System.out.println("FIXER IN LOBBY "+lobby.getFixersInLobby());
+
                 break;
 
+
         }
+
+
+
 
     }
 

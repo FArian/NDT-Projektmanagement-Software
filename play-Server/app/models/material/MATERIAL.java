@@ -14,6 +14,7 @@ public class MATERIAL {
     private TYPE type;
     private String SerialNumber;
     private ServerLog log = new ServerLog();
+    private boolean isStatus;
 
 
     public MATERIAL(String name, TYPE type) {
@@ -25,6 +26,15 @@ public class MATERIAL {
 
 
     }
+
+    public boolean isStatus() {
+        return isStatus;
+    }
+
+    public void setStatus(boolean status) {
+        isStatus = status;
+    }
+
 
 
     public ServerLog getLog() {

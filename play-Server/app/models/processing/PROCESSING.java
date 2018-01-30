@@ -1,13 +1,10 @@
 package models.processing;
-
-import models.ServerLog;
 import models.DATA;
 import models.enums.LOCATION;
 import models.enums.MODEL;
 import models.enums.NAME;
 import models.enums.SIZE;
-
-import java.time.LocalDate;
+import java.util.Calendar;
 
 
 /**
@@ -15,14 +12,14 @@ import java.time.LocalDate;
  */
 public class PROCESSING {
 
-    private static final LocalDate LOCAL_DATE = LocalDate.now();
+    private static final Calendar LOCAL_DATE = Calendar.getInstance();
     private NAME name;
     private MODEL model;
     private SIZE size;
     private String description;
     private String expireDate;
     private LOCATION location;
-    private ServerLog log = new ServerLog();
+    private String productionDate;
     private String serialNumber;
 
 
@@ -32,13 +29,26 @@ public class PROCESSING {
         this.setSize(size);
         this.setLocation(LOCATION.CENTRAL);
         this.setDescription("not yet set");
-        this.setExpireDate(DATA.convertDate(LOCAL_DATE.plusYears(1)));
-        this.getLog().info("NEW OBJECT CREATED,NAME:  " +getClass() + "\n");
+        this.setProductionDate(LOCAL_DATE.toString());
+        this.setExpireDate(LOCAL_DATE.toString());
         this.setSerialNumber(DATA.generateUniqueId());
+    }
+    public PROCESSING(){
 
     }
 
+    public String getProductionDate() {
+        return productionDate;
+    }
 
+    public void setProductionDate(String productionDate) {
+        this.productionDate = productionDate;
+    }
+
+
+    public void setExpireDate(String expireDate) {
+        this.expireDate = expireDate;
+    }
     public String getSerialNumber() {
         return serialNumber;
     }
@@ -46,13 +56,6 @@ public class PROCESSING {
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
-
-
-    public ServerLog getLog() {
-        return log;
-    }
-
-
     public NAME getName() {
         return name;
     }
@@ -89,9 +92,7 @@ public class PROCESSING {
         return expireDate;
     }
 
-    public void setExpireDate(String expireDate) {
-        this.expireDate = expireDate;
-    }
+
 
     public LOCATION getLocation() {
         return location;

@@ -3,10 +3,12 @@ package models.dosimeter;
 
 import models.DATA;
 
+
+
 /**
  * Created by F.Arian on 06.11.17.
  */
-public class TLD extends DOSIMETER {
+public class TLD extends DOSIMETER{
 
     private String id;
     private static int instanceCounter = 0;

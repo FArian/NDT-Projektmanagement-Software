@@ -53,6 +53,7 @@ public abstract class DATA {
      * @return
      */
     public static String getLocalDateTime() {
+
         return DATE_TIME_FORMATTER.format(LOCAL_DATE_TIME);
     }
 
@@ -62,8 +63,8 @@ public abstract class DATA {
      * @return
      */
     public static String getLocalDate() {
-
-        return DateTimeFormatter.ofPattern("dd.MM.yyyy").format(LOCAL_DATE);
+        Calendar calendar=Calendar.getInstance();
+        return calendar.toString();
     }
 
     public static String convertDate(LocalDate localDate) {
