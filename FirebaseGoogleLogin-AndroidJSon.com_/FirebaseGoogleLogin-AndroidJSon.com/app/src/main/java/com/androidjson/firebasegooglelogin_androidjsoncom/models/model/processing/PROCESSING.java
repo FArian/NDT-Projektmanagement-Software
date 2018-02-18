@@ -2,7 +2,6 @@ package com.androidjson.firebasegooglelogin_androidjsoncom.models.model.processi
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.*;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.*;
 
-import org.threeten.bp.LocalDate;
 
 import java.util.Calendar;
 
@@ -19,7 +18,6 @@ public class PROCESSING {
     private String expireDate;
     private LOCATION location;
     private String productionDate;
-
     private String serialNumber;
 
 

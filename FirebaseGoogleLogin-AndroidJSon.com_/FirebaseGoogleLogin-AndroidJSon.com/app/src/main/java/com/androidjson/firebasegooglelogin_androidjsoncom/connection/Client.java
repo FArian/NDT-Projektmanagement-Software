@@ -121,7 +121,7 @@ public class Client extends Observable{
     }
 
     public void start() {
-        Request request = new Request.Builder().url("ws://192.168.178.50:9000/getsocket").build();
+        Request request = new Request.Builder().url("ws://10.176.86.132:9000/getsocket").build();
         if (request != null && listener != null) {
             WebSocket ws = client.newWebSocket(request, listener);
             webSocket = ws;

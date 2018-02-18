@@ -26,12 +26,11 @@ public class Project {
         this.id=DATA.generateUniqueId();
         instanceCounter++;
         counter = instanceCounter;
-        this.setName("ParsJonobi");
+        this.setName("NOT SET");
         this.setProjectNumber(getCounter() + "-" + DATA.creatId("|" + getStartDate()));
-        this.setJoinCompany("parto");
-
-
+        this.setJoinCompany("NOT SET");
     }
+
 
     public String getStartDate() {
         if(startDate==null){

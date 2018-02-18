@@ -30,7 +30,7 @@ public class Team {
     private List<Developer> developers = new ArrayList<>();
     private List<Fixer> fixers = new ArrayList<>();
     private List<Film> films = new ArrayList<>();
-    private Radiometer dosimeter;
+    private Radiometer radiometer;
     private Viewer viewer;
     private HandlingTongs handlingTongs;
     private RT_Camera rtCamera;
@@ -40,28 +40,44 @@ public class Team {
     private String teamReport;
 
 
-    public Team(Personal personals, TYPE teamType, RT_Camera rtCamera) {
-        this.personals.add(personals);
+    public Team(List<Personal> personals, TYPE teamType) {
+        this.personals=personals;
         this.setType(teamType);
         this.setTeamReport("TEAM START REPORT");
         this.setLocation(LOCATION.CENTRAL);
-
-        if (getType().equals(TYPE.RT)) {
-            this.films.add(new Film(NAME.OTHER, TYPE.OTHER, MODEL.OTHER, SIZE.OTHER));
-            this.setRtCamera(rtCamera);
-            this.setStatus(rtCamera.ready_RT_CAMERA());
-            if (!isStatus()) {
-
-            }
-
-            this.signs.add(new RadiationSigns());
-            this.setHandlingTongs(new HandlingTongs());
-            this.setViewer(new Viewer());
-            this.setDosimeter(new Radiometer());
-            this.developers.add(new Developer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER));
-            this.fixers.add(new Fixer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER));
+        switch (getType()){
+            case RT:
+                this.films.add(new Film(NAME.OTHER, TYPE.OTHER, MODEL.OTHER, SIZE.OTHER));
+                this.rtCamera=new RT_Camera();
+                this.setStatus(rtCamera.ready_RT_CAMERA());
+                this.signs.add(new RadiationSigns());
+                this.setHandlingTongs(new HandlingTongs());
+                this.setViewer(new Viewer());
+                this.setRadiometer(new Radiometer());
+                this.developers.add(new Developer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER));
+                this.fixers.add(new Fixer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER));
+                break;
+            case MT:
+                //TODO
+                break;
+            case ET:
+                //TODO
+                break;
+            case LT:
+                //TODO
+                break;
+            case PT:
+                //TODO
+                break;
+            case UT:
+                //TODO
+                break;
+            case VT:
+                //TODO
+                break;
 
         }
+
         this.id = DATA.creatId("-" + getType().name().toString());
         this.setName(getId() + "_TEAM");
         instanceCounter++;
@@ -69,6 +85,9 @@ public class Team {
 
 
     }
+
+
+
 
     public Team() {
 
@@ -147,12 +166,12 @@ public class Team {
         this.films = films;
     }
 
-    public Radiometer getDosimeter() {
-        return dosimeter;
+    public Radiometer getRadiometer() {
+        return radiometer;
     }
 
-    public void setDosimeter(Radiometer dosimeter) {
-        this.dosimeter = dosimeter;
+    public void setRadiometer(Radiometer radiometer) {
+        this.radiometer = radiometer;
     }
 
     public Viewer getViewer() {
@@ -210,7 +229,7 @@ public class Team {
                 "  NAME= " + name +
                 ", TYPE= " + type +
                 ", ID= " + id +
-                ", DOSIMETER= " + dosimeter +
+                ", DOSIMETER= " + radiometer +
                 ", VIEWER= " + viewer +
                 ", HANDLING_TONGS= " + handlingTongs +
                 ", SIGNS= " + signs +

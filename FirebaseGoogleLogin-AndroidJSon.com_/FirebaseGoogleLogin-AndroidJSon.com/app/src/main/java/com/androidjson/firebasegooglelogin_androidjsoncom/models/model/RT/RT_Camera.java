@@ -14,7 +14,7 @@ import java.util.Observable;
 public class RT_Camera extends Observable {
 
     private static String SERIAL_NUMBER;
-    private static String id;
+    private  String id;
     private static String operating_Temperature_Range;
     private static int instanceCounter = 0;
     private int counter = 0;
@@ -129,7 +129,7 @@ public class RT_Camera extends Observable {
         SERIAL_NUMBER = serialNumber;
     }
 
-    public static String getId() {
+    public String getId() {
         return id;
     }
 

@@ -16,7 +16,7 @@ import java.util.List;
  * Created by F.Arian on 02.12.17.
  */
 public class Film {
-    private static String id;
+    private String id;
     private static int instanceCounter = 0;
     private NAME filmName;
     private List<TYPE> ndtType;
@@ -97,7 +97,7 @@ public class Film {
         this.id = DATA.generateUniqueId();
         instanceCounter++;
         counter = instanceCounter;
-        if(getIsotopetype()!=null){
+        if (getIsotopetype() != null) {
             relativeExposureFactors();
         }
     }
@@ -111,7 +111,7 @@ public class Film {
     }
 
 
-    public static String getId() {
+    public String getId() {
         return id;
     }
 
