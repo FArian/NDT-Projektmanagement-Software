@@ -1,0 +1,35 @@
+\select@language {ngerman}
+\contentsline {section}{\nonumberline Eidesstattliche Erkl\IeC {\"a}rung}{2}{section*.1}
+\contentsline {section}{\nonumberline Danksagungen}{3}{section*.2}
+\contentsline {section}{\nonumberline Zusammenfassung / Abstract}{4}{section*.3}
+\contentsline {chapter}{\numberline {1}Einleitung}{8}{chapter.1}
+\contentsline {chapter}{\numberline {2}Werkstoffpr\IeC {\"u}fung}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Non-Destructive Testing auf Deutsch Werkstoffpr\IeC {\"u}fung}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}RT Durchstrahlungspr\IeC {\"u}fung}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Anwendung}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Eigenschaften}{11}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Erzeugung der Strahlen}{11}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Fehler Nachweism\IeC {\"o}glichkeiten mit RT}{11}{subsection.2.2.4}
+\contentsline {subsubsection}{\nonumberline Filmaufnahmen}{11}{section*.8}
+\contentsline {subsubsection}{\nonumberline Durchleuchtung mit Leuchtschirm}{12}{section*.9}
+\contentsline {subsubsection}{\nonumberline R\IeC {\"o}ntgenbild-Verst\IeC {\"a}rkerr\IeC {\"o}hre}{12}{section*.10}
+\contentsline {subsection}{\numberline {2.2.5}Art der durchdringenden Strahlung}{12}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}R\IeC {\"o}ntgenstrahlung}{13}{subsection.2.2.6}
+\contentsline {subsubsection}{\nonumberline Bremsstrahlung}{14}{section*.13}
+\contentsline {subsection}{\numberline {2.2.7}Gammastrahlung}{14}{subsection.2.2.7}
+\contentsline {subsubsection}{\nonumberline Alpha Strahlen}{15}{section*.15}
+\contentsline {subsubsection}{\nonumberline Beta Strahlen}{15}{section*.16}
+\contentsline {subsubsection}{\nonumberline Gamma Strahlen}{16}{section*.17}
+\contentsline {subsection}{\numberline {2.2.8}Aktivit\IeC {\"a}t von Radionukliden}{17}{subsection.2.2.8}
+\contentsline {subsection}{\numberline {2.2.9}Isotopenabfallrate (Halbwertszeit)}{18}{subsection.2.2.9}
+\contentsline {subsection}{\numberline {2.2.10}Ionisation}{19}{subsection.2.2.10}
+\contentsline {subsection}{\numberline {2.2.11}Newtons umgekehrtes quadratisches Gesetz f\IeC {\"u}r die Intensit\IeC {\"a}t}{20}{subsection.2.2.11}
+\contentsline {chapter}{\numberline {3}Stand der Technik}{22}{chapter.3}
+\contentsline {section}{\numberline {3.1}Klassifizierung von Beispielen}{22}{section.3.1}
+\contentsline {section}{\numberline {3.2}Themenbezogene Ver\IeC {\"o}ffentlichungen}{22}{section.3.2}
+\contentsline {chapter}{\numberline {4}Entwicklung der Sensorik}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Grobkonzept der Sensorik}{23}{section.4.1}
+\contentsline {chapter}{\numberline {5}Ergebnisse}{24}{chapter.5}
+\contentsline {chapter}{\numberline {6}Diskussion}{25}{chapter.6}
+\contentsline {section}{\numberline {6.1}Zusammenfassende Bewertung}{25}{section.6.1}
+\contentsline {section}{\numberline {6.2}Ausblick}{25}{section.6.2}
