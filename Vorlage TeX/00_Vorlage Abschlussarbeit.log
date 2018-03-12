@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.2)  5 MAR 2018 13:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.2)  12 MAR 2018 15:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -652,7 +652,7 @@ Class scrreprt Warning: Usage of package `fancyhdr' together
 (scrreprt)              I'd suggest to use 
 (scrreprt)              package `scrlayer-scrpage'.
 (scrreprt)              Nevertheless, using requested
-(scrreprt)              package `fancyhdr' on input line 25.
+(scrreprt)              package `fancyhdr' on input line 23.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
@@ -709,9 +709,42 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/array.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen126
+\extrarowheight=\dimen127
+\NC@list=\toks18
+\extratabsurround=\skip71
+\backup@length=\skip72
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+\everycr=\toks19
+\minrowclearance=\skip73
+)
+LaTeX Info: Redefining \color on input line 709.
+\rownum=\count112
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks18
+\@emptytoks=\toks20
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
@@ -719,7 +752,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/11/05 v2.16a AMS math features
-\@mathmargin=\skip71
+\@mathmargin=\skip74
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -727,77 +760,87 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks19
-\ex@=\dimen126
+\@emptytoks=\toks21
+\ex@=\dimen128
 ))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen127
+\pmbraise@=\dimen129
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count112
+\inf@bad=\count113
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count113
-\leftroot@=\count114
+\uproot@=\count114
+\leftroot@=\count115
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count115
-\DOTSCASE@=\count116
+\classnum@=\count116
+\DOTSCASE@=\count117
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
 \Mathstrutbox@=\box28
 \strutbox@=\box29
-\big@size=\dimen128
+\big@size=\dimen130
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count117
-\c@MaxMatrixCols=\count118
+\macc@depth=\count118
+\c@MaxMatrixCols=\count119
 \dotsspace@=\muskip11
-\c@parentequation=\count119
-\dspbrk@lvl=\count120
-\tag@help=\toks20
-\row@=\count121
-\column@=\count122
-\maxfields@=\count123
-\andhelp@=\toks21
-\eqnshift@=\dimen129
-\alignsep@=\dimen130
-\tagshift@=\dimen131
-\tagwidth@=\dimen132
-\totwidth@=\dimen133
-\lineht@=\dimen134
-\@envbody=\toks22
-\multlinegap=\skip72
-\multlinetaggap=\skip73
-\mathdisplay@stack=\toks23
+\c@parentequation=\count120
+\dspbrk@lvl=\count121
+\tag@help=\toks22
+\row@=\count122
+\column@=\count123
+\maxfields@=\count124
+\andhelp@=\toks23
+\eqnshift@=\dimen131
+\alignsep@=\dimen132
+\tagshift@=\dimen133
+\tagwidth@=\dimen134
+\totwidth@=\dimen135
+\lineht@=\dimen136
+\@envbody=\toks24
+\multlinegap=\skip75
+\multlinetaggap=\skip76
+\mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
 (./00_Vorlage Abschlussarbeit.aux (./01_titel.aux) (./02_danksagungen.aux)
 (./03_zusammenfassung.aux) (./04_einleitung.aux) (./05_grundlagen.aux)
-(./06_standdertechnik.aux) (./07_methoden.aux) (./08_ergebnisse.aux)
-(./09_diskussion.aux))
+(./06_standdertechnik.aux
+
+LaTeX Warning: Label `sec:ndt' multiply defined.
+
+) (./07_methoden.aux
+
+LaTeX Warning: Label `fig:Pocket-Dosimeter' multiply defined.
+
+) (./10_software.aux) (./08_ergebnisse.aux) (./09_diskussion.aux
+
+LaTeX Warning: Label `sec:\IeC {\"u}berschrift' multiply defined.
+
+))
 \openout1 = `"00_Vorlage Abschlussarbeit.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 57.
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/lm/t1lmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 49.
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -835,18 +878,18 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring OFF on input line 57.
+Package hyperref Info: Link coloring OFF on input line 49.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count124
+\c@section@level=\count125
 )
-LaTeX Info: Redefining \ref on input line 57.
-LaTeX Info: Redefining \pageref on input line 57.
-LaTeX Info: Redefining \nameref on input line 57.
+LaTeX Info: Redefining \ref on input line 49.
+LaTeX Info: Redefining \pageref on input line 49.
+LaTeX Info: Redefining \nameref on input line 49.
 
 (./00_Vorlage Abschlussarbeit.out) (./00_Vorlage Abschlussarbeit.out)
 \@outlinefile=\write3
@@ -855,17 +898,17 @@ LaTeX Info: Redefining \nameref on input line 57.
 
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen135
+\scratchcounter=\count126
+\scratchdimen=\dimen137
 \scratchbox=\box31
-\nofMPsegments=\count126
-\nofMParguments=\count127
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count128
-\MPscratchDim=\dimen136
-\MPnumerator=\count129
-\makeMPintoPDFobject=\count130
-\everyMPtoPDFconversion=\toks25
+\nofMPsegments=\count127
+\nofMParguments=\count128
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count129
+\MPscratchDim=\dimen138
+\MPnumerator=\count130
+\makeMPintoPDFobject=\count131
+\everyMPtoPDFconversion=\toks27
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -925,7 +968,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 2.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<img/logos.jpg, id=112, 958.58125pt x 155.58125pt>
+<img/logos.jpg, id=217, 958.58125pt x 155.58125pt>
 File: img/logos.jpg Graphic file (type jpg)
  <use img/logos.jpg>
 Package pdftex.def Info: img/logos.jpg used on input line 6.
@@ -966,35 +1009,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
  (./03_zusammenfassung.tex) [4
 
 
-] (./00_Vorlage Abschlussarbeit.toc)
-\tf@toc=\write4
-\openout4 = `"00_Vorlage Abschlussarbeit.toc"'.
-
-
+] (./00_Vorlage Abschlussarbeit.toc
 [5
 
 
 
 
-] (./00_Vorlage Abschlussarbeit.lof)
+])
+\tf@toc=\write4
+\openout4 = `"00_Vorlage Abschlussarbeit.toc"'.
+
+ [6] (./00_Vorlage Abschlussarbeit.lof)
 \tf@lof=\write5
 \openout5 = `"00_Vorlage Abschlussarbeit.lof"'.
 
- [6
+ [7
 
-] (./00_Vorlage Abschlussarbeit.lot)
+]
+(./00_Vorlage Abschlussarbeit.lot)
 \tf@lot=\write6
 \openout6 = `"00_Vorlage Abschlussarbeit.lot"'.
 
-
-[7
+ [8
 
 ]
 \openout2 = `04_einleitung.aux'.
 
  (./04_einleitung.tex
 chapter 1.
-) [8
+) [9
 
 
 ]
@@ -1002,10 +1045,10 @@ chapter 1.
 
  (./05_grundlagen.tex
 chapter 2.
-<img/ndtazWiki.jpg, id=201, 209.1012pt x 192.72pt>
+<img/ndtazWiki.jpg, id=377, 209.1012pt x 192.72pt>
 File: img/ndtazWiki.jpg Graphic file (type jpg)
  <use img/ndtazWiki.jpg>
-Package pdftex.def Info: img/ndtazWiki.jpg used on input line 9.
+Package pdftex.def Info: img/ndtazWiki.jpg used on input line 8.
 (pdftex.def)             Requested size: 188.18933pt x 173.44638pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 13--43
@@ -1047,7 +1090,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--43
 
  []
 
-[9
+[10
 
 
 
@@ -1071,7 +1114,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--53
 
  []
 
-[10]
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
@@ -1091,7 +1134,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--64
 
  []
 
-[11]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 65--67
 
  []
@@ -1101,80 +1144,482 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--70
 
  []
 
-<img/ElectromagSpec.png, id=216, 475.7775pt x 276.03125pt>
+<img/ElectromagSpec.png, id=391, 475.7775pt x 276.03125pt>
 File: img/ElectromagSpec.png Graphic file (type png)
 
 <use img/ElectromagSpec.png>
 Package pdftex.def Info: img/ElectromagSpec.png used on input line 73.
 (pdftex.def)             Requested size: 333.04196pt x 193.22055pt.
- [12 <./img/ElectromagSpec.png>]
-<img/Bremsstrahlung.jpg, id=225, 223.58531pt x 202.50656pt>
+ [13 <./img/ElectromagSpec.png>]
+<img/Bremsstrahlung.jpg, id=401, 223.58531pt x 202.50656pt>
 File: img/Bremsstrahlung.jpg Graphic file (type jpg)
 
 <use img/Bremsstrahlung.jpg>
 Package pdftex.def Info: img/Bremsstrahlung.jpg used on input line 86.
 (pdftex.def)             Requested size: 156.50864pt x 141.7536pt.
- [13] [14 <./img/Bremsstrahlung.jpg>]
-<img/uranium.png, id=236, 287.0725pt x 134.5025pt>
+ [14] [15 <./img/Bremsstrahlung.jpg>]
+<img/uranium.png, id=411, 287.0725pt x 134.5025pt>
 File: img/uranium.png Graphic file (type png)
  <use img/uranium.png>
 Package pdftex.def Info: img/uranium.png used on input line 103.
 (pdftex.def)             Requested size: 200.94937pt x 94.1511pt.
 
-[15 <./img/uranium.png>] <img/strahlen.png, id=243, 542.025pt x 405.76593pt>
+[16 <./img/uranium.png>] <img/strahlen.png, id=418, 542.025pt x 405.76593pt>
 File: img/strahlen.png Graphic file (type png)
 
 <use img/strahlen.png>
 Package pdftex.def Info: img/strahlen.png used on input line 118.
-(pdftex.def)             Requested size: 487.81798pt x 365.18596pt.
-
-Overfull \hbox (18.34749pt too wide) in paragraph at lines 118--119
- [][] 
- []
-
-<img/activity.png, id=244, 307.1475pt x 297.11pt>
+(pdftex.def)             Requested size: 379.4149pt x 284.03421pt.
+ <img/activity.png, id=419, 307.1475pt x 297.11pt>
 File: img/activity.png Graphic file (type png)
- <use img/activity.png>
-Package pdftex.def Info: img/activity.png used on input line 131.
-(pdftex.def)             Requested size: 276.43019pt x 267.39651pt.
 
-[16 <./img/strahlen.png>] [17 <./img/activity.png>]
-<img/halbwertszeit.png, id=256, 317.185pt x 194.7275pt>
+<use img/activity.png>
+Package pdftex.def Info: img/activity.png used on input line 131.
+(pdftex.def)             Requested size: 245.71832pt x 237.68831pt.
+ [17 <./img/strahlen.png>]
+<img/halbwertszeit.png, id=426, 317.185pt x 194.7275pt>
 File: img/halbwertszeit.png Graphic file (type png)
 
 <use img/halbwertszeit.png>
 Package pdftex.def Info: img/halbwertszeit.png used on input line 143.
-(pdftex.def)             Requested size: 285.46384pt x 175.25311pt.
- [18 <./img/halbwertszeit.png>]
-<img/Ionisation.png, id=262, 313.17pt x 230.8625pt>
+(pdftex.def)             Requested size: 158.5921pt x 97.3635pt.
+ [18 <./img/activity.png>] [19 <./img/halbwertszeit.png>] <img/Half-Value-Layer
+.png, id=438, 280.04625pt x 292.09125pt>
+File: img/Half-Value-Layer.png Graphic file (type png)
+
+<use img/Half-Value-Layer.png>
+Package pdftex.def Info: img/Half-Value-Layer.png used on input line 161.
+(pdftex.def)             Requested size: 140.02277pt x 146.04526pt.
+
+<img/Die_Kurve_Formel.jpg, id=439, 175.65625pt x 62.2325pt>
+File: img/Die_Kurve_Formel.jpg Graphic file (type jpg)
+
+<use img/Die_Kurve_Formel.jpg>
+Package pdftex.def Info: img/Die_Kurve_Formel.jpg used on input line 171.
+(pdftex.def)             Requested size: 87.8279pt x 31.11617pt.
+
+<img/IntensityEq5.jpg, id=440, 164.615pt x 40.15pt>
+File: img/IntensityEq5.jpg Graphic file (type jpg)
+ <use img/IntensityEq5.jpg>
+Package pdftex.def Info: img/IntensityEq5.jpg used on input line 176.
+(pdftex.def)             Requested size: 82.3073pt x 20.07494pt.
+
+<img/IntensityEq6.jpg, id=441, 180.675pt x 82.3075pt>
+File: img/IntensityEq6.jpg Graphic file (type jpg)
+
+<use img/IntensityEq6.jpg>
+Package pdftex.def Info: img/IntensityEq6.jpg used on input line 187.
+(pdftex.def)             Requested size: 90.33727pt x 41.15364pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--191
+
+ []
+
+[20 <./img/Half-Value-Layer.png> <./img/Die_Kurve_Formel.jpg> <./img/IntensityE
+q5.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 208--231
+
+ []
+
+<img/Ionisation.png, id=449, 313.17pt x 230.8625pt>
 File: img/Ionisation.png Graphic file (type png)
  <use img/Ionisation.png>
-Package pdftex.def Info: img/Ionisation.png used on input line 161.
+Package pdftex.def Info: img/Ionisation.png used on input line 240.
 (pdftex.def)             Requested size: 156.58461pt x 115.43095pt.
 
-[19 <./img/Ionisation.png>]
-<img/Intensitaet.png, id=269, 302.12875pt x 265.99374pt>
+[21 <./img/IntensityEq6.jpg>]
+<img/Intensitaet.png, id=456, 302.12875pt x 265.99374pt>
 File: img/Intensitaet.png Graphic file (type png)
 
 <use img/Intensitaet.png>
-Package pdftex.def Info: img/Intensitaet.png used on input line 175.
+Package pdftex.def Info: img/Intensitaet.png used on input line 256.
 (pdftex.def)             Requested size: 151.064pt x 132.99654pt.
- [20]) [21 <./img/Intensitaet.png>]
+ [22 <./img/Ionisation.png>]
+<img/wechselwirkungstrahlung1.png, id=463, 287.0725pt x 273.02pt>
+File: img/wechselwirkungstrahlung1.png Graphic file (type png)
+
+<use img/wechselwirkungstrahlung1.png>
+Package pdftex.def Info: img/wechselwirkungstrahlung1.png used on input line 26
+7.
+(pdftex.def)             Requested size: 200.94937pt x 191.11269pt.
+
+<img/wechselwirkungstrahlung2.png, id=464, 286.06876pt x 311.1625pt>
+File: img/wechselwirkungstrahlung2.png Graphic file (type png)
+
+<use img/wechselwirkungstrahlung2.png>
+Package pdftex.def Info: img/wechselwirkungstrahlung2.png used on input line 27
+7.
+(pdftex.def)             Requested size: 143.03403pt x 155.58087pt.
+ [23 <./img/Intensitaet.png>]
+File: img/Die_Kurve_Formel.jpg Graphic file (type jpg)
+
+<use img/Die_Kurve_Formel.jpg>
+Package pdftex.def Info: img/Die_Kurve_Formel.jpg used on input line 285.
+(pdftex.def)             Requested size: 52.69727pt x 18.66989pt.
+) [24 <./img/wechselwirkungstrahlung1.png> <./img/wechselwirkungstrahlung2.png>
+]
 \openout2 = `06_standdertechnik.aux'.
 
-
-(./06_standdertechnik.tex
+ (./06_standdertechnik.tex
 chapter 3.
-) [22
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+
+ []
+
+<img/GeometricUnsharpness.png, id=476, 349.305pt x 271.0125pt>
+File: img/GeometricUnsharpness.png Graphic file (type png)
+
+<use img/GeometricUnsharpness.png>
+Package pdftex.def Info: img/GeometricUnsharpness.png used on input line 12.
+(pdftex.def)             Requested size: 174.65207pt x 135.5059pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+[25
+
+
+
+ <./img/GeometricUnsharpness.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 17--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--27
+
+ []
+
+<img/GeometricUnsharpness2.png, id=484, 221.82875pt x 304.13625pt>
+File: img/GeometricUnsharpness2.png Graphic file (type png)
+
+<use img/GeometricUnsharpness2.png>
+Package pdftex.def Info: img/GeometricUnsharpness2.png used on input line 28.
+(pdftex.def)             Requested size: 199.64401pt x 273.72008pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+[26 <./img/GeometricUnsharpness2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+<img/Penumbra.png, id=490, 293.095pt x 316.18124pt>
+File: img/Penumbra.png Graphic file (type png)
+ <use img/Penumbra.png>
+Package pdftex.def Info: img/Penumbra.png used on input line 39.
+(pdftex.def)             Requested size: 263.78305pt x 284.56049pt.
+
+<img/XRSIM-Scatter2aS.jpg, id=491, 250.9375pt x 365.365pt>
+File: img/XRSIM-Scatter2aS.jpg Graphic file (type jpg)
+
+<use img/XRSIM-Scatter2aS.jpg>
+Package pdftex.def Info: img/XRSIM-Scatter2aS.jpg used on input line 50.
+(pdftex.def)             Requested size: 175.65504pt x 255.75375pt.
+
+<img/BackScatter(small).jpg, id=492, 250.9375pt x 173.64874pt>
+File: img/BackScatter(small).jpg Graphic file (type jpg)
+
+<use img/BackScatter(small).jpg>
+Package pdftex.def Info: img/BackScatter(small).jpg used on input line 51.
+(pdftex.def)             Requested size: 225.84164pt x 156.28241pt.
+ [27 <./img/Penumbra.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+[28 <./img/XRSIM-Scatter2aS.jpg> <./img/BackScatter(small).jpg>]
+<img/Undercut.jpg, id=503, 301.125pt x 188.705pt>
+File: img/Undercut.jpg Graphic file (type jpg)
+ <use img/Undercut.jpg>
+Package pdftex.def Info: img/Undercut.jpg used on input line 66.
+(pdftex.def)             Requested size: 271.00998pt x 169.83292pt.
+
+[29 <./img/Undercut.jpg>]
+<img/gammaAndx-ray.jpg, id=508, 640.3925pt x 480.79625pt>
+File: img/gammaAndx-ray.jpg Graphic file (type jpg)
+
+<use img/gammaAndx-ray.jpg>
+Package pdftex.def Info: img/gammaAndx-ray.jpg used on input line 84.
+(pdftex.def)             Requested size: 384.23846pt x 288.47997pt.
+ <img/x-ray.png, id=509, 292.09125pt x 143.53625pt>
+File: img/x-ray.png Graphic file (type png)
+
+<use img/x-ray.png>
+Package pdftex.def Info: img/x-ray.png used on input line 85.
+(pdftex.def)             Requested size: 146.04526pt x 71.76794pt.
+) [30 <./img/gammaAndx-ray.jpg> <./img/x-ray.png>]
+\openout2 = `07_methoden.aux'.
+
+
+(./07_methoden.tex
+chapter 4.
+<img/TimeDistShield.png, id=516, 571.13374pt x 210.7875pt>
+File: img/TimeDistShield.png Graphic file (type png)
+
+<use img/TimeDistShield.png>
+Package pdftex.def Info: img/TimeDistShield.png used on input line 21.
+(pdftex.def)             Requested size: 285.56618pt x 105.3935pt.
+ [31
 
 
 
 ]
-\openout2 = `07_methoden.aux'.
+<img/timeDist.jpg, id=522, 150.5625pt x 194.7275pt>
+File: img/timeDist.jpg Graphic file (type jpg)
+ <use img/timeDist.jpg>
+Package pdftex.def Info: img/timeDist.jpg used on input line 28.
+(pdftex.def)             Requested size: 105.39302pt x 136.3083pt.
 
- (./07_methoden.tex
-chapter 4.
-) [23
+[32 <./img/TimeDistShield.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--34
+
+ []
+
+<img/distance.jpg, id=528, 243.91125pt x 207.77625pt>
+File: img/distance.jpg Graphic file (type jpg)
+ <use img/distance.jpg>
+Package pdftex.def Info: img/distance.jpg used on input line 41.
+(pdftex.def)             Requested size: 121.95532pt x 103.88786pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
+
+ []
+
+[33 <./img/timeDist.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 45--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--59
+
+ []
+
+<img/cameraoutside.jpg, id=535, 145.5036pt x 103.587pt>
+File: img/cameraoutside.jpg Graphic file (type jpg)
+
+<use img/cameraoutside.jpg>
+Package pdftex.def Info: img/cameraoutside.jpg used on input line 71.
+(pdftex.def)             Requested size: 130.95201pt x 93.22743pt.
+
+<img/camera_pigtail.jpg, id=536, 240.9pt x 214.8025pt>
+File: img/camera_pigtail.jpg Graphic file (type jpg)
+
+<use img/camera_pigtail.jpg>
+Package pdftex.def Info: img/camera_pigtail.jpg used on input line 72.
+(pdftex.def)             Requested size: 120.44969pt x 107.40099pt.
+ [34 <./img/distance.jpg>]
+<img/Gamma1.jpg, id=551, 507.8975pt x 199.74625pt>
+File: img/Gamma1.jpg Graphic file (type jpg)
+ <use img/Gamma1.jpg>
+Package pdftex.def Info: img/Gamma1.jpg used on input line 77.
+(pdftex.def)             Requested size: 203.1554pt x 79.89708pt.
+
+<img/Gamma2.jpg, id=552, 505.89pt x 191.71625pt>
+File: img/Gamma2.jpg Graphic file (type jpg)
+ <use img/Gamma2.jpg>
+Package pdftex.def Info: img/Gamma2.jpg used on input line 78.
+(pdftex.def)             Requested size: 202.3524pt x 76.68513pt.
+
+<img/Gamma3.jpg, id=553, 508.90125pt x 173.64874pt>
+File: img/Gamma3.jpg Graphic file (type jpg)
+ <use img/Gamma3.jpg>
+Package pdftex.def Info: img/Gamma3.jpg used on input line 79.
+(pdftex.def)             Requested size: 203.55688pt x 69.45825pt.
+
+[35 <./img/cameraoutside.jpg> <./img/camera_pigtail.jpg> <./img/Gamma1.jpg> <./
+img/Gamma2.jpg> <./img/Gamma3.jpg>]
+<img/safetyshild.jpg, id=558, 223.83624pt x 220.825pt>
+File: img/safetyshild.jpg Graphic file (type jpg)
+
+<use img/safetyshild.jpg>
+Package pdftex.def Info: img/safetyshild.jpg used on input line 89.
+(pdftex.def)             Requested size: 201.45074pt x 198.74065pt.
+ [36 <./img/safetyshild.jpg>]
+
+LaTeX Warning: Command \" invalid in math mode on input line 104.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 104.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 106.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 106.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 108.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 108.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 110.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 110.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--113
+
+ []
+
+[37] <img/Strahlenschutzbereiche.jpg, id=570, 1145.78062pt x 627.84563pt>
+File: img/Strahlenschutzbereiche.jpg Graphic file (type jpg)
+
+<use img/Strahlenschutzbereiche.jpg>
+Package pdftex.def Info: img/Strahlenschutzbereiche.jpg used on input line 124.
+
+(pdftex.def)             Requested size: 458.30414pt x 251.13379pt.
+ [38 <./img/Strahlenschutzbereiche.jpg>]
+<img/rso.jpg, id=576, 250.9375pt x 292.09125pt>
+File: img/rso.jpg Graphic file (type jpg)
+ <use img/rso.jpg>
+Package pdftex.def Info: img/rso.jpg used on input line 135.
+(pdftex.def)             Requested size: 175.65504pt x 204.46246pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--136
+
+ []
+
+[39 <./img/rso.jpg>] [40] <img/cameraTest.jpg, id=597, 271.0125pt x 220.825pt>
+File: img/cameraTest.jpg Graphic file (type jpg)
+
+<use img/cameraTest.jpg>
+Package pdftex.def Info: img/cameraTest.jpg used on input line 185.
+(pdftex.def)             Requested size: 243.90898pt x 198.74065pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--186
+
+ []
+
+[41] [42 <./img/cameraTest.jpg>]
+<img/isotope-radiography-pressure-vessel.jpg, id=622, 501.875pt x 376.40625pt>
+File: img/isotope-radiography-pressure-vessel.jpg Graphic file (type jpg)
+
+<use img/isotope-radiography-pressure-vessel.jpg>
+Package pdftex.def Info: img/isotope-radiography-pressure-vessel.jpg used on in
+put line 199.
+(pdftex.def)             Requested size: 351.31009pt x 263.48257pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--200
+
+ []
+
+[43]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 203.
+
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 203.
+
+<img/strahlungsdetektor.jpg, id=632, 250.9375pt x 250.9375pt>
+File: img/strahlungsdetektor.jpg Graphic file (type jpg)
+
+<use img/strahlungsdetektor.jpg>
+Package pdftex.def Info: img/strahlungsdetektor.jpg used on input line 206.
+(pdftex.def)             Requested size: 125.46843pt x 125.46843pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--212
+
+ []
+
+[44 <./img/isotope-radiography-pressure-vessel.jpg> <./img/strahlungsdetektor.j
+pg>] <img/radiometer.jpg, id=637, 155.58125pt x 270.00874pt>
+File: img/radiometer.jpg Graphic file (type jpg)
+
+<use img/radiometer.jpg>
+Package pdftex.def Info: img/radiometer.jpg used on input line 217.
+(pdftex.def)             Requested size: 77.79042pt x 135.00403pt.
+
+<img/radiometer_technik.png, id=638, 501.875pt x 273.02pt>
+File: img/radiometer_technik.png Graphic file (type png)
+
+<use img/radiometer_technik.png>
+Package pdftex.def Info: img/radiometer_technik.png used on input line 218.
+(pdftex.def)             Requested size: 250.93687pt x 136.50966pt.
+ [45 <./img/radiometer.jpg> <./img/radiometer_technik.png>]
+Overfull \hbox (2.50974pt too wide) in paragraph at lines 230--231
+[]\T1/lmr/m/n/12 Wie Io-nen-kam-mer-de-tek-to-ren un-ter-schei-den Pro-por-tio-
+nal-de-tek-to-ren zwi-schen den Strah-lungs-
+ []
+
+[46] <img/detectorvoltage.png, id=651, 301.125pt x 344.28625pt>
+File: img/detectorvoltage.png Graphic file (type png)
+
+<use img/detectorvoltage.png>
+Package pdftex.def Info: img/detectorvoltage.png used on input line 241.
+(pdftex.def)             Requested size: 271.00998pt x 309.85475pt.
+ [47]
+<img/dosimeter&cutaway.jpg, id=657, 501.875pt x 307.1475pt>
+File: img/dosimeter&cutaway.jpg Graphic file (type jpg)
+
+<use img/dosimeter&cutaway.jpg>
+Package pdftex.def Info: img/dosimeter&cutaway.jpg used on input line 250.
+(pdftex.def)             Requested size: 150.56366pt x 92.14496pt.
+
+<img/dose.png, id=658, 552.0625pt x 296.10625pt>
+File: img/dose.png Graphic file (type png)
+ <use img/dose.png>
+Package pdftex.def Info: img/dose.png used on input line 251.
+(pdftex.def)             Requested size: 165.62003pt x 88.83255pt.
+ [48 <./img/detectorvoltage.png>]
+<img/Digital-Dosimeter.jpg, id=666, 139.52126pt x 251.94125pt>
+File: img/Digital-Dosimeter.jpg Graphic file (type jpg)
+
+<use img/Digital-Dosimeter.jpg>
+Package pdftex.def Info: img/Digital-Dosimeter.jpg used on input line 264.
+(pdftex.def)             Requested size: 41.85669pt x 75.58295pt.
+
+<img/alarm.jpg, id=667, 200.75pt x 346.29375pt>
+File: img/alarm.jpg Graphic file (type jpg)
+ <use img/alarm.jpg>
+Package pdftex.def Info: img/alarm.jpg used on input line 274.
+(pdftex.def)             Requested size: 60.22545pt x 103.88892pt.
+ [49 <./img/dosimeter&cutaway.jpg> <./img/dose.png>]
+<img/area-filmbadge.jpg, id=674, 244.915pt x 203.76125pt>
+File: img/area-filmbadge.jpg Graphic file (type jpg)
+
+<use img/area-filmbadge.jpg>
+Package pdftex.def Info: img/area-filmbadge.jpg used on input line 281.
+(pdftex.def)             Requested size: 171.43932pt x 142.6319pt.
+
+<img/FilmBadge.jpg, id=675, 200.75pt x 251.94125pt>
+File: img/FilmBadge.jpg Graphic file (type jpg)
+ <use img/FilmBadge.jpg>
+Package pdftex.def Info: img/FilmBadge.jpg used on input line 282.
+(pdftex.def)             Requested size: 100.37474pt x 125.9703pt.
+
+[50 <./img/Digital-Dosimeter.jpg> <./img/alarm.jpg>]
+<img/TLD.jpg, id=682, 44.8074pt x 39.0258pt>
+File: img/TLD.jpg Graphic file (type jpg)
+ <use img/TLD.jpg>
+Package pdftex.def Info: img/TLD.jpg used on input line 295.
+(pdftex.def)             Requested size: 40.32628pt x 35.12288pt.
+ [51 <./img/area-filmbadge.jpg> <./img/FilmBadge.jpg>]) [52 <./img/TLD.jpg>]
+\openout2 = `10_software.aux'.
+
+ (./10_software.tex
+chapter 5.
+) [53
 
 
 
@@ -1182,8 +1627,8 @@ chapter 4.
 \openout2 = `08_ergebnisse.aux'.
 
  (./08_ergebnisse.tex
-chapter 5.
-) [24
+chapter 6.
+) [54
 
 
 
@@ -1191,45 +1636,64 @@ chapter 5.
 \openout2 = `09_diskussion.aux'.
 
  (./09_diskussion.tex
-chapter 6.
-) [25
+chapter 7.
+) [55
 
 
 
 ]
 No file "00_Vorlage Abschlussarbeit".bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
 (./00_Vorlage Abschlussarbeit.aux (./01_titel.aux) (./02_danksagungen.aux)
 (./03_zusammenfassung.aux) (./04_einleitung.aux) (./05_grundlagen.aux)
-(./06_standdertechnik.aux) (./07_methoden.aux) (./08_ergebnisse.aux)
-(./09_diskussion.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
+(./06_standdertechnik.aux) (./07_methoden.aux) (./10_software.aux)
+(./08_ergebnisse.aux) (./09_diskussion.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `"00_Vorlage Abschlussarbeit".out' has not ch
 anged.
-(rerunfilecheck)             Checksum: 0F5997EC2326F222ABEB952BAFBC385F;1895.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
- ) 
+(rerunfilecheck)             Checksum: 15B82CF1688D06B8C39AB79A805007A8;3787.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
+ )
+(\end occurred inside a group at level 3)
+
+### simple group (level 3) entered at line 97 ({)
+### simple group (level 2) entered at line 206 ({)
+### simple group (level 1) entered at line 192 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 11062 strings out of 492995
- 175852 string characters out of 6132705
- 374419 words of memory out of 5000000
- 14308 multiletter control sequences out of 15000+600000
+ 11977 strings out of 492995
+ 189418 string characters out of 6132705
+ 393535 words of memory out of 5000000
+ 15032 multiletter control sequences out of 15000+600000
  57640 words of font info for 46 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 50i,14n,66p,8900b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
-texlive/2017/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/20
-17/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2017/texmf-
-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/
-type1/public/lm/lmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publi
-c/lm/lmro12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmssb
-x10.pfb>
-Output written on "00_Vorlage Abschlussarbeit.pdf" (25 pages, 418132 bytes).
+ 50i,16n,66p,8900b,659s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-maths
+y.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/us
+r/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/te
+xlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2017/tex
+mf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2017/texmf-dist/fonts/
+type1/public/lm/lmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
+ic/lm/lmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lme
+x10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2017/texmf-dist
+/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
+/public/lm/lmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/l
+mro12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmssbx10.pf
+b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on "00_Vorlage Abschlussarbeit.pdf" (55 pages, 1272807 bytes).
 PDF statistics:
- 336 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
- 267 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 801 PDF objects out of 1000 (max. 8388607)
+ 661 compressed objects within 7 object streams
+ 202 named destinations out of 1000 (max. 500000)
+ 665 words of extra memory for PDF output out of 10000 (max. 10000000)
 
