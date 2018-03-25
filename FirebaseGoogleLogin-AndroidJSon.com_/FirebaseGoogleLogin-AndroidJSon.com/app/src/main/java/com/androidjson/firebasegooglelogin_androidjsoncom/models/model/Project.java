@@ -223,7 +223,7 @@ public class Project {
 
     @Override
     public String toString() {
-        return "PROJECT{" + "\n" +
+        return "PROJECT[" + "\n" +
                 "  NAME= " + name + "\n" +
                 ", ID= " + getId() + "\n" +
                 ", PROJECT_NUMBER= " + projectNumber + "\n" +
@@ -235,7 +235,7 @@ public class Project {
                 ", JOIN=" + isJoin() + "\n" +
                 ", JOIN_COMPANY=" + getJoinCompany() + "\n" +
                 ", COUNTER = " + getCounter() + "\n" +
-                '}';
+                "]";
     }
 }
 

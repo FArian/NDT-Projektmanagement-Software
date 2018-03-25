@@ -1,7 +1,10 @@
 package com.androidjson.firebasegooglelogin_androidjsoncom.models.model.processing;
-import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.*;
-import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.*;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.DATA;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.LOCATION;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.MODEL;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.NAME;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.SIZE;
 
 import java.util.Calendar;
 
@@ -44,6 +47,7 @@ public class PROCESSING {
     public void setExpireDate(String expireDate) {
         this.expireDate = expireDate;
     }
+
     public String getSerialNumber() {
         return serialNumber;
     }
@@ -51,6 +55,7 @@ public class PROCESSING {
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
+
     public NAME getName() {
         return name;
     }
@@ -88,7 +93,6 @@ public class PROCESSING {
     }
 
 
-
     public LOCATION getLocation() {
         return location;
     }
@@ -103,7 +107,7 @@ public class PROCESSING {
 
     @Override
     public String toString() {
-        return "PROCESSING{" + "\n" +
+        return "PROCESSING[" + "\n" +
                 ", NAME= " + name +
                 ", MODEL= " + model +
                 ", SIZE= " + size +
@@ -111,7 +115,7 @@ public class PROCESSING {
                 ", EXPIRE_DATE= " + expireDate +
                 ", DATE_IS_EXPIRED= " + isExpiredDate() +
                 ", LOCATION= " + getLocation() +
-                '}';
+                "]";
     }
 
 }

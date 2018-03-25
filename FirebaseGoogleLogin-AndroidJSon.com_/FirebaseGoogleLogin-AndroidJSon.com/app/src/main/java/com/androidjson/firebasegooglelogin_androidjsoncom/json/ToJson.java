@@ -77,4 +77,16 @@ public class ToJson {
         ((ObjectNode) root).put(key, msg);
         return root;
     }
+
+    /**
+     * boolean answer
+     *
+     * @return
+     */
+    public static Object booleanAnswer(String key, boolean answer) {
+        JsonNode root = MAPPER.createObjectNode();
+        ((ObjectNode) root).put(key, answer);
+        return root;
+    }
+
 }

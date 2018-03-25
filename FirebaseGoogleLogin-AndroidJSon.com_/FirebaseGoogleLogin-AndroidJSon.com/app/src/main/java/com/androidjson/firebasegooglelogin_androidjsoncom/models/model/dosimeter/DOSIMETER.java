@@ -181,7 +181,7 @@ public abstract class DOSIMETER {
 
     @Override
     public String toString() {
-        return "DOSIMETER_ID{" + "\n" +
+        return "DOSIMETER_ID[" + "\n" +
                 "SERIAL_NUMBER=" + serialNumber +
                 ", NAME=" + name +
                 ", MADE_IN=" + madeIn +
@@ -193,6 +193,6 @@ public abstract class DOSIMETER {
                 ", TYPE=" + type +
                 ", STATUS=" + status +
                 ", CALIBRATION_MESSAGE=" + calibrationMessage +
-                "}";
+                "]";
     }
 }

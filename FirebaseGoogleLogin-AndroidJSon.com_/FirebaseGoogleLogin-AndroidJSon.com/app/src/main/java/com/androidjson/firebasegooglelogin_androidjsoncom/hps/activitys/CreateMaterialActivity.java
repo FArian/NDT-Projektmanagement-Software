@@ -2,6 +2,7 @@ package com.androidjson.firebasegooglelogin_androidjsoncom.hps.activitys;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.MainActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.R;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.Item;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.RecyclerViewAdapter;
@@ -32,6 +34,7 @@ import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT.Film;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT.Isotope;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT.RT_Camera;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Team;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.dosimeter.FilmBadge;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.dosimeter.GeigerAlarm;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.dosimeter.PocketDosimeter;
@@ -92,14 +95,15 @@ public class CreateMaterialActivity extends FragmentActivity {
     private RT_Camera camera = new RT_Camera(NAME.OTHER, MODEL.OTHER, isotope_none);
     private Film film = new Film(NAME.OTHER, TYPE.OTHER, MODEL.OTHER, SIZE.OTHER);
     private IQI iqi = new IQI();
-    private Developer developer=new Developer(NAME.OTHER,MODEL.OTHER,SIZE.OTHER);
-    private Fixer fixer=new Fixer(NAME.OTHER,MODEL.OTHER,SIZE.OTHER);
+    private Developer developer = new Developer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER);
+    private Fixer fixer = new Fixer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER);
     // TAG is for show some tag logs in LOG screen.
     private static final String TAG = "CreateMaterialActivity";
     private DateSettings dateSettings;
     static final int DATE_DIALOG_ID = 999;
     //JsonNode personalJson = Json.toJson(rt_camera_logo.toString());
     private JsonNode jsonNode;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,12 +113,11 @@ public class CreateMaterialActivity extends FragmentActivity {
         WHITE = R.color.white;
         dateSettings = new DateSettings(getApplicationContext());
         gson = new Gson();
-        client = new Client();
+        client = MainActivity.getClientCustom();
         personal = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
         bindViews();
-
         //Create model list
         items = new ArrayList<>();
 
@@ -248,6 +251,7 @@ public class CreateMaterialActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 switch (items.get(position).getType()) {
+
                     case "FILMBADGE":
 
                         String filmBadge_name = edit_text_name.getText().toString();
@@ -267,10 +271,8 @@ public class CreateMaterialActivity extends FragmentActivity {
                          */
                         String message = ToJson.sendObjectWithRoot("Create FILMBADGE", filmBadge);
                         client.getWebSocket().send(message);
-
                         break;
                     case "TLD":
-
                         String tld_name = edit_text_name.getText().toString();
                         String tld_serialNumber = edit_text_serial_number.getText().toString();
 
@@ -342,6 +344,7 @@ public class CreateMaterialActivity extends FragmentActivity {
                          * send object to Server
                          */
                         client.getWebSocket().send(ToJson.sendObjectWithRoot("Create RADIOMETER", radiometer));
+
                         break;
                     case "LEAD ARON":
                         String leadAron_name = edit_text_name.getText().toString();
@@ -370,9 +373,6 @@ public class CreateMaterialActivity extends FragmentActivity {
                         adapter.notifyDataSetChanged();
                         //Close dialog
                         dialog.dismiss();
-
-                        System.out.println(radiationSigns);
-                        System.out.println(radiationSigns.toString());
                         /**
                          * send object to Server
                          */
@@ -450,8 +450,6 @@ public class CreateMaterialActivity extends FragmentActivity {
                          * send object to Server
                          */
                         client.getWebSocket().send(ToJson.sendObjectWithRoot("Create RT CAMERA", camera));
-
-
                         break;
                     case "RT FILM":
                         String film_name = spinner_name.getSelectedItem().toString();
@@ -500,31 +498,27 @@ public class CreateMaterialActivity extends FragmentActivity {
                         client.getWebSocket().send(ToJson.sendObjectWithRoot("Create IQI", iqi));
                         break;
                     case "FILM DEVELOPER":
-                        String developer_name=spinner_name.getSelectedItem().toString();
-                        String developer_model=spinner_model.getSelectedItem().toString();
-                        String developer_size=spinner_size.getSelectedItem().toString();
+                        String developer_name = spinner_name.getSelectedItem().toString();
+                        String developer_model = spinner_model.getSelectedItem().toString();
+                        String developer_size = spinner_size.getSelectedItem().toString();
                         developer.setName(NAME.valueOf(developer_name));
                         developer.setModel(MODEL.valueOf(developer_model));
                         developer.setSize(SIZE.valueOf(developer_size));
-
                         adapter.notifyDataSetChanged();
                         //Close dialog
                         dialog.dismiss();
-
                         client.getWebSocket().send(ToJson.sendObjectWithRoot("Create FILM DEVELOPER", developer));
                         break;
                     case "FILM FIXER":
-                        String fixer_name=spinner_name.getSelectedItem().toString();
-                        String fixer_model=spinner_model.getSelectedItem().toString();
-                        String fixer_size=spinner_size.getSelectedItem().toString();
+                        String fixer_name = spinner_name.getSelectedItem().toString();
+                        String fixer_model = spinner_model.getSelectedItem().toString();
+                        String fixer_size = spinner_size.getSelectedItem().toString();
                         fixer.setName(NAME.valueOf(fixer_name));
                         fixer.setModel(MODEL.valueOf(fixer_model));
                         fixer.setSize(SIZE.valueOf(fixer_size));
-
                         adapter.notifyDataSetChanged();
                         //Close dialog
                         dialog.dismiss();
-
                         client.getWebSocket().send(ToJson.sendObjectWithRoot("Create FILM FIXER", fixer));
                         break;
                 }

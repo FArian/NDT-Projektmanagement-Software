@@ -8,7 +8,10 @@ import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.MOD
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.NAME;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.SIZE;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.TYPE;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.EmergencyStorageContainer;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.HandlingTongs;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.IQI;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.LeadAron;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.RadiationSigns;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.Viewer;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.processing.Developer;
@@ -22,7 +25,7 @@ import java.util.List;
  */
 public class Team {
     private String id;
-    private static int instanceCounter = 0;
+    private int instanceCounter = 0;
     int counter = 0;
     private TYPE type;
     private String name;
@@ -38,17 +41,22 @@ public class Team {
     private LOCATION location;
     private boolean status;
     private String teamReport;
-
-
-    public Team(List<Personal> personals, TYPE teamType) {
-        this.personals=personals;
-        this.setType(teamType);
+    private LeadAron leadAron;
+    private RadiationSigns radiationSigns;
+    private EmergencyStorageContainer emergencyStorageContainer;
+    private IQI iqi;
+    /**
+     * @param personals
+     */
+    public Team(List<Personal> personals) {
+        this.personals = personals;
+        this.setType(TYPE.RT);
         this.setTeamReport("TEAM START REPORT");
         this.setLocation(LOCATION.CENTRAL);
-        switch (getType()){
+        switch (getType()) {
             case RT:
                 this.films.add(new Film(NAME.OTHER, TYPE.OTHER, MODEL.OTHER, SIZE.OTHER));
-                this.rtCamera=new RT_Camera();
+                this.rtCamera = new RT_Camera();
                 this.setStatus(rtCamera.ready_RT_CAMERA());
                 this.signs.add(new RadiationSigns());
                 this.setHandlingTongs(new HandlingTongs());
@@ -56,6 +64,10 @@ public class Team {
                 this.setRadiometer(new Radiometer());
                 this.developers.add(new Developer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER));
                 this.fixers.add(new Fixer(NAME.OTHER, MODEL.OTHER, SIZE.OTHER));
+                if (personals.size() < 2) {
+                    System.out.println("Number of persons is less than 2");
+                    setStatus(false);
+                }
                 break;
             case MT:
                 //TODO
@@ -87,11 +99,48 @@ public class Team {
     }
 
 
-
-
+    /**
+     *
+     */
     public Team() {
 
     }
+
+    public IQI getIqi() {
+        return iqi;
+    }
+
+    public void setIqi(IQI iqi) {
+        this.iqi = iqi;
+    }
+
+
+    public EmergencyStorageContainer getEmergencyStorageContainer() {
+        return emergencyStorageContainer;
+    }
+
+    public void setEmergencyStorageContainer(EmergencyStorageContainer emergencyStorageContainer) {
+        this.emergencyStorageContainer = emergencyStorageContainer;
+    }
+
+
+    public RadiationSigns getRadiationSigns() {
+        return radiationSigns;
+    }
+
+    public void setRadiationSigns(RadiationSigns radiationSigns) {
+        this.radiationSigns = radiationSigns;
+    }
+
+
+    public void setLeadAron(LeadAron leadAron) {
+        this.leadAron = leadAron;
+    }
+
+    public LeadAron getLeadAron() {
+        return leadAron;
+    }
+
 
     public String getId() {
         return id;
@@ -147,7 +196,11 @@ public class Team {
     }
 
     public void setDevelopers(List<Developer> developers) {
+
         this.developers = developers;
+    }
+    public void setDevelopers(Developer developer){
+        this.developers.add(developer);
     }
 
     public List<Fixer> getFixers() {
@@ -157,6 +210,9 @@ public class Team {
     public void setFixers(List<Fixer> fixers) {
         this.fixers = fixers;
     }
+    public void setFixer(Fixer fixer){
+        this.fixers.add(fixer);
+    }
 
     public List<Film> getFilms() {
         return films;
@@ -165,6 +221,11 @@ public class Team {
     public void setFilms(List<Film> films) {
         this.films = films;
     }
+
+    public void setFilm(Film film){
+        this.films.add(film);
+    }
+
 
     public Radiometer getRadiometer() {
         return radiometer;
@@ -225,7 +286,7 @@ public class Team {
 
     @Override
     public String toString() {
-        return "TEAM{" +
+        return "TEAM[" +
                 "  NAME= " + name +
                 ", TYPE= " + type +
                 ", ID= " + id +
@@ -242,6 +303,6 @@ public class Team {
                 ", STATUS= " + status +
                 ", TEAM_REPORT= " + teamReport +
                 ", COUNTER = " + getCounter() +
-                "}";
+                "]";
     }
 }

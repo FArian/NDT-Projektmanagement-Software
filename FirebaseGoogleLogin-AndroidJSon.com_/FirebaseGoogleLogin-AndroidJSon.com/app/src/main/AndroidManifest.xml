@@ -62,6 +62,15 @@
             android:name=".hps.activitys.CreateMaterialActivity"
             android:label="@string/title_activity_create_material"
             android:theme="@style/AppTheme.ActionBar"></activity>
+        <activity
+            android:name=".hps.activitys.CreateTeamActivity"
+            android:label="@string/title_activity_create_material"
+            android:theme="@style/AppTheme.ActionBar"></activity>
+        <activity
+            android:name=".hps.activitys.PersonalListActivity"
+            android:label="@string/PersonalListActivity"
+            android:theme="@style/AppTheme.ActionBar"></activity>
+
 
 
     </application>

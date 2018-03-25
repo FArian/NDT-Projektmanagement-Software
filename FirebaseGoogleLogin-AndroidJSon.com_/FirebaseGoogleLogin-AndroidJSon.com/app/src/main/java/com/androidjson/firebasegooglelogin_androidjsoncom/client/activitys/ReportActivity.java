@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.MainActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.DatePickerFragment;
 import com.androidjson.firebasegooglelogin_androidjsoncom.R;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.Report;
@@ -60,7 +61,7 @@ public class ReportActivity extends AppCompatActivity implements DatePickerDialo
         email=personal.getEmail();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.report_layout);
-        client = new Client();
+        client = MainActivity.getClientCustom();
         bindViews();
         send_btn.setOnClickListener(this);
         datePicker.setOnClickListener(this);

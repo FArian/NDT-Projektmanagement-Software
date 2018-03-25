@@ -1,4 +1,4 @@
-package com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys;
+package com.androidjson.firebasegooglelogin_androidjsoncom.hps.activitys;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -16,36 +17,47 @@ import android.widget.Toast;
 
 import com.androidjson.firebasegooglelogin_androidjsoncom.MainActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.R;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.AlarmActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.MaterialActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.ReportActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.SafetyActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.TimeActivity;
+import com.androidjson.firebasegooglelogin_androidjsoncom.connection.Client;
+import com.androidjson.firebasegooglelogin_androidjsoncom.json.ToJson;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.PERSONALTYPE;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
-public class StartActivity extends Activity {
+public class PersonalListActivity extends Activity {
 
     // TAG is for show some tag logs in LOG screen.
-    public static final String TAG = "StartActivity";
+    public static final String TAG = "PersonalListActivity";
     private Gson gson;
+    private Client client;
+    private List<Personal> personals = new ArrayList<>();
+    private List<ImageView> imageViews=new ArrayList<>();
     private Intent intent;
     private Personal person;
     private LinearLayout list_view_items_line1, list_view_items_line2;
     private android.support.v7.widget.RecyclerView recyclerView;
     //Items list
     // Array of strings items
-    private String[] items = new String[]{"Safety", "Report", "Time", "Material", "Alarm"};
+    //private String[] items = new String[]{"Safety", "Report", "Time", "Material", "Alarm"};
+    private ArrayList<String> items = new ArrayList<>();
 
     // Array of integers points to images stored in /res/drawable-ldpi/
-    int[] flags = new int[]{
-            R.drawable.safety1,
-            R.drawable.report1,
-            R.drawable.time1,
-            R.drawable.material1,
-            R.drawable.alarm1,
-    };
-    private String itemsMessage[] = {"Safety is first", "Make report", "Calculator radiation time", "Current list of materials in project", "Radiation emergency message"};
+    private ArrayList<Integer> arrayList = new ArrayList<>();
+    //int[] flags = new int[]{ R.drawable.person,};
+
+    //private String itemsMessage[] = {"Safety is first", "Make report", "Calculator radiation time", "Current list of materials in project", "Radiation emergency message"};
+    private ArrayList<String> itemsMessage = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,15 +67,32 @@ public class StartActivity extends Activity {
         list_view_items_line1 = (LinearLayout) findViewById(R.id.line1);
         list_view_items_line2 = (LinearLayout) findViewById(R.id.line2);
         gson = new Gson();
+        client=MainActivity.getClientCustom();
+
+        this.personals = client.getPersonals();
+        if(personals!=null){
+            for (int i = 0; i <personals.size() ; i++) {
+                System.out.println(TAG);
+                System.out.println(personals.get(i).toString());
+
+            }
+
+        }
+
         person = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
+        this.updatePersonalList();
+        this.itemInitialization();
+
+
         // Each row in the list stores country name, currency and flag
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
 
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < items.size(); i++) {
+
             HashMap<String, String> hm = new HashMap<String, String>();
-            hm.put("txt", "ITEM:" + items[i]);
-            hm.put("cur", "Message : " + itemsMessage[i]);
-            hm.put("flag", Integer.toString(flags[i]));
+            hm.put("txt", "ITEM:" + items.get(i));
+            hm.put("cur", "Message : " + itemsMessage.get(i));
+            hm.put("flag", Integer.toString(arrayList.get(i)));
             aList.add(hm);
         }
         // Keys used in Hashmap
@@ -133,6 +162,67 @@ public class StartActivity extends Activity {
         //safety_btn.setBackgroundColor(R.color.easyfei_black);
         //safety_btn.setTextColor(R.color.easyfei_green);
 
+    }
+
+    private void itemInitialization() {
+        if (personals != null) {
+
+            for (int i = 0; i < personals.size(); i++) {
+                items.add(personals.get(i).getFirstName().toUpperCase() + " " + personals.get(i).getLastName());
+                if(personals.get(i).getPersonalType().equals(PERSONALTYPE.HPS)){
+                    arrayList.add(R.drawable.person1);
+                }else {
+                    arrayList.add(R.drawable.person);
+                }
+                itemsMessage.add(personals.get(i).getPersonalType().name().toString());
+                System.out.println("Personal List in: "+ TAG );
+                System.out.println(personals.get(i).toString());
+            }
+
+        } else {
+            items.add("List is empty");
+            arrayList.add(R.drawable.person);
+            itemsMessage.add("you have nobody in List of Personals");
+            items.add("---------------------");
+            arrayList.add(R.drawable.person1);
+            itemsMessage.add("--------------");
+        }
+
+    }
+
+    private void updatePersonalList() {
+        List<Personal> personalList = new ArrayList<>();
+
+
+        if (client.getPersonals() != null) {
+            personalList = client.getPersonals();
+
+            personals = personalList;
+            for (Personal p : personals) {
+                int n = 0;
+                System.out.println("----------------------------------->: Nr :" + n++);
+                System.out.println("Personals list in " + TAG + p.toString());
+
+            }
+        } else {
+            /**
+             * send request to receive list of Personals
+             */
+            client.getWebSocket().send(ToJson.message("PERSONALSLIST", "I NEED PERSONAL LIST").toString());
+            personalList = client.getPersonals();
+            personals = personalList;
+            if (personals != null) {
+                for (Personal p : personals) {
+                    int n = 0;
+                    System.out.println("----------------------------------->: Nr :" + n++);
+                    System.out.println("Personals list in " + TAG + p.toString());
+
+                }
+
+            }
+
+
+        }
     }
 
     @Override

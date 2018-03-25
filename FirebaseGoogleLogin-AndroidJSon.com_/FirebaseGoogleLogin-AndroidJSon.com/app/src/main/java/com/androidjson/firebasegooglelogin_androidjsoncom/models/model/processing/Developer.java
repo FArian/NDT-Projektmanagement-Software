@@ -2,14 +2,16 @@ package com.androidjson.firebasegooglelogin_androidjsoncom.models.model.processi
 
 
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.DATA;
-import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.*;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.MODEL;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.NAME;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.SIZE;
 
 /**
  * Created by F.Arian on 04.12.17.
  */
 public class Developer extends PROCESSING {
-    private  String id;
-    private static int instanceCounter = 0;
+    private String id;
+    private int instanceCounter = 0;
     private int counter = 0;
 
 
@@ -27,7 +29,7 @@ public class Developer extends PROCESSING {
      *
      * @return
      */
-    public  String getID() {
+    public String getID() {
         return id;
     }
 
@@ -37,7 +39,7 @@ public class Developer extends PROCESSING {
 
     @Override
     public String toString() {
-        return "DEVELOPER{" +
+        return "DEVELOPER[" +
                 "  NAME= " + super.getName() +
                 ", ID = " + getID() +
                 ", MODEL= " + super.getModel() +
@@ -48,6 +50,6 @@ public class Developer extends PROCESSING {
                 ", DATE_IS_EXPIRED= " + super.isExpiredDate() +
                 ", LOCATION= " + super.getLocation() +
                 ", COUNTER = " + counter +
-                "}";
+                "]";
     }
 }

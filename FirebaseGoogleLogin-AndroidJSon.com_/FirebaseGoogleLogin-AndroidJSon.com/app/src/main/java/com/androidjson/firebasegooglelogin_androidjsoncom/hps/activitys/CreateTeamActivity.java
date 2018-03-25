@@ -1,10 +1,9 @@
-package com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys;
+package com.androidjson.firebasegooglelogin_androidjsoncom.hps.activitys;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -16,7 +15,10 @@ import android.widget.Toast;
 
 import com.androidjson.firebasegooglelogin_androidjsoncom.MainActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.R;
+import com.androidjson.firebasegooglelogin_androidjsoncom.connection.Client;
+import com.androidjson.firebasegooglelogin_androidjsoncom.json.ToJson;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Team;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -24,37 +26,38 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class StartActivity extends Activity {
+public class CreateTeamActivity extends Activity {
 
     // TAG is for show some tag logs in LOG screen.
-    public static final String TAG = "StartActivity";
+    public static final String TAG = "CreateTeamActivity";
     private Gson gson;
     private Intent intent;
     private Personal person;
     private LinearLayout list_view_items_line1, list_view_items_line2;
     private android.support.v7.widget.RecyclerView recyclerView;
+    private Client client;
+    private Team team;
     //Items list
     // Array of strings items
-    private String[] items = new String[]{"Safety", "Report", "Time", "Material", "Alarm"};
+    private String[] items = new String[]{"Personals", "Materials"};
 
     // Array of integers points to images stored in /res/drawable-ldpi/
     int[] flags = new int[]{
-            R.drawable.safety1,
-            R.drawable.report1,
-            R.drawable.time1,
-            R.drawable.material1,
-            R.drawable.alarm1,
+            R.drawable.person,
+            R.drawable.material
     };
-    private String itemsMessage[] = {"Safety is first", "Make report", "Calculator radiation time", "Current list of materials in project", "Radiation emergency message"};
+    private String itemsMessage[] = {"add new Person to your Team", "add new Material to your Team"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        client = MainActivity.getClientCustom();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         recyclerView = (android.support.v7.widget.RecyclerView) findViewById(R.id.recycler_view);
         list_view_items_line1 = (LinearLayout) findViewById(R.id.line1);
         list_view_items_line2 = (LinearLayout) findViewById(R.id.line2);
         gson = new Gson();
+        team = new Team();
         person = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
         // Each row in the list stores country name, currency and flag
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
@@ -71,8 +74,6 @@ public class StartActivity extends Activity {
         // Ids of views in listview_layout
         int[] to = {R.id.flag, R.id.txt, R.id.cur};
 
-        // Instantiating an adapter to store each items
-        // R.layout.listview_layout defines the layout of each item
         SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), aList, R.layout.listview_layout_start, from, to);
         // Getting a reference to listview of main_login.xmlin.xml layout file
         ListView listView = (ListView) findViewById(R.id.list_view_start);
@@ -97,49 +98,21 @@ public class StartActivity extends Activity {
 
                 switch (position) {
                     case 0:
-                        //safety
+                        //personal
                         goToNextPage(position);
                         break;
                     case 1:
-                        //report
-                        goToNextPage(position);
-                        break;
-                    case 2:
-                        //time
-                        goToNextPage(position);
-                        break;
-                    case 3:
                         //material
                         goToNextPage(position);
-
                         break;
-                    case 4:
-                        //alarm
-                        goToNextPage(position);
-                        break;
-                    case 5:
-                        //logout
-                        goToNextPage(position);
-                        break;
-
-
                 }
 
             }
         };
-        // Setting the item click listener for the listview
         listView.setOnItemClickListener(itemClickListener);
 
-        //safety_btn.setBackgroundColor(R.color.easyfei_black);
-        //safety_btn.setTextColor(R.color.easyfei_green);
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
 
     /**
      * go to next page , RtCameraSafety Page
@@ -149,49 +122,15 @@ public class StartActivity extends Activity {
         String myJson = null;
         switch (position) {
             case 0:
-                // safety activity
-                intent = new Intent(getApplicationContext(), SafetyActivity.class);
-                myJson = gson.toJson(person);
-                intent.putExtra("Personal", myJson);
-                startActivity(intent);
+                // select personals for Team
+                client.getWebSocket().send(ToJson.message("Resource", "Personal").toString());
+
                 break;
             case 1:
-                // report activity
-                intent = new Intent(getApplicationContext(), ReportActivity.class);
-                myJson = gson.toJson(person);
-                intent.putExtra("Personal", myJson);
+                // create material activity
+                intent = new Intent(getApplicationContext(), CreateMaterialActivity.class);
                 startActivity(intent);
                 break;
-            case 2:
-                // time activity
-                intent = new Intent(getApplicationContext(), TimeActivity.class);
-                myJson = gson.toJson(person);
-                intent.putExtra("Personal", myJson);
-                startActivity(intent);
-                break;
-            case 3:
-                // material activity
-                intent = new Intent(getApplicationContext(), MaterialActivity.class);
-                myJson = gson.toJson(person);
-                intent.putExtra("Personal", myJson);
-                startActivity(intent);
-                break;
-            case 4:
-                // alarm activity
-                intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                myJson = gson.toJson(person);
-                intent.putExtra("Personal", myJson);
-                startActivity(intent);
-                break;
-            case 5:
-                // main activity
-                intent = new Intent(getApplicationContext(), MainActivity.class);
-                //myJson = gson.toJson(person);
-                //intent.putExtra("Personal", myJson);
-                startActivity(intent);
-                break;
-
-
         }
 
 

@@ -1,8 +1,13 @@
 package com.androidjson.firebasegooglelogin_androidjsoncom.models.model;
 
 
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.widget.ImageView;
+
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.dosimeter.*;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.*;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by F.Arian on 06.11.17.
@@ -25,7 +30,6 @@ public class Personal {
     private String email;
     private TLD tld;
     private FilmBadge filmBadge;
-
     private String weight;
     private String height;
     private String nationalId;
@@ -35,6 +39,8 @@ public class Personal {
     private GeigerAlarm geiger;
     private PocketDosimeter dosimeter;
     private boolean isInRest;
+
+
 
 
     public Personal(String firstName, String lastName) {
@@ -62,20 +68,21 @@ public class Personal {
         this.setIsInRest(false);
         tld.setName("MY_TLD_"+getLastName());
         filmBadge.setName("MY_FilmBadge_"+getLastName());
-        this.setBirthday("14.02.1983");
+        this.setBirthday("00.00.0000");
     }
 
     public Personal(){
 
+
     }
-
-
-
-
     public int getCounter() {
 
         return counter;
     }
+
+
+
+
 
     public GeigerAlarm getGeiger() {
         return geiger;
@@ -145,7 +152,7 @@ public class Personal {
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = DATA.dateUpDate(birthday);
+        this.birthday = birthday;
     }
 
     public String getCompanyName() {
@@ -221,7 +228,7 @@ public class Personal {
     }
 
     public void setFinishedDate(String finishedDate) {
-        this.finishedDate = DATA.dateUpDate(finishedDate);
+        this.finishedDate = finishedDate;
     }
 
 
@@ -274,7 +281,7 @@ public class Personal {
     }
 
     public void setStartDate(String startDate) {
-        this.startDate = DATA.dateUpDate(startDate);
+        this.startDate = startDate;
     }
 
     @Override
@@ -286,7 +293,7 @@ public class Personal {
                 ", LAST_NAME= " + lastName +
                 ", ID= " + id +
                 ", BIRTHDAY= " + birthday +
-                ", AGE= " + getAge()[4] + " YEARS OLD AND " + getAge()[3] + " MONTH " +
+                //", AGE= " + getAge()[4] + " YEARS OLD AND " + getAge()[3] + " MONTH " +
                 ", ADDRESS= " + address +
                 ", COMPANY_NAME= " + companyName +
                 ", MOBILE_NR= " + mobileNr +

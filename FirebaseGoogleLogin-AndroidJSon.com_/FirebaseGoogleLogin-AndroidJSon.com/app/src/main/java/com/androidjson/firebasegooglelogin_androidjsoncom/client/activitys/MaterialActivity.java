@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.MainActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.R;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.Item;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.RecyclerViewAdapter;
@@ -50,7 +51,7 @@ public class MaterialActivity extends Activity {
         BLACK = R.color.album_text_color;
         WHITE = R.color.white;
         gson = new Gson();
-        client = new Client();
+        client = MainActivity.getClientCustom();
         personal = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);

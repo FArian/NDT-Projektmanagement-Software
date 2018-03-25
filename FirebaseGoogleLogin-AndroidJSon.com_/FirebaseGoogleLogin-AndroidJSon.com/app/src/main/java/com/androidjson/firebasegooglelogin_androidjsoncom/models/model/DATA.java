@@ -19,7 +19,7 @@ import java.util.UUID;
 /**
  * Created by F.Arian on 06.11.17.
  */
-public abstract class DATA extends DialogFragment {
+public class DATA extends DialogFragment {
 
     private static final String DD_MM_YYYY = "dd.MM.yyyy";
     private static final DateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");

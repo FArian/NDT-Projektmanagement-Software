@@ -33,7 +33,7 @@ public class Fixer extends PROCESSING {
 
     @Override
     public String toString() {
-        return "FIXER{" +
+        return "FIXER[" +
                 "  NAME= " + super.getName() +
                 ", ID = " + getID() +
                 ", MODEL= " + super.getModel() +
@@ -44,6 +44,6 @@ public class Fixer extends PROCESSING {
                 ", DATE_IS_EXPIRED= " + super.isExpiredDate() +
                 ", LOCATION= " + super.getLocation() +
                 ", COUNTER = " + counter +
-                "}";
+                "]";
     }
 }

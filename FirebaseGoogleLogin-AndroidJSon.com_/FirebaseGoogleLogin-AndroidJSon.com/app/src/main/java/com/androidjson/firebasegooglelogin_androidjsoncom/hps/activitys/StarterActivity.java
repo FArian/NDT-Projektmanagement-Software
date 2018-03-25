@@ -15,13 +15,21 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidjson.firebasegooglelogin_androidjsoncom.MainActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.R;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.AlarmActivity;
-import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.ReportActivity;
-import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.SafetyActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.client.activitys.TimeActivity;
 import com.androidjson.firebasegooglelogin_androidjsoncom.connection.Client;
+import com.androidjson.firebasegooglelogin_androidjsoncom.json.ToJson;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT.Film;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.RT.RT_Camera;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Team;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.dosimeter.Radiometer;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.HandlingTongs;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.material.Viewer;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.processing.Developer;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.processing.Fixer;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -38,9 +46,18 @@ public class StarterActivity extends Activity {
     private android.support.v7.widget.RecyclerView recyclerView;
     private Client client;
     private Gson gson;
+    private List<Personal> personals=new ArrayList<>();
+    private List<Developer> developers= new ArrayList<>();
+    private List<Fixer> fixers = new ArrayList<>();
+    private List<Film> films = new ArrayList<>();
+    private List<Radiometer> radiometers=new ArrayList<>();
+    private List<Viewer> viewers= new ArrayList<>();
+    private List<HandlingTongs> handlingTongs=new ArrayList<>();
+    private List<RT_Camera> rt_cameras = new ArrayList<>();
+    private Team team;
     //Items list
     // Array of strings items
-    private String[] items = new String[]{"PROJECTS", " TEAMS ", " PERSONALS", " MATERIALS", " MESSAGES", " ALARM"};
+    private String[] items = new String[]{" LIST OF PROJECT", " Create TEAM ", " LIST OF PERSONAL", " LIST OF MATERIALS", " LIST OF OBJECTS", " ALARM"};
 
     // Array of integers points to images stored in /res/drawable-ldpi/
     int[] flags = new int[]{
@@ -51,7 +68,7 @@ public class StarterActivity extends Activity {
             R.drawable.message,
             R.drawable.alarm1,
     };
-    private String itemsMessage[] = {"Projects", " Teams ", " Personals ", " Materials", " Messages from Client", " Alarm from Client"};
+    private String itemsMessage[] = {"Create new Project", " Create new Team ", " Create new Personal ", " Create new Materials", " List of all the Objects ", " Alarm from Client"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +77,11 @@ public class StarterActivity extends Activity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         list_view_items_line1 = (LinearLayout) findViewById(R.id.line1);
         list_view_items_line2 = (LinearLayout) findViewById(R.id.line2);
-        client = new Client();
+        //client = new Client();
         gson = new Gson();
+        this.person = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
+        client= MainActivity.getClientCustom();
 
-        person = gson.fromJson(getIntent().getStringExtra("Personal"), Personal.class);
         // Each row in the list stores country name, currency and flag
         List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
 
@@ -143,6 +161,8 @@ public class StarterActivity extends Activity {
 
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // getMenuInflater().inflate(R.menu.activity_main, menu);
@@ -160,44 +180,39 @@ public class StarterActivity extends Activity {
         switch (position) {
             case 0:
                 // projects activity
-                intent = new Intent(getApplicationContext(), SafetyActivity.class);
-                myJson = gson.toJson(person);
-                intent.putExtra("Personal", myJson);
-                //startActivity(intent);
+
                 break;
             case 1:
                 // teams activity
-                intent = new Intent(getApplicationContext(), ReportActivity.class);
+                intent = new Intent(getApplicationContext(), CreateTeamActivity.class);
                 myJson = gson.toJson(person);
                 intent.putExtra("Personal", myJson);
                 startActivity(intent);
                 break;
             case 2:
                 // personal activity
-                intent = new Intent(getApplicationContext(), TimeActivity.class);
+                intent = new Intent(getApplicationContext(), PersonalListActivity.class);
                 myJson = gson.toJson(person);
                 intent.putExtra("Personal", myJson);
-                //startActivity(intent);
+                startActivity(intent);
                 break;
             case 3:
                 // material activity
-                intent = new Intent(getApplicationContext(), CreateMaterialActivity.class);
-                startActivity(intent);
+                //intent = new Intent(getApplicationContext(), CreateMaterialActivity.class);
+                //startActivity(intent);
                 break;
             case 4:
                 //message activity
                 //TODO
+                break;
             case 5:
                 // alarm activity
                 intent = new Intent(getApplicationContext(), AlarmActivity.class);
                 startActivity(intent);
                 break;
-
-
         }
-
-
     }
+
 
 
 }

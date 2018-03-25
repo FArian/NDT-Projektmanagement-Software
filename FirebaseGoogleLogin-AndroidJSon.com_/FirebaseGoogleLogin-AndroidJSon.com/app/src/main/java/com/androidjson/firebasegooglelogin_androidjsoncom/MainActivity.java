@@ -3,8 +3,10 @@ package com.androidjson.firebasegooglelogin_androidjsoncom;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,6 +22,8 @@ import com.androidjson.firebasegooglelogin_androidjsoncom.hps.activitys.StarterA
 import com.androidjson.firebasegooglelogin_androidjsoncom.json.ToJson;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.DatePickerFragment;
 import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.Personal;
+import com.androidjson.firebasegooglelogin_androidjsoncom.models.model.enums.PERSONALTYPE;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -40,6 +44,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
 
@@ -49,7 +54,8 @@ import okhttp3.WebSocket;
 // Importing Google GMS Auth API Libraries.
 //Import other Classes
 
-public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,
+        View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     // TAG is for show some tag logs in LOG screen.
     public static final String TAG = "MainActivity";
@@ -57,8 +63,10 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     // Request sing in code. Could be anything as you required.
     public static final int RequestSignInCode = 7;
 
+
     // Firebase Auth Object.
     public FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     // Google API Client object.
     public GoogleApiClient googleApiClient;
@@ -74,29 +82,27 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     private WebSocket webSocket;
     private OkHttpClient okHttpClient;
-    private Client client;
+    private static Client client;
     private String firstName;
     private String lastName;
     private String email;
     private String birthday;
     private ImageView user_pic, radiographer_pic, health_physic_pic;
-    private Personal personal;
+    private Personal personalInClient;
     private Gson gson;
+    private String pic;
+    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        okHttpClient = new OkHttpClient();
-        client = new Client();
-        gson = new Gson();
-        //create connection with Websocket
-        webSocket = client.getWebSocket();
-        client.getClient();
         bindViews();
-        personal = new Personal();
         // Getting Firebase Auth Instance into firebaseAuth object.
         firebaseAuth = FirebaseAuth.getInstance();
+        gson = new Gson();
+        client = new Client();
+
         // Hiding the TextView on activity start up time.
         LoginUserEmail.setVisibility(View.GONE);
         LoginUserName.setVisibility(View.GONE);
@@ -108,8 +114,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         signOut_btn.setOnClickListener(this);
         birthday_btn.setOnClickListener(this);
         LoginUserBirthday.setOnClickListener(this);
-        //TODO the radiographer_pic Button should be gone , now just for test is visible
-        radiographer_pic.setVisibility(View.VISIBLE);
+        radiographer_pic.setVisibility(View.GONE);
+        health_physic_pic.setVisibility(View.GONE);
 
 
         // Creating and Configuring Google Sign In object.
@@ -118,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 .requestEmail()
                 .requestScopes(new Scope("profile"))
                 .build();
-
 
         // Creating and Configuring Google Api Client.
         googleApiClient = new GoogleApiClient.Builder(MainActivity.this)
@@ -129,6 +134,10 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 } /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions)
                 .build();
+
+    }
+    public static Client getClientCustom(){
+        return client;
     }
 
     @SuppressLint("ResourceAsColor")
@@ -154,35 +163,13 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         String currentDateString = DateFormat.getDateInstance(DateFormat.DEFAULT).format(calendar.getTime());
+
         LoginUserBirthday.setText(" Birthday : " + currentDateString);
         this.birthday = currentDateString;
 
-    }
-
-
-    private void goToNextPage() {
-        Intent intent = new Intent(getApplicationContext(), StartActivity.class);
-        personal = new Personal(getFirstName(), getLastName());
-        personal.setEmail(getEmail());
-
-        String myJson = gson.toJson(personal);
-        intent.putExtra("Personal", myJson);
-        startActivity(intent);
-    }
-
-    private void goToNextPageHPS() {
-        Intent intent = new Intent(getApplicationContext(), StarterActivity.class);
-        startActivity(intent);
-    }
-
-
-    // Sign In function Starts From Here.
-    public void UserSignInMethod() {
-        // Passing Google Api Client into Intent.
-        Intent AuthIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
-        startActivityForResult(AuthIntent, RequestSignInCode);
 
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -203,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
             }
 
         }
+
     }
 
     public void FirebaseUserAuth(GoogleSignInAccount googleSignInAccount) {
@@ -220,38 +208,41 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
                             // Getting Current Login user details.
                             FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+
+                            String email = firebaseUser.getEmail().toString();
+                            setEmail(email);
                             String name = firebaseUser.getDisplayName();
                             setFirstName(parsingName(name)[0].toString());
                             setLastName(parsingName(name)[1].toUpperCase());
-                            String email = firebaseUser.getEmail().toString();
-                            setEmail(email);
-                            personal.setFirstName(getFirstName());
-                            personal.setLastName(getLastName());
-                            personal.setEmail(email);
-                            client.getWebSocket().send(ToJson.message("NEW_USER_ASK", email, getEmail()).toString());
-                            if (!client.isNewUser()) {
-                                birthday_btn.setVisibility(View.VISIBLE);
-                            }
+                            pic= firebaseUser.getPhotoUrl().toString();
+                            uri=firebaseUser.getPhotoUrl();
+                            Picasso.with(getApplicationContext()).load(pic).into(user_pic);
+                            client.start();
+                            client.getWebSocket().send(ToJson.message("USER_EMAIL", email).toString()+ "\n");
+
+                            userChecker(client);
+
+
                             // Showing Log out button.
                             signOut_btn.setVisibility(View.VISIBLE);
-                            radiographer_pic.setVisibility(View.VISIBLE);
-                            health_physic_pic.setVisibility(View.VISIBLE);
                             // Hiding Login in button.
                             signInButton.setVisibility(View.GONE);
                             // Showing the TextView.
                             LoginUserEmail.setVisibility(View.VISIBLE);
                             LoginUserName.setVisibility(View.VISIBLE);
-                            LoginUserBirthday.setVisibility(View.VISIBLE);
+
                             // Setting up name into TextView.
                             LoginUserName.setText(" Name : " + firebaseUser.getDisplayName().toString());
                             // Setting up Email into TextView.
                             LoginUserEmail.setText("E-Mail:" + firebaseUser.getEmail().toString());
-                            String str = firebaseUser.getPhotoUrl().toString();
-                            Picasso.with(getApplicationContext()).load(str).into(user_pic);
-                            //Glide.with(getApplicationContext()).load(str).into(user_pic);
 
-                            Toast.makeText(MainActivity.this, " Welcome " + getFirstName() + " " + getLastName(),
-                                    Toast.LENGTH_SHORT).show();
+                            //Glide.with(MainActivity.this).using(new FireBaseI)
+
+
+                            LoginUserBirthday.setVisibility(View.VISIBLE);
+
+                            Toast.makeText(MainActivity.this, " Welcome " + getFirstName() + " " + getLastName(), Toast.LENGTH_SHORT).show();
 
 
                         } else {
@@ -259,6 +250,132 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                         }
                     }
                 });
+
+    }
+
+
+
+    /**
+     * check if user is a new
+     *
+     * @param client
+     */
+    private void userChecker(Client client) {
+        if (client.isNewUser()) {
+
+            userIsNew();
+            if (this.email.equals("mcse.arian@gmail.com")) {
+                health_physic_pic.setVisibility(View.VISIBLE);
+
+            } else {
+                radiographer_pic.setVisibility(View.VISIBLE);
+
+            }
+
+        } else {
+
+            birthday_btn.setVisibility(View.INVISIBLE);
+
+
+            if (this.email.equals("mcse.arian@gmail.com")) {
+                health_physic_pic.setVisibility(View.VISIBLE);
+            } else {
+                radiographer_pic.setVisibility(View.VISIBLE);
+            }
+
+            client.getPersonal();
+            setPersonal(client.getPersonal());
+            updateBirthday();
+
+
+        }
+    }
+
+    /**
+     * if user is new , than will be set a new Person with firstName , lastName and email
+     */
+    private void userIsNew() {
+
+        personalInClient = new Personal();
+        personalInClient.setFirstName(getFirstName());
+        personalInClient.setLastName(getLastName());
+        personalInClient.setEmail(this.email);
+        if (personalInClient.getEmail().equals("mcse.arian@gmail.com")) {
+            personalInClient.setPersonalType(PERSONALTYPE.HPS);
+            setBirthday("14.02.1983");
+            LoginUserBirthday.setText(" Birthday : " + getBirthday());
+        } else {
+            personalInClient.setPersonalType(PERSONALTYPE.RADIOGRAPHER);
+            setBirthday("15.03.1982");
+            LoginUserBirthday.setText(" Birthday : " + getBirthday());
+
+        }
+
+        if (this.personalInClient != null) {
+            //this.personalInClient = personalInClient;
+            client.getWebSocket().send(ToJson.sendObjectWithRoot("PERSONAL", this.personalInClient));
+        }
+
+
+    }
+
+    /**
+     * next page for HPS
+     */
+    private void goToNextPageHPS() {
+        personalInClient = new Personal();
+        Intent intent = new Intent(getApplicationContext(), StarterActivity.class);
+        personalInClient.setFirstName(getFirstName());
+        personalInClient.setLastName(getLastName());
+        personalInClient.setEmail(getEmail());
+        personalInClient.setBirthday(getBirthday());
+        String myJson = gson.toJson(personalInClient);
+        intent.putExtra("Personal", myJson);
+        String client = gson.toJson(getClient().toString());
+        intent.putExtra("Client", client);
+        if (this.personalInClient != null) {
+            getClient().getWebSocket().send(ToJson.sendObjectWithRoot("UPDATEBIRTHDAY", this.personalInClient).toString() + "\n");
+        }
+        startActivity(intent);
+    }
+
+    /**
+     * next page for Radiographer
+     */
+    private void goToNextPageRG() {
+        personalInClient = new Personal();
+        Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+        personalInClient.setFirstName(getFirstName());
+        personalInClient.setLastName(getLastName());
+        personalInClient.setEmail(getEmail());
+        personalInClient.setBirthday(getBirthday());
+        //String client=gson.toJson(getClient());
+        //intent.putExtra("Client",client);
+        String myJson = gson.toJson(personalInClient);
+        intent.putExtra("Personal", myJson);
+
+        if (this.personalInClient != null) {
+            this.personalInClient = personalInClient;
+            getClient().getWebSocket().send(ToJson.sendObjectWithRoot("UPDATEBIRTHDAY", this.personalInClient).toString() + "\n");
+        }
+        startActivity(intent);
+    }
+
+
+    // Sign In function Starts From Here.
+    public void UserSignInMethod() {
+        // Passing Google Api Client into Intent.
+        Intent AuthIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+        startActivityForResult(AuthIntent, RequestSignInCode);
+
+    }
+
+    private void updateBirthday() {
+        if (personalInClient != null) {
+            System.out.println(personalInClient.getBirthday());
+            setBirthday(personalInClient.getBirthday());
+            LoginUserBirthday.setText(" Birthday : " + getBirthday());
+        }
     }
 
 
@@ -273,7 +390,10 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 // Write down your any code here which you want to execute After Sign Out.
 
                 // Printing Logout toast message on screen.
+
                 Toast.makeText(MainActivity.this, "Logout Successfully", Toast.LENGTH_LONG).show();
+                // close socket
+                //client.getWebSocket().close(1000, "Goodbye !");
 
             }
         });
@@ -293,6 +413,11 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         // After logout setting up login button visibility to visible.
         signInButton.setVisibility(View.VISIBLE);
     }
+
+    public Client getClient() {
+        return client;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -327,11 +452,11 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     }
 
     public Personal getPersonal() {
-        return personal;
+        return personalInClient;
     }
 
     public void setPersonal(Personal personal) {
-        this.personal = personal;
+        this.personalInClient = personal;
     }
 
     /**
@@ -359,14 +484,16 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.health_physic_pic:
+                birthday_btn.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "Health Physics User", Toast.LENGTH_LONG).show();
                 goToNextPageHPS();
                 break;
             case R.id.radiographer_pic:
+
                 // with radiographer button after login go to next page
                 birthday_btn.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "Radiographer User", Toast.LENGTH_LONG).show();
-                goToNextPage();
+                goToNextPageRG();
                 break;
             case R.id.sign_out:
                 // Adding Click Listener to User Sign Out button.
@@ -380,11 +507,31 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 DialogFragment datePicker = new DatePickerFragment();
                 datePicker.show(getSupportFragmentManager(), TAG);
                 Toast.makeText(MainActivity.this, "Birthday", Toast.LENGTH_LONG).show();
+                birthday_btn.setVisibility(View.GONE);
+                //updateBirthday(this.email);
                 break;
             case R.id.birthday_txt:
                 birthday_btn.setVisibility(View.VISIBLE);
+
                 break;
         }
 
     }
+
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
 }
