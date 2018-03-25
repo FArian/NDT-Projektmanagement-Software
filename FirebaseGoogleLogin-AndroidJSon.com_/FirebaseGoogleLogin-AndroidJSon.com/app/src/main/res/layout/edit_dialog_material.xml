@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@color/easyfei_black"
+    android:padding="20dp"
+    tools:context=".client.activitys.MaterialActivity">
+
+    <TextView
+        android:id="@+id/text_material_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:textColor="@color/red"
+        />
+
+    <Spinner
+        android:layout_below="@+id/text_material_title"
+        android:id="@+id/spinner_reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:entries="@array/reason_arrays"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner_reason"
+        android:ems="10"
+        android:hint="@string/whats_your_need" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText1"
+        android:hint="@string/explain_message" />
+    <Button
+        android:id="@+id/send_need_material"
+        android:layout_below="@+id/editText2"
+        android:background="@color/easyfei_green"
+        android:text="@string/send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

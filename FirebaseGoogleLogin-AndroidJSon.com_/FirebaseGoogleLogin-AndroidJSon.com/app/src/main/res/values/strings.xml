@@ -1,0 +1,185 @@
+<resources>
+    <string name="app_name">NDT</string>
+    <string name="radiographer">RADIOGRAPHER</string>
+    <string name="health_physic">HEALTH PHYSIC</string>
+    <string name="abmelden">abmelden</string>
+    <string name="safety">Radiation Safety</string>
+    <string name="time">Time</string>
+    <string name="report">Report</string>
+    <string name="need_material">Need Material</string>
+    <string name="my_information">my Information</string>
+    <string name="alarm">Alarm</string>
+    <string name="birthday">BIRTHDAY</string>
+
+    //client activitys
+    <string name="title_activity_safety">SafetyActivity</string>
+    <string name="title_activity_material">MaterialActivity</string>
+    <string name="title_activity_report">ReportActivity</string>
+    <string name="title_activity_time">TimeActivity</string>
+    <string name="title_activity_alarm">AlarmActivity</string>
+    //hps activitys
+    <string name="title_activity_creator">CreattorActivity</string>
+    <string name="title_activity_create_material">CreateMaterialActivity</string>
+    <string name="quit">quit</string>
+    <string name="which_thing_is_alive">Which thing is alive?</string>
+    <string name="_0">0</string>
+    <string name="score">Score</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="edit_text">EDIT</string>
+    <string name="bunker_inside">Inside bunker(max 7,5 μSv/h)  </string>
+    <string name="bunker_outside">Outside bunker (max 2,5 μSv/h)  </string>
+    <string name="car_inside">Driver place(max 2,5 μSv/h)  </string>
+    <string name="car_outside">Around the car(max 7,5 μSv/h)</string>
+    <string name="submit">submit</string>
+    <string name="standard_camera">On camera (max 2 mSv/h)</string>
+    <string name="forbidden_area">Forbidden area ( D° >= 2 mSv/h)</string>
+    <string name="control_area">Control area(2 mμSv/h >D°>25 μSv/h)</string>
+    <string name="free_area">Free area(25 μSv/h > D°)</string>
+    <string name="distance_1m">1m distance from camera(max 20 μSv/h)</string>
+    <string name="camera">CAMERA</string>
+    <string name="bunker">BUNKER</string>
+    <string name="transport">TRANSPORT</string>
+    <string name="area">AREA</string>
+    <string name="set_values">Value</string>
+    <string name="info">Please click on picture and set the values</string>
+    <string name="delete_item">delete</string>
+    <string name="cant_be_empty">Cant be empty</string>
+    <string name="your_name">Your name:</string>
+    <string name="personal_id">Your id:</string>
+    <string name="team_name">Your teams name:</string>
+    <string name="standard_inside">Inside bunker(max 7,5 μSv/h)  </string>
+    <string name="dose_rat">1000 μSv/h = 1 mSv/h</string>
+    <string name="standard_outside">Outside bunker (max 2,5 μSv/h)  </string>
+    <string name="clicked_item">Clicked item : %1$s</string>
+    <string name="value_is_false">Value is false: %1$s</string>
+    <string name="warning_radiation">Warning Radiation overdoses %1$s</string>
+    <string name="ft">Set F(t) click</string>
+    <string name="defective_item">defective</string>
+    <string name="logout">logout</string>
+    <string name="need_it">need</string>
+    <string name="action_settings">Settings</string>
+    <string name="isotope">ISOTOPE</string>
+    <string name="isotope_prompt">Choose a Isotope</string>
+    <string name="explain_message">Write your explain message</string>
+    <string name="whats_your_need">Write what you need</string>
+    <string name="whats_is_broken">is finished or defective</string>
+    <string name="reason">Reason</string>
+
+    <string-array name="isotope_arrays">
+        <item>Ir-192</item>
+        <item>Co-60</item>
+        <item>Se-75</item>
+        <item>Cs-137</item>
+    </string-array>
+    <string-array name="reason_arrays">
+        <item>FINISHED</item>
+        <item>DEFECTIVE</item>
+        <item>CALIBRATION</item>
+        <item>OTHER</item>
+    </string-array>
+
+    <string name="material">MATERIAL</string>
+    <string name="material_prompt">Choose a Material</string>
+    <string-array name="material_arrays">
+        <item>Iron</item>
+        <item>Steel</item>
+        <item>Lead</item>
+    </string-array>
+
+    <string name="thickness_material">of Material</string>
+    <string name="thickness_prompt">Choose a Thickness</string>
+    <string-array name="thickness_arrays">
+        <item>mm</item>
+        <item>Inch</item>
+    </string-array>
+    <string name="distance_material">Source to Film</string>
+    <string name="activity">Activity</string>
+    <string name="activity_prompt">Choose a Activity</string>
+    <string name="curie">Ci</string>
+    <string-array name="activity_arrays">
+        <item>Ci</item>
+        <item>mCi</item>
+    </string-array>
+    <string-array name="iqi_pos2_arrays">
+        <item>FE</item>
+        <item>AL</item>
+        <item>CU</item>
+        <item>TI</item>
+    </string-array>
+    <string-array name="iqi_pos3_arrays">
+        <item>DIN</item>
+        <item>EN</item>
+    </string-array>
+
+    <string name="distance_prompt">Choose a Distance</string>
+    <string-array name="distance_arrays">
+        <item>cm</item>
+        <item>inch</item>
+        <item>m</item>
+    </string-array>
+    <string name="film_factor">Film Factor</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="result">Result:</string>
+    <string name="stop">stop</string>
+    <string name="result_view">Result_View:</string>
+    <string name="start">start</string>
+    <string name="example1">EX 1</string>
+    <string name="example2">EX 2</string>
+    <string name="example3">EX 3</string>
+    <string name="example4">EX AGFA D4=3.5</string>
+    <string name="example25">EX 25</string>
+    <string name="speed_factor"> R </string>
+    <string name="country_prompt">Choose a country</string>
+    <string name="film">Film</string>
+    <string name="used">Used</string>
+    <string name="date_of_report">Please click below to set date of report</string>
+    <string name="set_date">Please click below to set date</string>
+    <string name="send">send</string>
+
+    <string-array name="film_type_arrays">
+        <item>ROLL</item>
+        <item>SHEET</item>
+    </string-array>
+
+    <string-array name="measureUp_arrays">
+        <item>cm</item>
+        <item>mm</item>
+        <item>m</item>
+    </string-array>
+    <string-array name="film_name_arrays">
+        <item>AGFA</item>
+        <item>KODAK</item>
+        <item>FUJI</item>
+    </string-array>
+    <string-array name="film_model_arrays">
+        <item>D4</item>
+        <item>D7</item>
+        <item>D3</item>
+        <item>MX125</item>
+        <item>AA400</item>
+    </string-array>
+    <string-array name="film_length_arrays">
+        <item>90m</item>
+        <item>100m</item>
+    </string-array>
+
+    <string name="radiation_measurement_prompt">Choose a Units</string>
+    <string name="create">Create</string>
+    <string name="name"> NAME</string>
+    <string name="type"> TYPE</string>
+    <string name="model"> MODEL</string>
+    <string name="size"> SIZE</string>
+    <string name="counter">COUNTER</string>
+    <string name="date">PIC DATE</string>
+    <string name="set_name">set name/info </string>
+    <string name="serial_number"> set serial number</string>
+    <string name="PersonalListActivity">PersonalListActivity</string>
+
+    <string-array name="radiation_units_arrays">
+        <item>μSv/h</item>
+        <item>mSv/h</item>
+    </string-array>
+
+
+</resources>

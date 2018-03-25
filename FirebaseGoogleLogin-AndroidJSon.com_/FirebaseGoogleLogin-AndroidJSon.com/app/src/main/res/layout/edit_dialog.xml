@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@color/easyfei_black"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/edit_text_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dose_rat"
+        android:textColor="@color/easyfei_green" />
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:stretchColumns="0">
+
+        <TableRow>
+
+            <EditText
+                android:id="@+id/edit_text_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:hint="@string/set_values"
+                android:inputType="numberDecimal"
+                android:textColor="@color/easyfei_green"
+                android:textColorHint="@color/colorYellow" />
+
+            <Spinner
+                android:id="@+id/sp_edit_dialog"
+                android:entries="@array/radiation_units_arrays"></Spinner>
+        </TableRow>
+
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/edit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/easyfei_green"
+        android:padding="10dp"
+        android:text="@string/edit_text" />
+
+    <TextView
+        android:id="@+id/view_text_1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text=""
+        android:textColor="@color/easyfei_green" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/easyfei_green"
+        android:padding="10dp"
+        android:text="@string/delete_item" />
+
+</LinearLayout>

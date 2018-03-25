@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="colorBlueBright">#3F51B5</color>
+    <color name="colorSilver">#BDBDBD</color>
+    <color name="colorGreen3">#7fff00</color>
+    <color name="colorBlueDark">#303F9F</color>
+    <color name="colorYellow">#FFFF00</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorGreen2">#04B486</color>
+    <color name="colorBlue">#0000FF</color>
+    <color name="colorGreen">#00FF00</color>
+    <color name="colorRed2">#DF013A</color>
+    <color name="colorBlack">#000000</color>
+    <color name="opaque_orange">#FF8800</color>
+    <color name="translucent_orange">#80FF8800</color>
+    <color name="text_color">#0099CC</color>
+    <color name="translucent_red">#80ff0000</color>
+    <color name="wl_blue">#2878ff</color>
+    <color name="wl_gray">#c1c1c1</color>
+    <color name="text2_color">#434343</color>
+    <color name="light_blue">#0091EA</color>
+    <color name="red">#ff0000</color>
+    <color name="listview_back_color">#FFFFFF</color>
+    <color name="listview_divider_color">#999999</color>
+    <color name="album_text_color">#000000</color>
+    <color name="artist_text_color">#888888</color>
+    <color name="easyfei_black">#646464</color>
+    <color name="easyfei_green">#76ee00</color>
+    <color name="azure1">#f0ffff</color>
+    <color name="azure2">#e0eeee</color>
+    <color name="azure3">#c1cdcd</color>
+    <color name="azure4">#838b8b</color>
+    <color name="card_highlighted_color">#80bdbdbd</color>
+
+</resources>
