@@ -1,90 +1,102 @@
 \select@language {ngerman}
 \contentsline {section}{\nonumberline Eidesstattliche Erkl\IeC {\"a}rung}{2}{section*.1}
 \contentsline {section}{\nonumberline Danksagungen}{3}{section*.2}
-\contentsline {section}{\nonumberline Zusammenfassung / Abstract}{4}{section*.3}
-\contentsline {chapter}{\numberline {1}Einleitung}{9}{chapter.1}
-\contentsline {chapter}{\numberline {2}Werkstoffpr\IeC {\"u}fung}{10}{chapter.2}
-\contentsline {section}{\numberline {2.1}Non-Destructive Testing auf Deutsch Werkstoffpr\IeC {\"u}fung}{10}{section.2.1}
-\contentsline {section}{\numberline {2.2}RT Durchstrahlungspr\IeC {\"u}fung}{11}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Anwendung}{11}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Eigenschaften}{12}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Erzeugung der Strahlen}{12}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Fehler Nachweism\IeC {\"o}glichkeiten mit RT}{12}{subsection.2.2.4}
-\contentsline {subsubsection}{\nonumberline Filmaufnahmen}{12}{section*.8}
-\contentsline {subsubsection}{\nonumberline Durchleuchtung mit Leuchtschirm}{13}{section*.9}
-\contentsline {subsubsection}{\nonumberline R\IeC {\"o}ntgenbild-Verst\IeC {\"a}rkerr\IeC {\"o}hre}{13}{section*.10}
-\contentsline {subsection}{\numberline {2.2.5}Art der durchdringenden Strahlung}{13}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}R\IeC {\"o}ntgenstrahlung}{14}{subsection.2.2.6}
-\contentsline {subsubsection}{\nonumberline Bremsstrahlung}{15}{section*.13}
+\contentsline {chapter}{\numberline {1}Einleitung}{8}{chapter.1}
+\contentsline {chapter}{\numberline {2}Werkstoffpr\IeC {\"u}fung}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Non-Destructive Testing auf Deutsch Werkstoffpr\IeC {\"u}fung}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}RT Durchstrahlungspr\IeC {\"u}fung}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Anwendung}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Eigenschaften}{11}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Erzeugung der Strahlen}{11}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Nachweism\IeC {\"o}glichkeiten von Fehlern mit RT \ref {subsec:ndt}}{11}{subsection.2.2.4}
+\contentsline {subsubsection}{\nonumberline Filmaufnahmen}{11}{section*.6}
+\contentsline {subsubsection}{\nonumberline Durchleuchtung mit Leuchtschirm}{12}{section*.7}
+\contentsline {subsubsection}{\nonumberline R\IeC {\"o}ntgenbild-Verst\IeC {\"a}rkerr\IeC {\"o}hre}{12}{section*.8}
+\contentsline {subsection}{\numberline {2.2.5}Art der durchdringenden Strahlung}{12}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}R\IeC {\"o}ntgenstrahlung}{13}{subsection.2.2.6}
+\contentsline {subsubsection}{\nonumberline Bremsstrahlung}{14}{section*.11}
 \contentsline {subsection}{\numberline {2.2.7}Gammastrahlung}{15}{subsection.2.2.7}
-\contentsline {subsubsection}{\nonumberline Alpha Strahlen}{16}{section*.15}
-\contentsline {subsubsection}{\nonumberline Beta Strahlen}{16}{section*.16}
-\contentsline {subsubsection}{\nonumberline Gamma Strahlen}{17}{section*.17}
-\contentsline {subsection}{\numberline {2.2.8}Aktivit\IeC {\"a}t von Radionukliden}{17}{subsection.2.2.8}
-\contentsline {subsection}{\numberline {2.2.9}Isotopenabfallrate (Halbwertszeit)}{18}{subsection.2.2.9}
-\contentsline {subsection}{\numberline {2.2.10}Halbwertsschicht}{19}{subsection.2.2.10}
-\contentsline {subsubsection}{\nonumberline Half-Value-Layer}{20}{section*.24}
-\contentsline {subsubsection}{\nonumberline Approximate HVL f\IeC {\"u}r verschiedene Materialien mit Gamma Quelle}{21}{section*.26}
-\contentsline {subsubsection}{\nonumberline Approximate HVL f\IeC {\"u}r verschiedene Materialien mit X-ray Quelle}{21}{section*.27}
-\contentsline {subsection}{\numberline {2.2.11}Ionisation}{21}{subsection.2.2.11}
-\contentsline {subsection}{\numberline {2.2.12}Newtons umgekehrtes quadratisches Gesetz f\IeC {\"u}r die Intensit\IeC {\"a}t}{22}{subsection.2.2.12}
-\contentsline {subsection}{\numberline {2.2.13}Wechselwirkung zwischen eindringender Strahlung und Materie}{23}{subsection.2.2.13}
-\contentsline {chapter}{\numberline {3}Stand der Technik}{25}{chapter.3}
-\contentsline {section}{\numberline {3.1}RT Technik}{25}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Geometrische Unsch\IeC {\"a}rfe}{25}{subsection.3.1.1}
-\contentsline {subsubsection}{\nonumberline GeometricUnsharpness}{25}{section*.33}
-\contentsline {section}{\numberline {3.2}Sekund\IeC {\"a}re Strahlung und Unterschnitt kontrolle}{27}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Sekund\IeC {\"a}re Strahlung}{27}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Unterschnitt}{28}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Filter in der Radiographie}{29}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}X-Ray}{29}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Gamma}{30}{subsection.3.3.2}
+\contentsline {subsubsection}{\nonumberline Alpha-Strahlen}{15}{section*.13}
+\contentsline {subsubsection}{\nonumberline Beta-Strahlen}{16}{section*.14}
+\contentsline {subsubsection}{\nonumberline Gamma-Strahlen}{16}{section*.15}
+\contentsline {subsection}{\numberline {2.2.8}Aktivit\IeC {\"a}t von Radionukliden}{16}{subsection.2.2.8}
+\contentsline {subsection}{\numberline {2.2.9}Isotopenabfallrate (Halbwertszeit)}{17}{subsection.2.2.9}
+\contentsline {subsection}{\numberline {2.2.10}Halbwertsschicht}{18}{subsection.2.2.10}
+\contentsline {subsubsection}{\nonumberline Half-Value-Layer}{19}{section*.22}
+\contentsline {subsubsection}{\nonumberline Approximate HVL f\IeC {\"u}r verschiedene Materialien mit Gamma Quelle}{20}{section*.24}
+\contentsline {subsubsection}{\nonumberline Approximate HVL f\IeC {\"u}r verschiedene Materialien mit X-ray Quelle}{20}{section*.25}
+\contentsline {subsection}{\numberline {2.2.11}Ionisation}{20}{subsection.2.2.11}
+\contentsline {subsection}{\numberline {2.2.12}Newtons umgekehrtes quadratisches Gesetz f\IeC {\"u}r die Intensit\IeC {\"a}t}{21}{subsection.2.2.12}
+\contentsline {subsection}{\numberline {2.2.13}Wechselwirkung zwischen eindringender Strahlung und Materie}{22}{subsection.2.2.13}
+\contentsline {chapter}{\numberline {3}Stand der Technik}{24}{chapter.3}
+\contentsline {section}{\numberline {3.1}RT Technik}{24}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Geometrische Unsch\IeC {\"a}rfe}{24}{subsection.3.1.1}
+\contentsline {subsubsection}{\nonumberline GeometricUnsharpness}{24}{section*.30}
+\contentsline {section}{\numberline {3.2}Sekund\IeC {\"a}re Strahlung und Unterschnittkontrolle}{25}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Sekund\IeC {\"a}re Strahlung}{25}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Unterschnitt}{27}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Filter in der Radiographie}{28}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}X-Ray}{28}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Gamma}{29}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}RT-Ressourcen}{29}{subsection.3.3.3}
 \contentsline {chapter}{\numberline {4}Sicherheit}{31}{chapter.4}
 \contentsline {section}{\numberline {4.1}Halbwertschicht (Abschirmung)}{31}{section.4.1}
 \contentsline {section}{\numberline {4.2}Strahlenbelastung kontrollieren}{32}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Zeit}{32}{subsection.4.2.1}
-\contentsline {subsubsection}{\nonumberline Beispielrechnungen 1}{33}{section*.39}
-\contentsline {subsubsection}{\nonumberline Beispielrechnungen 2}{33}{section*.40}
+\contentsline {subsubsection}{\nonumberline Beispielrechnungen 1}{33}{section*.38}
+\contentsline {subsubsection}{\nonumberline Beispielrechnungen 2}{33}{section*.39}
 \contentsline {subsection}{\numberline {4.2.2}Entfernung}{33}{subsection.4.2.2}
-\contentsline {subsubsection}{\nonumberline Beispielrechnungen 1}{34}{section*.41}
-\contentsline {subsubsection}{\nonumberline Beispielrechnungen 2}{34}{section*.42}
+\contentsline {subsubsection}{\nonumberline Beispielrechnungen 1}{34}{section*.40}
+\contentsline {subsubsection}{\nonumberline Beispielrechnungen 2}{34}{section*.41}
 \contentsline {subsection}{\numberline {4.2.3}Abschirmung}{35}{subsection.4.2.3}
 \contentsline {section}{\numberline {4.3}Sicherheitskontrollen}{35}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Engineered Kontrollen}{36}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Verwaltungskontrollen}{37}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Strahlenschutzbereiche}{37}{subsection.4.3.3}
-\contentsline {subsubsection}{\nonumberline \IeC {\"U}berwachungsbereich}{37}{section*.44}
-\contentsline {subsubsection}{\nonumberline Kontrollbereich}{37}{section*.45}
-\contentsline {subsubsection}{\nonumberline Sperrbereich}{38}{section*.46}
+\contentsline {subsection}{\numberline {4.3.3}Strahlenschutzbereiche}{38}{subsection.4.3.3}
+\contentsline {subsubsection}{\nonumberline \IeC {\"U}berwachungsbereich}{38}{section*.43}
+\contentsline {subsubsection}{\nonumberline Kontrollbereich}{38}{section*.44}
+\contentsline {subsubsection}{\nonumberline Sperrbereich}{38}{section*.45}
 \contentsline {section}{\numberline {4.4}Verantwortlichkeiten}{39}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Strahlenschutzbeauftragter "Radiation Safety Officer"(RSO)}{39}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Strahlenschutzausschuss "Radiation Safety Committee" (RSC)}{40}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Systembenutzer}{40}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Verfahren}{40}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Strahlenschutzbeauftragter \\ Radiation Safety Officer (RSO)/ Health Physics Safety (HPS)}{39}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Strahlenschutzausschuss "Radiation Safety Committee" (RSC)}{41}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Systembenutzer}{41}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Verfahren}{41}{subsection.4.4.4}
 \contentsline {subsubsection}{\nonumberline Standardablauf}{41}{section*.48}
-\contentsline {subsubsection}{\nonumberline Notfallma\IeC {\ss }nahmen}{41}{section*.49}
+\contentsline {subsubsection}{\nonumberline Notfallma\IeC {\ss }nahmen}{42}{section*.49}
 \contentsline {subsection}{\numberline {4.4.5}Umfragetechnik}{42}{subsection.4.4.5}
-\contentsline {subsubsection}{\nonumberline Ann\IeC {\"a}herung an das Belichtungsger\IeC {\"a}t}{42}{section*.50}
+\contentsline {subsubsection}{\nonumberline Ann\IeC {\"a}herung an das Belichtungsger\IeC {\"a}t}{43}{section*.50}
 \contentsline {subsubsection}{\nonumberline Transport des Belichtungsger\IeC {\"a}ts}{43}{section*.51}
 \contentsline {subsubsection}{\nonumberline Vorbereitung auf eine Exposition}{43}{section*.52}
-\contentsline {subsubsection}{\nonumberline Eine Belichtung erledigen}{43}{section*.53}
-\contentsline {subsubsection}{\nonumberline Die Quelle zur\IeC {\"u}ckziehen}{43}{section*.54}
-\contentsline {subsection}{\numberline {4.4.6}Strahlungsdetektoren}{44}{subsection.4.4.6}
-\contentsline {subsection}{\numberline {4.4.7}Messger\IeC {\"a}te}{45}{subsection.4.4.7}
-\contentsline {subsubsection}{\nonumberline Ionenkammerz\IeC {\"a}hler}{46}{section*.56}
-\contentsline {subsubsection}{\nonumberline Proportionaler Z\IeC {\"a}hler}{46}{section*.57}
-\contentsline {subsubsection}{\nonumberline Geiger-M\IeC {\"u}ller (GM) Z\IeC {\"a}hler}{46}{section*.58}
-\contentsline {subsubsection}{\nonumberline Vergleich von gasgef\IeC {\"u}llten Detektoren}{47}{section*.59}
-\contentsline {subsubsection}{\nonumberline Taschen-Dosimeter}{48}{section*.61}
-\contentsline {subsubsection}{\nonumberline Direct Read Pocket Dosimeter}{48}{section*.62}
-\contentsline {subsubsection}{\nonumberline Digitales elektronisches Dosimeter}{49}{section*.64}
-\contentsline {subsubsection}{\nonumberline Akustische Alarmger\IeC {\"a}te Meter und digitale elektronische Dosimeter}{50}{section*.66}
-\contentsline {subsubsection}{\nonumberline Film Badges}{50}{section*.68}
-\contentsline {subsubsection}{\nonumberline Thermoluminescent Dosimeter (TLD)}{52}{section*.70}
-\contentsline {subsubsection}{\nonumberline Wie es funktioniert}{52}{section*.72}
-\contentsline {chapter}{\numberline {5}Software}{53}{chapter.5}
-\contentsline {section}{\numberline {5.1}Zusammenfassende Bewertung}{53}{section.5.1}
-\contentsline {chapter}{\numberline {6}Ergebnisse}{54}{chapter.6}
-\contentsline {chapter}{\numberline {7}Diskussion}{55}{chapter.7}
-\contentsline {section}{\numberline {7.1}Zusammenfassende Bewertung}{55}{section.7.1}
-\contentsline {section}{\numberline {7.2}Quellen}{55}{section.7.2}
+\contentsline {subsubsection}{\nonumberline Eine Belichtung erledigen}{44}{section*.53}
+\contentsline {subsubsection}{\nonumberline Die Quelle zur\IeC {\"u}ckziehen}{44}{section*.54}
+\contentsline {subsection}{\numberline {4.4.6}Strahlungsdetektoren}{45}{subsection.4.4.6}
+\contentsline {subsection}{\numberline {4.4.7}Messger\IeC {\"a}te}{46}{subsection.4.4.7}
+\contentsline {subsubsection}{\nonumberline Ionenkammerz\IeC {\"a}hler}{47}{section*.57}
+\contentsline {subsubsection}{\nonumberline Proportionaler Z\IeC {\"a}hler}{47}{section*.58}
+\contentsline {subsubsection}{\nonumberline Geiger-M\IeC {\"u}ller (GM) Z\IeC {\"a}hler}{48}{section*.59}
+\contentsline {subsubsection}{\nonumberline Vergleich von gasgef\IeC {\"u}llten Detektoren}{48}{section*.60}
+\contentsline {subsubsection}{\nonumberline Taschen-Dosimeter}{49}{section*.62}
+\contentsline {subsubsection}{\nonumberline Direct Read Pocket Dosimeter}{50}{section*.63}
+\contentsline {subsubsection}{\nonumberline Digitales elektronisches Dosimeter}{51}{section*.65}
+\contentsline {subsubsection}{\nonumberline Akustische Alarmger\IeC {\"a}te-Meter und digitale elektronische Dosimeter}{51}{section*.67}
+\contentsline {subsubsection}{\nonumberline Film Badges}{52}{section*.69}
+\contentsline {subsubsection}{\nonumberline Thermoluminescent Dosimeter (TLD)}{53}{section*.71}
+\contentsline {subsubsection}{\nonumberline Wie es funktioniert}{54}{section*.73}
+\contentsline {chapter}{\numberline {5}Software}{55}{chapter.5}
+\contentsline {section}{\numberline {5.1}Anforderungen und Programmaufbau}{55}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Kurze Beschreibung}{55}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Anforderungen und die Spezifikation}{56}{section.5.2}
+\contentsline {subsubsection}{\nonumberline in Server package models;}{56}{section*.75}
+\contentsline {subsubsection}{\nonumberline Kommunikation zwischen Radiographer and HPS}{64}{section*.76}
+\contentsline {subsection}{\numberline {5.2.1}SBT-Server}{65}{subsection.5.2.1}
+\contentsline {subsubsection}{\nonumberline Datenkommunikation}{66}{section*.77}
+\contentsline {subsubsection}{\nonumberline Inhaltsverzeichnis}{66}{section*.78}
+\contentsline {subsection}{\numberline {5.2.2}Android-Client}{69}{subsection.5.2.2}
+\contentsline {subsubsection}{\nonumberline Datenkommunikation}{69}{section*.79}
+\contentsline {chapter}{\numberline {6}Android Bilder}{76}{chapter.6}
+\contentsline {section}{\numberline {6.1}Android Bilder}{76}{section.6.1}
+\contentsline {chapter}{\numberline {7}UML Graphen}{80}{chapter.7}
+\contentsline {subsection}{\numberline {7.0.1}Model}{80}{subsection.7.0.1}
+\contentsline {chapter}{\numberline {8}Diskussion}{86}{chapter.8}
+\contentsline {section}{\numberline {8.1}Zusammenfassung}{86}{section.8.1}
+\contentsline {section}{\numberline {8.2}Quellen}{87}{section.8.2}
