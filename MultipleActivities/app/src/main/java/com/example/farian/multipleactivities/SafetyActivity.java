@@ -29,6 +29,7 @@ public class SafetyActivity extends Activity {
         okHttpClient=new OkHttpClient();
         client = new Client();
         webSocket = client.getWebSocket();
+
         Button logoutBtn=(Button)findViewById(R.id.saftey_logout_button);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override

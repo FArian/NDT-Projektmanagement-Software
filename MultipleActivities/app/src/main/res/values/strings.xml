@@ -25,5 +25,6 @@
     <string name="err_msg_email">Please enter a Valid Email</string>
     <string name="err_msg_password">Enter a Password</string>
     <string name="err_msg_dob">Enter a valid D.O.B</string>
+
     </string>
 </resources>

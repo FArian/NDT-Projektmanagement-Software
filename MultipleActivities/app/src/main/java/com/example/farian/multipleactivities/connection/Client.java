@@ -175,6 +175,7 @@ public class Client {
                 case "Start":
                     webSocket.send(ToJson.message("Client","Thanks").toString() +"\n");
                     break;
+
             }
         }
     }
